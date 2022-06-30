@@ -1,10 +1,15 @@
-ul {
-  display: flex;
+.listGroup {
   list-style-type: none;
-  flex-wrap: wrap;
   padding: unset;
+  margin: 0rem 0rem 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &__item {
+    display: inline;
+    margin-right: 0.625rem;
+    font-size: 0.9rem;
+  }
 }
 
-li {
-  margin-right: 10px;
-}

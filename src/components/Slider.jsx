@@ -22,9 +22,9 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 
 	console.log(movies);
 
-	const handleClick = (movie) => {
-		console.log(movie);
-	};
+	// const handleClick = (movie) => {
+	// 	console.log(movie);
+	// };
 
 	var settings = {
 		dots: false,
@@ -73,7 +73,7 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 			<Slider {...settings}>
 				{movies.map((movie) => (
 					<div className="row__item" key={movie.id}>
-						<img className="row__itemImage"
+						<img
 							src={
 								movie.poster_path ? `${IMAGE_URL}${movie.poster_path}` : noImage
 							}
@@ -82,12 +82,12 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 						<div className="row__itemInfo">
 							<h2>{movie.name ? movie.name : movie.original_title}</h2>
 							<GenresList genreIds={movie.genre_ids} />
-							<button
+							{/* <button
 								className="row__button"
 								onClick={() => handleClick(movie)}
 							>
 								Click
-							</button>
+							</button> */}
 						</div>
 					</div>
 				))}
