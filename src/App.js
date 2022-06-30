@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import './App.scss';
+import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 import Home from './pages/Home';
 
@@ -13,7 +13,8 @@ const App = () => {
 				<Route path="/popular" component={UnderConstruction}/>
 				<Route path="/mylist" component={UnderConstruction}/>
 				{/* <Route component={Error}/> */}
-			</Switch> 
+			</Switch>
+			<Footer />
 	</Router>
 	)
 };

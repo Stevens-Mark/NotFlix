@@ -1,15 +1,14 @@
 .listGroup {
-  list-style-type: none;
-  padding: unset;
-  margin: 0rem 0rem 1rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+	list-style-type: none;
+	padding: unset;
+	margin: 0rem 0rem 1rem;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 
-  &__item {
-    display: inline;
-    margin-right: 0.625rem;
-    font-size: 0.9rem;
-  }
+	&__item {
+		display: inline;
+		margin-right: 0.625rem;
+		font-size: 0.9rem;
+	}
 }
-

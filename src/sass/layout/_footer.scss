@@ -1,2 +1,15 @@
 /*FOOTER used on all pages*/
 
+footer {
+	border-top: 2px solid $footer-line;
+	padding: 2rem 0 1.5rem;
+  text-align: center;
+  img {
+    margin-top: 2rem;
+		width: clamp(6rem, 9vw, 9rem);
+	}
+	p {
+		margin: 0;
+		padding: 0;
+	}
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types'
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,6 +10,14 @@ import { IMAGE_URL } from '../config/requests';
 import GenresList from './GenreList';
 import noImage from '../assets/images/NoImageAvailable.webp';
 
+
+/**
+ * Renders each carousel slider for each category
+ * @function SimpleSlider
+ * @param {string} title of category
+ * @param {string} fetchUrl: URL endpoint to make a data request for assocaited category
+ * @returns 
+ */
 const SimpleSlider = ({ title, fetchUrl }) => {
 	const [movies, setMovies] = useState([]);
 
@@ -77,7 +86,7 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 							src={
 								movie.poster_path ? `${IMAGE_URL}${movie.poster_path}` : noImage
 							}
-							alt={movie.name}
+							alt={movie.name ? movie.name : movie.original_title}
 						/>
 						<div className="row__itemInfo">
 							<h2>{movie.name ? movie.name : movie.original_title}</h2>
@@ -97,3 +106,9 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 };
 
 export default SimpleSlider;
+
+// Prototypes
+SimpleSlider.propTypes = {
+  title: PropTypes.string,
+	fetchUrl: PropTypes.string,
+}

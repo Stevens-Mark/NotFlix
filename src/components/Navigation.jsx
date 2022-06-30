@@ -1,11 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import NotFlixLogo from '../assets/images/notflixLogo.png';
 
+/**
+ * Renders navigatin bar at top
+ * @function Navigation
+ * @returns {JSX} Navigation bar
+ */
 const Navigation = () => {
 	return (
 		<header>
 			<NavLink activeClassName="active" exact to="/">
-				<img src={NotFlixLogo} alt="" />
+				<img src={NotFlixLogo} alt="Click to home page" />
 			</NavLink>
 			<nav>
 				<NavLink activeClassName="active" exact to="/">
@@ -26,3 +31,5 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
+

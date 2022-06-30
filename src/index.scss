@@ -1,35 +1,40 @@
 // Load main sass from sass folder
-  @import './sass/main.scss';
-
+@import './sass/main.scss';
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
 }
 
 /* Main elements of the page */
 html,
 body {
-  min-height: 100vh;
-  background: black;
-  color: white;
-  font-size: 1rem;
-  // margin: auto;
-  margin: 0;
-  font-family: 'Netflix', Arial, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', serif, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	min-height: 100vh;
+	background: black;
+	color: white;
+	font-size: 1rem;
+	// margin: auto;
+	margin: 0;
+	font-family: 'Netflix', Arial, 'Segoe UI', 'Roboto', 'Oxygen', serif,
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 * {
-    box-sizing: border-box;
-  }
+	box-sizing: border-box;
+}
 
 /*set max width*/
-header, main, footer{
-  max-width: 1920px;
-  padding: 0px 20px;
-  margin: auto;
-  flex: 1;
+header,
+main,
+footer {
+	max-width: 1920px;
+	padding: 0px 20px;
+	margin: auto;
+	flex: 1;
+}
+
+main {
+	margin-bottom: 5rem;
 }
