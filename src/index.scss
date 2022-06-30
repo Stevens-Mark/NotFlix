@@ -1,3 +1,6 @@
+// Load main sass from sass folder
+  @import './sass/main.scss';
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -8,29 +11,25 @@ code {
 html,
 body {
   min-height: 100vh;
-  background: #fff;
-  color: #000;
+  background: black;
+  color: white;
   font-size: 1rem;
   // margin: auto;
   margin: 0;
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Netflix', Arial, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', serif, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/*border-box tells the browser to account for any border and padding in the values specify for an element's width and height*/
 * {
     box-sizing: border-box;
   }
 
 /*set max width*/
-.header, .main, .footer{
-  max-width: 1440px;
+header, main, footer{
+  max-width: 1920px;
+  padding: 0px 20px;
   margin: auto;
   flex: 1;
-}
-
-.d-flex{
-  display: flex;
 }

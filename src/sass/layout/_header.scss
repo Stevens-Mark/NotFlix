@@ -1,1 +1,15 @@
 /*HEADER*/
+
+header {
+	display: flex;
+	align-items: center;
+	font-size: clamp(1rem, 2vw, 1.5rem);
+	a {
+		color: $primary-text;
+		text-decoration: none;
+		margin: 0px 20px -10px 0px;
+	}
+	img {
+		width: clamp(8rem, 12vw, 13rem);
+	}
+}

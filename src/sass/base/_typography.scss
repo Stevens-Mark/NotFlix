@@ -1,17 +1,28 @@
+@font-face {
+	/* Définition of font called Roboto*/
+	font-family: 'Roboto';
+	src: url('../../../public/fonts/roboto/Roboto-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
 
 @font-face {
-    /* Définition of font called Roboto*/
-    font-family: "Roboto";
-    src: url("../../../public/fonts/Roboto-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-  }
+	/* Définition of font called Shrikhand*/
+	font-family: 'Shrikhand';
+	src: url('../../../public/fonts/Shrikhand-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
 
-  @font-face {
-    /* Définition of font called Shrikhand*/
-    font-family: "Shrikhand";
-    src: url("../../../public/fonts//Shrikhand-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-  }
+@font-face {
+	/* Définition of font called Netflix sans*/
+	font-family: 'Netflix';
+	src: url('../../../public/fonts/netflix_sans/NetflixSansRegular.ttf')
+		format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
 

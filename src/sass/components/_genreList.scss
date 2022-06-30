@@ -1,0 +1,10 @@
+ul {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  padding: unset;
+}
+
+li {
+  margin-right: 10px;
+}
