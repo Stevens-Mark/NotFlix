@@ -1,0 +1,26 @@
+/**
+ * Main Sass file
+ */
+@import './utils/variables';
+@import "./utils/functions";
+@import "utils/mixins";
+@import "utils/keyframes";
+
+@import "base/base";
+// @import "base/typography";
+
+@import "components/loader";
+@import "components/buttons";
+@import "components/rows";
+@import "components/slider";
+
+@import "layout/header";
+@import "layout/footer";
+
+@import "pages/home";
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+/*returns the pastel colour of a given colour*/
+@function pastel($clr){
+    $hue:hue($clr);
+    $saturation:100%;
+    $light: 96%;
+    $pastel: hsl($hue, $saturation, $light);
+    @return $pastel;
+  }

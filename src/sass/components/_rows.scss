@@ -1,0 +1,33 @@
+.card {
+  position: relative;
+  max-height: 100px;
+  margin-right: 10px;
+  transition: transform 450ms;
+  &:hover {
+    transform: scale(1.08);
+   }
+
+  &__row {
+    display: flex;
+    // overflow-y: hidden;
+    // overflow-x: scroll;
+    padding: 20px;
+  }
+
+	&__image {
+		// width: 100%;
+   max-height: 100px;
+		object-fit: contain;
+	}
+  
+  &__button { 
+    position: absolute;
+    top:70%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 2;
+    cursor: pointer;
+  }
+
+}
+
