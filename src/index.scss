@@ -10,11 +10,12 @@ code {
 html,
 body {
 	min-height: 100vh;
-	background: black;
+	background: $secondary;
 	color: white;
 	font-size: 1rem;
-	// margin: auto;
-	margin: 0;
+	max-width: 1920px;
+	margin: auto;
+	// margin: 0;
 	font-family: 'Netflix', Arial, 'Segoe UI', 'Roboto', 'Oxygen', serif,
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
@@ -26,15 +27,16 @@ body {
 }
 
 /*set max width*/
-header,
-main,
-footer {
-	max-width: 1920px;
-	padding: 0px 20px;
-	margin: auto;
-	flex: 1;
-}
+// header,
+// main,
+// footer {
+// 	max-width: 1920px;
+// 	margin: auto;
+// 	flex: 1;
+// }
 
-main {
-	margin-bottom: 5rem;
-}
+// main {
+// 	animation: fade 1s both ease-in-out;
+// 	padding: 0rem 1.25rem;
+// 	margin-bottom: 5rem;
+// }

@@ -1,15 +1,15 @@
 /*FOOTER used on all pages*/
 
 footer {
-	border-top: 2px solid $footer-line;
-	padding: 2rem 0 1.5rem;
+	animation: fade 1s both ease-in-out;
+	border-top: 2px solid $quaternary;
+	padding: 0rem 1.25rem;
   text-align: center;
   img {
     margin-top: 2rem;
 		width: clamp(6rem, 9vw, 9rem);
 	}
 	p {
-		margin: 0;
-		padding: 0;
+		margin: 1rem;
 	}
 }

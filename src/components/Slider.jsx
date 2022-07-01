@@ -29,7 +29,7 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 		fetchData();
 	}, [fetchUrl]);
 
-	console.log(movies);
+	// console.log(movies);
 
 	// const handleClick = (movie) => {
 	// 	console.log(movie);

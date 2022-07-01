@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import NotFlixLogo from '../assets/images/notflixLogo.png';
 
@@ -7,9 +8,26 @@ import NotFlixLogo from '../assets/images/notflixLogo.png';
  * @returns {JSX} Navigation bar
  */
 const Navigation = () => {
+	const [navbar, setNavbar] = useState(false);
+
+	useEffect(() => {
+		//navbar scroll changeBackground function
+		const changeBackground = () => {
+			if (window.scrollY >= 66) {
+				setNavbar(true);
+			} else {
+				setNavbar(false);
+			}
+		};
+
+		// adding the event when scroll change background
+		window.addEventListener('scroll', changeBackground);
+		return () => window.removeEventListener('scroll', changeBackground);
+	});
+
 	return (
-		<header>
-			<NavLink activeClassName="active" exact to="/">
+		<header className={navbar ? 'header header--active' : 'header'}>
+			<NavLink exact to="/">
 				<img src={NotFlixLogo} alt="Click to home page" />
 			</NavLink>
 			<nav>
@@ -31,5 +49,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
-
