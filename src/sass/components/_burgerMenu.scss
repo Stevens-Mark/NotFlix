@@ -1,0 +1,152 @@
+.top-nav {
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	animation: fade 1s both ease-in-out;
+	align-items: center;
+	font-size: clamp(1rem, 2vw, 1.5rem);
+	transition: background-color 0.5s ease-out;
+	height: 50px;
+	padding: 2rem;
+
+	a {
+		color: $primary-text;
+		text-decoration: none;
+		margin: 0px 20px -10px 0px;
+	}
+
+	img {
+		width: clamp(8rem, 12vw, 13rem);
+	}
+
+	&--active {
+		background-color: $secondary;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+		transition: background-color 0.5s ease-out;
+	}
+}
+
+.menu {
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu > li {
+	margin: 0 1rem;
+	overflow: hidden;
+}
+
+.menu-button-container {
+	position: relative;
+	z-index: 9999;
+	display: none;
+	height: 100%;
+	width: 30px;
+	cursor: pointer;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#menu-toggle {
+	display: none;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+	display: block;
+	background-color: $burger;
+	position: absolute;
+	height: 4px;
+	width: 30px;
+	transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+	border-radius: 2px;
+}
+
+.menu-button::before {
+	content: '';
+	margin-top: -8px;
+}
+
+.menu-button::after {
+	content: '';
+	margin-top: 8px;
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+	margin-top: 0px;
+	transform: rotate(405deg);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button {
+	background: rgba(255, 255, 255, 0);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+	margin-top: 0px;
+	transform: rotate(-405deg);
+}
+
+.active {
+	color: $quaternary;
+}
+
+//  MEDIA QUERIES
+
+@media (max-width: 768px) {
+	.menu-button-container {
+		display: flex;
+	}
+
+	.menu {
+		position: absolute;
+		top: -50px;
+		margin-top: 50px;
+		left: 0;
+		flex-direction: column;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#menu-toggle ~ .menu li {
+		height: 0;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+	}
+	#menu-toggle:checked ~ .menu li {
+		border: 1px solid #333;
+		height: 3.5em;
+		padding: 1.2em;
+		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+	}
+
+	.menu > li {
+		display: flex;
+		justify-content: center;
+		margin: 0;
+		padding: 0.5em 0;
+		width: 100%;
+		color: $primary-text;
+		background-color: $burgerMenueBg;
+	}
+
+	.menu > li:not(:last-child) {
+		border-bottom: 1px solid #444;
+	}
+}
+
+@media (max-width: 768px) {
+	.top-nav {
+		justify-content: space-between;
+	}
+}
