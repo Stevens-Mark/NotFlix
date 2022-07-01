@@ -77,7 +77,7 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 	};
 
 	return (
-		<div className="row">
+		<section className="row">
 			<h2>{title}</h2>
 			<Slider {...settings}>
 				{movies.map((movie) => (
@@ -101,7 +101,7 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 					</div>
 				))}
 			</Slider>
-		</div>
+		</section>
 	);
 };
 

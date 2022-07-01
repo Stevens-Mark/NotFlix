@@ -1,10 +1,10 @@
-.banner {
+.hero {
 	position: relative;
 	&__image {
 		animation: fade 1s both ease-in-out;
 		width: 100%;
 		height: 50vh;
-		object-fit: cover;
+		object-fit: fill;
 		object-position: center 20%;
 		mask-image: linear-gradient(
 			180deg,
@@ -41,7 +41,7 @@
 	}
 	&__overview {
     animation: fadein 1.3s both ease-in-out 0.8s;
-		font-size: clamp(0.8rem, 0.5153rem + 1.6368vw, 1.2rem);
+		font-size: clamp(1rem, 0.5153rem + 1.6368vw, 1.5rem);
 		text-shadow: 1px 1px 2px $text-shadow;
 		max-width: 80%;
 		margin: 0.5rem;
@@ -54,20 +54,25 @@
 
 // MEDIA QUERIES
 
+@media (min-width: 768px) {
+	.hero__image {
+		height: 75vh;
+	}
+}
 @media (min-width: 1024px) {
-	.banner__image {
-		height: 70vh;
+	.hero__image {
+		height: 80vh;
 	}
 }
 
 @media (min-width: 768px) {
-	.banner__info {
+	.hero__info {
 		align-items: flex-start;
-		top: 25%;
+		top: 35%;
 		left: 2%;
 	}
-	.banner__overview,
-	.banner__title {
+	.hero__overview,
+	.hero__title {
     text-align: left;
 		max-width: 45%;
 		-webkit-line-clamp: 10; // used to truncate text after 10 lines

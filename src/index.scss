@@ -26,17 +26,7 @@ body {
 	box-sizing: border-box;
 }
 
-/*set max width*/
-// header,
-// main,
-// footer {
-// 	max-width: 1920px;
-// 	margin: auto;
-// 	flex: 1;
-// }
-
-// main {
-// 	animation: fade 1s both ease-in-out;
-// 	padding: 0rem 1.25rem;
-// 	margin-bottom: 5rem;
-// }
+main {
+	animation: fade 1s both ease-in-out;
+	margin-bottom: 5rem;
+}

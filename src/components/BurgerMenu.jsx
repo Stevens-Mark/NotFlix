@@ -25,30 +25,25 @@ const BurgerMenu = () => {
 				<img src={NotFlixLogo} alt="Click to home page" />
 			</NavLink>
 			<input id="menu-toggle" type="checkbox" />
-			<label className="menu-button-container" for="menu-toggle">
+			<label className="menu-button-container" htmlFor="menu-toggle">
 				<div className="menu-button"></div>
 			</label>
 			<nav className="menu">
-				<li>
-					<NavLink activeClassName="active" exact to="/">
-						Home
-					</NavLink>
-				</li>
-				<li>
-					<NavLink activeClassName="active" to="/tvshows">
-						TV Shows
-					</NavLink>
-				</li>
-				<li>
-					<NavLink activeClassName="active" to="/popular">
-						New & Popular
-					</NavLink>
-				</li>
-				<li>
-					<NavLink activeClassName="active" to="/mylist">
-						My List
-					</NavLink>
-				</li>
+				<NavLink activeClassName="active" exact to="/">
+					Home
+				</NavLink>
+
+				<NavLink activeClassName="active" to="/tvshows">
+					TV Shows
+				</NavLink>
+
+				<NavLink activeClassName="active" to="/popular">
+					New & Popular
+				</NavLink>
+
+				<NavLink activeClassName="active" to="/mylist">
+					My List
+				</NavLink>
 			</nav>
 		</header>
 	);

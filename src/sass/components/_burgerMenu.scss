@@ -9,7 +9,7 @@
 	align-items: center;
 	font-size: clamp(1rem, 2vw, 1.5rem);
 	transition: background-color 0.5s ease-out;
-	height: 50px;
+	height: 80px;
 	padding: 2rem;
 
 	a {
@@ -37,7 +37,7 @@
 	padding: 0;
 }
 
-.menu > li {
+.menu > a {
 	margin: 0 1rem;
 	overflow: hidden;
 }
@@ -116,21 +116,21 @@
 		align-items: center;
 	}
 
-	#menu-toggle ~ .menu li {
+	#menu-toggle ~ .menu a {
 		height: 0;
 		margin: 0;
 		padding: 0;
 		border: 0;
 		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
 	}
-	#menu-toggle:checked ~ .menu li {
+	#menu-toggle:checked ~ .menu a {
 		border: 1px solid #333;
 		height: 3.5em;
 		padding: 1.2em;
 		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
 	}
 
-	.menu > li {
+	.menu > a {
 		display: flex;
 		justify-content: center;
 		margin: 0;
@@ -140,7 +140,7 @@
 		background-color: $burgerMenueBg;
 	}
 
-	.menu > li:not(:last-child) {
+	.menu > a:not(:last-child) {
 		border-bottom: 1px solid #444;
 	}
 }

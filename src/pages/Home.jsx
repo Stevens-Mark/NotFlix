@@ -11,10 +11,10 @@ import { randomSelect } from '../utils/functions';
 const Home = () => {
 	// console.log(randomSelect(dataToLoad).url)
 	return (
-		<>
+		<main>
 			<Banner fetchUrl={randomSelect(dataToLoad).url} />
-			<main>
-				<h1 className="sr-only">NotFlix a NetFlix clone</h1>
+		
+				{/* <h1 className="sr-only">NotFlix a NetFlix clone</h1> */}
 
 				{dataToLoad.map((data) => (
 					<Slider
@@ -23,8 +23,8 @@ const Home = () => {
 						fetchUrl={data.url}
 					/>
 				))}
-			</main>
-		</>
+			
+		</main>
 	);
 };
 

@@ -27,22 +27,22 @@ const Banner = ({ fetchUrl }) => {
 	console.log(movie);
 
 	return (
-		<div className="banner">
+		<section className="hero">
 			<img
-				className="banner__image"
+				className="hero__image"
 				src={movie.poster_path ? `${IMAGE_URL}${movie.poster_path}` : noImage}
 				alt={movie.name ? movie.name : movie.original_title}
 			/>
-			<div className="banner__shadow"></div>
-			<div className="banner__info">
-				<h1 className="banner__title">
+			<div className="hero__shadow"></div>
+			<div className="hero__info">
+				<h1 className="hero__title">
 					{movie.name ? movie.name : movie.original_title}
 				</h1>
-				<p className="banner__overview">
+				<p className="hero__overview">
 					{movie.overview ? truncateString(movie.overview, 20000) : 'No overview available'}
 				</p>
 			</div>
-		</div>
+		</section>
 	);
 };
 
