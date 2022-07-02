@@ -24,7 +24,7 @@ const Banner = ({ fetchUrl }) => {
 		fetchData();
 	}, [fetchUrl]);
 
-	console.log(movie);
+	// console.log(movie);
 
 	return (
 		<section className="hero">

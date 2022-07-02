@@ -25,7 +25,7 @@
 		);
 	}
 	&__info {
-    overflow: hidden;
+		overflow: hidden;
 		position: absolute;
 		display: flex;
 		flex-direction: column;
@@ -33,14 +33,14 @@
 		align-items: center;
 	}
 	&__title {
-    animation: fadein 1.3s both ease-in-out 0.5s;
+		animation: fadein 1.3s both ease-in-out 0.5s;
 		font-size: clamp(1.1rem, 1.2rem + 1.6368vw, 5rem);
 		text-shadow: 1px 1px 2px $text-shadow;
 		margin: 0px 8px;
-    text-align: center;
+		text-align: center;
 	}
 	&__overview {
-    animation: fadein 1.3s both ease-in-out 0.8s;
+		animation: fadein 1.3s both ease-in-out 0.8s;
 		font-size: clamp(1rem, 0.5153rem + 1.6368vw, 1.5rem);
 		text-shadow: 1px 1px 2px $text-shadow;
 		max-width: 80%;
@@ -73,7 +73,7 @@
 	}
 	.hero__overview,
 	.hero__title {
-    text-align: left;
+		text-align: left;
 		max-width: 45%;
 		-webkit-line-clamp: 10; // used to truncate text after 10 lines
 	}
