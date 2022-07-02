@@ -2,9 +2,27 @@ $primary: #000;
 $secondary: #141414;
 $tertiary: #99E2D0;
 $quaternary:  #ccc;
+
 $greyDark: #7e7e7e;
 $primary-text:#fff;
+
 $burger: #fff;
-$burgerMenueBg: #222;
+$burgerMenuBg: #222;
 $text-shadow:#000;
+
+$active: #ccc;
+
+// image heights
+$slidderImgSHeightSmallScreen: 23vh;
+$slidderImgSHeightLargeScreen: 18vh;
+
+$bannerImgSHeightSmallScreen: 50vh;
+$bannerImgSHeightMediumScreen: 75vh;
+$bannerImgSHeightLargeScreen: 80vh;
+
+// breakpoints
+$tablette: 768px;
+$medium: 1024px;
+$large: 1440px;
+
 

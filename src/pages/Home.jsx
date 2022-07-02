@@ -9,6 +9,8 @@ import { randomSelect } from '../utils/functions';
  * @returns {JSX}
  */
 const Home = () => {
+
+	
 	return (
 		<main>
 			<Banner fetchUrl={randomSelect(dataToLoad).url} />

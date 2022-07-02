@@ -1,5 +1,11 @@
 .row {
 	padding: 0rem 1.25rem;
+	&__status {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: $slidderImgSHeightSmallScreen;
+	}
 	h2 {
 		font-weight: 500;
 		margin-bottom: 0.5rem;
@@ -48,7 +54,7 @@
 			border-radius: 0.5rem;
 			margin: 0px 5px;
 			object-fit: fill;
-			height: 23vh;
+			height: $slidderImgSHeightSmallScreen;
 			object-position: center 20%;
 		}
 	}
@@ -84,8 +90,8 @@
 
 // MEDIA QUERIES
 
-@media (min-width: 1440px) {
-	.row__item img {
-		height: 18vh;
+@media (min-width: $large) {
+	.row__item img, .row__status {
+		height: $slidderImgSHeightLargeScreen;
 	}
 }

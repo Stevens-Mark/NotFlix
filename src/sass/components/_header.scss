@@ -17,6 +17,9 @@
 		color: $primary-text;
 		text-decoration: none;
 		margin: 0px 20px -10px 0px;
+		&.active {
+			color: $active;
+		}
 	}
 
 	img {
@@ -95,13 +98,10 @@
 	transform: rotate(-405deg);
 }
 
-.active {
-	color: $quaternary;
-}
 
 //  MEDIA QUERIES
 
-@media (max-width: 768px) {
+@media (max-width: $tablette) {
 	.menu-button-container {
 		display: flex;
 	}
@@ -138,7 +138,7 @@
 		padding: 0.5em 0;
 		width: 100%;
 		color: $primary-text;
-		background-color: $burgerMenueBg;
+		background-color: $burgerMenuBg;
 	}
 
 	.menu > a:not(:last-child) {
@@ -146,7 +146,7 @@
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: $tablette) {
 	.top-nav {
 		justify-content: space-between;
 	}

@@ -1,9 +1,14 @@
 .hero {
 	position: relative;
+	&__status {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 	&__image {
 		animation: fade 1s both ease-in-out;
 		width: 100%;
-		height: 50vh;
+		height: $bannerImgSHeightSmallScreen;
 		object-fit: fill;
 		object-position: center 20%;
 		mask-image: linear-gradient(
@@ -54,18 +59,20 @@
 
 // MEDIA QUERIES
 
-@media (min-width: 768px) {
-	.hero__image {
-		height: 75vh;
+@media (min-width: $tablette) {
+	.hero__image,
+	.hero__status {
+		height: $bannerImgSHeightMediumScreen;
 	}
 }
-@media (min-width: 1024px) {
-	.hero__image {
-		height: 80vh;
+@media (min-width: $medium) {
+	.hero__image,
+	.hero__status {
+		height: $bannerImgSHeightLargeScreen;
 	}
 }
 
-@media (min-width: 768px) {
+@media (min-width: $tablette) {
 	.hero__info {
 		align-items: flex-start;
 		top: 35%;
@@ -78,3 +85,4 @@
 		-webkit-line-clamp: 10; // used to truncate text after 10 lines
 	}
 }
+
