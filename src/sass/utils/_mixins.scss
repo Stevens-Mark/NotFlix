@@ -8,3 +8,20 @@
     /* x,y,blur,spread*/
 }
 
+
+// banner animation mixins
+@mixin animateFadeIn {
+    animation: fade 1s both ease-in-out;
+}
+
+@mixin animateTitle {
+    animation: fadein 1.3s both ease-in-out 0.4s;
+}
+
+@mixin animateButtons {
+    animation: fadein 1.3s both ease-in-out 0.7s;
+}
+
+@mixin animateOverview {
+    animation: fadein 1.3s both ease-in-out 1s;
+}

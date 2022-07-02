@@ -8,7 +8,11 @@ import { useFetch } from '../config/FetchData';
 // import { IMAGE_URL } from '../config/requests';
 // import components
 import GenresList from './GenreList';
+// import images/icons
 import noImage from '../assets/images/NoImageAvailable.webp';
+import playIconInverted from '../assets/icons/arrow-right-circle.svg';
+import plusIcon from '../assets/icons/plus-circle-outline.svg';
+import arrowDownIcon from '../assets/icons/arrow-down-circle.svg';
 
 // for fetching mocked image
 const IMAGE_URL = '../mockImages';
@@ -24,9 +28,9 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 	const { data, isLoading, isError } = useFetch(fetchUrl);
 	const movies = data.results;
 
-	// const handleClick = (movie) => {
-	// 	console.log(movie);
-	// };
+	const handleClick = (movie) => {
+		console.log(movie);
+	};
 
 	var settings = {
 		dots: false,
@@ -84,6 +88,7 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 								{movies.map((movie) => (
 									<div className="row__item" key={movie.id}>
 										<img
+											className="row__item__image"
 											src={
 												movie.poster_path
 													? `${IMAGE_URL}${movie.poster_path}`
@@ -92,14 +97,28 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 											alt={movie?.title || movie?.name || movie?.original_title}
 										/>
 										<div className="row__itemInfo">
-											<h2>{movie?.title || movie?.name || movie?.original_title}</h2>
+											<button
+												className="row__itemButtons"
+												onClick={() => handleClick(movie)}
+											>
+												<img src={playIconInverted} alt="Watch trailer" />
+											</button>
+											<button
+												className="row__itemButtons"
+												onClick={() => handleClick(movie)}
+											>
+												<img src={plusIcon} alt="Add film towatch list" />
+											</button>
+											<button
+												className="row__itemButtons"
+												onClick={() => handleClick(movie)}
+											>
+												<img src={arrowDownIcon} alt="Get more information" />
+											</button>
+											<h2>
+												{movie?.title || movie?.name || movie?.original_title}
+											</h2>
 											<GenresList genreIds={movie.genre_ids} />
-											{/* <button
-													className="row__button"
-													onClick={() => handleClick(movie)}
-												>
-													Click
-												</button> */}
 										</div>
 									</div>
 								))}
@@ -119,3 +138,4 @@ SimpleSlider.propTypes = {
 	title: PropTypes.string,
 	fetchUrl: PropTypes.string,
 };
+

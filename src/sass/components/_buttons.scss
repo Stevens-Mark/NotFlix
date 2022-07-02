@@ -1,1 +1,30 @@
+.buttons {
+	display: flex;
+}
+
+.button {
+	font-size: clamp(0.8rem, 1rem + 1.6368vw, 1rem);
+	color: $primary-text;
+	opacity: 0.8;
+	margin: 20px 8px;
+	padding: 5px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	border: none;
+	width: 8rem;
+
+	img {
+		width: 2rem;
+		margin-right: 0.5rem;
+	}
+	&--play {
+		background-color: red;
+		@include animateButtons;
+	}
+	&--info {
+		background-color: $greyDark;
+		@include animateButtons;
+	}
+}
 

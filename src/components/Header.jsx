@@ -37,7 +37,7 @@ const Header = () => {
 			</label>
 
 			<nav className="menu">
-				<NavLink activeClassName="active"exact to="/">
+				<NavLink activeClassName="active" exact to="/">
 					Home
 				</NavLink>
 

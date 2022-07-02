@@ -5,7 +5,10 @@ import { useFetch } from '../config/FetchData';
 // import { IMAGE_URL } from '../config/requests';
 // import functions
 import { randomSelect } from '../utils/functions';
+// import images/icons
 import noImage from '../assets/images/NoImageAvailable.webp';
+import infoIcon from '../assets/icons/alert-circle-outline.svg';
+import playIcon from '../assets/icons/play.svg';
 
 // for fetching mocked image
 const IMAGE_URL = '../mockImages';
@@ -18,6 +21,10 @@ const IMAGE_URL = '../mockImages';
  */
 const Banner = ({ fetchUrl }) => {
 	const { data, isLoading, isError } = useFetch(fetchUrl);
+
+	const handleClick = (movie) => {
+		console.log(movie);
+	};
 
 	if (isLoading) {
 		return <div className="hero__status">Loading...</div>;
@@ -37,6 +44,23 @@ const Banner = ({ fetchUrl }) => {
 					<h1 className="hero__title">
 						{movie?.title || movie?.name || movie?.original_title}
 					</h1>
+					<span className="buttons">
+						<button
+							className="button button--play"
+							onClick={() => handleClick(movie)}
+						>
+							<img src={playIcon} alt="" />
+							Play
+						</button>
+						<button
+							className="button button--info"
+							onClick={() => handleClick(movie)}
+						>
+							<img src={infoIcon} alt="" />
+							More Info
+						</button>
+					</span>
+
 					<p className="hero__overview">
 						{movie.overview ? movie.overview : 'No overview available'}
 					</p>
