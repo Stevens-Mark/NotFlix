@@ -27,13 +27,13 @@ const Banner = ({ fetchUrl }) => {
 	};
 
 	if (isLoading) {
-		return <div className="hero__status">Loading...</div>;
+		return <article className="hero__status">Loading...</article>;
 	} else if (isError) {
-		return <div className="hero__status">Error...</div>;
+		return <article className="hero__status">Error...</article>;
 	} else {
 		const movie = randomSelect(data.results);
 		return (
-			<section className="hero">
+			<article className="hero">
 				<img
 					className="hero__image"
 					src={movie.poster_path ? `${IMAGE_URL}${movie.poster_path}` : noImage}
@@ -65,7 +65,7 @@ const Banner = ({ fetchUrl }) => {
 						{movie.overview ? movie.overview : 'No overview available'}
 					</p>
 				</div>
-			</section>
+			</article>
 		);
 	}
 };

@@ -10,9 +10,9 @@ import { useFetch } from '../config/FetchData';
 import GenresList from './GenreList';
 // import images/icons
 import noImage from '../assets/images/NoImageAvailable.webp';
-import playIconInverted from '../assets/icons/arrow-right-circle.svg';
-import plusIcon from '../assets/icons/plus-circle-outline.svg';
-import arrowDownIcon from '../assets/icons/arrow-down-circle.svg';
+import playIcon from '../assets/icons/rightCircle.svg';
+import plusIcon from '../assets/icons/plus.svg';
+import arrowDownIcon from '../assets/icons/downCircle.svg';
 
 // for fetching mocked image
 const IMAGE_URL = '../mockImages';
@@ -87,7 +87,7 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 							<Slider {...settings}>
 								{movies.map((movie) => (
 									<div className="row__item" key={movie.id}>
-										<img
+									<img
 											className="row__item__image"
 											src={
 												movie.poster_path
@@ -101,7 +101,7 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 												className="row__itemButtons"
 												onClick={() => handleClick(movie)}
 											>
-												<img src={playIconInverted} alt="Watch trailer" />
+												<img src={playIcon} alt="Watch trailer" />
 											</button>
 											<button
 												className="row__itemButtons"
