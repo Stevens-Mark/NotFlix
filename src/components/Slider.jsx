@@ -10,9 +10,9 @@ import { useFetch } from '../config/FetchData';
 import GenresList from './GenreList';
 // import images/icons
 import noImage from '../assets/images/NoImageAvailable.webp';
-import playIcon from '../assets/icons/rightCircle.svg';
-import plusIcon from '../assets/icons/plusCircle.svg';
-import arrowDownIcon from '../assets/icons/downCircle.svg';
+import playIcon from '../assets/icons/chevronRight.svg';
+import plusIcon from '../assets/icons/plusSolid.svg';
+import arrowDownIcon from '../assets/icons/chevronDown.svg';
 
 // for fetching mocked image
 const IMAGE_URL = '../mockImages';

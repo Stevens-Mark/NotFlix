@@ -24,16 +24,17 @@
 			position: absolute;
 			top: 5px;
 			left: 10px;
+			bottom: 5px;
+			padding: 5px;
 			border-radius: 0.5rem;
-			height: 96%;
 			opacity: 0;
 			transition: opacity 0.6s ease-out;
-			width: 93%;
+			width: 89%;
 			z-index: 0;
 			background: linear-gradient(
 				180deg,
 				rgba(255, 255, 255, 0) 0%,
-				rgba(0, 0, 0, 1) 100%
+				rgba(0, 0, 0, 1) 90%
 			);
 		}
 
@@ -63,54 +64,45 @@
 		bottom: 0rem;
 		border-radius: 0.5rem;
 		padding: 0rem 0.625rem;
-		// transform: translateY(10rem);
-		transition: transform 500ms ease-out;
+		transform: translateY(10rem);
+		transition: transform 600ms ease-out;
 		width: 93.5%;
 		z-index: 1;
 		h2 {
 			font-size: clamp(0.8rem, 1vw, 1rem);
 			font-weight: 500;
-			margin: unset;
+			margin: 0 0 -5px 0;
 			@include textShadow;
 		}
 	}
 	&__buttons {
-		background-color: rgba(204,204,204,0.2);
-
-		display: flex;
+		// background-color: rgba(204,204,204,0.2);
 		align-items: center;
-		justify-content: center;
-		width: max-content;
-		// padding: 2px;
-		border-radius: 2rem;
+		display: flex;
+		justify-content: flex-start;
 	}
 	&__itemButtons {
-		// position: relative;
-		width: 1.4rem;
-		padding: unset;
-		margin: 0px 5px 0px;
 		aspect-ratio: 1;
-		background: transparent;
-		border: none;
-		border-radius: 1rem;
 		background-color: rgba(255, 255, 255, 0.2);
+		border-radius: 1rem;
+		border: 1px solid white;
+		margin: 0px 5px 5px;
+		padding-left: 5px;
+		width: 1.3rem;
+
 		&:hover {
-			transition: filter 0.5s;
-			background-color: rgba(0, 0, 0, 0.2);
+			background-color: $primary-text;
+			img {
+				filter: unset;
+				transition: filter 0.3s;
+			}
 		}
 		img {
-			// position: absolute;	
-			// top: -1px;
-			// left: -1px;
-			filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)	brightness(104%) contrast(104%);
-			opacity: 0.8;
-			transition: 1s;
-			width: 1.4rem;
-			&:hover {
-				filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
-					brightness(104%) contrast(104%);
-				transition: filter 1s;
-			}
+			aspect-ratio: 1;
+			filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
+				brightness(104%) contrast(104%);
+			transition: 0.3s;
+			width: 0.6rem;
 		}
 	}
 }
@@ -128,9 +120,16 @@
 
 // MEDIA QUERIES
 
-@media (min-width: $large) {
+@media (min-width: $laptop) {
 	.row__item__image,
 	.row__status {
-		height: $slidderImgSHeightLargeScreen;
+		height: $slidderImgSHeightLaptopScreen;
+	}
+}
+
+@media (min-width: $laptopLarge) {
+	.row__item__image,
+	.row__status {
+		height: $slidderImgSHeightLaptopLargeScreen;
 	}
 }

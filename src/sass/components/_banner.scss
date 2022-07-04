@@ -62,13 +62,19 @@
 @media (min-width: $tablette) {
 	.hero__image,
 	.hero__status {
-		height: $bannerImgSHeightMediumScreen;
+		height: $bannerImgSHeightTabletteScreen;
 	}
 }
-@media (min-width: $medium) {
+@media (min-width: $laptop) {
 	.hero__image,
 	.hero__status {
-		height: $bannerImgSHeightLargeScreen;
+		height: $bannerImgSHeightLaptopScreen;
+	}
+}
+@media (min-width: $laptopLarge) {
+	.hero__image,
+	.hero__status {
+		height: $bannerImgSHeightLaptopLargeScreen;
 	}
 }
 
