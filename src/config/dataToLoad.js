@@ -1,4 +1,4 @@
-import {requests, requestsTv} from "./requests";
+import { requests, requestsTv } from './requests';
 
 export const dataToLoad = [
 	{
@@ -14,11 +14,11 @@ export const dataToLoad = [
 		category: 'Top Rated',
 	},
 	// {
-	// 	url: requests.fetchActionMovies,
-	// 	category: 'Action',
+	// 	url: requests.fetchAnimation,
+	// 	category: 'Animation',
 	// },
 	// {
-	// 	url: requests.fetchComedyMovies,
+	// 	url: requests.fetchComedy,
 	// 	category: 'Comedy',
 	// },
 	// {
@@ -27,240 +27,50 @@ export const dataToLoad = [
 	// },
 	// {
 	// 	url: requests.fetchDocumentaries,
-	// 	category: 'Documentary',
+	// 	category: 'Documentaries',
 	// },
 	// {
-	// 	url: requests.fetchHorrorMovies,
-	// 	category: 'Horror',
-	// },
-	// {
-	// 	url: requests.fetchRomanceMovies,
-	// 	category: 'Romance',
-	// },
-	// {
-	// 	url: 18,
+	// 	url: requests.fetchDrama,
 	// 	category: 'Drama',
-	// },
-	// {
-	// 	url: 10751,
-	// 	category: 'Family',
-	// },
-	// {
-	// 	url: 14,
-	// 	category: 'Fantasy',
-	// },
-	// {
-	// 	url: 36,
-	// 	category: 'History',
-	// },
-	// {
-	// 	url: 10402,
-	// 	category: 'Music',
-	// },
-	// {
-	// 	url: 9648,
-	// 	category: 'Mystery',
-	// },
-	// {
-	// 	url: 878,
-	// 	category: 'Science Fiction',
-	// },
-	// {
-	// 	url: 10770,
-	// 	category: 'TV Movie',
-	// },
-	// {
-	// 	url: 53,
-	// 	category: 'Thriller',
-	// },
-	// {
-	// 	url: 10752,
-	// 	category: 'War',
-	// },
-	// {
-	// 	url: 37,
-	// 	category: 'Western',
-	// },
-	// {
-	// 	url: 10759,
-	// 	category: 'Action & Adventure',
-	// },
-	// {
-	// 	url: 10751,
-	// 	category: 'Family',
-	// },
-	// {
-	// 	url: 10762,
-	// 	category: 'Kurls',
-	// },
-	// {
-	// 	url: 9648,
-	// 	category: 'Mystery',
-	// },
-	// {
-	// 	url: 12,
-	// 	category: 'Adventure',
-	// },
-	// {
-	// 	url: 16,
-	// 	category: 'Animation',
-	// },
-	// {
-	// 	url: 10763,
-	// 	category: 'News',
-	// },
-	// {
-	// 	url: 10764,
-	// 	category: 'Reality',
-	// },
-	// {
-	// 	url: 10765,
-	// 	category: 'Sci-Fi & Fantasy',
-	// },
-	// {
-	// 	url: 10766,
-	// 	category: 'Soap',
-	// },
-	// {
-	// 	url: 10767,
-	// 	category: 'Talk',
-	// },
-	// {
-	// 	url: 10768,
-	// 	category: 'War & Politics',
 	// },
 ];
 
-
-
-
-export const tvData = [
+export const movies = [
 	{
-		url: requestsTv.fetchTvTrending,
+		url: requests.fetchTrending,
 		category: 'Trending',
 	},
 	{
-		url: requests.fetchFakeflixOriginals,
-		category: 'NotFlix Originals',
+		url: requests.fetchMoviesTopRated,
+		category: 'Top Rated Movies',
 	},
-	{
-		url: requests.fetchTopRated,
-		category: 'Top Rated',
-	},
-	// {
-	// 	url: requests.fetchActionMovies,
-	// 	category: 'Action',
-	// },
-	// {
-	// 	url: requests.fetchComedyMovies,
-	// 	category: 'Comedy',
-	// },
-	// {
-	// 	url: requests.fetchCrime,
-	// 	category: 'Crime',
-	// },
-	// {
-	// 	url: requests.fetchDocumentaries,
-	// 	category: 'Documentary',
-	// },
-	// {
-	// 	url: requests.fetchHorrorMovies,
-	// 	category: 'Horror',
-	// },
-	// {
-	// 	url: requests.fetchRomanceMovies,
-	// 	category: 'Romance',
-	// },
-	// {
-	// 	url: 18,
-	// 	category: 'Drama',
-	// },
-	// {
-	// 	url: 10751,
-	// 	category: 'Family',
-	// },
-	// {
-	// 	url: 14,
-	// 	category: 'Fantasy',
-	// },
-	// {
-	// 	url: 36,
-	// 	category: 'History',
-	// },
-	// {
-	// 	url: 10402,
-	// 	category: 'Music',
-	// },
-	// {
-	// 	url: 9648,
-	// 	category: 'Mystery',
-	// },
-	// {
-	// 	url: 878,
-	// 	category: 'Science Fiction',
-	// },
-	// {
-	// 	url: 10770,
-	// 	category: 'TV Movie',
-	// },
-	// {
-	// 	url: 53,
-	// 	category: 'Thriller',
-	// },
-	// {
-	// 	url: 10752,
-	// 	category: 'War',
-	// },
-	// {
-	// 	url: 37,
-	// 	category: 'Western',
-	// },
-	// {
-	// 	url: 10759,
-	// 	category: 'Action & Adventure',
-	// },
-	// {
-	// 	url: 10751,
-	// 	category: 'Family',
-	// },
-	// {
-	// 	url: 10762,
-	// 	category: 'Kurls',
-	// },
-	// {
-	// 	url: 9648,
-	// 	category: 'Mystery',
-	// },
-	// {
-	// 	url: 12,
-	// 	category: 'Adventure',
-	// },
-	// {
-	// 	url: 16,
-	// 	category: 'Animation',
-	// },
-	// {
-	// 	url: 10763,
-	// 	category: 'News',
-	// },
-	// {
-	// 	url: 10764,
-	// 	category: 'Reality',
-	// },
-	// {
-	// 	url: 10765,
-	// 	category: 'Sci-Fi & Fantasy',
-	// },
-	// {
-	// 	url: 10766,
-	// 	category: 'Soap',
-	// },
-	// {
-	// 	url: 10767,
-	// 	category: 'Talk',
-	// },
-	// {
-	// 	url: 10768,
-	// 	category: 'War & Politics',
-	// },
+]
+
+
+export const tvShows = [
+	{ url: requestsTv.fetchTvTrending, category: 'Trending' },
+	{ url: requests.fetchFakeflixOriginals, category: 'NotFlix Originals' },
+	{ url: requests.fetchTopRated, category: 'Top Rated' },
+	// { url: requests.fetchAnimation, category: 'Animation' },
+	// { url: requests.fetchComedy, category: 'Comedy' },
+	// { url: requests.fetchCrime, category: 'Crime' },
+	// { url: requests.fetchDocumentaries, category: 'Documentaries' },
+	// { url: requests.fetchDrama, category: 'Drama' },
+	{ url: requests.fetchActionAdventureTv, category: 'Action & Adventure' },
+	{ url: requests.fetchFamilyTv, category: 'Family' },
+	{ url: requests.fetchKidsTv, category: 'Kids' },
+	{ url: requests.fetchNewsTv, category: 'News' },
+	{ url: requests.fetchSciFiTv, category: 'Science Fiction' },
 ];
+
+export const newAndPopular = [
+	{ url: requests.fetchTrending, category: 'Trending' },
+	{ url: requests.fetchMoviePopular, category: 'Popular Movies' },
+	{ url: requests.fetchMoviesLatest, category: 'Latest Movies' },
+	{ url: requests.fetchMoviesTopRated, category: 'Top Rated Movies' },
+	{ url: requests.fetchTvPopular, category: 'Popular Tv' },
+	{ url: requests.fetchTvLastest, category: 'Latest Tv' },
+	{ url: requests.fetchTvTopRated, category: 'Top Rated Tv' },
+	{ url: requests.fetchMoviesUpcoming, category: 'Upcoming' },
+];
+

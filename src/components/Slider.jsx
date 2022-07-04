@@ -11,7 +11,7 @@ import GenresList from './GenreList';
 // import images/icons
 import noImage from '../assets/images/NoImageAvailable.webp';
 import playIcon from '../assets/icons/rightCircle.svg';
-import plusIcon from '../assets/icons/plus.svg';
+import plusIcon from '../assets/icons/plusCircle.svg';
 import arrowDownIcon from '../assets/icons/downCircle.svg';
 
 // for fetching mocked image
@@ -87,7 +87,7 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 							<Slider {...settings}>
 								{movies.map((movie) => (
 									<div className="row__item" key={movie.id}>
-									<img
+										<img
 											className="row__item__image"
 											src={
 												movie.poster_path
@@ -97,24 +97,26 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 											alt={movie?.title || movie?.name || movie?.original_title}
 										/>
 										<div className="row__itemInfo">
-											<button
-												className="row__itemButtons"
-												onClick={() => handleClick(movie)}
-											>
-												<img src={playIcon} alt="Watch trailer" />
-											</button>
-											<button
-												className="row__itemButtons"
-												onClick={() => handleClick(movie)}
-											>
-												<img src={plusIcon} alt="Add film towatch list" />
-											</button>
-											<button
-												className="row__itemButtons"
-												onClick={() => handleClick(movie)}
-											>
-												<img src={arrowDownIcon} alt="Get more information" />
-											</button>
+											<div className="row__buttons">
+												<button
+													className="row__itemButtons"
+													onClick={() => handleClick(movie)}
+												>
+													<img src={playIcon} alt="Watch trailer" />
+												</button>
+												<button
+													className="row__itemButtons"
+													onClick={() => handleClick(movie)}
+												>
+													<img src={plusIcon} alt="Add film towatch list" />
+												</button>
+												<button
+													className="row__itemButtons"
+													onClick={() => handleClick(movie)}
+												>
+													<img src={arrowDownIcon} alt="Get more information" />
+												</button>
+											</div>
 											<h2>
 												{movie?.title || movie?.name || movie?.original_title}
 											</h2>

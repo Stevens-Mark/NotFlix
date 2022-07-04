@@ -8,6 +8,10 @@
     /* x,y,blur,spread*/
 }
 
+@mixin textShadow {
+    text-shadow: 1px 1px 2px $text-shadow;
+}
+
 
 // banner animation mixins
 @mixin animateFadeIn {

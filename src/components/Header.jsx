@@ -45,6 +45,10 @@ const Header = () => {
 					TV Shows
 				</NavLink>
 
+				<NavLink activeClassName="active" to="/movies">
+					Movies
+				</NavLink>
+
 				<NavLink activeClassName="active" to="/popular">
 					New & Popular
 				</NavLink>

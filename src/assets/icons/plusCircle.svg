@@ -3,7 +3,17 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-<circle fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="8" cy="8" r="6.666"/>
-<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="8" y1="5.333" x2="8" y2="10.666"/>
-<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="5.333" y1="8" x2="10.666" y2="8"/>
+<title>26.arrow</title>
+<g id="Page-1">
+	<g id="Dribbble-Light-Preview" transform="translate(-179.000000, -600.000000)">
+		<g id="icons" transform="translate(56.000000, 160.000000)">
+			<path id="plus_x5F_circle-_x5B__x23_1427_x5D_" d="M134.199,448c0,0.441-0.357,0.8-0.799,0.8h-1.6v1.6
+				c0,0.441-0.359,0.801-0.801,0.801s-0.8-0.359-0.8-0.801v-1.6h-1.601c-0.441,0-0.799-0.359-0.799-0.8
+				c0-0.441,0.358-0.799,0.799-0.799h1.601v-1.6c0-0.441,0.358-0.8,0.8-0.8s0.801,0.358,0.801,0.8v1.6h1.6
+				C133.842,447.2,134.199,447.559,134.199,448 M131,454.399c-3.529,0-6.4-2.871-6.4-6.4s2.872-6.399,6.4-6.399
+				c3.528,0,6.4,2.871,6.4,6.399S134.528,454.399,131,454.399 M131,440c-4.418,0-8,3.582-8,8c0,4.419,3.582,8,8,8
+				c4.419,0,8-3.581,8-8C139,443.582,135.419,440,131,440"/>
+		</g>
+	</g>
+</g>
 </svg>
