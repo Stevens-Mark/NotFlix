@@ -1,12 +1,3 @@
-/*mixins for the button/card shadow effects*/
-@mixin card-boxshadow {
-    box-shadow: 0px 4px 12px 0px $element-shadow;
-}
-@mixin card-hovershadow {
-    /*box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.26), 0 10px 20px 0 rgba(0, 0, 0, 0.19);*/
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .8);
-    /* x,y,blur,spread*/
-}
 
 @mixin textShadow {
     text-shadow: 1px 1px 2px $text-shadow;
