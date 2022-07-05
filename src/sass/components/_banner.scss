@@ -3,7 +3,13 @@
 	&__status {
 		align-items: center;
 		display: flex;
+		flex-direction: column;
+		height: $bannerImgSHeightSmallScreen;
 		justify-content: center;
+		text-align: center;
+		p {
+			margin: unset;
+		}
 	}
 	&__image {
 		@include animateFadeIn;
@@ -60,11 +66,23 @@
 // MEDIA QUERIES
 
 @media (min-width: $tablette) {
+	.hero__info {
+		align-items: flex-start;
+		left: 2%;
+		top: 35%;
+	}
+	.hero__overview,
+	.hero__title {
+		-webkit-line-clamp: 10; // used to truncate text after 10 lines
+		max-width: 45%;
+		text-align: left;
+	}
 	.hero__image,
 	.hero__status {
 		height: $bannerImgSHeightTabletteScreen;
 	}
 }
+
 @media (min-width: $laptop) {
 	.hero__image,
 	.hero__status {
@@ -78,17 +96,5 @@
 	}
 }
 
-@media (min-width: $tablette) {
-	.hero__info {
-		align-items: flex-start;
-		left: 2%;
-		top: 35%;
-	}
-	.hero__overview,
-	.hero__title {
-		-webkit-line-clamp: 10; // used to truncate text after 10 lines
-		max-width: 45%;
-		text-align: left;
-	}
-}
+
 

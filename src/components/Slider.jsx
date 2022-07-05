@@ -5,17 +5,17 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 // import items needed for data fetch
 import { useFetch } from '../config/FetchData';
-// import { IMAGE_URL } from '../config/requests';
+import { IMAGE_URL } from '../config/requests';
 // import components
 import GenresList from './GenreList';
+import Loader from './Loader';
+import LoadError from './LoadError';
+
 // import images/icons
 import noImage from '../assets/images/NoImageAvailable.webp';
 import playIcon from '../assets/icons/chevronRight.svg';
 import plusIcon from '../assets/icons/plusSolid.svg';
 import arrowDownIcon from '../assets/icons/chevronDown.svg';
-
-// for fetching mocked image
-const IMAGE_URL = '../mockImages';
 
 /**
  * Renders each carousel slider for each category
@@ -41,7 +41,14 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 
 		responsive: [
 			{
-				breakpoint: 1440,
+				breakpoint: 1680,
+				settings: {
+					slidesToShow: 5,
+					slidesToScroll: 5,
+				},
+			},
+			{
+				breakpoint: 1439,
 				settings: {
 					slidesToShow: 4,
 					slidesToScroll: 4,
@@ -63,7 +70,7 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 				},
 			},
 			{
-				breakpoint: 425,
+				breakpoint: 460,
 				settings: {
 					slidesToShow: 1,
 					slidesToScroll: 1,
@@ -77,11 +84,15 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 		<section className="row">
 			<h2>{title}</h2>
 			{isLoading ? (
-				<div className="row__status">Loading...</div>
+				<div className="row__status">
+					<Loader />
+				</div>
 			) : (
 				<>
 					{isError ? (
-						<div className="row__status">Error...</div>
+						<div className="row__status">
+							<LoadError />
+						</div>
 					) : (
 						<>
 							<Slider {...settings}>
@@ -117,9 +128,9 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 													<img src={arrowDownIcon} alt="Get more information" />
 												</button>
 											</div>
-											<h2>
+											<h3>
 												{movie?.title || movie?.name || movie?.original_title}
-											</h2>
+											</h3>
 											<GenresList genreIds={movie.genre_ids} />
 										</div>
 									</div>

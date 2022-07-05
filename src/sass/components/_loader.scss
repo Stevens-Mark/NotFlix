@@ -1,0 +1,30 @@
+// HTML CSSResult Skip Results Iframe
+// EDIT ON
+.loader {
+  animation: spin 1s steps(12) infinite;
+  aspect-ratio: 1;
+  color: red;
+  display: grid;
+  width: 50px; /* control the size */
+  -webkit-mask: conic-gradient(from 15deg, #0003,#000);
+          mask: conic-gradient(from 15deg, #0003,#000);
+
+}
+.loader,
+.loader:before,
+.loader:after{
+  background:
+    radial-gradient(closest-side at 50% 12.5%,currentColor 90%,#0000 98%) 
+    50% 0/20% 80% repeat-y,
+    radial-gradient(closest-side at 12.5% 50%,currentColor 90%,#0000 98%) 
+    0 50%/80% 20% repeat-x;
+}
+.loader:before,
+.loader:after{
+  content: "";
+  grid-area: 1/1;
+  transform: rotate(30deg);
+}
+.loader:after{
+  transform: rotate(60deg);
+}

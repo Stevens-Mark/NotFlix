@@ -13,27 +13,16 @@ $text-shadow:#000;
 $active: #ccc;
 
 // slidder image heights
-// $slidderImgSHeightSmallScreen: 23vh;
-// $slidderImgSHeightLargeScreen: 18vh;
+$slidderImgSHeightSmallScreen: 190px;
+// $slidderImgSHeightTabletteScreen: 180px;
+$slidderImgSHeightLaptopScreen: 170px;
+$slidderImgSHeightLaptopLargeScreen: 180px;
 
-$slidderImgSHeightSmallScreen: 175px;
-// $slidderImgSHeightTabletteScreen: 270px;
-$slidderImgSHeightLaptopScreen: 160px;
-$slidderImgSHeightLaptopLargeScreen: 150px;
-
-// $bannerImgSHeightLargeScreen: 850px;
-
-// bannner heights
-// $bannerImgSHeightSmallScreen: 50vh;
-// $bannerImgSHeightMediumScreen: 75vh;
-// $bannerImgSHeightLargeScreen: 80vh;
-
-$bannerImgSHeightSmallScreen: 350px;
+// $banner image heights
+$bannerImgSHeightSmallScreen: 400px;
 $bannerImgSHeightTabletteScreen: 550px;
 $bannerImgSHeightLaptopScreen: 650px;
 $bannerImgSHeightLaptopLargeScreen: 750px;
-
-// $bannerImgSHeightLargeScreen: 850px;
 
 // breakpoints
 $tablette: 768px;

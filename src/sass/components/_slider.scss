@@ -3,8 +3,16 @@
 	&__status {
 		align-items: center;
 		display: flex;
+		flex-direction: column;
 		height: $slidderImgSHeightSmallScreen;
 		justify-content: center;
+		text-align: center;
+		img {
+			width: 120px;
+		}
+		p {
+			margin: unset;
+		}
 	}
 	h2 {
 		font-weight: 500;
@@ -23,23 +31,24 @@
 			content: '';
 			position: absolute;
 			top: 5px;
-			left: 10px;
+			left: 9px;
 			bottom: 5px;
-			padding: 5px;
+			// padding: 5px;
 			border-radius: 0.5rem;
 			opacity: 0;
 			transition: opacity 0.6s ease-out;
-			width: 89%;
+			width: 93%;
 			z-index: 0;
+			// background: red;
 			background: linear-gradient(
 				180deg,
 				rgba(255, 255, 255, 0) 0%,
-				rgba(0, 0, 0, 1) 90%
+				rgba(0, 0, 0, 1) 150%
 			);
 		}
 
 		&:hover {
-			transform: scale(1.1);
+			transform: scale(1.08);
 			z-index: 1;
 			.row__itemInfo {
 				transform: translateY(-2px);
@@ -68,7 +77,7 @@
 		transition: transform 600ms ease-out;
 		width: 93.5%;
 		z-index: 1;
-		h2 {
+		h3 {
 			font-size: clamp(0.8rem, 1vw, 1rem);
 			font-weight: 500;
 			margin: 0 0 -5px 0;
@@ -110,11 +119,11 @@
 // for React Slick Slider control arrows
 
 .slick-prev {
-	left: -0.75rem !important;
+	left: -1.2rem !important;
 	z-index: 1;
 }
 .slick-next {
-	right: -0.75rem !important;
+	right: -1.2rem !important;
 	z-index: 1;
 }
 

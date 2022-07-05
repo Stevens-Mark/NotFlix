@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import items needed for data fetch
 import { useFetch } from '../config/FetchData';
-// import { IMAGE_URL } from '../config/requests';
+import { IMAGE_URL } from '../config/requests';
 // import functions
 import { randomSelect } from '../utils/functions';
+// import components
+import Loader from './Loader';
+import LoadError from './LoadError';
 // import images/icons
 import noImage from '../assets/images/NoImageAvailable.webp';
 import infoIcon from '../assets/icons/alert-circle-outline.svg';
 import playIcon from '../assets/icons/play.svg';
-
-// for fetching mocked image
-const IMAGE_URL = '../mockImages';
 
 /**
  * Renders the Banner
@@ -27,9 +27,17 @@ const Banner = ({ fetchUrl }) => {
 	};
 
 	if (isLoading) {
-		return <article className="hero__status">Loading...</article>;
+		return (
+			<article className="hero__status">
+				<Loader />
+			</article>
+		);
 	} else if (isError) {
-		return <article className="hero__status">Error...</article>;
+		return (
+			<article className="hero__status">
+				<LoadError />
+			</article>
+		);
 	} else {
 		const movie = randomSelect(data.results);
 		return (
@@ -41,9 +49,9 @@ const Banner = ({ fetchUrl }) => {
 				/>
 				<div className="hero__shadow" />
 				<div className="hero__info">
-					<h1 className="hero__title">
+					<h2 className="hero__title">
 						{movie?.title || movie?.name || movie?.original_title}
-					</h1>
+					</h2>
 					<span className="buttons">
 						<button
 							className="button button--play"
