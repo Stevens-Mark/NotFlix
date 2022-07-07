@@ -2,9 +2,9 @@ export const API_KEY =  '';
 
 export const BASE_URL = 'https://api.themoviedb.org/3';
 // for fetching real image data
-export const IMAGE_URL = 'https://image.tmdb.org/t/p/original/';
+// export const IMAGE_URL = 'https://image.tmdb.org/t/p/original/';
 // for fetching mocked image
-// export const IMAGE_URL = '../mockImages';
+export const IMAGE_URL = '../mockImages';
 
 export const requests = {
 	// fetchMoviesNowPLaying: `/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`,
