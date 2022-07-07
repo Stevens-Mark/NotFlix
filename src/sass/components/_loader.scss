@@ -3,7 +3,7 @@
 .loader {
   animation: spin 1s steps(12) infinite;
   aspect-ratio: 1;
-  color: red;
+  color: $notflixRed;
   display: grid;
   width: 50px; /* control the size */
   -webkit-mask: conic-gradient(from 15deg, #0003,#000);

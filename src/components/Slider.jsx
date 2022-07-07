@@ -119,7 +119,7 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 													className="row__itemButtons"
 													onClick={() => handleClick(movie)}
 												>
-													<img src={plusIcon} alt="Add film towatch list" />
+													<img src={plusIcon} alt="Add film to watch list" />
 												</button>
 												<button
 													className="row__itemButtons"

@@ -12,7 +12,7 @@ export const homeData = [
 	// { url: requests.fetchDrama, category: 'Drama' },
 ];
 
-export const movies = [
+export const moviesList = [
 	{ url: requests.fetchTrending, category: 'Trending' },
 	{ url: requests.fetchTopRated, category: 'Top Rated Movies' },
 	// { url: requests.fetchFakeflixOriginals, category: 'NotFlix Originals' },
@@ -33,9 +33,9 @@ export const movies = [
 	// { url: requests.fetchDrama, category: 'Drama' },
 ];
 
-export const tvShows = [
+export const tvShowsList = [
 	{ url: requestsTv.fetchTvTrending, category: 'Trending' },
-	{ url: requestsTv.fetchFakeflixOriginals, category: 'NotFlix Originals' },
+	{ url: requests.fetchFakeflixOriginals, category: 'NotFlix Originals' },
 	{ url: requestsTv.fetchTvTopRated, category: 'Top Rated' },
 	{ url: requestsTv.fetchActionAdventureTv, category: 'Action & Adventure' },
 	{ url: requestsTv.fetchFamilyTv, category: 'Family' },
@@ -49,7 +49,7 @@ export const tvShows = [
 	// { url: requests.fetchDrama, category: 'Drama' },
 ];
 
-export const newAndPopular = [
+export const newAndPopularList = [
 	{ url: requests.fetchTrending, category: 'Trending' },
 	{ url: requests.fetchMoviePopular, category: 'Popular Movies' },
 	{ url: requests.fetchMoviesLastest, category: 'Latest Movies' },
