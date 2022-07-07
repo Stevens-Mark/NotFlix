@@ -3,7 +3,6 @@
     text-shadow: 1px 1px 2px $text-shadow;
 }
 
-
 // banner animation mixins
 @mixin animateFadeIn {
     animation: fade 1s both ease-in-out;

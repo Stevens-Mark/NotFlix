@@ -19,12 +19,14 @@ $slidderImgSHeightLaptopScreen: 170px;
 $slidderImgSHeightLaptopLargeScreen: 180px;
 
 // $banner image heights
-$bannerImgSHeightSmallScreen: 350px;
+$bannerImgSHeightMobileSmall: 375px;
+$bannerImgSHeightMobileLarge: 450px;
 $bannerImgSHeightTabletteScreen: 570px;
 $bannerImgSHeightLaptopScreen: 700px;
 $bannerImgSHeightLaptopLargeScreen: 850px;
 
 // breakpoints
+$mobileLarge: 425px;
 $tablette: 768px;
 $laptop: 1024px;
 $laptopLarge: 1440px;

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 /**
  * Component to render Error 404 page
@@ -6,15 +6,16 @@ import { Link } from 'react-router-dom'
  * @returns {JSX}
  */
 const Error = () => {
-  
-  return (
-    <main className="Notification">
-      <h1>404</h1>
-      <p>Oups! The page doesn't exist</p>
-      <Link to="/">Return to the Home Page</Link>
-    </main>
-  )
-}
+	return (
+		<main className="Notification">
+			<div className="Notification__text">
+				<h1>404</h1>
+				<p>Oups! The page doesn't exist</p>
+				<Link to="/">Return to the Home Page</Link>
+			</div>
+		</main>
+	);
+};
 
 export default Error;
 
