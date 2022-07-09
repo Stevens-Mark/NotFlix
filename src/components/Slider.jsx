@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useState } from 'react';
 // import items needed for data fetch
 import { useFetch } from '../config/FetchData';
 import { IMAGE_URL } from '../config/requests';
@@ -10,6 +11,7 @@ import { IMAGE_URL } from '../config/requests';
 import GenresList from './GenreList';
 import Loader from './Loader';
 import LoadError from './LoadError';
+import Modal from './modal';
 
 // import images/icons
 import noImage from '../assets/images/NoImageAvailable.webp';
@@ -28,10 +30,20 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 	const { data, isLoading, isError } = useFetch(fetchUrl);
 	const movies = data.results;
 
-	const handleClick = (movie) => {
-		console.log(movie);
+	const [modalIsOpen, setModalIsOpen] = useState(false);
+	const [movieDetails, setMovieDetails] = useState('');
+
+	const closeModal = () => {
+		setModalIsOpen(false);
+		setMovieDetails('none');
 	};
 
+	const handleClick = (movie) => {
+		setModalIsOpen(true);
+		setMovieDetails(movie);
+	};
+
+	
 	var settings = {
 		dots: false,
 		infinite: true,
@@ -140,6 +152,7 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 					)}
 				</>
 			)}
+			{modalIsOpen && <Modal closeModal={closeModal} movie={movieDetails}/>}
 		</section>
 	);
 };

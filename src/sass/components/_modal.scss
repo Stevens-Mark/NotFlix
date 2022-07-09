@@ -1,0 +1,60 @@
+.modal {
+	width: 100%;
+	height: 100vh;
+	align-items: center;
+	//  animation: ${(props) => props.animation && css` ${fadeIn} 0.5s ease-out forwards`}}
+	background-color: rgba(255, 0, 0, 0.6);
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 999999;
+
+	&__body {
+		//  animation: ${(props) => props.animation && css` ${modalopen} 0.5s ease-out forwards`}}
+		background-color: $burgerMenuBg;
+
+		border-radius: 5px;
+		border: none;
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+		color: #000;
+		max-width: 25rem;
+		position: relative;
+		width: 100%;
+	}
+
+	&__button {
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		position: absolute;
+		right: 0.4rem;
+		top: 0.7rem;
+		img {
+			width: 1.2rem;
+			filter: invert(92%) sepia(93%) saturate(0%) hue-rotate(202deg)
+				brightness(106%) contrast(106%);
+		}
+	}
+	&__content {
+		padding: 1% 1%;
+		h3 {
+			color: $primary-text;
+			font-weight: 200;
+			margin: unset;
+		}
+	}
+
+	&__image {
+		border-radius: 5px 5px 0px 0px;
+		height: 250px;
+		object-fit: fill;
+		object-position: center top;
+		width: 100%;
+		// padding: 8px;
+	}
+}
+
