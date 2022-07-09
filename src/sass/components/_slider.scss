@@ -14,7 +14,7 @@
 			margin: unset;
 		}
 	}
-	h2 {
+	&__title {
 		font-weight: 500;
 		margin-bottom: 0.5rem;
 		font-size: clamp(1.1rem, 0.6rem + 1.6368vw, 1.5rem);
@@ -50,7 +50,7 @@
 			transform: scale(1.075);
 			z-index: 1;
 			.row__itemInfo {
-				transform: translateY(-2px);
+				transform: translateY(-10px);
 			}
 			&::after {
 				opacity: 1;
@@ -80,7 +80,7 @@
 		h3 {
 			font-size: clamp(0.8rem, 1vw, 1rem);
 			font-weight: 500;
-			margin: 0 0 -5px 0;
+			margin: 0 0 2px 5px;
 			@include textShadow;
 		}
 	}

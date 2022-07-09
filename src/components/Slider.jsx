@@ -94,7 +94,7 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 
 	return (
 		<section className="row">
-			<h2>{title}</h2>
+			<h2 className="row__title">{title}</h2>
 			{isLoading ? (
 				<div className="row__status">
 					<Loader />

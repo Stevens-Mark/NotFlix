@@ -10,28 +10,41 @@
 	display: flex;
 	font-size: clamp(0.8rem, 1rem + 1.6368vw, 1rem);
 	margin: 20px 8px 10px 8px;
-	opacity: 0.8;
+	opacity: 1;
 	padding: 5px;
 	width: 8rem;
   cursor: pointer;
   transition: 0.5s;
-  &:hover {
-    background-color: $secondary;;
-    transition: 0.5s;
-  }
+	&:hover {
+		background-color: black;
+		filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
+		brightness(104%) contrast(104%);
+	}
 
 	img {
 		margin-right: 0.5rem;
 		width: 2rem;
 	}
+
 	&--play {
 		background-color: $notflixRed;
 		@include animateButtons;
-
 	}
 	&--info {
 		background-color: $greyDark;
 		@include animateButtons;
 	}
+
+	&--playModal {
+		background-color: $notflixRed;
+		width: 90px;
+		font-size: 1.1rem;
+		margin: 10px 12px;
+		img {
+			width: 1.5rem;
+		}
+	}
+
+
 }
 
