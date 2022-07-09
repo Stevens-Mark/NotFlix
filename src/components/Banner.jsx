@@ -9,7 +9,7 @@ import { randomSelect } from '../utils/functions';
 import Loader from './Loader';
 import LoadError from './LoadError';
 // import images/icons
-import noImage from '../assets/images/NoImageAvailable.webp';
+import noImage from '../assets/images/NoImageAvailableBanner.webp';
 import infoIcon from '../assets/icons/alert-circle-outline.svg';
 import playIcon from '../assets/icons/play.svg';
 
@@ -40,14 +40,18 @@ const Banner = ({ fetchUrl }) => {
 		);
 	} else {
 		const movie = randomSelect(data.results);
+
 		return (
 			<article className="hero">
 				<img
 					className="hero__image"
-					src={movie.poster_path ? `${IMAGE_URL}${movie.poster_path}` : noImage}
+					src={
+						movie.backdrop_path ? `${IMAGE_URL}${movie.backdrop_path}` : noImage
+					}
 					alt={movie?.title || movie?.name || movie?.original_title}
 				/>
-				<div className="hero__shadow" />
+				<span className="hero__mask" />
+				<span className="hero__shadow" />
 				<div className="hero__info">
 					<h2 className="hero__title">
 						{movie?.title || movie?.name || movie?.original_title}

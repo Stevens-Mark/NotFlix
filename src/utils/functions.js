@@ -21,3 +21,8 @@ export const truncateString  = (str, num) => {
   }
   return str.slice(0, num) + '...'
 }
+
+export const getYear = () => {
+  return new Date().getFullYear();
+}
+
