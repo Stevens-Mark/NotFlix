@@ -1,5 +1,10 @@
 import NotFlixLogo from '../assets/images/notflixLogo.png';
 
+/**
+ * Renders error messages if data is not available
+ * @function LoadError
+ * @returns {JSX}
+ */
 const LoadError = () => {
 	return (
 		<>

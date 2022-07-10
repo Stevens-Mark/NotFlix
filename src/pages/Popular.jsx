@@ -1,6 +1,7 @@
-import Banner from '../components/Banner';
+import { useEffect } from 'react';
+import Banner from '../components/Banner'; // import components
 import Slider from '../components/Slider';
-import { newAndPopularList } from '../config/dataToLoad';
+import { newAndPopularList } from '../config/dataToLoad'; // import list of popular tv/films
 import { randomSelect } from '../utils/functions';
 
 /**
@@ -9,10 +10,13 @@ import { randomSelect } from '../utils/functions';
  * @returns {JSX}
  */
 const Popular = () => {
+	useEffect(() => {
+		document.title = 'NotFlix | Popular';
+	}, []);
 
 	return (
 		<main>
-			<h1 className="sr-only">Welcome to NotFlix - Movie Page</h1>
+			<h1 className="sr-only">Welcome to NotFlix - Popular Page</h1>
 			<Banner fetchUrl={randomSelect(newAndPopularList).url} />
 			{newAndPopularList.map((data) => (
 				<Slider key={data.category} title={data.category} fetchUrl={data.url} />
@@ -22,3 +26,4 @@ const Popular = () => {
 };
 
 export default Popular;
+

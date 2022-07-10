@@ -1,6 +1,7 @@
-import Banner from '../components/Banner';
+import { useEffect } from 'react';
+import Banner from '../components/Banner'; // import components
 import Slider from '../components/Slider';
-import { homeData } from '../config/dataToLoad';
+import { homeData } from '../config/dataToLoad'; // import home page list
 import { randomSelect } from '../utils/functions';
 
 /**
@@ -9,6 +10,9 @@ import { randomSelect } from '../utils/functions';
  * @returns {JSX}
  */
 const Home = () => {
+	useEffect(() => {
+		document.title = 'NotFlix | Home';
+	}, []);
 
 	return (
 		<main>
@@ -22,3 +26,4 @@ const Home = () => {
 };
 
 export default Home;
+

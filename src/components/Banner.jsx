@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GlobalContext } from '../context/globalProvider';
 import PropTypes from 'prop-types';
 // import items needed for data fetch
 import { useFetch } from '../config/FetchData';
 import { IMAGE_URL } from '../config/requests';
-// import functions
 import { randomSelect } from '../utils/functions';
 // import components
 import Loader from './Loader';
@@ -20,9 +20,14 @@ import playIcon from '../assets/icons/play.svg';
  * @returns {JSX} banner with image randomly selected
  */
 const Banner = ({ fetchUrl }) => {
+	const { showMovieDetails } = useContext(GlobalContext);
 	const { data, isLoading, isError } = useFetch(fetchUrl);
 
-	const handleClick = (movie) => {
+	const handleDetails = (movie) => {
+		showMovieDetails(movie);	// show movie details in modal
+	};
+
+	const handlePlay = (movie) => {
 		console.log(movie);
 	};
 
@@ -59,14 +64,14 @@ const Banner = ({ fetchUrl }) => {
 					<span className="buttons">
 						<button
 							className="button button--play"
-							onClick={() => handleClick(movie)}
+							onClick={() => handlePlay(movie)}
 						>
 							<img src={playIcon} alt="" />
 							Play
 						</button>
 						<button
 							className="button button--info"
-							onClick={() => handleClick(movie)}
+							onClick={() => handleDetails(movie)}
 						>
 							<img src={infoIcon} alt="" />
 							More Info

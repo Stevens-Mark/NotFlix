@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 /**
@@ -6,6 +7,10 @@ import { Link } from 'react-router-dom';
  * @returns {JSX}
  */
 const Error = () => {
+	useEffect(() => {
+		document.title = 'NotFlix | Error';
+	}, []);
+
 	return (
 		<main className="Notification">
 			<div className="Notification__text">

@@ -1,6 +1,7 @@
-import Banner from '../components/Banner';
+import { useEffect } from 'react';
+import Banner from '../components/Banner'; // import components
 import Slider from '../components/Slider';
-import { moviesList } from '../config/dataToLoad';
+import { moviesList } from '../config/dataToLoad'; // import list of films
 import { randomSelect } from '../utils/functions';
 
 /**
@@ -9,6 +10,9 @@ import { randomSelect } from '../utils/functions';
  * @returns {JSX}
  */
 const Movies = () => {
+	useEffect(() => {
+		document.title = 'NotFlix | Movies';
+	}, []);
 
 	return (
 		<main>
@@ -22,3 +26,4 @@ const Movies = () => {
 };
 
 export default Movies;
+

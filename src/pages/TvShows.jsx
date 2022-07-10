@@ -1,6 +1,7 @@
-import Banner from '../components/Banner';
+import { useEffect } from 'react';
+import Banner from '../components/Banner'; // import components
 import Slider from '../components/Slider';
-import { tvShowsList } from '../config/dataToLoad';
+import { tvShowsList } from '../config/dataToLoad'; // import list of tv shows
 import { randomSelect } from '../utils/functions';
 
 /**
@@ -9,10 +10,13 @@ import { randomSelect } from '../utils/functions';
  * @returns {JSX}
  */
 const TvShows = () => {
+	useEffect(() => {
+		document.title = 'NotFlix | TV Shows';
+	}, []);
 
 	return (
 		<main>
-			<h1 className="sr-only">Welcome to NotFlix - Movie Page</h1>
+			<h1 className="sr-only">Welcome to NotFlix - Tv Shows Page</h1>
 			<Banner fetchUrl={randomSelect(tvShowsList).url} />
 			{tvShowsList.map((data) => (
 				<Slider key={data.category} title={data.category} fetchUrl={data.url} />
@@ -22,3 +26,4 @@ const TvShows = () => {
 };
 
 export default TvShows;
+

@@ -12,7 +12,7 @@ const GoToTop = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 300) {
+      if (window.pageYOffset > 350) {
         setShowButton(true)
       } else {
         setShowButton(false)

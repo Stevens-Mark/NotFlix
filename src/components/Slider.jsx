@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GlobalContext } from '../context/globalProvider';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useState } from 'react';
 // import items needed for data fetch
 import { useFetch } from '../config/FetchData';
 import { IMAGE_URL } from '../config/requests';
@@ -11,8 +11,6 @@ import { IMAGE_URL } from '../config/requests';
 import GenresList from './GenreList';
 import Loader from './Loader';
 import LoadError from './LoadError';
-import Modal from './modal';
-
 // import images/icons
 import noImage from '../assets/images/NoImageAvailable.webp';
 import playIcon from '../assets/icons/chevronRight.svg';
@@ -27,23 +25,24 @@ import arrowDownIcon from '../assets/icons/chevronDown.svg';
  * @returns
  */
 const SimpleSlider = ({ title, fetchUrl }) => {
+	const { showMovieDetails } = useContext(GlobalContext);
+
 	const { data, isLoading, isError } = useFetch(fetchUrl);
 	const movies = data.results;
 
-	const [modalIsOpen, setModalIsOpen] = useState(false);
-	const [movieDetails, setMovieDetails] = useState('');
-
-	const closeModal = () => {
-		setModalIsOpen(false);
-		setMovieDetails('none');
+		const handlePlay = (movie) => {
+		console.log(movie);
 	};
 
-	const handleClick = (movie) => {
-		setModalIsOpen(true);
-		setMovieDetails(movie);
+	const handleLike = (movie) => { // Actions: when 1 of 3 buttons clicked
+		console.log(movie);
 	};
 
-	
+	const handleDetails = (movie) => {
+		showMovieDetails(movie);	// show movie details in modal
+	};
+
+
 	var settings = {
 		dots: false,
 		infinite: true,
@@ -123,19 +122,19 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 											<div className="row__buttons">
 												<button
 													className="row__itemButtons"
-													onClick={() => handleClick(movie)}
+													onClick={() => handlePlay(movie)}
 												>
 													<img src={playIcon} alt="Watch trailer" />
 												</button>
 												<button
 													className="row__itemButtons"
-													onClick={() => handleClick(movie)}
+													onClick={() => handleLike(movie)}
 												>
 													<img src={plusIcon} alt="Add film to watch list" />
 												</button>
 												<button
 													className="row__itemButtons"
-													onClick={() => handleClick(movie)}
+													onClick={() => handleDetails(movie)}
 												>
 													<img src={arrowDownIcon} alt="Get more information" />
 												</button>
@@ -152,7 +151,6 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 					)}
 				</>
 			)}
-			{modalIsOpen && <Modal closeModal={closeModal} movie={movieDetails}/>}
 		</section>
 	);
 };

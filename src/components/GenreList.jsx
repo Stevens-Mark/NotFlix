@@ -1,5 +1,6 @@
 import { genresData } from '../config/genres';
 import PropTypes from 'prop-types';
+
 /**
  *@function GenresList
  * @param {array} genreIds: id Nos of categories/genres for film/series
