@@ -1,5 +1,4 @@
 .modal {
-	// margin: 0.5rem;
 	//  animation: ${(props) => props.animation && css` ${fadeIn} 0.5s ease-out forwards`}}
 	// background-color: rgba(34, 34, 34, 0.8);
 	background-color: rgba(0, 0, 0, 0.7);
@@ -13,17 +12,16 @@
 	z-index: 999999;
 
 	&__body {
-		//  animation: ${(props) => props.animation && css` ${modalopen} 0.5s ease-out forwards`}}
+		animation: modalopen 0.8s ease-out both;
 		background-color: $tertiary;
 		border-radius: 5px;
 		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 		height: 95vh;
-		left: 50%;
+		// left: 50%;
 		position: fixed;
-		top: 50%;
-		transform: translate(-50%, -50%);
+		top: 7%;
+		// transform: translate(-50%, -50%);
 		width: 95vw;
-
 		overflow-y: auto; // Hide scroll bar, but while still being able to scroll using CSS
 		&::-webkit-scrollbar {
 			width: 0px !important;
@@ -115,24 +113,30 @@
 		h1 {
 			font-size: 1.6rem;
 		}
+		h2 {
+			border-top: 2px solid $quaternary;
+			font-size: 1.2rem;
+			font-weight: 400;
+			padding-top: 1rem;
+		}
 	}
 
 	&__details {
-		border-top: 2px solid $quaternary;
-		h2 {
-			margin: 10px 0px;
-			font-size: 1.2rem;
-			font-weight: 400;
-		}
-		p {
-			font-size: 0.9rem;
-		}
-	}
+		display: grid;
+		grid-template-columns: 1fr 2fr;
 
-	&__genres {
-		display: flex;
-		align-items: center;
-		margin-bottom: -10px;
+		&__label {
+			color: $label-text;
+			font-size: 0.9rem;
+			padding: 5px 0px; 
+			white-space: nowrap;
+		}
+
+		&__text {
+			font-size: 0.9rem;
+			margin-left: 5px;
+			padding: 5px 0px; 
+		}
 	}
 }
 
@@ -150,12 +154,18 @@
 	.modal__buttons {
 		top: 290px;
 	}
-	.modal__details {
+	.modal__detailsContainer {
 		h2 {
-			font-size: 1.3rem;
+			font-size: 1.4rem;
 		}
-		p {
+	}
+	.modal__details {
+		&__label {
+			font-size: 1rem;
+		}
+		&__text {
 			font-size: 1rem;
 		}
 	}
 }
+

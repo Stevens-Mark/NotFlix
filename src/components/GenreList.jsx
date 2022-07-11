@@ -19,7 +19,7 @@ const GenresList = ({ genreIds, variants }) => {
 		<ul className="listGroup">
 			{cleanList.map(name => 
 				<li className={`listGroup__item listGroup__item--${variants}`} key={name}>
-					{name}
+					{name}.
 				</li>
 			)}
 		</ul>
