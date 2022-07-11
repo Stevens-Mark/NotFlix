@@ -19,7 +19,7 @@
 		height: 95vh;
 		// left: 50%;
 		position: fixed;
-		top: 7%;
+		top: 1%;
 		// transform: translate(-50%, -50%);
 		width: 95vw;
 		overflow-y: auto; // Hide scroll bar, but while still being able to scroll using CSS
@@ -144,9 +144,10 @@
 
 @media (min-width: $mobileXtraLarge) {
 	.modal__body {
+		top: 7%;
 		height: 80vh;
 		max-height: 800px;
-		width: 600px;
+		width: 594px;
 	}
 	.modal__image {
 		height: 345px;

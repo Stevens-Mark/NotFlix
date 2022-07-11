@@ -1,23 +1,22 @@
-import PropTypes from "prop-types";
-import React, { useEffect, useContext } from "react";
-import { GlobalContext } from "../context/globalProvider";
+import PropTypes from 'prop-types';
+import React, { useEffect, useContext } from 'react';
+import { GlobalContext } from '../context/globalProvider';
 // import components/functions
-import { IMAGE_URL } from "../config/requests";
-import GenresList from "./GenreList";
-import { ConvertDate, capitalize } from "../utils/functions";
+import { IMAGE_URL } from '../config/requests';
+import GenresList from './GenreList';
+import { ConvertDate, capitalize } from '../utils/functions';
 // import images/icons
-import noImage from "../assets/images/NoImageAvailable.webp";
-import closeButton from "../assets/icons/xmark.svg";
-import playIcon from "../assets/icons/play.svg";
-import plusIcon from "../assets/icons/plusSolid.svg";
+import noImage from '../assets/images/NoImageAvailable.webp';
+import closeButton from '../assets/icons/xmark.svg';
+import playIcon from '../assets/icons/play.svg';
+import plusIcon from '../assets/icons/plusSolid.svg';
 
 /**
  * Renders a  modal
  * @function Modal
- * @param {boolean} animation: optionally animate modal or not
  * @returns {JSX}
  */
-const Modal = ({ animation }) => {
+const Modal = () => {
 	const { modalIsOpen, movie, closeModal } = useContext(GlobalContext);
 
 	// const activeElement = document.activeElement;
@@ -52,10 +51,10 @@ const Modal = ({ animation }) => {
 	};
 
 	useEffect(() => {
-		document.addEventListener("keydown", handleKeydown);
+		document.addEventListener('keydown', handleKeydown);
 		// document.querySelector(".modal__closeButton").focus();
 		return () => {
-			document.removeEventListener("keydown", handleKeydown); // Detach listener when component unmounts
+			document.removeEventListener('keydown', handleKeydown); // Detach listener when component unmounts
 			// activeElement.focus(); // Return focus to the previously focused element
 		};
 	});
@@ -65,12 +64,11 @@ const Modal = ({ animation }) => {
 			{modalIsOpen && (
 				<div
 					className="modal"
-					animation={animation}
 					role="dialog"
 					aria-modal="true"
 					aria-labelledby="modal__title"
 				>
-					<div className="modal__body" animation={animation}>
+					<div className="modal__body">
 						<button
 							aria-label="Close"
 							className="modal__closeButton"
@@ -78,6 +76,7 @@ const Modal = ({ animation }) => {
 						>
 							<img src={closeButton} alt="close modal" />
 						</button>
+
 						<div className="modal__content">
 							<img
 								className="modal__image"
@@ -104,33 +103,42 @@ const Modal = ({ animation }) => {
 									<img src={plusIcon} alt="Add film to watch list" />
 								</button>
 							</div>
+
 							<div className="modal__detailsContainer">
 								<h1 id="modal__title">
 									{movie?.title || movie?.name || movie?.original_title}
 								</h1>
-								<p>{movie.overview ? movie.overview : "Not available"}</p>
+								<p className="modal__details__text">
+									{movie.overview ? movie.overview : 'Not available'}
+								</p>
+
+								<h2>Details</h2>
 								<div className="modal__details">
-									<h2>Details</h2>
-									<span className="modal__genres">
-										<p>Genres : </p>{" "}
-										<GenresList genreIds={movie.genre_ids} variants={"modal"} />
+									<span className="modal__details__label">Genres : </span>
+									<span className="modal__details__text">
+									<GenresList genreIds={movie.genre_ids} variants={'modal'} /></span>
+
+									<span className="modal__details__label">
+										Original Language :{' '}
 									</span>
-									<p>
-										Original Language : {capitalize(movie?.original_language)}
-									</p>
-									<p>
-										Release Date :{" "}
+									<span className="modal__details__text">
+										{capitalize(movie?.original_language)}
+									</span>
+
+									<span className="modal__details__label">Release Date : </span>
+									<span className="modal__details__text">
 										{movie.release_date
 											? ConvertDate(movie.release_date)
-											: "Not Available"}
-									</p>
-									<p>
-										Average Vote :{" "}
+											: 'Not Available'}
+									</span>
+
+									<span className="modal__details__label">Average Vote : </span>
+									<span className="modal__details__text">
 										{movie.vote_average
 											? Math.round(movie.vote_average)
-											: "No Available"}{" "}
+											: 'No Available'}{' '}
 										%
-									</p>
+									</span>
 								</div>
 							</div>
 						</div>

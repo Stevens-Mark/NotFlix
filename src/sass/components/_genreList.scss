@@ -17,11 +17,19 @@
 
 		&--modal {
 			font-size: 0.9rem;
+			flex-wrap: wrap;
+			display: flex;
 		}
 	}
 }
 
 // MEDIA QUERIES
+
+@media (min-width: $mobileXtraLarge) {
+	.listGroup__item--modal {
+		display: unset;
+	}
+}
 
 @media (min-width: $tablette) {
 	.listGroup__item--modal {
