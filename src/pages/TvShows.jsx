@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import Banner from '../components/Banner'; // import components
-import Slider from '../components/Slider';
+import Slider from '../components/Slidder';
 import { tvShowsList } from '../config/dataToLoad'; // import list of tv shows
 import { randomSelect } from '../utils/functions';
 

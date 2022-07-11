@@ -12,8 +12,8 @@ const Error = () => {
 	}, []);
 
 	return (
-		<main className="Notification">
-			<div className="Notification__text">
+		<main className="notification">
+			<div className="notification__text">
 				<h1>404</h1>
 				<p>Oups! The page doesn't exist</p>
 				<Link to="/">Return to the Home Page</Link>

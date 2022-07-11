@@ -18,13 +18,13 @@ import plusIcon from '../assets/icons/plusSolid.svg';
 import arrowDownIcon from '../assets/icons/chevronDown.svg';
 
 /**
- * Renders each carousel slider for each category
- * @function SimpleSlider
+ * Renders each carousel slidder for each category
+ * @function SimpleSlidder
  * @param {string} title of category
  * @param {string} fetchUrl: URL endpoint to make a data request for assocaited category
  * @returns
  */
-const SimpleSlider = ({ title, fetchUrl }) => {
+const SimpleSlidder = ({ title, fetchUrl }) => {
 	const { showMovieDetails } = useContext(GlobalContext);
 
 	const { data, isLoading, isError } = useFetch(fetchUrl);
@@ -108,32 +108,32 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 						<>
 							<Slider {...settings}>
 								{movies.map((movie) => (
-									<div className="row__item" key={movie.id}>
+									<div className="row__movie" key={movie.id}>
 										<img
-											className="row__item__image"
+											className="row__movieImage"
 											src={
-												movie.poster_path
-													? `${IMAGE_URL}${movie.poster_path}`
+												movie.backdrop_path
+													? `${IMAGE_URL}${movie.backdrop_path}`
 													: noImage
 											}
 											alt={movie?.title || movie?.name || movie?.original_title}
 										/>
-										<div className="row__itemInfo">
-											<div className="row__buttons">
+										<div className="row__buttonsContainer">
+											<div className="row__movieButtonsRow">
 												<button
-													className="row__itemButtons"
+													className="row__movieButtons"
 													onClick={() => handlePlay(movie)}
 												>
 													<img src={playIcon} alt="Watch trailer" />
 												</button>
 												<button
-													className="row__itemButtons"
+													className="row__movieButtons"
 													onClick={() => handleLike(movie)}
 												>
 													<img src={plusIcon} alt="Add film to watch list" />
 												</button>
 												<button
-													className="row__itemButtons"
+													className="row__movieButtons"
 													onClick={() => handleDetails(movie)}
 												>
 													<img src={arrowDownIcon} alt="Get more information" />
@@ -142,7 +142,7 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 											<h3>
 												{movie?.title || movie?.name || movie?.original_title}
 											</h3>
-											<GenresList genreIds={movie.genre_ids} />
+											<GenresList genreIds={movie.genre_ids} variants={"slidder"}/>
 										</div>
 									</div>
 								))}
@@ -155,10 +155,10 @@ const SimpleSlider = ({ title, fetchUrl }) => {
 	);
 };
 
-export default SimpleSlider;
+export default SimpleSlidder;
 
 // Prototypes
-SimpleSlider.propTypes = {
+SimpleSlidder.propTypes = {
 	title: PropTypes.string,
 	fetchUrl: PropTypes.string,
 };

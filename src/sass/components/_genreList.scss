@@ -8,8 +8,24 @@
 
 	&__item {
 		display: inline;
-		font-size: 0.8rem;
 		margin: 0px 5px;
 		@include textShadow;
+
+		&--slidder {
+			font-size: 0.8rem;
+		}
+
+		&--modal {
+			font-size: 0.9rem;
+		}
 	}
 }
+
+// MEDIA QUERIES
+
+@media (min-width: $tablette) {
+	.listGroup__item--modal {
+		font-size: 1rem;
+	}
+}
+

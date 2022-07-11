@@ -5,7 +5,7 @@
 	display: flex;
 	flex-direction: row;
 	font-size: clamp(1rem, 2vw, 1.5rem);
-	height: 80px;
+	height: 5rem;
 	max-width: 1920px;
 	padding: 2rem;
 	position: fixed;
@@ -65,7 +65,7 @@
 .menu-button,
 .menu-button::before,
 .menu-button::after {
-	background-color: $burger;
+	background-color: $primary-text;
 	border-radius: 2px;
 	display: block;
 	height: 4px;
@@ -76,16 +76,16 @@
 
 .menu-button::before {
 	content: '';
-	margin-top: -8px;
+	margin-top: -0.5rem;
 }
 
 .menu-button::after {
 	content: '';
-	margin-top: 8px;
+	margin-top: 0.5rem;
 }
 
 #menu-toggle:checked + .menu-button-container .menu-button::before {
-	margin-top: 0px;
+	margin-top: 0rem;
 	transform: rotate(405deg);
 }
 
@@ -94,10 +94,9 @@
 }
 
 #menu-toggle:checked + .menu-button-container .menu-button::after {
-	margin-top: 0px;
+	margin-top: 0rem;
 	transform: rotate(-405deg);
 }
-
 
 //  MEDIA QUERIES
 
@@ -124,6 +123,7 @@
 		padding: 0;
 		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
 	}
+
 	#menu-toggle:checked ~ .menu a {
 		border: 1px solid #333;
 		// height: 3.5em;
@@ -134,7 +134,7 @@
 	}
 
 	.menu > a {
-		background-color: $burgerMenuBg;
+		background-color: $tertiary;
 		color: $primary-text;
 		display: flex;
 		justify-content: center;
@@ -153,3 +153,4 @@
 		justify-content: space-between;
 	}
 }
+

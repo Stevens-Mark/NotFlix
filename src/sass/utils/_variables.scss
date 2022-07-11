@@ -1,16 +1,15 @@
 $primary: #000;
 $secondary: #141414;
-$tertiary: #99E2D0;
-$quaternary:  #ccc;
+$tertiary: #222;
+$quaternary: #ccc;
 
 $greyDark: #7e7e7e;
-$primary-text:#fff;
-
-$burger: #fff;
-$burgerMenuBg: #222;
-$text-shadow:#000;
 $notflixRed: #cc3333;
 $active: #ccc;
+
+$primary-text: #fff;
+$text-shadow: #000;
+
 
 // slidder image heights
 $slidderImgSHeightSmallScreen: 190px;
@@ -19,16 +18,18 @@ $slidderImgSHeightLaptopScreen: 170px;
 $slidderImgSHeightLaptopLargeScreen: 180px;
 
 // $banner image heights
-$bannerImgSHeightMobileSmall: 375px;
-$bannerImgSHeightMobileLarge: 450px;
-$bannerImgSHeightTabletteScreen: 570px;
+$bannerImgSHeightMobileSmall: 500px;
+$bannerImgSHeightMobileMedium: 550px;
+$bannerImgSHeightTabletteScreen: 600px;
 $bannerImgSHeightLaptopScreen: 700px;
 $bannerImgSHeightLaptopLargeScreen: 850px;
 
 // breakpoints
-$mobileLarge: 425px;
+$mobileMedium: 425px;
+$mobileXtraLarge: 600px;
 $tablette: 768px;
 $laptop: 1024px;
 $laptopLarge: 1440px;
 $Xtralarge: 1700px;
+$XXtralarge: 1950px;
 

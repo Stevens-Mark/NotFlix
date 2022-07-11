@@ -1,4 +1,4 @@
-.Notification {
+.notification {
 	align-items: center;
 	color: $notflixRed;
 	display: flex;
@@ -31,11 +31,11 @@
 		p {
 			font-size: clamp(1.125rem, 2.5vw, 2.5rem);
 			font-weight: 500;
-      color: $active;
+      color: $quaternary;
 		}
 
 		a {
-			color: $active;
+			color: $quaternary;
 			font-size: clamp(0.875rem, 1.5vw, 1.375rem);
 			font-weight: 500;
     }

@@ -10,11 +10,11 @@
   width: fit-content;
   z-index: 9999;
 
-  img{
+  img {
     background: $notflixRed;
     border-radius: 50%;
     border: 2px solid white;
-    padding: 10px;
+    padding: 0.625rem;
     transition:  0.6s;
     width: clamp(2.2rem, 3vw, 3rem);
     aspect-ratio: 1;
@@ -27,7 +27,7 @@
     }
   }
  
-  @media screen and (min-width: 1950px) {
+  @media screen and (min-width: $XXtralarge) {
     left: 50%;
     transform: translate(-50%, 0); 
     bottom: 7.5rem;

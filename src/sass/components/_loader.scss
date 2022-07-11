@@ -9,8 +9,8 @@
   width: 50px; /* control the size */
   -webkit-mask: conic-gradient(from 15deg, #0003,#000);
           mask: conic-gradient(from 15deg, #0003,#000);
-
 }
+
 .loader,
 .loader:before,
 .loader:after{
@@ -20,12 +20,14 @@
     radial-gradient(closest-side at 12.5% 50%,currentColor 90%,#0000 98%) 
     0 50%/80% 20% repeat-x;
 }
+
 .loader:before,
 .loader:after{
   content: "";
   grid-area: 1/1;
   transform: rotate(30deg);
 }
+
 .loader:after{
   transform: rotate(60deg);
 }

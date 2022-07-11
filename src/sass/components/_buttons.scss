@@ -8,11 +8,11 @@
 	border: none;
 	color: $primary-text;
 	display: flex;
-	font-size: clamp(0.8rem, 1rem + 1.6368vw, 1rem);
-	margin: 20px 8px 10px 8px;
+	font-size: 14px;
+	margin: 20px 8px 4px 8px;
 	opacity: 1;
 	padding: 5px;
-	width: 8rem;
+	width: 7rem;
   cursor: pointer;
   transition: 0.5s;
 	&:hover {
@@ -23,13 +23,14 @@
 
 	img {
 		margin-right: 0.5rem;
-		width: 2rem;
+		width: 1.7rem;
 	}
 
 	&--play {
 		background-color: $notflixRed;
 		@include animateButtons;
 	}
+
 	&--info {
 		background-color: $greyDark;
 		@include animateButtons;
@@ -38,7 +39,7 @@
 	&--playModal {
 		background-color: $notflixRed;
 		width: 90px;
-		font-size: 1.1rem;
+		// font-size: 1.1rem;
 		margin: 10px 12px;
 		img {
 			width: 1.5rem;
@@ -48,3 +49,33 @@
 
 }
 
+
+// MEDIA QUERIES
+
+@media (min-width: $tablette) {
+	.button {
+    font-size: 16px;
+    padding: 7px;
+	
+		&--play, &--info {
+			width: 8rem;
+		}
+		&--playModal {
+			width: 6rem;
+		}
+	}
+
+}
+
+@media (min-width: $laptopLarge) {
+	.button {
+    font-size: 20px;
+    padding: 10px;
+		&--play, &--info {
+			width: 9rem;
+		}
+		&--playModal {
+			width: 7rem;
+		}
+	}
+}

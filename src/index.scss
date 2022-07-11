@@ -16,8 +16,7 @@ body {
 	max-width: 1920px;
 	margin: auto;
 	// margin: 0;
-	font-family: 'Netflix', Arial, 'Segoe UI', 'Roboto', 'Oxygen', serif,
-		sans-serif;
+	font-family: 'Netflix', Arial, serif, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -28,6 +27,6 @@ body {
 
 main {
 	animation: fade 1s both ease-in-out;
-	// margin-bottom: 2rem;
 	min-height: 90vh;
 }
+
