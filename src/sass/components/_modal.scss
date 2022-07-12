@@ -119,8 +119,9 @@
 			padding-top: 1rem;
 		}
 	}
-
+	
 	&__details {
+		
 		display: grid;
 		grid-template-columns: 1fr 2fr;
 		span {
@@ -129,6 +130,7 @@
 		}
 
 		&__overview {
+			@include animateOverview;
 			font-size: 0.9rem;
 			padding: 5px 0px;
 		}
@@ -136,10 +138,20 @@
 		&__label {
 			color: $label-text;
 			white-space: nowrap;
+			animation: detailsFade $card-animation-time both ease-in-out;
 		}
 
 		&__text {
 			margin-left: 5px;
+			animation: detailsFade $card-animation-time both ease-in-out;
+		}
+		&__animate {
+			@for $i from 1 through $number-of-cards {
+				&--#{$i} {
+						animation-delay: $time-delay * $i;  /*card time delay based on it's position, ie, fraction of the total time x1, x2, x3...*/
+				}
+			}
+	
 		}
 	}
 }
@@ -151,7 +163,7 @@
 		&__body {
 			// top: 7%;
 			// height: 80vh;
-			max-height: 730px;
+			max-height: 750px;
 			width: 590px;
 		}
 		&__image {

@@ -122,27 +122,27 @@ const Modal = () => {
 							<article>
 								<h2>Details</h2>
 								<div className="modal__details">
-									<span className="modal__details__label">Genres : </span>
-									<span className="modal__details__text">
+									<span className="modal__details__label modal__details__animate--1">Genres : </span>
+									<span className="modal__details__text modal__details__animate--1">
 										<GenresList genreIds={movie.genre_ids} variants={'modal'} />
 									</span>
 
-									<span className="modal__details__label">
+									<span className="modal__details__label modal__details__animate--2">
 										Original Language :{' '}
 									</span>
-									<span className="modal__details__text">
+									<span className="modal__details__text modal__details__animate--2">
 										{capitalize(movie?.original_language)}
 									</span>
 
-									<span className="modal__details__label">Release Date : </span>
-									<span className="modal__details__text">
+									<span className="modal__details__label modal__details__animate--3">Release Date : </span>
+									<span className="modal__details__text modal__details__animate--3">
 										{movie.release_date
 											? ConvertDate(movie.release_date)
 											: 'Not Available'}
 									</span>
 
-									<span className="modal__details__label">Average Vote : </span>
-									<span className="modal__details__text">
+									<span className="modal__details__label modal__details__animate--4">Average Vote : </span>
+									<span className="modal__details__text modal__details__animate--4">
 										{movie.vote_average
 											? Math.round(movie.vote_average)
 											: 'No Available'}

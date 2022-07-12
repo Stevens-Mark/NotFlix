@@ -33,3 +33,8 @@ $laptopLarge: 1440px;
 $Xtralarge: 1700px;
 $XXtralarge: 1950px;
 
+/*variables used for menu card animation*/
+$number-of-cards: 4;
+$card-animation-time: 1s;
+$time-delay: $card-animation-time / $number-of-cards;
+/*calculates the delay time between each card based on the number of cards & the total time of animation*/
