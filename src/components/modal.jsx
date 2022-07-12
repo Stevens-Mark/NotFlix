@@ -67,17 +67,17 @@ const Modal = () => {
 					role="dialog"
 					aria-modal="true"
 					aria-labelledby="modal__title"
-				>
+					>
 					<div className="modal__body">
-						<button
-							aria-label="Close"
-							className="modal__closeButton"
-							onClick={() => closeModal()}
-						>
-							<img src={closeButton} alt="close modal" />
-						</button>
+						<header>
+							<button
+								aria-label="Close"
+								className="modal__closeButton"
+								onClick={() => closeModal()}
+							>
+								<img src={closeButton} alt="close modal" />
+							</button>
 
-						<div className="modal__content">
 							<img
 								className="modal__image"
 								src={
@@ -88,7 +88,7 @@ const Modal = () => {
 								alt={movie?.title || movie?.name || movie?.original_title}
 							/>
 
-							<div className="modal__buttons">
+							<span className="modal__buttons">
 								<button
 									className="button button--playModal"
 									onClick={() => handleClick(movie)}
@@ -102,21 +102,23 @@ const Modal = () => {
 								>
 									<img src={plusIcon} alt="Add film to watch list" />
 								</button>
-							</div>
+							</span>
+						</header>
 
-							<div className="modal__detailsContainer">
-								<h1 id="modal__title">
-									{movie?.title || movie?.name || movie?.original_title}
-								</h1>
-								<p className="modal__details__text">
-									{movie.overview ? movie.overview : 'Not available'}
-								</p>
-
+						<section className="modal__content">
+							<h1 id="modal__title">
+								{movie?.title || movie?.name || movie?.original_title}
+							</h1>
+							<p className="modal__details__overview">
+								{movie.overview ? movie.overview : 'Not available'}
+							</p>
+							<article>
 								<h2>Details</h2>
 								<div className="modal__details">
 									<span className="modal__details__label">Genres : </span>
 									<span className="modal__details__text">
-									<GenresList genreIds={movie.genre_ids} variants={'modal'} /></span>
+										<GenresList genreIds={movie.genre_ids} variants={'modal'} />
+									</span>
 
 									<span className="modal__details__label">
 										Original Language :{' '}
@@ -140,8 +142,8 @@ const Modal = () => {
 										%
 									</span>
 								</div>
-							</div>
-						</div>
+							</article>
+						</section>
 					</div>
 				</div>
 			)}

@@ -67,7 +67,7 @@ const Modal = () => {
 					role="dialog"
 					aria-modal="true"
 					aria-labelledby="modal__title"
-				>
+					>
 					<div className="modal__body">
 						<button
 							aria-label="Close"

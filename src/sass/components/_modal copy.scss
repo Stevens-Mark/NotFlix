@@ -12,7 +12,6 @@
 	z-index: 999999;
 
 	&__body {
-		padding: 5px;
 		animation: modalopen 0.8s ease-out both;
 		background-color: $tertiary;
 		border-radius: 5px;
@@ -60,6 +59,12 @@
 		}
 	}
 
+	&__content {
+		position: relative;
+		padding: 1% 1%;
+		color: $primary-text;
+	}
+
 	&__image {
 		border-radius: 5px 5px 0px 0px;
 		height: 400px;
@@ -103,13 +108,10 @@
 		}
 	}
 
-	&__content {
-		position: relative;
-		padding: 0px 10px 10px;
-		color: $primary-text;
+	&__detailsContainer {
+		padding: 10px;
 		h1 {
 			font-size: 1.6rem;
-			margin: 0px;
 		}
 		h2 {
 			border-top: 2px solid $quaternary;
@@ -122,23 +124,18 @@
 	&__details {
 		display: grid;
 		grid-template-columns: 1fr 2fr;
-		span {
-			font-size: 0.9rem;
-			padding: 5px 0px;
-		}
-
-		&__overview {
-			font-size: 0.9rem;
-			padding: 5px 0px;
-		}
 
 		&__label {
 			color: $label-text;
+			font-size: 0.9rem;
+			padding: 5px 0px; 
 			white-space: nowrap;
 		}
 
 		&__text {
+			font-size: 0.9rem;
 			margin-left: 5px;
+			padding: 5px 0px; 
 		}
 	}
 }
@@ -146,29 +143,30 @@
 // MEDIA QUERIES
 
 @media (min-width: $mobileXtraLarge) {
-	.modal {
-		&__body {
-			top: 7%;
-			height: 80vh;
-			max-height: 800px;
-			width: 590px;
+	.modal__body {
+		top: 7%;
+		height: 80vh;
+		max-height: 800px;
+		width: 594px;
+	}
+	.modal__image {
+		height: 345px;
+	}
+	.modal__buttons {
+		top: 290px;
+	}
+	.modal__detailsContainer {
+		h2 {
+			font-size: 1.4rem;
 		}
-		&__image {
-			height: 345px;
+	}
+	.modal__details {
+		&__label {
+			font-size: 1rem;
 		}
-		&__buttons {
-			top: 290px;
-		}
-		&__content {
-			h2 {
-				font-size: 1.4rem;
-			}
-		}
-		&__details {
-			&__overview,
-			span {
-				font-size: 1rem;
-			}
+		&__text {
+			font-size: 1rem;
 		}
 	}
 }
+
