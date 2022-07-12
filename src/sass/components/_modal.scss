@@ -45,7 +45,8 @@
 		width: 1.9rem;
 		z-index: 2;
 
-		&:hover, &:focus {
+		&:hover,
+		&:focus {
 			background-color: $primary-text;
 			img {
 				filter: unset;
@@ -119,9 +120,8 @@
 			padding-top: 1rem;
 		}
 	}
-	
+
 	&__details {
-		
 		display: grid;
 		grid-template-columns: 1fr 2fr;
 		span {
@@ -130,28 +130,28 @@
 		}
 
 		&__overview {
-			@include animateOverview;
+			@include animateDetails;
 			font-size: 0.9rem;
 			padding: 5px 0px;
 		}
 
 		&__label {
+			@include animateDetails;
 			color: $label-text;
 			white-space: nowrap;
-			animation: detailsFade $card-animation-time both ease-in-out;
 		}
 
 		&__text {
+			@include animateDetails;
 			margin-left: 5px;
-			animation: detailsFade $card-animation-time both ease-in-out;
 		}
 		&__animate {
-			@for $i from 1 through $number-of-cards {
+			@for $i from 1 through $number-of-items {
 				&--#{$i} {
-						animation-delay: $time-delay * $i;  /*card time delay based on it's position, ie, fraction of the total time x1, x2, x3...*/
+					animation-delay: $time-delay *
+						$i; /*time delay based on position, fraction of the total time x1, x2, x3...*/
 				}
 			}
-	
 		}
 	}
 }
@@ -185,3 +185,4 @@
 		}
 	}
 }
+
