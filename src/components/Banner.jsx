@@ -9,7 +9,7 @@ import { randomSelect } from '../utils/functions';
 import Loader from './Loader';
 import LoadError from './LoadError';
 // import images/icons
-import noImage from '../assets/images/NoImageAvailableBanner.webp';
+import noImage from '../assets/images/NoImageAvailable.webp';
 import infoIcon from '../assets/icons/alert-circle-outline.svg';
 import playIcon from '../assets/icons/play.svg';
 
