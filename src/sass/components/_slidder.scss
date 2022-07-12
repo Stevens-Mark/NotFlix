@@ -103,7 +103,7 @@
 		padding-left: 5px;
 		width: 1.3rem;
 
-		&:hover {
+		&:hover, &:focus {
 			background-color: $primary-text;
 			img {
 				filter: unset;

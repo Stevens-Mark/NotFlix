@@ -18,7 +18,7 @@ import plusIcon from '../assets/icons/plusSolid.svg';
 const Modal = () => {
 	const { modalIsOpen, movie, closeModal } = useContext(GlobalContext);
 
-	const activeElement = document.activeElement;
+	// const activeElement = document.activeElement;
 	console.log(movie);
 
 	const handleEscape = () => {
@@ -55,7 +55,7 @@ const Modal = () => {
 		modalIsOpen && document.querySelector(".modal__closeButton").focus();
 		return () => {
 			document.removeEventListener('keydown', handleKeydown); // Detach listener when component unmounts
-			activeElement.focus(); 																	// Return focus to the previously focused element
+			// activeElement.focus(); 																	// Return focus to the previously focused element
 		};
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [modalIsOpen]);
