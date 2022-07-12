@@ -1,9 +1,9 @@
-export const API_KEY =  '';
+export const API_KEY =  '3cfc9afc82df69e9aa9eab1c9fa4fae8';
 export const BASE_URL = 'https://api.themoviedb.org/3';
 // for fetching real image data
-// export const IMAGE_URL = 'https://image.tmdb.org/t/p/original/';
+export const IMAGE_URL = 'https://image.tmdb.org/t/p/original/';
 // for fetching mocked image
-export const IMAGE_URL = '../mockImages';
+// export const IMAGE_URL = '../mockImages';
 
 export const requests = {
 	fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28&sort_by=popularity.desc`,

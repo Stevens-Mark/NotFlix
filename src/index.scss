@@ -9,6 +9,7 @@ code {
 /* Main elements of the page */
 html,
 body {
+	overflow-y: auto; // stop scroll bar disappearing when modal opens
 	min-height: 100vh;
 	background: $secondary;
 	color: white;
