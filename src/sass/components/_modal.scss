@@ -1,10 +1,10 @@
 .modal {
-	//  animation: ${(props) => props.animation && css` ${fadeIn} 0.5s ease-out forwards`}}
 	// background-color: rgba(34, 34, 34, 0.8);
 	background-color: rgba(0, 0, 0, 0.7);
 	bottom: 0;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	left: 0;
 	position: fixed;
 	right: 0;
@@ -17,17 +17,17 @@
 		background-color: $tertiary;
 		border-radius: 5px;
 		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-		height: 95vh;
+		height: 97vh;
 		// left: 50%;
 		position: fixed;
-		top: 1%;
+		// top: 1%;
 		// transform: translate(-50%, -50%);
 		width: 95vw;
 		overflow-y: auto; // Hide scroll bar, but while still being able to scroll using CSS
 		&::-webkit-scrollbar {
 			width: 0px !important;
-		} // -webkit- (Chrome, Safari, newer versions of Opera)
-		overflow: -moz-scrollbars-none; // -moz- (Firefox)
+		}
+		overflow: -moz-scrollbars-none;
 	}
 
 	&__closeButton {
@@ -45,7 +45,7 @@
 		width: 1.9rem;
 		z-index: 2;
 
-		&:hover {
+		&:hover, &:focus {
 			background-color: $primary-text;
 			img {
 				filter: unset;
@@ -110,6 +110,7 @@
 		h1 {
 			font-size: 1.6rem;
 			margin: 0px;
+			font-weight: 500;
 		}
 		h2 {
 			border-top: 2px solid $quaternary;
@@ -148,9 +149,9 @@
 @media (min-width: $mobileXtraLarge) {
 	.modal {
 		&__body {
-			top: 7%;
-			height: 80vh;
-			max-height: 800px;
+			// top: 7%;
+			// height: 80vh;
+			max-height: 730px;
 			width: 590px;
 		}
 		&__image {

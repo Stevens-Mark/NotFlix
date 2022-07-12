@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { useEffect, useContext } from 'react';
 import { GlobalContext } from '../context/globalProvider';
 // import components/functions
@@ -19,7 +18,7 @@ import plusIcon from '../assets/icons/plusSolid.svg';
 const Modal = () => {
 	const { modalIsOpen, movie, closeModal } = useContext(GlobalContext);
 
-	// const activeElement = document.activeElement;
+	const activeElement = document.activeElement;
 	console.log(movie);
 
 	const handleEscape = () => {
@@ -51,13 +50,21 @@ const Modal = () => {
 	};
 
 	useEffect(() => {
-		document.addEventListener('keydown', handleKeydown);
-		// document.querySelector(".modal__closeButton").focus();
+		// initialise focus trap
+		modalIsOpen && document.addEventListener('keydown', handleKeydown);
+		modalIsOpen && document.querySelector(".modal__closeButton").focus();
 		return () => {
 			document.removeEventListener('keydown', handleKeydown); // Detach listener when component unmounts
-			// activeElement.focus(); // Return focus to the previously focused element
+			activeElement.focus(); 																	// Return focus to the previously focused element
 		};
-	});
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [modalIsOpen]);
+
+	useEffect(() => {
+		// prevent background moving when modal open
+		const body = document.querySelector('body');
+		body.style.overflow = modalIsOpen ? 'hidden' : 'auto';
+	}, [modalIsOpen]);
 
 	return (
 		<>
@@ -67,7 +74,7 @@ const Modal = () => {
 					role="dialog"
 					aria-modal="true"
 					aria-labelledby="modal__title"
-					>
+				>
 					<div className="modal__body">
 						<header>
 							<button
@@ -138,8 +145,7 @@ const Modal = () => {
 									<span className="modal__details__text">
 										{movie.vote_average
 											? Math.round(movie.vote_average)
-											: 'No Available'}{' '}
-										%
+											: 'No Available'}
 									</span>
 								</div>
 							</article>
@@ -152,9 +158,4 @@ const Modal = () => {
 };
 
 export default Modal;
-
-// Prototypes
-Modal.propTypes = {
-	animation: PropTypes.bool,
-};
 
