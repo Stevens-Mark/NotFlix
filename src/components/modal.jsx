@@ -54,98 +54,112 @@ const Modal = ({ modalIsOpen, movie, closeModal }) => {
 	useEffect(() => {
 		// initialise focus trap
 		modalIsOpen && document.addEventListener('keydown', handleKeydown);
-		modalIsOpen && document.querySelector(".modal__closeButton").focus();
+		modalIsOpen && document.querySelector('.modal__closeButton').focus();
 		return () => {
 			document.removeEventListener('keydown', handleKeydown); // Detach listener when component unmounts
 			// activeElement.focus(); 																	// Return focus to the previously focused element
 		};
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [modalIsOpen]);
 
-	return createPortal (
-				<div
-					className="modal"
-					role="dialog"
-					aria-modal="true"
-					aria-labelledby="modal__title"
-				>
-					<div className="modal__body">
-						<header>
-							<button
-								aria-label="Close"
-								className="modal__closeButton"
-								onClick={() => closeModal()}
-							>
-								<img src={closeButton} alt="close modal" />
-							</button>
+	return createPortal(
+		<div
+			className="modal"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="modal__title"
+		>
+			<div className="modal__body">
+				<header>
+					<button
+						aria-label="Close"
+						className="modal__closeButton"
+						onClick={() => closeModal()}
+					>
+						<img src={closeButton} alt="close modal" />
+					</button>
 
-							<img
-								className="modal__image"
-								src={
-									movie.backdrop_path
-										? `${IMAGE_URL}${movie.backdrop_path}`
-										: noImage
-								}
-								alt={movie?.title || movie?.name || movie?.original_title}
-							/>
+					<img
+						className="modal__image"
+						// src={
+						// 	movie.backdrop_path
+						// 		? `${IMAGE_URL}${movie.backdrop_path}`
+						// 		: noImage
+						// }
+						src={
+							movie.backdrop_path !== null
+								? `${IMAGE_URL}${movie.backdrop_path}`
+								: movie.poster_path !== null
+								? `${IMAGE_URL}${movie.poster_path}`
+								: noImage
+						}
+						alt={movie?.title || movie?.name || movie?.original_title}
+					/>
 
-							<span className="modal__buttons">
-								<button
-									className="button button--playModal"
-									onClick={() => handleClick(movie)}
-								>
-									<img src={playIcon} alt="" />
-									Play
-								</button>
-								<button
-									className="modal__likeButton"
-									onClick={() => handleClick(movie)}
-								>
-									<img src={plusIcon} alt="Add film to watch list" />
-								</button>
+					<span className="modal__buttons">
+						<button
+							className="button button--playModal"
+							onClick={() => handleClick(movie)}
+						>
+							<img src={playIcon} alt="" />
+							Play
+						</button>
+						<button
+							className="modal__likeButton"
+							onClick={() => handleClick(movie)}
+						>
+							<img src={plusIcon} alt="Add film to watch list" />
+						</button>
+					</span>
+				</header>
+
+				<section className="modal__content">
+					<h1 id="modal__title">
+						{movie?.title || movie?.name || movie?.original_title}
+					</h1>
+					<p className="modal__details__overview modal__details__animate--1">
+						{movie.overview ? movie.overview : 'Not available'}
+					</p>
+					<article>
+						<h2>Details</h2>
+						<div className="modal__details">
+							<span className="modal__details__label modal__details__animate--2">
+								Genres :{' '}
 							</span>
-						</header>
+							<span className="modal__details__text modal__details__animate--2">
+								<GenresList genreIds={movie.genre_ids} variants={'modal'} />
+							</span>
 
-						<section className="modal__content">
-							<h1 id="modal__title">
-								{movie?.title || movie?.name || movie?.original_title}
-							</h1>
-							<p className="modal__details__overview modal__details__animate--1">
-								{movie.overview ? movie.overview : 'Not available'}
-							</p>
-							<article>
-								<h2>Details</h2>
-								<div className="modal__details">
-									<span className="modal__details__label modal__details__animate--2">Genres : </span>
-									<span className="modal__details__text modal__details__animate--2">
-										<GenresList genreIds={movie.genre_ids} variants={'modal'} />
-									</span>
+							<span className="modal__details__label modal__details__animate--3">
+								Original Language :{' '}
+							</span>
+							<span className="modal__details__text modal__details__animate--3">
+								{capitalize(movie?.original_language)}
+							</span>
 
-									<span className="modal__details__label modal__details__animate--3">
-										Original Language :{' '}
-									</span>
-									<span className="modal__details__text modal__details__animate--3">
-										{capitalize(movie?.original_language)}
-									</span>
+							<span className="modal__details__label modal__details__animate--4">
+								Release Date :{' '}
+							</span>
+							<span className="modal__details__text modal__details__animate--4">
+								{movie.release_date
+									? ConvertDate(movie.release_date)
+									: 'Not Available'}
+							</span>
 
-									<span className="modal__details__label modal__details__animate--4">Release Date : </span>
-									<span className="modal__details__text modal__details__animate--4">
-										{movie.release_date
-											? ConvertDate(movie.release_date)
-											: 'Not Available'}
-									</span>
-
-									<span className="modal__details__label modal__details__animate--5">Average Vote : </span>
-									<span className="modal__details__text modal__details__animate--5">
-										{movie.vote_average
-											? Math.round(movie.vote_average)
-											: 'No Available'}
-									</span>
-								</div>
-							</article>
-						</section>
-					</div>
-				</div>, portalContainer	
+							<span className="modal__details__label modal__details__animate--5">
+								Average Vote :{' '}
+							</span>
+							<span className="modal__details__text modal__details__animate--5">
+								{movie.vote_average
+									? Math.round(movie.vote_average)
+									: 'No Available'}
+							</span>
+						</div>
+					</article>
+				</section>
+			</div>
+		</div>,
+		portalContainer
 	);
 };
 
@@ -157,5 +171,4 @@ Modal.propTypes = {
 	movie: PropTypes.object.isRequired,
 	closeModal: PropTypes.func.isRequired,
 };
-
 

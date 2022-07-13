@@ -107,9 +107,16 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 										<div className="row__movie" key={movie.id}>
 											<img
 												className="row__movieImage"
+												// src={
+												// 	movie.backdrop_path
+												// 		? `${IMAGE_URL}${movie.backdrop_path}`
+												// 		: noImage
+												// }
 												src={
-													movie.backdrop_path
+													movie.backdrop_path !== null
 														? `${IMAGE_URL}${movie.backdrop_path}`
+														: movie.poster_path !== null
+														? `${IMAGE_URL}${movie.poster_path}`
 														: noImage
 												}
 												alt={
@@ -156,7 +163,13 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 					</>
 				)}
 			</section>
-			{modalIsOpen && <Modal modalIsOpen={modalIsOpen} closeModal={closeModal} movie={movieDetails} />}
+			{modalIsOpen && (
+				<Modal
+					modalIsOpen={modalIsOpen}
+					closeModal={closeModal}
+					movie={movieDetails}
+				/>
+			)}
 		</>
 	);
 };
