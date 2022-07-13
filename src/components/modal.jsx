@@ -82,11 +82,6 @@ const Modal = ({ modalIsOpen, movie, closeModal }) => {
 
 					<img
 						className="modal__image"
-						// src={
-						// 	movie.backdrop_path
-						// 		? `${IMAGE_URL}${movie.backdrop_path}`
-						// 		: noImage
-						// }
 						src={
 							movie.backdrop_path !== null
 								? `${IMAGE_URL}${movie.backdrop_path}`

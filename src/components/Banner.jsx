@@ -66,8 +66,10 @@ const Banner = ({ fetchUrl }) => {
 					<img
 						className="hero__image"
 						src={
-							movie.backdrop_path
+							movie.backdrop_path !== null
 								? `${IMAGE_URL}${movie.backdrop_path}`
+								: movie.poster_path !== null
+								? `${IMAGE_URL}${movie.poster_path}`
 								: noImage
 						}
 						alt={movie?.title || movie?.name || movie?.original_title}

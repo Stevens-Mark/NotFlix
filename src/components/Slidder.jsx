@@ -107,11 +107,6 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 										<div className="row__movie" key={movie.id}>
 											<img
 												className="row__movieImage"
-												// src={
-												// 	movie.backdrop_path
-												// 		? `${IMAGE_URL}${movie.backdrop_path}`
-												// 		: noImage
-												// }
 												src={
 													movie.backdrop_path !== null
 														? `${IMAGE_URL}${movie.backdrop_path}`
