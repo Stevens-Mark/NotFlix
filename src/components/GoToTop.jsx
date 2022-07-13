@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import upArrow from '../assets/icons/goToTopArrow.svg'
+import { useEffect, useState } from 'react';
+import upArrow from '../assets/icons/goToTopArrow.svg';
 
 /**
 * A go to top button appears after scrolling down a distance
@@ -8,17 +8,17 @@ import upArrow from '../assets/icons/goToTopArrow.svg'
  */
 const GoToTop = () => {
 
-  const [showButton, setShowButton] = useState(false)   // The back-to-top button is hidden at the beginning
+  const [showButton, setShowButton] = useState(false);   // The back-to-top button is hidden at the beginning
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 350) {
-        setShowButton(true)
+        setShowButton(true);
       } else {
-        setShowButton(false)
+        setShowButton(false);
       }
     })
-    return () => setShowButton(false)
+    return () => setShowButton(false);
   }, [])
     
   const scrollToTop = () => {   // This function will scroll the window to the top 
@@ -37,4 +37,4 @@ const GoToTop = () => {
   )
 }
 
-export default GoToTop
+export default GoToTop;

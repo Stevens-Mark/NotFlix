@@ -13,7 +13,7 @@
 
 .loader,
 .loader:before,
-.loader:after{
+.loader:after {
   background:
     radial-gradient(closest-side at 50% 12.5%,currentColor 90%,#0000 98%) 
     50% 0/20% 80% repeat-y,
@@ -22,12 +22,12 @@
 }
 
 .loader:before,
-.loader:after{
+.loader:after {
   content: "";
   grid-area: 1/1;
   transform: rotate(30deg);
 }
 
-.loader:after{
+.loader:after {
   transform: rotate(60deg);
 }

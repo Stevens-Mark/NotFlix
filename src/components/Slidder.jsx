@@ -1,5 +1,3 @@
-import React, { useContext } from 'react';
-import { GlobalContext } from '../context/globalProvider';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -11,6 +9,8 @@ import { IMAGE_URL } from '../config/requests';
 import GenresList from './GenreList';
 import Loader from './Loader';
 import LoadError from './LoadError';
+import Modal from './modal';
+import useModal from '../utils/useModal';
 // import images/icons
 import noImage from '../assets/images/NoImageAvailable.webp';
 import playIcon from '../assets/icons/chevronRight.svg';
@@ -25,23 +25,17 @@ import arrowDownIcon from '../assets/icons/chevronDown.svg';
  * @returns
  */
 const SimpleSlidder = ({ title, fetchUrl }) => {
-	const { showMovieDetails } = useContext(GlobalContext);
-
+	const { modalIsOpen, movieDetails, closeModal, handleDetails } = useModal();
 	const { data, isLoading, isError } = useFetch(fetchUrl);
 	const movies = data.results;
 
-		const handlePlay = (movie) => {
+	const handlePlay = (movie) => {
 		console.log(movie);
 	};
 
-	const handleLike = (movie) => { // Actions: when 1 of 3 buttons clicked
+	const handleLike = (movie) => {
 		console.log(movie);
 	};
-
-	const handleDetails = (movie) => {
-		showMovieDetails(movie);	// show movie details in modal
-	};
-
 
 	var settings = {
 		dots: false,
@@ -93,66 +87,77 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 	};
 
 	return (
-		<section className="row">
-			<h2 className="row__title">{title}</h2>
-			{isLoading ? (
-				<div className="row__status">
-					<Loader />
-				</div>
-			) : (
-				<>
-					{isError ? (
-						<div className="row__status">
-							<LoadError />
-						</div>
-					) : (
-						<>
-							<Slider {...settings}>
-								{movies.map((movie) => (
-									<div className="row__movie" key={movie.id}>
-										<img
-											className="row__movieImage"
-											src={
-												movie.backdrop_path
-													? `${IMAGE_URL}${movie.backdrop_path}`
-													: noImage
-											}
-											alt={movie?.title || movie?.name || movie?.original_title}
-										/>
-										<div className="row__buttonsContainer">
-											<div className="row__movieButtonsRow">
-												<button
-													className="row__movieButtons"
-													onClick={() => handlePlay(movie)}
-												>
-													<img src={playIcon} alt="Watch trailer" />
-												</button>
-												<button
-													className="row__movieButtons"
-													onClick={() => handleLike(movie)}
-												>
-													<img src={plusIcon} alt="Add film to watch list" />
-												</button>
-												<button
-													className="row__movieButtons"
-													onClick={() => handleDetails(movie)}
-												>
-													<img src={arrowDownIcon} alt="Get more information" />
-												</button>
+		<>
+			<section className="row">
+				<h2 className="row__title">{title}</h2>
+				{isLoading ? (
+					<div className="row__status">
+						<Loader />
+					</div>
+				) : (
+					<>
+						{isError ? (
+							<div className="row__status">
+								<LoadError />
+							</div>
+						) : (
+							<>
+								<Slider {...settings}>
+									{movies.map((movie) => (
+										<div className="row__movie" key={movie.id}>
+											<img
+												className="row__movieImage"
+												src={
+													movie.backdrop_path
+														? `${IMAGE_URL}${movie.backdrop_path}`
+														: noImage
+												}
+												alt={
+													movie?.title || movie?.name || movie?.original_title
+												}
+											/>
+											<div className="row__buttonsContainer">
+												<div className="row__movieButtonsRow">
+													<button
+														className="row__movieButtons"
+														onClick={() => handlePlay(movie)}
+													>
+														<img src={playIcon} alt="Watch trailer" />
+													</button>
+													<button
+														className="row__movieButtons"
+														onClick={() => handleLike(movie)}
+													>
+														<img src={plusIcon} alt="Add film to watch list" />
+													</button>
+													<button
+														className="row__movieButtons"
+														onClick={() => handleDetails(movie)}
+													>
+														<img
+															src={arrowDownIcon}
+															alt="Get more information"
+														/>
+													</button>
+												</div>
+												<h3>
+													{movie?.title || movie?.name || movie?.original_title}
+												</h3>
+												<GenresList
+													genreIds={movie.genre_ids}
+													variants={'slidder'}
+												/>
 											</div>
-											<h3>
-												{movie?.title || movie?.name || movie?.original_title}
-											</h3>
-											<GenresList genreIds={movie.genre_ids} variants={"slidder"}/>
 										</div>
-									</div>
-								))}
-							</Slider>
-						</>
-					)}
-				</>
-			)}
-		</section>
+									))}
+								</Slider>
+							</>
+						)}
+					</>
+				)}
+			</section>
+			{modalIsOpen && <Modal modalIsOpen={modalIsOpen} closeModal={closeModal} movie={movieDetails} />}
+		</>
 	);
 };
 
@@ -160,7 +165,7 @@ export default SimpleSlidder;
 
 // Prototypes
 SimpleSlidder.propTypes = {
-	title: PropTypes.string,
-	fetchUrl: PropTypes.string,
+	title: PropTypes.string.isRequired,
+	fetchUrl: PropTypes.string.isRequired,
 };
 

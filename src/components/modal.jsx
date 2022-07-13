@@ -1,5 +1,6 @@
-import React, { useEffect, useContext } from 'react';
-import { GlobalContext } from '../context/globalProvider';
+import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 // import components/functions
 import { IMAGE_URL } from '../config/requests';
 import GenresList from './GenreList';
@@ -13,13 +14,14 @@ import plusIcon from '../assets/icons/plusSolid.svg';
 /**
  * Renders a  modal
  * @function Modal
+ * @param {Bollean} modalIsOpen: whether open/closed
+ * @param {Object} movie: movie data
+ * @param {function} closeModal: set state to close modal
  * @returns {JSX}
  */
-const Modal = () => {
-	const { modalIsOpen, movie, closeModal } = useContext(GlobalContext);
-
+const Modal = ({ modalIsOpen, movie, closeModal }) => {
+	const portalContainer = document.getElementById('modal-portal');
 	// const activeElement = document.activeElement;
-	console.log(movie);
 
 	const handleEscape = () => {
 		closeModal();
@@ -60,15 +62,7 @@ const Modal = () => {
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [modalIsOpen]);
 
-	useEffect(() => {
-		// prevent background moving when modal open
-		const body = document.querySelector('body');
-		body.style.overflow = modalIsOpen ? 'hidden' : 'auto';
-	}, [modalIsOpen]);
-
-	return (
-		<>
-			{modalIsOpen && (
+	return createPortal (
 				<div
 					className="modal"
 					role="dialog"
@@ -151,11 +145,17 @@ const Modal = () => {
 							</article>
 						</section>
 					</div>
-				</div>
-			)}
-		</>
+				</div>, portalContainer	
 	);
 };
 
 export default Modal;
+
+// Prototypes
+Modal.propTypes = {
+	modalIsOpen: PropTypes.bool.isRequired,
+	movie: PropTypes.object.isRequired,
+	closeModal: PropTypes.func.isRequired,
+};
+
 

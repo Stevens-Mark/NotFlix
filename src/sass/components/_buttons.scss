@@ -9,6 +9,7 @@
 	color: $primary-text;
 	display: flex;
 	font-size: 14px;
+	justify-content: center;
 	margin: 20px 8px 4px 8px;
 	opacity: 1;
 	padding: 5px;
@@ -39,7 +40,6 @@
 	&--playModal {
 		background-color: $notflixRed;
 		width: 90px;
-		// font-size: 1.1rem;
 		margin: 10px 12px;
 		img {
 			width: 1.5rem;
@@ -48,7 +48,6 @@
 
 
 }
-
 
 // MEDIA QUERIES
 
@@ -64,18 +63,17 @@
 			width: 6rem;
 		}
 	}
-
 }
 
 @media (min-width: $laptopLarge) {
 	.button {
-    font-size: 20px;
-    padding: 10px;
+    font-size: 18px;
+    padding: 7px;
 		&--play, &--info {
 			width: 9rem;
 		}
 		&--playModal {
-			width: 7rem;
+			width: 6rem;
 		}
 	}
 }

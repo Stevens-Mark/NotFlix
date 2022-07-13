@@ -30,5 +30,6 @@ export default GenresList;
 
 // Prototypes
 GenresList.propTypes = {
-  genreIds: PropTypes.array,
+  genreIds: PropTypes.array.isRequired,
+	variants: PropTypes.string,
 }

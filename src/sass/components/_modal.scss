@@ -45,7 +45,7 @@
 		width: 1.9rem;
 		z-index: 2;
 
-		&:hover, &:focus {
+		&:hover {
 			background-color: $primary-text;
 			img {
 				filter: unset;
@@ -147,8 +147,7 @@
 		&__animate {
 			@for $i from 1 through $number-of-items {
 				&--#{$i} {
-					animation-delay: $time-delay *
-						$i; /*time delay based on position, fraction of the total time x1, x2, x3...*/
+					animation-delay: $time-delay * $i; /*time delay based on position, fraction of the total time x1, x2, x3...*/
 				}
 			}
 		}
@@ -160,8 +159,6 @@
 @media (min-width: $mobileXtraLarge) {
 	.modal {
 		&__body {
-			// top: 7%;
-			// height: 80vh;
 			max-height: 750px;
 			width: 590px;
 		}

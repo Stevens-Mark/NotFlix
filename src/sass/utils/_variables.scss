@@ -36,5 +36,5 @@ $XXtralarge: 1950px;
 /*variables used for modal details animation*/
 $number-of-items: 5;
 $items-animation-time: 1s;
-$time-delay: $items-animation-time / $number-of-items;
+$time-delay: calc($items-animation-time / $number-of-items);
 /*calculates the delay time between each item based on the number of items & the total time of animation*/
