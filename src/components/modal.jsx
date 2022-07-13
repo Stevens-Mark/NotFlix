@@ -15,7 +15,7 @@ import plusIcon from '../assets/icons/plusSolid.svg';
  * Renders a  modal
  * @function Modal
  * @param {Bollean} modalIsOpen: whether open/closed
- * @param {Object} movie: movie data
+ * @param {Object} movie: movie or TV show data
  * @param {function} closeModal: set state to close modal
  * @returns {JSX}
  */
@@ -55,6 +55,7 @@ const Modal = ({ modalIsOpen, movie, closeModal }) => {
 		// initialise focus trap
 		modalIsOpen && document.addEventListener('keydown', handleKeydown);
 		modalIsOpen && document.querySelector('.modal__closeButton').focus();
+
 		return () => {
 			document.removeEventListener('keydown', handleKeydown); // Detach listener when component unmounts
 			// activeElement.focus(); 																	// Return focus to the previously focused element
@@ -138,11 +139,13 @@ const Modal = ({ modalIsOpen, movie, closeModal }) => {
 							</span>
 
 							<span className="modal__details__label modal__details__animate--4">
-								Release Date :{' '}
+								{movie.release_date ? 'Release Date' : 'First Aired'}{' '}
 							</span>
 							<span className="modal__details__text modal__details__animate--4">
 								{movie.release_date
 									? ConvertDate(movie.release_date)
+									: movie.first_air_date
+									? ConvertDate(movie.first_air_date)
 									: 'Not Available'}
 							</span>
 

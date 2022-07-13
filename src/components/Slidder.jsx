@@ -39,7 +39,7 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 
 	var settings = {
 		dots: false,
-		infinite: true,
+		infinite: false,
 		lazyLoad: true,
 		speed: 3000,
 		slidesToShow: 6,

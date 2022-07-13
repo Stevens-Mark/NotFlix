@@ -1,5 +1,4 @@
 .modal {
-	// background-color: rgba(34, 34, 34, 0.8);
 	background-color: rgba(0, 0, 0, 0.7);
 	bottom: 0;
 	display: flex;
@@ -18,10 +17,7 @@
 		border-radius: 5px;
 		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 		height: 97vh;
-		// left: 50%;
 		position: fixed;
-		// top: 1%;
-		// transform: translate(-50%, -50%);
 		width: 95vw;
 		overflow-y: auto; // Hide scroll bar, but while still being able to scroll using CSS
 		&::-webkit-scrollbar {
@@ -32,7 +28,6 @@
 
 	&__closeButton {
 		aspect-ratio: 1;
-		// background-color: rgba(255, 255, 255, 0.2);
 		background-color: rgba(34, 34, 34, 0.8);
 		border-radius: 1rem;
 		border: 1px solid white;
@@ -79,7 +74,6 @@
 
 	&__likeButton {
 		aspect-ratio: 1;
-		// background-color: rgba(255, 255, 255, 0.2);
 		background-color: rgba(34, 34, 34, 0.8);
 		border-radius: 1rem;
 		border: 1px solid white;

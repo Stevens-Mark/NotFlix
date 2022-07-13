@@ -9,7 +9,11 @@ code {
 /* Main elements of the page */
 html,
 body {
-	overflow-y: auto; // stop scroll bar disappearing when modal opens
+	overflow-y: auto; 
+	&::-webkit-scrollbar {
+		width: 0px !important; // Hide scroll bar, but while still being able to scroll using CSS
+	}
+	overflow: -moz-scrollbars-none;
 	min-height: 100vh;
 	background: $secondary;
 	color: white;
@@ -63,3 +67,4 @@ main {
 	height: 100vh;
 	color: white;
 }
+
