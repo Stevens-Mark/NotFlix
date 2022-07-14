@@ -9,12 +9,12 @@ import { IMAGE_URL } from '../config/requests';
 import GenresList from './GenreList';
 import Loader from './Loader';
 import LoadError from './LoadError';
+import AddRemoveButton from './buttons/AddRemoveButton';
 import Modal from './modal';
 import useModal from '../utils/useModal';
 // import images/icons
 import noImage from '../assets/images/NoImageAvailable.webp';
 import playIcon from '../assets/icons/chevronRight.svg';
-import plusIcon from '../assets/icons/plusSolid.svg';
 import arrowDownIcon from '../assets/icons/chevronDown.svg';
 
 /**
@@ -22,7 +22,7 @@ import arrowDownIcon from '../assets/icons/chevronDown.svg';
  * @function SimpleSlidder
  * @param {string} title of category
  * @param {string} fetchUrl: URL endpoint to make a data request for assocaited category
- * @returns
+ * @returns {JSX}
  */
 const SimpleSlidder = ({ title, fetchUrl }) => {
 	const { modalIsOpen, movieDetails, closeModal, handleDetails } = useModal();
@@ -30,10 +30,6 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 	const movies = data.results;
 
 	const handlePlay = (movie) => {
-		console.log(movie);
-	};
-
-	const handleLike = (movie) => {
 		console.log(movie);
 	};
 
@@ -126,12 +122,12 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 													>
 														<img src={playIcon} alt="Watch trailer" />
 													</button>
-													<button
-														className="row__movieButtons"
-														onClick={() => handleLike(movie)}
-													>
-														<img src={plusIcon} alt="Add film to watch list" />
-													</button>
+
+													<AddRemoveButton
+														movie={movie}
+														classType={'row__movieButtons'}
+													/>
+
 													<button
 														className="row__movieButtons"
 														onClick={() => handleDetails(movie)}
@@ -147,7 +143,7 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 												</h3>
 												<GenresList
 													genreIds={movie.genre_ids}
-													variants={'slidder'}
+													classType={'slidder'}
 												/>
 											</div>
 										</div>

@@ -21,6 +21,7 @@ import playIcon from '../assets/icons/play.svg';
  * @returns {JSX} banner with image randomly selected
  */
 const Banner = ({ fetchUrl }) => {
+	
 	const { modalIsOpen, movieDetails, closeModal, handleDetails } = useModal();
 	const [movie, setMovie] = useState([]);
 	const [isLoading, setLoading] = useState(true);

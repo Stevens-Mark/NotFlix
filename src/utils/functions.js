@@ -46,6 +46,10 @@ export const capitalize = (string) => {
 		.join(' ');
 };
 
+/**
+ * @function getYear
+ * @returns {string} current year
+ */
 export const getYear = () => {
 	return new Date().getFullYear();
 };

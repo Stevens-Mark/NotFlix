@@ -5,22 +5,22 @@ export const Context = createContext();
 
 export const ContextProvider = ({children})  => {
     // const [allPhotos, setAllPhotos] = useState([])
-    const [watchListItem, setwatchListItem] = useState([])
+    const [watchListItems, setwatchListItems] = useState([]);
      
     // Local Storage: setting & getting data
     useEffect(() => {
-        const watchListItemData = JSON.parse(localStorage.getItem('watchListItem'))
+        const watchListItemData = JSON.parse(localStorage.getItem('watchListItem'));
         
         if (watchListItemData) {
-            setwatchListItem(watchListItemData)
+            setwatchListItems(watchListItemData);
         }
     }, [])
     
     useEffect(() => {
-        localStorage.setItem('watchListItem', JSON.stringify(watchListItem))
-    }, [watchListItem])
+        localStorage.setItem('watchListItem', JSON.stringify(watchListItems));
+    }, [watchListItems]);
     
-    // const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
+    // const url = "https://..............."
     // useEffect(() => {
     //     fetch(url)
     //         .then(res => res.json())
@@ -38,19 +38,19 @@ export const ContextProvider = ({children})  => {
     //     setAllPhotos(updatedArr)
     // }
     
-    function addToWatchList(newItem) {
-        setwatchListItem(prevItems => [...prevItems, newItem])
+    const addToWatchList =(newItem) => {
+        setwatchListItems(prevItems => [...prevItems, newItem]);
     }
     
-    function removeFromWatchList(id) {
-        setwatchListItem(prevItems => prevItems.filter(item => item.id !== id))
+    const removeFromWatchList = (id) => {
+        setwatchListItems(prevItems => prevItems.filter(item => item.id !== id));
     }
     
     return (
         <Context.Provider value={{
 					// allPhotos, 
 					// toggleFavorite,
-					watchListItem, 
+					watchListItems, 
 					addToWatchList, 
 					removeFromWatchList}}>
             {children}

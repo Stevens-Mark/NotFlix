@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-// import components/functions
+// import components/functions...
+import AddRemoveButton from './buttons/AddRemoveButton';
 import { IMAGE_URL } from '../config/requests';
 import GenresList from './GenreList';
 import { ConvertDate, capitalize } from '../utils/functions';
@@ -9,12 +10,11 @@ import { ConvertDate, capitalize } from '../utils/functions';
 import noImage from '../assets/images/NoImageAvailable.webp';
 import closeButton from '../assets/icons/xmark.svg';
 import playIcon from '../assets/icons/play.svg';
-import plusIcon from '../assets/icons/plusSolid.svg';
 
 /**
  * Renders a  modal
  * @function Modal
- * @param {Bollean} modalIsOpen: whether open/closed
+ * @param {Boolean} modalIsOpen: whether open/closed
  * @param {Object} movie: movie or TV show data
  * @param {function} closeModal: set state to close modal
  * @returns {JSX}
@@ -100,12 +100,8 @@ const Modal = ({ modalIsOpen, movie, closeModal }) => {
 							<img src={playIcon} alt="" />
 							Play
 						</button>
-						<button
-							className="modal__likeButton"
-							onClick={() => handleClick(movie)}
-						>
-							<img src={plusIcon} alt="Add film to watch list" />
-						</button>
+
+						<AddRemoveButton movie={movie} classType={'modal__likeButton'} />
 					</span>
 				</header>
 
@@ -123,7 +119,7 @@ const Modal = ({ modalIsOpen, movie, closeModal }) => {
 								Genres :{' '}
 							</span>
 							<span className="modal__details__text modal__details__animate--2">
-								<GenresList genreIds={movie.genre_ids} variants={'modal'} />
+								<GenresList genreIds={movie.genre_ids} classType={'modal'} />
 							</span>
 
 							<span className="modal__details__label modal__details__animate--3">
