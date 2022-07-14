@@ -115,9 +115,9 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 												}
 											/>
 											<div className="row__buttonsContainer">
-												<div className="row__movieButtonsRow">
+												<div className="row__movieButtonsRow ">
 													<button
-														className="row__movieButtons"
+														className="row__movieButtons row__movieButtons--normal"
 														onClick={() => handlePlay(movie)}
 													>
 														<img src={playIcon} alt="Watch trailer" />
@@ -129,7 +129,7 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 													/>
 
 													<button
-														className="row__movieButtons"
+														className="row__movieButtons row__movieButtons--normal"
 														onClick={() => handleDetails(movie)}
 													>
 														<img

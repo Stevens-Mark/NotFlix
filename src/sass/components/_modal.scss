@@ -82,18 +82,38 @@
 		padding: 4px 2px 0px;
 		width: 1.9rem;
 
-		img {
-			filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
-				brightness(104%) contrast(104%);
-			transition: 0.3s;
-			width: 0.7rem;
+		&--normal {
+			img {
+				filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
+					brightness(104%) contrast(104%);
+				transition: 0.3s;
+				width: 0.7rem;
+			}
+
+			&:hover {
+				background-color: $primary-text;
+				img {
+					filter: unset;
+					transition: filter 0.3s;
+				}
+			}
 		}
-		
-		&:hover, &:focus {
+
+		&--tick {
 			background-color: $primary-text;
 			img {
 				filter: unset;
-				transition: filter 0.3s;
+				transition: 0.3s;
+				width: 0.7rem;
+			}
+
+			&:hover {
+				background-color: unset;
+				img {
+					filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
+						brightness(104%) contrast(104%);
+					transition: filter 0.3s;
+				}
 			}
 		}
 	}
@@ -142,7 +162,8 @@
 		&__animate {
 			@for $i from 1 through $number-of-items {
 				&--#{$i} {
-					animation-delay: $time-delay * $i; /*time delay based on position, fraction of the total time x1, x2, x3...*/
+					animation-delay: $time-delay *
+						$i; /*time delay based on position, fraction of the total time x1, x2, x3...*/
 				}
 			}
 		}

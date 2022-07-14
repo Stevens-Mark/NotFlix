@@ -25,14 +25,14 @@ const AddRemoveButton = ({ movie, classType }) => {
 		<>
 			{alreadyInWatchList ? (
 				<button
-					className={`inWatchList ${classType}`}
+					className={`${classType} ${classType}--tick`}
 					onClick={() => removeFromWatchList(movie.id)}
 				>
 					<img src={tickIcon} alt="Remove from watch list" />
 				</button>
 			) : (
 				<button
-					className={`${classType}`}
+					className={`${classType} ${classType}--normal`}
 					onClick={() => addToWatchList(movie)}
 				>
 					<img src={plusIcon} alt="Add to watch list" />
