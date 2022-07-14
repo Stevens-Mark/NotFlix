@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { GlobalProvider } from './context/globalProvider';
+import { ContextProvider } from './context/globalProvider';
 import React, { lazy, Suspense } from 'react';
 import Header from './components/Header';
 // import components when needed using lazy loading
@@ -16,7 +16,7 @@ const App = () => {
 	return (
 		<Suspense fallback={renderLoader()}>
 			<Router>
-				<GlobalProvider>
+				<ContextProvider>
 					<Header />
 					<Switch>
 						<Route exact path="/" component={Home} />
@@ -28,7 +28,7 @@ const App = () => {
 					</Switch>
 					<Footer />
 					<GoToTop />
-				</GlobalProvider>
+				</ContextProvider>
 			</Router>
 		</Suspense>
 	);

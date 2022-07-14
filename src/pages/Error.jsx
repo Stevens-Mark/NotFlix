@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 const Error = () => {
 	useEffect(() => {
 		document.title = 'NotFlix | Error';
+		window.scrollTo(0, 0);
 	}, []);
 
 	return (

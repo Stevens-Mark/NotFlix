@@ -44,7 +44,7 @@ const Banner = ({ fetchUrl }) => {
 	}, [fetchUrl]); // ONLY replace banner image if url updated
 
 	const handlePlay = (movie) => {
-		console.log(movie);
+		console.log(movie)
 	};
 
 	if (isLoading) {

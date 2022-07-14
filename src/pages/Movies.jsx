@@ -12,6 +12,7 @@ import { randomSelect } from '../utils/functions';
 const Movies = () => {
 	useEffect(() => {
 		document.title = 'NotFlix | Movies';
+		window.scrollTo(0, 0);
 	}, []);
 
 	return (
