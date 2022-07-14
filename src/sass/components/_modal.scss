@@ -19,7 +19,8 @@
 		height: 97vh;
 		position: fixed;
 		width: 95vw;
-		overflow-y: auto; // Hide scroll bar, but while still being able to scroll using CSS
+		// Hide scroll bar, but while still being able to scroll using CSS
+		overflow-y: auto;
 		&::-webkit-scrollbar {
 			width: 0px !important;
 		}
@@ -64,15 +65,16 @@
 	}
 
 	&__buttons {
-		position: absolute;
-		top: 335px;
+		@include animateFadeIn;
 		align-items: center;
 		display: flex;
 		justify-content: flex-start;
-		@include animateFadeIn;
+		position: absolute;
+		top: 335px;
 	}
 
 	&__likeButton {
+		@include buttonHover;
 		aspect-ratio: 1;
 		background-color: rgba(34, 34, 34, 0.8);
 		border-radius: 1rem;
@@ -81,41 +83,6 @@
 		margin: 0px 5px 0px 5px;
 		padding: 4px 2px 0px;
 		width: 1.9rem;
-
-		&--normal {
-			img {
-				filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
-					brightness(104%) contrast(104%);
-				transition: 0.3s;
-				width: 0.7rem;
-			}
-
-			&:hover {
-				background-color: $primary-text;
-				img {
-					filter: unset;
-					transition: filter 0.3s;
-				}
-			}
-		}
-
-		&--tick {
-			background-color: $primary-text;
-			img {
-				filter: unset;
-				transition: 0.3s;
-				width: 0.7rem;
-			}
-
-			&:hover {
-				background-color: unset;
-				img {
-					filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
-						brightness(104%) contrast(104%);
-					transition: filter 0.3s;
-				}
-			}
-		}
 	}
 
 	&__content {
@@ -160,10 +127,10 @@
 			margin-left: 5px;
 		}
 		&__animate {
+			// time delay based on position, fraction of the total time x1, x2, x3...
 			@for $i from 1 through $number-of-items {
 				&--#{$i} {
-					animation-delay: $time-delay *
-						$i; /*time delay based on position, fraction of the total time x1, x2, x3...*/
+					animation-delay: $time-delay * $i;
 				}
 			}
 		}

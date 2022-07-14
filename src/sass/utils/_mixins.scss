@@ -20,8 +20,47 @@
     animation: fadein 1.3s both ease-in-out 1s;
 }
 
-// modal details animation
+// modal details animation mixin
 @mixin animateDetails {
     animation: detailsFade $items-animation-time both ease-in-out;
 }
 
+
+// hover style on media cards & modal buttons
+// plus, tick & media card play button
+@mixin buttonHover {
+    &--normal {
+        img {
+            filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
+                brightness(104%) contrast(104%);
+            transition: 0.3s;
+            width: 0.7rem;
+        }
+
+        &:hover {
+            background-color: $primary-text;
+            img {
+                filter: unset;
+                transition: filter 0.3s;
+            }
+        }
+    }
+
+    &--tick {
+        background-color: $primary-text;
+        img {
+            filter: unset;
+            transition: 0.3s;
+            width: 0.7rem;
+        }
+
+        &:hover {
+            background-color: unset;
+            img {
+                filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
+                    brightness(104%) contrast(104%);
+                transition: filter 0.3s;
+            }
+        }
+    }
+}

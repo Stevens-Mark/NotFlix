@@ -20,11 +20,15 @@ import playIcon from '../assets/icons/play.svg';
  */
 const Modal = ({ movie, closeModal }) => {
 	const portalContainer = document.getElementById('modal-portal');
-	const activeElement = document.activeElement;
+	// const activeElement = document.activeElement;
 
-	const handleEscape = () => {closeModal();	};
+	const handleEscape = () => {
+		closeModal();
+	};
 
-	const handlekeys = (e) => {	e.preventDefault();	}; // prevent keys: effectively traps focus in modal
+	const handlekeys = (e) => {
+		e.preventDefault();
+	}; // prevent keys: effectively traps focus in modal
 
 	const keyListenersMap = new Map([
 		// map of keyboard listeners
@@ -39,7 +43,7 @@ const Modal = ({ movie, closeModal }) => {
 
 	const handleKeydown = (e) => {
 		const listener = keyListenersMap.get(e.keyCode); // get the listener corresponding to the pressed key
-		return listener && listener(e); 								// call the listener if it exists
+		return listener && listener(e); // call the listener if it exists
 	};
 
 	const handleClick = (movie) => {
@@ -51,7 +55,7 @@ const Modal = ({ movie, closeModal }) => {
 		document.querySelector('.modal__closeButton').focus();
 		return () => {
 			document.removeEventListener('keydown', handleKeydown); // Detach listener when component unmounts
-			activeElement.focus(); 																	// Return focus to the previously focused element
+			// activeElement.focus(); // Return focus to the previously focused element
 		};
 	});
 

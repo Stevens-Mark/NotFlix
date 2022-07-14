@@ -18,7 +18,7 @@ body {
 	background: $secondary;
 	color: white;
 	font-size: 1rem;
-	max-width: 1920px;
+	max-width: $maxPageWidth;
 	margin: auto;
 	// margin: 0;
 	font-family: 'Netflix', Arial, serif, sans-serif;

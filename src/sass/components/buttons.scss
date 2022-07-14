@@ -43,7 +43,7 @@
 
 	&--playModal {
 		background-color: $notflixRed;
-		width: 90px;
+		width: 5.625rem;
 		margin: 10px 12px;
 		img {
 			width: 1.5rem;
@@ -55,7 +55,7 @@
 
 @media (min-width: $tablette) {
 	.button {
-		font-size: 16px;
+		font-size: 1rem;
 		padding: 7px;
 
 		&--play,
@@ -70,7 +70,7 @@
 
 @media (min-width: $laptopLarge) {
 	.button {
-		font-size: 18px;
+		font-size: 1.125rem;
 		padding: 7px;
 		&--play,
 		&--info {
