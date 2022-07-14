@@ -14,22 +14,17 @@ import playIcon from '../assets/icons/play.svg';
 /**
  * Renders a  modal
  * @function Modal
- * @param {Boolean} modalIsOpen: whether open/closed
  * @param {Object} movie: movie or TV show data
  * @param {function} closeModal: set state to close modal
  * @returns {JSX}
  */
-const Modal = ({ modalIsOpen, movie, closeModal }) => {
+const Modal = ({ movie, closeModal }) => {
 	const portalContainer = document.getElementById('modal-portal');
-	// const activeElement = document.activeElement;
+	const activeElement = document.activeElement;
 
-	const handleEscape = () => {
-		closeModal();
-	};
+	const handleEscape = () => {closeModal();	};
 
-	const handlekeys = (e) => {
-		e.preventDefault();
-	}; // prevent keys: effectively traps focus in modal
+	const handlekeys = (e) => {	e.preventDefault();	}; // prevent keys: effectively traps focus in modal
 
 	const keyListenersMap = new Map([
 		// map of keyboard listeners
@@ -44,7 +39,7 @@ const Modal = ({ modalIsOpen, movie, closeModal }) => {
 
 	const handleKeydown = (e) => {
 		const listener = keyListenersMap.get(e.keyCode); // get the listener corresponding to the pressed key
-		return listener && listener(e); // call the listener if it exists
+		return listener && listener(e); 								// call the listener if it exists
 	};
 
 	const handleClick = (movie) => {
@@ -52,16 +47,13 @@ const Modal = ({ modalIsOpen, movie, closeModal }) => {
 	};
 
 	useEffect(() => {
-		// initialise focus trap
-		modalIsOpen && document.addEventListener('keydown', handleKeydown);
-		modalIsOpen && document.querySelector('.modal__closeButton').focus();
-
+		document.addEventListener('keydown', handleKeydown);
+		document.querySelector('.modal__closeButton').focus();
 		return () => {
 			document.removeEventListener('keydown', handleKeydown); // Detach listener when component unmounts
-			// activeElement.focus(); 																	// Return focus to the previously focused element
+			activeElement.focus(); 																	// Return focus to the previously focused element
 		};
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [modalIsOpen]);
+	});
 
 	return createPortal(
 		<div
@@ -161,7 +153,6 @@ export default Modal;
 
 // Prototypes
 Modal.propTypes = {
-	modalIsOpen: PropTypes.bool.isRequired,
 	movie: PropTypes.object.isRequired,
 	closeModal: PropTypes.func.isRequired,
 };

@@ -156,7 +156,6 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 			</section>
 			{modalIsOpen && (
 				<Modal
-					modalIsOpen={modalIsOpen}
 					closeModal={closeModal}
 					movie={movieDetails}
 				/>
