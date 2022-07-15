@@ -7,6 +7,7 @@ const Home = lazy(() => import('./pages/Home'));
 const Movies = lazy(() => import('./pages/Movies'));
 const TvShows = lazy(() => import('./pages/TvShows'));
 const Popular = lazy(() => import('./pages/Popular'));
+const MyWatchList = lazy(() => import('./pages/WatchList'));
 const Error = lazy(() => import('./pages/Error'));
 const Footer = lazy(() => import('./components/Footer'));
 const GoToTop = lazy(() => import('./components/GoToTop'));
@@ -23,7 +24,7 @@ const App = () => {
 						<Route path="/movies" component={Movies} />
 						<Route path="/tvshows" component={TvShows} />
 						<Route path="/popular" component={Popular} />
-						{/* 	<Route path="/mylist" component={UnderConstruction}/> */}
+						<Route path="/mywatchlist" component={MyWatchList}/>
 						<Route component={Error} />
 					</Switch>
 					<Footer />

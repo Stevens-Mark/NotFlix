@@ -4,7 +4,7 @@ import { useState } from 'react';
  * Custom hook to manage modal state open/close, displaying media item
  * and stop background scrolling when modal open
  * @function useModal
- * @returns 
+ * @returns boolean (state open/close) & state management functions
  */
 const useModal = () => {
 	const [modalIsOpen, setModalIsOpen] = useState(false);

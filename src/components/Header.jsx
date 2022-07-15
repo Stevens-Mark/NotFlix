@@ -53,7 +53,7 @@ const Header = () => {
 					New & Popular
 				</NavLink>
 
-				<NavLink activeClassName="active" to="/mylist">
+				<NavLink activeClassName="active" to="/mywatchlist">
 					My List
 				</NavLink>
 			</nav>

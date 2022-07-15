@@ -4,18 +4,19 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 // import items needed for data fetch
 import { useFetch } from '../config/FetchData';
-import { IMAGE_URL } from '../config/requests';
+// import { IMAGE_URL } from '../config/requests';
 // import components
-import GenresList from './GenreList';
+// import GenresList from './GenreList';
 import Loader from './Loader';
 import LoadError from './LoadError';
-import AddRemoveButton from './buttons/AddRemoveButton';
+// import AddRemoveButton from './buttons/AddRemoveButton';
 import Modal from './modal';
 import useModal from '../utils/useModal';
 // import images/icons
-import noImage from '../assets/images/NoImageAvailable.webp';
-import playIcon from '../assets/icons/chevronRight.svg';
-import arrowDownIcon from '../assets/icons/chevronDown.svg';
+// import noImage from '../assets/images/NoImageAvailable.webp';
+// import playIcon from '../assets/icons/chevronRight.svg';
+// import arrowDownIcon from '../assets/icons/chevronDown.svg';
+import MediaCard from './MediaCard';
 
 /**
  * Renders each carousel slidder for each category
@@ -29,9 +30,9 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 	const { data, isLoading, isError } = useFetch(fetchUrl);
 	const movies = data.results;
 
-	const handlePlay = (movie) => {
-		console.log(movie);
-	};
+	// const handlePlay = (movie) => {
+	// 	console.log(movie);
+	// };
 
 	var settings = {
 		dots: false,
@@ -43,7 +44,7 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 
 		responsive: [
 			{
-				breakpoint: 1680,
+				breakpoint: 1679,
 				settings: {
 					slidesToShow: 5,
 					slidesToScroll: 5,
@@ -101,51 +102,7 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 								<Slider {...settings}>
 									{movies.map((movie) => (
 										<div className="row__movie" key={movie.id}>
-											<img
-												className="row__movieImage"
-												src={
-													movie.backdrop_path !== null
-														? `${IMAGE_URL}${movie.backdrop_path}`
-														: movie.poster_path !== null
-														? `${IMAGE_URL}${movie.poster_path}`
-														: noImage
-												}
-												alt={
-													movie?.title || movie?.name || movie?.original_title
-												}
-											/>
-											<div className="row__buttonsContainer">
-												<div className="row__movieButtonsRow ">
-													<button
-														className="row__movieButtons row__movieButtons--normal"
-														onClick={() => handlePlay(movie)}
-													>
-														<img src={playIcon} alt="Watch trailer" />
-													</button>
-
-													<AddRemoveButton
-														movie={movie}
-														classType={'row__movieButtons'}
-													/>
-
-													<button
-														className="row__movieButtons row__movieButtons--normal"
-														onClick={() => handleDetails(movie)}
-													>
-														<img
-															src={arrowDownIcon}
-															alt="Get more information"
-														/>
-													</button>
-												</div>
-												<h3>
-													{movie?.title || movie?.name || movie?.original_title}
-												</h3>
-												<GenresList
-													genreIds={movie.genre_ids}
-													classType={'slidder'}
-												/>
-											</div>
+												<MediaCard movie={movie} handleDetails={handleDetails} />
 										</div>
 									))}
 								</Slider>
