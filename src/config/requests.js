@@ -3,14 +3,14 @@ import axios from 'axios';
 export const API_KEY =  '3cfc9afc82df69e9aa9eab1c9fa4fae8';
 export const BASE_URL = 'https://api.themoviedb.org/3';
 // for fetching real image data
-// export const IMAGE_URL = 'https://image.tmdb.org/t/p/original/';
+export const IMAGE_URL = 'https://image.tmdb.org/t/p/original/';
 // for fetching mocked image
-export const IMAGE_URL = '../mockImages'; // used for mocking data
+// export const IMAGE_URL = '../mockImages'; // used for mocking data
 
 // base URL to make requests (using axios) to the movie database (used for banner image fetch)
 const instance = axios.create({
-	// baseURL: 'https://api.themoviedb.org/3',
-	baseURL: '../MockedDataCopy.json',	// used for mocking data
+	baseURL: 'https://api.themoviedb.org/3',
+	// baseURL: '../MockedDataCopy.json',	// used for mocking data
 });
 export default instance;
 

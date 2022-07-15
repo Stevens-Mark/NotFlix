@@ -31,8 +31,8 @@ const Banner = ({ fetchUrl }) => {
 		setLoading(true);
 		async function fetchData() {
 			try {
-				// const request = await axios.get(fetchUrl);
-				const request = await axios.get("");  // used for mocking data
+				const request = await axios.get(fetchUrl);
+				// const request = await axios.get("");  // used for mocking data
 				setMovie(randomSelect(request.data.results));
 			} catch (err) {
 				console.log(err);
