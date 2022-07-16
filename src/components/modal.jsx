@@ -14,11 +14,11 @@ import playIcon from '../assets/icons/play.svg';
 /**
  * Renders a  modal
  * @function Modal
- * @param {Object} movie: movie or TV show data
+ * @param {Object} media: movie or TV show data
  * @param {function} closeModal: set state to close modal
  * @returns {JSX}
  */
-const Modal = ({ movie, closeModal }) => {
+const Modal = ({ media, closeModal }) => {
 	const portalContainer = document.getElementById('modal-portal');
 	// const activeElement = document.activeElement;
 
@@ -46,8 +46,8 @@ const Modal = ({ movie, closeModal }) => {
 		return listener && listener(e); // call the listener if it exists
 	};
 
-	const handleClick = (movie) => {
-		console.log(movie);
+	const handleClick = (media) => {
+		console.log(media);
 	};
 
 	useEffect(() => {
@@ -79,34 +79,34 @@ const Modal = ({ movie, closeModal }) => {
 					<img
 						className="modal__image"
 						src={
-							movie.backdrop_path !== null
-								? `${IMAGE_URL}${movie.backdrop_path}`
-								: movie.poster_path !== null
-								? `${IMAGE_URL}${movie.poster_path}`
+							media.backdrop_path !== null
+								? `${IMAGE_URL}${media.backdrop_path}`
+								: media.poster_path !== null
+								? `${IMAGE_URL}${media.poster_path}`
 								: noImage
 						}
-						alt={movie?.title || movie?.name || movie?.original_title}
+						alt={media?.title || media?.name || media?.original_title}
 					/>
 
 					<span className="modal__buttons">
 						<button
 							className="button button--playModal"
-							onClick={() => handleClick(movie)}
+							onClick={() => handleClick(media)}
 						>
 							<img src={playIcon} alt="" />
 							Play
 						</button>
 
-						<AddRemoveButton movie={movie} classType={'modal__likeButton'} />
+						<AddRemoveButton media={media} classType={'modal__likeButton'} />
 					</span>
 				</header>
 
 				<section className="modal__content">
 					<h1 id="modal__title">
-						{movie?.title || movie?.name || movie?.original_title}
+						{media?.title || media?.name || media?.original_title}
 					</h1>
 					<p className="modal__details__overview modal__details__animate--1">
-						{movie.overview ? movie.overview : 'Not available'}
+						{media.overview ? media.overview : 'Not available'}
 					</p>
 					<article>
 						<h2>Details</h2>
@@ -115,24 +115,24 @@ const Modal = ({ movie, closeModal }) => {
 								Genres :{' '}
 							</span>
 							<span className="modal__details__text modal__details__animate--2">
-								<GenresList genreIds={movie.genre_ids} classType={'modal'} />
+								<GenresList genreIds={media.genre_ids} classType={'modal'} />
 							</span>
 
 							<span className="modal__details__label modal__details__animate--3">
 								Original Language :{' '}
 							</span>
 							<span className="modal__details__text modal__details__animate--3">
-								{capitalize(movie?.original_language)}
+								{capitalize(media?.original_language)}
 							</span>
 
 							<span className="modal__details__label modal__details__animate--4">
-								{movie.release_date ? 'Release Date' : 'First Aired'}{' '}
+								{media.release_date ? 'Release Date' : 'First Aired'}{' '}
 							</span>
 							<span className="modal__details__text modal__details__animate--4">
-								{movie.release_date
-									? ConvertDate(movie.release_date)
-									: movie.first_air_date
-									? ConvertDate(movie.first_air_date)
+								{media.release_date
+									? ConvertDate(media.release_date)
+									: media.first_air_date
+									? ConvertDate(media.first_air_date)
 									: 'Not Available'}
 							</span>
 
@@ -140,9 +140,9 @@ const Modal = ({ movie, closeModal }) => {
 								Average Vote :{' '}
 							</span>
 							<span className="modal__details__text modal__details__animate--5">
-								{movie.vote_average
-									? Math.round(movie.vote_average)
-									: 'No Available'}
+								{media.vote_average
+									? Math.round(media.vote_average)
+									: 'Not Available'}
 							</span>
 						</div>
 					</article>
@@ -157,7 +157,7 @@ export default Modal;
 
 // Prototypes
 Modal.propTypes = {
-	movie: PropTypes.object.isRequired,
+	media: PropTypes.object.isRequired,
 	closeModal: PropTypes.func.isRequired,
 };
 

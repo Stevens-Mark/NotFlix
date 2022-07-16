@@ -8,7 +8,7 @@ import { useState } from 'react';
  */
 const useModal = () => {
 	const [modalIsOpen, setModalIsOpen] = useState(false);
-	const [movieDetails, setMovieDetails] = useState('');
+	const [mediaDetails, setMediaDetails] = useState('');
 
 	// prevent background moving when modal open
 	const body = document.querySelector('body');
@@ -18,15 +18,15 @@ const useModal = () => {
 	
 	const closeModal = () => {
 		setModalIsOpen(false);
-		setMovieDetails('');
+		setMediaDetails('');
 	};
 
-	const handleDetails = (movie) => {
+	const handleDetails = (media) => {
 		setModalIsOpen(true);
-		setMovieDetails(movie);
+		setMediaDetails(media);
 	};
 
-	return { modalIsOpen, movieDetails, closeModal, handleDetails };
+	return { modalIsOpen, mediaDetails, closeModal, handleDetails };
 };
 
 export default useModal;

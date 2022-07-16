@@ -2,14 +2,14 @@ import { useEffect, useContext } from 'react';
 import { Context } from '../context/globalProvider';
 import MediaCard from '../components/MediaCard';
 import useModal from '../utils/useModal';
-import Modal from '../components/modal';
+import Modal from '../components/Modal';
 /**
  * Renders WatchList page
  * @function WatchList
  * @returns {JSX}
  */
 const WatchList = () => {
-	const { modalIsOpen, movieDetails, closeModal, handleDetails } = useModal();
+	const { modalIsOpen, mediaDetails, closeModal, handleDetails } = useModal();
 	const { watchListItems } = useContext(Context);
 
 	useEffect(() => {
@@ -18,16 +18,24 @@ const WatchList = () => {
 	}, []);
 
 	return (
-		<main className='media__container'>
+		<main className="media">
 			<h1 className="sr-only">Welcome to NotFlix - My Watch List</h1>
-			<div className="media__grid">
-				{watchListItems.map((data) => (
-					<div className="row__movie" key={data.id}>
-						<MediaCard movie={data} handleDetails={handleDetails} />
-					</div>
-				))}
-			</div>
-			{modalIsOpen && <Modal closeModal={closeModal} movie={movieDetails} />}
+			{watchListItems.length <1 ? (
+				<div className="media__status">
+					<span>Your Watch List is currently empty ...</span></div>
+			) : (
+				<div className="media__grid">
+					{watchListItems.map((data) => (
+						<MediaCard
+							key={data.id}
+							media={data}
+							handleDetails={handleDetails}
+						/>
+					))}
+				</div>
+			)}
+
+			{modalIsOpen && <Modal closeModal={closeModal} medai={mediaDetails} />}
 		</main>
 	);
 };

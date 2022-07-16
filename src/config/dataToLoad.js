@@ -1,6 +1,6 @@
 import { requests } from './requests';
 
-export const homeData = [
+export const homeList = [
 	{ url: requests.fetchTrending, category: 'Trending' },
 	{ url: requests.fetchFakeflixOriginals, category: 'NotFlix Originals' },
 

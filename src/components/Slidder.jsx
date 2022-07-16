@@ -4,18 +4,11 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 // import items needed for data fetch
 import { useFetch } from '../config/FetchData';
-// import { IMAGE_URL } from '../config/requests';
 // import components
-// import GenresList from './GenreList';
 import Loader from './Loader';
 import LoadError from './LoadError';
-// import AddRemoveButton from './buttons/AddRemoveButton';
-import Modal from './modal';
+import Modal from './Modal';
 import useModal from '../utils/useModal';
-// import images/icons
-// import noImage from '../assets/images/NoImageAvailable.webp';
-// import playIcon from '../assets/icons/chevronRight.svg';
-// import arrowDownIcon from '../assets/icons/chevronDown.svg';
 import MediaCard from './MediaCard';
 
 /**
@@ -26,13 +19,9 @@ import MediaCard from './MediaCard';
  * @returns {JSX}
  */
 const SimpleSlidder = ({ title, fetchUrl }) => {
-	const { modalIsOpen, movieDetails, closeModal, handleDetails } = useModal();
+	const { modalIsOpen, mediaDetails, closeModal, handleDetails } = useModal();
 	const { data, isLoading, isError } = useFetch(fetchUrl);
-	const movies = data.results;
-
-	// const handlePlay = (movie) => {
-	// 	console.log(movie);
-	// };
+	const medias = data.results;
 
 	var settings = {
 		dots: false,
@@ -100,10 +89,8 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 						) : (
 							<>
 								<Slider {...settings}>
-									{movies.map((movie) => (
-										<div className="row__movie" key={movie.id}>
-												<MediaCard movie={movie} handleDetails={handleDetails} />
-										</div>
+									{medias.map((media) => (
+										<MediaCard  key={media.id} media={media} handleDetails={handleDetails} />
 									))}
 								</Slider>
 							</>
@@ -111,7 +98,7 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 					</>
 				)}
 			</section>
-			{modalIsOpen && <Modal closeModal={closeModal} movie={movieDetails} />}
+			{modalIsOpen && <Modal closeModal={closeModal} media={mediaDetails} />}
 		</>
 	);
 };

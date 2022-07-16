@@ -8,17 +8,17 @@ import tickIcon from '../../assets/icons/tickSolid.svg';
 /**
  * Renders watchList add/remove button
  * @function AddRemoveButton
- * @param {Object} movie: movie or TV show data
+ * @param {Object} media: movie or TV show data
  * @param {string} classType: set depending if used in modal or slidder card
  * @returns {JSX}
  */
-const AddRemoveButton = ({ movie, classType }) => {
+const AddRemoveButton = ({ media, classType }) => {
 
 	const { watchListItems, addToWatchList, removeFromWatchList } =
 		useContext(Context);
 
 	const alreadyInWatchList = watchListItems.some(
-		(item) => item.id === movie.id
+		(item) => item.id === media.id
 	);
 
 	return (
@@ -26,14 +26,14 @@ const AddRemoveButton = ({ movie, classType }) => {
 			{alreadyInWatchList ? (
 				<button
 					className={`${classType} ${classType}--tick`}
-					onClick={() => removeFromWatchList(movie.id)}
+					onClick={() => removeFromWatchList(media.id)}
 				>
 					<img src={tickIcon} alt="Remove from watch list" />
 				</button>
 			) : (
 				<button
 					className={`${classType} ${classType}--normal`}
-					onClick={() => addToWatchList(movie)}
+					onClick={() => addToWatchList(media)}
 				>
 					<img src={plusIcon} alt="Add to watch list" />
 				</button>
@@ -46,6 +46,6 @@ export default AddRemoveButton;
 
 // Prototypes
 AddRemoveButton.propTypes = {
-	movie: PropTypes.object.isRequired,
+	media: PropTypes.object.isRequired,
 	classType: PropTypes.string.isRequired,
 };

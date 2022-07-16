@@ -7,7 +7,7 @@ import { randomSelect } from '../utils/functions';
 // import components
 import Loader from './Loader';
 import LoadError from './LoadError';
-import Modal from './modal';
+import Modal from './Modal';
 import useModal from '../utils/useModal';
 // import images/icons
 import noImage from '../assets/images/NoImageAvailable.webp';
@@ -22,8 +22,8 @@ import playIcon from '../assets/icons/play.svg';
  */
 const Banner = ({ fetchUrl }) => {
 
-	const { modalIsOpen, movieDetails, closeModal, handleDetails } = useModal();
-	const [movie, setMovie] = useState([]);
+	const { modalIsOpen, mediaDetails, closeModal, handleDetails } = useModal();
+	const [media, setMedia] = useState([]);
 	const [isLoading, setLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
 
@@ -33,7 +33,7 @@ const Banner = ({ fetchUrl }) => {
 			try {
 				const request = await axios.get(fetchUrl);
 				// const request = await axios.get("");  // used for mocking data
-				setMovie(randomSelect(request.data.results));
+				setMedia(randomSelect(request.data.results));
 			} catch (err) {
 				console.log(err);
 				setIsError(true);
@@ -44,8 +44,8 @@ const Banner = ({ fetchUrl }) => {
 		fetchData();
 	}, [fetchUrl]); // ONLY replace banner image if url updated
 
-	const handlePlay = (movie) => {
-		console.log(movie)
+	const handlePlay = (media) => {
+		console.log(media)
 	};
 
 	if (isLoading) {
@@ -67,31 +67,31 @@ const Banner = ({ fetchUrl }) => {
 					<img
 						className="hero__image"
 						src={
-							movie.backdrop_path !== null
-								? `${IMAGE_URL}${movie.backdrop_path}`
-								: movie.poster_path !== null
-								? `${IMAGE_URL}${movie.poster_path}`
+							media.backdrop_path !== null
+								? `${IMAGE_URL}${media.backdrop_path}`
+								: media.poster_path !== null
+								? `${IMAGE_URL}${media.poster_path}`
 								: noImage
 						}
-						alt={movie?.title || movie?.name || movie?.original_title}
+						alt={media?.title || media?.name || media?.original_title}
 					/>
 					<span className="hero__mask" />
 					<span className="hero__shadow" />
 					<div className="hero__info">
 						<h2 className="hero__title">
-							{movie?.title || movie?.name || movie?.original_title}
+							{media?.title || media?.name || media?.original_title}
 						</h2>
 						<span className="buttons">
 							<button
 								className="button button--play"
-								onClick={() => handlePlay(movie)}
+								onClick={() => handlePlay(media)}
 							>
 								<img src={playIcon} alt="" />
 								Play
 							</button>
 							<button
 								className="button button--info"
-								onClick={() => handleDetails(movie)}
+								onClick={() => handleDetails(media)}
 							>
 								<img src={infoIcon} alt="" />
 								More Info
@@ -99,11 +99,11 @@ const Banner = ({ fetchUrl }) => {
 						</span>
 
 						<p className="hero__overview">
-							{movie.overview ? movie.overview : 'No overview available'}
+							{media.overview ? media.overview : 'No overview available'}
 						</p>
 					</div>
 				</article>
-				{modalIsOpen && <Modal closeModal={closeModal} movie={movieDetails} />}
+				{modalIsOpen && <Modal closeModal={closeModal} media={mediaDetails} />}
 			</>
 		);
 	}

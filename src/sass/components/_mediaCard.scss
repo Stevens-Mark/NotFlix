@@ -1,0 +1,113 @@
+.media {
+	&__item {
+		cursor: pointer;
+		margin: 0.625rem 0rem;
+		overflow: hidden;
+		padding: 5px;
+		position: relative;
+		transition: transform 500ms;
+		&::after {
+			content: '';
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			right: 12px;
+			bottom: 10px;
+			border-radius: 0.5rem;
+			opacity: 0;
+			transition: opacity 0.6s ease-out;
+			z-index: 0;
+			background: linear-gradient(
+				180deg,
+				rgba(255, 255, 255, 0) 0%,
+				rgba(0, 0, 0, 1) 150%
+			);
+		}
+
+		&:hover {
+			transform: scale(1.075);
+			z-index: 1;
+			.media__buttonsContainer {
+				transform: translateY(-10px);
+			}
+			&::after {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__itemImage {
+		border-radius: 1rem;
+		height: 190px;
+		object-fit: cover;
+		object-position: center top;
+		width: 100%;
+		padding: 8px;
+	}
+
+	&__buttonsContainer {
+		border-radius: 0.5rem;
+		bottom: 1rem;
+		left: 0.5rem;
+		padding: 0rem 0.625rem;
+		position: absolute;
+		transform: translateY(7rem);
+		transition: transform 600ms ease-out;
+		width: 93.5%;
+		z-index: 1;
+		h3 {
+			font-size: clamp(0.8rem, 1vw, 1rem);
+			font-weight: 500;
+			margin: 0 0 2px 0px;
+			@include textShadow;
+		}
+	}
+
+	&__movieButtonsRow {
+		align-items: center;
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	&__movieButtons {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		aspect-ratio: 1;
+		background-color: rgba(255, 255, 255, 0.2);
+		border-radius: 1rem;
+		border: 1px solid white;
+		cursor: pointer;
+		margin: 0px 5px 5px 0px;
+		// padding-top: 2px;
+		// padding-left: 6px;
+		// width: 1.3rem;
+		aspect-ratio: 1;
+		@include buttonHover;
+		img {
+			aspect-ratio: 1;
+		}
+	}
+}
+
+
+// MEDIA QUERIES
+
+@media (min-width: $laptop) {
+	.media {
+		&__itemImage,
+		&__status {
+			height: $slidderImgSHeightLaptopScreen;
+		}
+	}
+}
+
+@media (min-width: $laptopLarge) {
+	.media {
+		&__itemImage,
+		&__status {
+			height: $slidderImgSHeightLaptopLargeScreen;
+		}
+	}
+}
+

@@ -1,7 +1,7 @@
 .toTop {
   background-color: transparent;
   border: none;
-  bottom: 1rem;
+  bottom: 4.5rem;
   cursor: pointer;
   padding: unset;
   position: fixed;
@@ -31,7 +31,7 @@
   @media screen and (min-width: $XXtralarge) {
     left: 50%;
     transform: translate(-50%, 0); 
-    bottom: 7.5rem;
+    bottom: 7rem;
   }
 }
 

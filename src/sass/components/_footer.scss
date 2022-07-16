@@ -1,15 +1,54 @@
 /*FOOTER used on all pages*/
 
-footer {
+.footer {
+	align-items: center;
 	animation: fade 1s both ease-in-out;
 	border-top: 2px solid $quaternary;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	padding: 0rem 1.25rem;
-  text-align: center;
-  img {
-    margin-top: 2rem;
-		width: clamp(6rem, 9vw, 9rem);
+	text-align: center;
+
+	&__left {
+		display: flex;
+		flex: 1;
+		margin-top: 2rem;
+		place-items: center;
+		img {
+			width: clamp(2rem, 3vw, 3rem);
+		}
 	}
-	p {
-		margin: 1rem;
+
+	&__middle {
+		flex: 1;
+		img {
+			margin-top: 1rem;
+			width: clamp(7rem, 9vw, 9rem);
+		}
+		p {
+			margin: unset;
+		}
+	}
+	&__right {
+		flex: 1;
+		text-align: right;
 	}
 }
+
+@media (min-width: $tablette) {
+	.footer {
+		flex-direction: row;
+		
+		&__left {
+			margin-top: unset;
+		}
+
+		&__middle {
+			p {
+				margin: 0 0 2rem 0;
+			}
+		}
+	}
+}
+
