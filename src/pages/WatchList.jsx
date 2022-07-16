@@ -35,7 +35,7 @@ const WatchList = () => {
 				</div>
 			)}
 
-			{modalIsOpen && <Modal closeModal={closeModal} medai={mediaDetails} />}
+			{modalIsOpen && <Modal closeModal={closeModal} media={mediaDetails} />}
 		</main>
 	);
 };
