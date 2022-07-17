@@ -1,5 +1,12 @@
+// CSS used for watchList & Search Pages
+
 .media {
-  min-height: calc(90vh - 4rem);
+	min-height: calc(90vh - 4rem);
+	h2 {
+		font-size: clamp(1.1rem, 0.6rem + 1.6368vw, 1.5rem);
+		font-weight: 500;
+		margin: 6rem 2rem 0rem 2rem;
+	}
 
 	&__status {
 		align-items: center;
@@ -8,14 +15,13 @@
 		height: 90vh;
 		justify-content: center;
 	}
-	
+
 	&__grid {
-		margin-top: 4rem;
-		width: 100%;
-		max-width: $maxPageWidth;
-		padding: 0rem 1.25rem;
 		display: grid;
 		grid-template-columns: repeat(1, 1fr);
+		max-width: $maxPageWidth;
+		padding: 0rem 1.25rem;
+		width: 100%;
 	}
 
 	&__item {
@@ -60,36 +66,32 @@
 // breakpoints adjusted to match "react-slick" slidder breakpoints
 
 @media (min-width: 461px) {
-	.media__grid 
-	 {
+	.media__grid {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
 @media (min-width: 769px) {
-	.media__grid 
-	 {
+	.media__grid {
 		grid-template-columns: repeat(3, 1fr);
 	}
 }
 
 @media (min-width: 1025px) {
-	.media__grid 
-	 {
+	.media__grid {
 		grid-template-columns: repeat(4, 1fr);
 	}
 }
 
 @media (min-width: 1440px) {
-	.media__grid 
-	 {
+	.media__grid {
 		grid-template-columns: repeat(5, 1fr);
 	}
 }
 
 @media (min-width: 1680px) {
-	.media__grid 
-	 {
+	.media__grid {
 		grid-template-columns: repeat(6, 1fr);
 	}
 }
+

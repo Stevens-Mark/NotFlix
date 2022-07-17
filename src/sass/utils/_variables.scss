@@ -28,7 +28,7 @@ $bannerImgSHeightLaptopLargeScreen: 850px;
 // max page width
 $maxPageWidth: 1920px;
 
-// breakpoints
+// breakpoints General
 $mobileMedium: 425px;
 $mobileXtraLarge: 600px;
 $tablette: 768px;
@@ -36,6 +36,8 @@ $laptop: 1024px;
 $laptopLarge: 1440px;
 $Xtralarge: 1700px;
 $XXtralarge: 1950px;
+// burger menu collapse breakpoint
+$burgerMenu: 880px;
 
 /*variables used for modal details animation*/
 $number-of-items: 5;

@@ -44,12 +44,13 @@ const SearchInput = () => {
 				type="text"
 				id="search"
 				value={input}
+        placeholder="Search..."
 				required={true}
 				maxLength={30}
 				onChange={(e) => handleText(e)}
 			/>
 
-			<button type="submit">Search</button>
+			{/* <button type="submit">S</button> */}
 		</form>
 	);
 };

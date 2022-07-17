@@ -59,7 +59,7 @@ const Header = () => {
 					My List
 				</NavLink></li>
 			
-				<li><SearchInput /></li>
+				<li className='menu__lastItem'><SearchInput /></li>
 				
 
 			</nav>

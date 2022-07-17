@@ -16,7 +16,6 @@ import LoadError from '../components/LoadError';
  * @returns {JSX}
  */
 const Search = () => {
-	
 	const search = useLocation().search;
 	const value = new URLSearchParams(search).get('queryValue');
 
@@ -49,15 +48,18 @@ const Search = () => {
 									<span>There are no results ...</span>
 								</div>
 							) : (
-								<div className="media__grid">
-									{data.results.map((data) => (
-										<MediaCard
-											key={data.id}
-											media={data}
-											handleDetails={handleDetails}
-										/>
-									))}
-								</div>
+								<section>
+									<h2>Search results for "{value}" are : </h2>
+									<div className="media__grid">
+										{data.results.map((data) => (
+											<MediaCard
+												key={data.id}
+												media={data}
+												handleDetails={handleDetails}
+											/>
+										))}
+									</div>
+								</section>
 							)}
 
 							{modalIsOpen && (
