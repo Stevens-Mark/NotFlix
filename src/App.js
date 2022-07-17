@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ContextProvider } from './context/globalProvider';
 import React, { lazy, Suspense } from 'react';
 import Header from './components/Header';
+import ScrollIndicator from './components/ScrollIndicator';
 // import components when needed using lazy loading
 const Home = lazy(() => import('./pages/Home'));
 const Movies = lazy(() => import('./pages/Movies'));
@@ -18,6 +19,7 @@ const App = () => {
 		<Suspense fallback={renderLoader()}>
 			<Router>
 				<ContextProvider>
+					<ScrollIndicator />
 					<Header />
 					<Switch>
 						<Route exact path="/" component={Home} />

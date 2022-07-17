@@ -1,0 +1,10 @@
+@import '../utils/variables';
+
+.scrollIndicator {
+	background-color: $notflixRed;
+	height: 6px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 3;
+}
