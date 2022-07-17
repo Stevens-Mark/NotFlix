@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import NotFlixLogo from '../assets/images/notflixLogo.png';
+import SearchInput from './SearchInput';
 
 /**
  * @function Header
@@ -57,6 +58,7 @@ const Header = () => {
 					My List
 				</NavLink>
 			</nav>
+			<SearchInput />
 		</header>
 	);
 };

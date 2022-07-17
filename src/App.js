@@ -9,10 +9,11 @@ const Movies = lazy(() => import('./pages/Movies'));
 const TvShows = lazy(() => import('./pages/TvShows'));
 const Popular = lazy(() => import('./pages/Popular'));
 const MyWatchList = lazy(() => import('./pages/WatchList'));
+const Search = lazy(() => import('./pages/Search'));
 const Error = lazy(() => import('./pages/Error'));
 const Footer = lazy(() => import('./components/Footer'));
 const GoToTop = lazy(() => import('./components/GoToTop'));
-const renderLoader = () => <div className="loadingStatus">Loading...</div>;
+const renderLoader = () => <div className="loadingStatus">Loading ...</div>;
 
 const App = () => {
 	return (
@@ -27,6 +28,7 @@ const App = () => {
 						<Route path="/tvshows" component={TvShows} />
 						<Route path="/popular" component={Popular} />
 						<Route path="/mywatchlist" component={MyWatchList}/>
+						<Route path="/search" component={Search}/>
 						<Route component={Error} />
 					</Switch>
 					<Footer />
