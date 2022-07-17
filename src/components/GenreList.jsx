@@ -17,11 +17,14 @@ const GenresList = ({ genreIds, classType }) => {
 
 	return (
 		<ul className="listGroup">
-			{cleanList.map(name => 
-				<li className={`listGroup__item listGroup__item--${classType}`} key={name}>
+			{cleanList.map((name) => (
+				<li
+					className={`listGroup__item listGroup__item--${classType}`}
+					key={name}
+				>
 					{name}.
 				</li>
-			)}
+			))}
 		</ul>
 	);
 };
@@ -30,6 +33,6 @@ export default GenresList;
 
 // Prototypes
 GenresList.propTypes = {
-  genreIds: PropTypes.array.isRequired,
+	genreIds: PropTypes.array.isRequired,
 	classType: PropTypes.string,
-}
+};

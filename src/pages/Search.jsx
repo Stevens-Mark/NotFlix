@@ -1,16 +1,28 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+// import items needed for data fetch
+import { useFetch } from '../config/FetchData';
+import { SEARCH_URL } from '../config/requests';
+// import components
 import MediaCard from '../components/MediaCard';
 import useModal from '../utils/useModal';
 import Modal from '../components/Modal';
+import Loader from '../components/Loader';
+import LoadError from '../components/LoadError';
+
 /**
  * Renders Search page
  * @function Search
  * @returns {JSX}
  */
 const Search = () => {
-	const { modalIsOpen, mediaDetails, closeModal, handleDetails } = useModal();
+	
+	const search = useLocation().search;
+	const value = new URLSearchParams(search).get('queryValue');
 
-  const searchResults = [];
+	const { modalIsOpen, mediaDetails, closeModal, handleDetails } = useModal();
+	const { data, isLoading, isError } = useFetch(`${SEARCH_URL}${value}`);
+
 	useEffect(() => {
 		document.title = 'NotFlix | Search';
 		window.scrollTo(0, 0);
@@ -19,25 +31,45 @@ const Search = () => {
 	return (
 		<main className="media">
 			<h1 className="sr-only">Welcome to NotFlix - Media Search</h1>
-			{searchResults.length < 1 ? (
+
+			{isLoading ? (
 				<div className="media__status">
-					<span>There are no results ...</span>
+					<Loader />
 				</div>
 			) : (
-				<div className="media__grid">
-					{searchResults.map((data) => (
-						<MediaCard
-							key={data.id}
-							media={data}
-							handleDetails={handleDetails}
-						/>
-					))}
-				</div>
-			)}
+				<>
+					{isError ? (
+						<div className="media__status">
+							<LoadError />
+						</div>
+					) : (
+						<>
+							{data.results.length < 1 ? (
+								<div className="media__status">
+									<span>There are no results ...</span>
+								</div>
+							) : (
+								<div className="media__grid">
+									{data.results.map((data) => (
+										<MediaCard
+											key={data.id}
+											media={data}
+											handleDetails={handleDetails}
+										/>
+									))}
+								</div>
+							)}
 
-			{modalIsOpen && <Modal closeModal={closeModal} media={mediaDetails} />}
+							{modalIsOpen && (
+								<Modal closeModal={closeModal} media={mediaDetails} />
+							)}
+						</>
+					)}
+				</>
+			)}
 		</main>
 	);
 };
 
 export default Search;
+

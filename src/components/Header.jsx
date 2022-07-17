@@ -38,27 +38,32 @@ const Header = () => {
 			</label>
 
 			<nav className="menu">
-				<NavLink activeClassName="active" exact to="/">
+	
+				<li><NavLink activeClassName="active" exact to="/">
 					Home
-				</NavLink>
+				</NavLink></li>
 
-				<NavLink activeClassName="active" to="/tvshows">
+				<li><NavLink activeClassName="active" to="/tvshows">
 					TV Shows
-				</NavLink>
+				</NavLink></li>
 
-				<NavLink activeClassName="active" to="/movies">
+				<li><NavLink activeClassName="active" to="/movies">
 					Movies
-				</NavLink>
+				</NavLink></li>
 
-				<NavLink activeClassName="active" to="/popular">
+				<li><NavLink activeClassName="active" to="/popular">
 					New & Popular
-				</NavLink>
+				</NavLink></li>
 
-				<NavLink activeClassName="active" to="/mywatchlist">
+				<li><NavLink activeClassName="active" to="/mywatchlist">
 					My List
-				</NavLink>
+				</NavLink></li>
+			
+				<li><SearchInput /></li>
+				
+
 			</nav>
-			<SearchInput />
+
 		</header>
 	);
 };

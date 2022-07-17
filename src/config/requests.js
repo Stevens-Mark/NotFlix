@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-export const API_KEY =  '3cfc9afc82df69e9aa9eab1c9fa4fae8';
+export const API_KEY = '3cfc9afc82df69e9aa9eab1c9fa4fae8';
 export const BASE_URL = 'https://api.themoviedb.org/3';
-// for fetching real image data
-export const IMAGE_URL = 'https://image.tmdb.org/t/p/original/';
+export const SEARCH_URL = `/search/multi?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=`;
+export const IMAGE_URL = 'https://image.tmdb.org/t/p/original/'; // for fetching real image data
+
 // for fetching mocked image
 // export const IMAGE_URL = '../mockImages'; // used for mocking data
 
@@ -13,6 +14,7 @@ const instance = axios.create({
 	// baseURL: '../MockedDataCopy.json',	// used for mocking data
 });
 export default instance;
+
 
 export const requests = {
 	fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28&sort_by=popularity.desc`,
@@ -53,3 +55,4 @@ export const requestsVideo = {
 	fetchMovieVideo: `/movie/{movie_id}/videos?api_key=${API_KEY}&language=en-US`,
 	fetchTvVideo: `/tv/{tv_id}/videos?api_key=${API_KEY}&language=en-US`,
 };
+

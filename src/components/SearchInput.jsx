@@ -29,10 +29,11 @@ const SearchInput = () => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
     if (input.length > 0) {
-      history.push('/search');
-    } else {
-      history.push('/');
-    }
+      history.push(`/search?queryValue=${input}`);
+    } 
+    // else {
+    //   history.push('/');
+    // }
     console.log(input);
 	};
 
@@ -43,7 +44,7 @@ const SearchInput = () => {
 				type="text"
 				id="search"
 				value={input}
-				// required={true}
+				required={true}
 				maxLength={30}
 				onChange={(e) => handleText(e)}
 			/>
