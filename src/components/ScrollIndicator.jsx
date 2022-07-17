@@ -1,4 +1,3 @@
-import '../sass/components/scrollIndicator.scss';
 import { useState, useEffect } from 'react';
 
 /**
