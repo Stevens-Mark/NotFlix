@@ -1,4 +1,4 @@
-![NotFlix](/src/assets/images/notflixLogo.png.webp)
+![NotFlix](/src/assets/images/notflixLogo.png)
 
 # PROJECT PERSONAL *(English)*
 
