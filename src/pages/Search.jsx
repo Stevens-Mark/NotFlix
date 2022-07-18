@@ -45,7 +45,7 @@ const Search = () => {
 						<>
 							{data.results.length < 1 ? (
 								<div className="media__status">
-									<span>There are no results ...</span>
+									<span>No results for :  "{value}"</span>
 								</div>
 							) : (
 								<section>

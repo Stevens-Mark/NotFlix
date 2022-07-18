@@ -28,7 +28,7 @@ const Header = () => {
 	return (
 		<header className={`top-nav ${navbar ? 'top-nav--active' : ''}`}>
 			<NavLink exact to="/">
-				<img src={NotFlixLogo} alt="Click to home page" />
+				<img className="top-nav__logo" src={NotFlixLogo} alt="Click to home page" />
 			</NavLink>
 
 			<input id="menu-toggle" type="checkbox" />

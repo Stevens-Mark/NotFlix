@@ -13,6 +13,16 @@
 	width: 100%;
 	z-index: 1;
 
+	&--active {
+		background-color: $secondary;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+		transition: background-color 0.5s ease-out;
+	}
+
+	&__logo {
+		width: clamp(8rem, 11vw, 11rem);
+	}
+
 	a {
 		color: $primary-text;
 		margin: 0rem 0rem -0.625rem 0rem;
@@ -20,23 +30,6 @@
 		&.active {
 			color: $active;
 		}
-	}
-
-	img {
-		width: clamp(8rem, 11vw, 11rem);
-	}
-
-	&--active {
-		background-color: $secondary;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-		transition: background-color 0.5s ease-out;
-	}
-
-	input[type='text' i] {
-		padding: 3px 5px;
-		border-radius: 5px;
-		font-size: clamp(0.9rem, 1vw, 1.1rem);
-		font-family: 'Netflix';
 	}
 }
 
@@ -50,6 +43,7 @@
 	padding: 0;
 	&__lastItem {
 		margin-left: auto;
+		overflow: hidden;
 	}
 }
 
