@@ -140,7 +140,7 @@ const Modal = ({ media, closeModal }) => {
 								Average Vote :{' '}
 							</span>
 							<span className="modal__details__text modal__details__animate--5">
-								{media.vote_average
+								{media.vote_average || media.vote_average === 0
 									? Math.round(media.vote_average)
 									: 'Not Available'}
 							</span>

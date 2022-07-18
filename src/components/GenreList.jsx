@@ -16,16 +16,22 @@ const GenresList = ({ genreIds, classType }) => {
 	const cleanList = [...new Set(list)];
 
 	return (
-		<ul className="listGroup">
-			{cleanList.map((name) => (
-				<li
-					className={`listGroup__item listGroup__item--${classType}`}
-					key={name}
-				>
-					{name}.
-				</li>
-			))}
-		</ul>
+		<>
+			{cleanList.length < 1 ? (
+				<p className="listGroup">None</p>
+			) : (
+				<ul className="listGroup">
+					{cleanList.map((name) => (
+						<li
+							className={`listGroup__item listGroup__item--${classType}`}
+							key={name}
+						>
+							{name}.
+						</li>
+					))}
+				</ul>
+			)}
+		</>
 	);
 };
 
@@ -36,3 +42,4 @@ GenresList.propTypes = {
 	genreIds: PropTypes.array.isRequired,
 	classType: PropTypes.string,
 };
+
