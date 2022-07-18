@@ -80,7 +80,7 @@ Après avoir vu de nombreux clones de NetFlix sur Internet, je me suis dit que j
 - [x] La liste de favoris est conservée dans un stockage local pour faciliter la démo.
 - [x] Mise en page réactive
 - [x] Liste de films et d'émissions de télévision pouvant être glissée dans l'écran.
-- [x] Base de données fournie par [TMDB API] (https://www.themoviedb.org/)
+- [x] Base de données fournie par [TMDB API](https://www.themoviedb.org/)
 
 
 # Installation *(English)*
