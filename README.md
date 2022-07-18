@@ -1,4 +1,6 @@
-![NotFlix](/src/assets/images/notflixLogo.png)
+<p align="center">
+  <img src="/src/assets/images/notflixLogo.png" />
+</p>
 
 # PROJECT PERSONAL *(English)*
 
@@ -56,8 +58,9 @@ The App runs on http://localhost:3000/
 - More to be added......
 
 
-
-![NotFlix](/src/assets/images/notflixLogo.png.webp)
+<p align="center">
+  <img src="/src/assets/images/notflixLogo.png" />
+</p>
 
 # PROJET PERSONNEL *(Français)*
 
