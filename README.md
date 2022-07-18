@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+![NotFlix](/src/assets/images/notflixLogo.png.webp)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# PROJECT PERSONAL *(English)*
 
-## Available Scripts
+# NOTFLIX - A NetFlix Clone
 
-In the project directory, you can run:
+## Objective
 
-### `npm start`
+After seeing numerous NetFlix clones on the internet I thought I would try to build my own version. I have to say I was inspired by the version done by Davide Mandelli, Th3Wall. Which is an amazing version !! Check it out
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
+- [x] Display movies, tv shows, popular & watch list
+- [x] Search movies and tv shows
+- [x] Add/Remove to/from "My Wish List"
+- [x] A detail modal with moreinformation about the selected movie or TV show
+- [x] Use of React hooks and custom hooks
+- [x] Favourites list persised in local storage for ease of demo
+- [x] Responsive layout
+- [x] Swipeable movie and tv shows list
+- [x] Database courtesy of [TMDB API](https://www.themoviedb.org/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+# Installation *(English)*
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Prerequisites
+- [NodeJS](https://nodejs.org/en/)  Version 16.13.0 
+- [NPM](https://www.npmjs.com/package/npm) Version 7.6.0
+- [Visual Studio Code](https://code.visualstudio.com/) or another IDE of your choice
 
-### `npm run build`
+## Dependencies
+- [React](https://reactjs.org/) Version 17.0.2
+- [React-router-dom](https://www.npmjs.com/package/react-router-dom/v/5.2.0) Version 5.2.0
+- [React-scripts](https://www.npmjs.com/package/react-scripts) Version 5.0.0
+- [Prop-types](https://www.npmjs.com/package/prop-types) Version 15.8.1
+- [Axios](https://axios-http.com/) Version 0.27.2
+- [React-slick](https://react-slick.neostack.com/) Version 0.29.0
+- [Slick-carousel](https://www.npmjs.com/package/slick-carousel) Version 1.8.1
+- [SaSS](https://sass-lang.com/) Version 1.46.0
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installing and running the project
+- Clone the repository onto your computer :
+  `git clone https://github.com/Stevens-Mark/NotFlix.git`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Inside this repository, install the packages/dependencies :
+ `npm install`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Run the Api:
+ `npm start`
 
-### `npm run eject`
+The App runs on http://localhost:3000/
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Notes
+- This is a project that I am still in the process of "completing" (saying that, I think one could do this project forever, adding new features all the time)...
+- More to be added......
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![NotFlix](/src/assets/images/notflixLogo.png.webp)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# PROJET PERSONNEL *(Français)*
 
-### Code Splitting
+# NOTFLIX - Un clone de NetFlix
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Objectif
 
-### Analyzing the Bundle Size
+Après avoir vu de nombreux clones de NetFlix sur Internet, je me suis dit que j'allais essayer de construire ma propre version. Je dois dire que j'ai été inspiré par la version faite par Davide Mandelli, Th3Wall. C'est une version incroyable ! Regardez-la
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Fonctionnalités
 
-### Making a Progressive Web App
+- [x] Afficher les films, les séries télévisées, les films populaires et les listes de visionnage
+- [x] Recherche de films et de séries TV
+- [x] Ajouter/supprimer à/de "Ma liste de souhaits".
+- [x] Une modale de détail avec plus d'informations sur le film ou la série TV sélectionné(e).
+- [x] Utilisation de hooks React et de hooks personnalisés
+- [x] La liste de favoris est conservée dans un stockage local pour faciliter la démo.
+- [x] Mise en page réactive
+- [x] Liste de films et d'émissions de télévision pouvant être glissée dans l'écran.
+- [x] Base de données fournie par [TMDB API] (https://www.themoviedb.org/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+# Installation *(English)*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Prérequis
+- [NodeJS](https://nodejs.org/en/)  Version 16.13.0 
+- [NPM](https://www.npmjs.com/package/npm) Version 7.6.0
+- [Visual Studio Code](https://code.visualstudio.com/) or another IDE of your choice
 
-### Deployment
+## Dépendances
+- [React](https://reactjs.org/) Version 17.0.2
+- [React-router-dom](https://www.npmjs.com/package/react-router-dom/v/5.2.0) Version 5.2.0
+- [React-scripts](https://www.npmjs.com/package/react-scripts) Version 5.0.0
+- [Prop-types](https://www.npmjs.com/package/prop-types) Version 15.8.1
+- [Axios](https://axios-http.com/) Version 0.27.2
+- [React-slick](https://react-slick.neostack.com/) Version 0.29.0
+- [Slick-carousel](https://www.npmjs.com/package/slick-carousel) Version 1.8.1
+- [SaSS](https://sass-lang.com/) Version 1.46.0
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## Installation et exécution du projet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Clonez le référentiel sur votre ordinateur :
+  `git clone https://github.com/Stevens-Mark/NotFlix.git`
+
+- Dans ce dépôt, installez les paquets/dépendances :
+ `npm install`
+
+- Exécutez l'Api :
+ `npm start`
+
+L'application fonctionne sur http://localhost:3000/
+
+
+## Notes
+- C'est un projet que je suis toujours en train de "terminer" (en disant cela, je pense qu'on pourrait faire ce projet pour toujours, en ajoutant de nouvelles fonctionnalités tout le temps)...
+- Plus à ajouter......

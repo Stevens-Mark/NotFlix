@@ -4,7 +4,7 @@ import { createContext } from 'react';
 export const Context = createContext();
 
 export const ContextProvider = ({children})  => {
-    // const [allPhotos, setAllPhotos] = useState([])
+
     const [watchListItems, setwatchListItems] = useState([]);
      
     // Local Storage: setting & getting data
@@ -19,25 +19,7 @@ export const ContextProvider = ({children})  => {
     useEffect(() => {
         localStorage.setItem('watchListItem', JSON.stringify(watchListItems));
     }, [watchListItems]);
-    
-    // const url = "https://..............."
-    // useEffect(() => {
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => setAllPhotos(data))
-    // }, [])
-    
-    // function toggleFavorite(id) {
-    //     const updatedArr = allPhotos.map(photo => {
-    //         if(photo.id === id) {
-    //             return {...photo, isFavorite: !photo.isFavorite}
-    //         }
-    //         return photo
-    //     })
-        
-    //     setAllPhotos(updatedArr)
-    // }
-    
+      
     const addToWatchList =(newItem) => {
         setwatchListItems(prevItems => [...prevItems, newItem]);
     }
@@ -48,8 +30,6 @@ export const ContextProvider = ({children})  => {
     
     return (
         <Context.Provider value={{
-					// allPhotos, 
-					// toggleFavorite,
 					watchListItems, 
 					addToWatchList, 
 					removeFromWatchList}}>
