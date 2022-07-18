@@ -21,7 +21,7 @@ import MediaCard from './MediaCard';
 const SimpleSlidder = ({ title, fetchUrl }) => {
 	const { modalIsOpen, mediaDetails, closeModal, handleDetails } = useModal();
 	const { data, isLoading, isError } = useFetch(fetchUrl);
-	const medias = data.results;
+	const medias = data;
 
 	var settings = {
 		dots: false,

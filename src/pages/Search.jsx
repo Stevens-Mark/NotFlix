@@ -25,6 +25,7 @@ const Search = () => {
 	useEffect(() => {
 		document.title = 'NotFlix | Search';
 		window.scrollTo(0, 0);
+
 	}, []);
 
 	return (
@@ -43,7 +44,7 @@ const Search = () => {
 						</div>
 					) : (
 						<>
-							{data.results.length < 1 ? (
+							{data.length < 1 ? (
 								<div className="media__status">
 									<span>No results for :  "{value}"</span>
 								</div>
@@ -51,7 +52,7 @@ const Search = () => {
 								<section>
 									<h2>Search results for "{value}" are : </h2>
 									<div className="media__grid">
-										{data.results.map((data) => (
+										{data.map((data) => (
 											<MediaCard
 												key={data.id}
 												media={data}

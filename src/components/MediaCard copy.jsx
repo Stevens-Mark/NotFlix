@@ -15,9 +15,9 @@ import arrowDownIcon from '../assets/icons/chevronDown.svg';
  * @returns {JSX} media card
  */
 const MediaCard = ({ media, handleDetails }) => {
-	
+
 	const handlePlay = (media) => {
-		console.log(media);
+		console.log(media.poster_path);
 	};
 
 	return (

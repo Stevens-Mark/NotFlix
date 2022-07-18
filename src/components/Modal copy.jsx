@@ -115,9 +115,7 @@ const Modal = ({ media, closeModal }) => {
 								Genres :{' '}
 							</span>
 							<span className="modal__details__text modal__details__animate--2">
-								{media.genre_ids && (
-									<GenresList genreIds={media.genre_ids} classType={'modal'} />
-								)}
+								<GenresList genreIds={media.genre_ids} classType={'modal'} />
 							</span>
 
 							<span className="modal__details__label modal__details__animate--3">

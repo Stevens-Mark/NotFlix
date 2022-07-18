@@ -27,7 +27,11 @@ export function useFetch(fetchUrl) {
 			try {
 				const response = await fetch(url);
 				const data = await response.json();
-				setData(data);
+				const media_type = ['person']; // filter out people from results
+				const filtered = data.results.filter(
+					(i) => !media_type.includes(i.media_type)
+				);
+				setData(filtered);
 			} catch (err) {
 				console.log(err);
 				setIsError(true);
@@ -45,3 +49,4 @@ export function useFetch(fetchUrl) {
 useFetch.propTypes = {
 	fetchUrl: PropTypes.string.isRequired,
 };
+

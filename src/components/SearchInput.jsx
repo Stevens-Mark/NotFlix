@@ -5,6 +5,7 @@ import xMark from '../assets/icons/xmark.svg';
 // import magnify from '../assets/icons/magnify.svg';
 
 /**
+ * Renders search input field
  * @function SearchInput
  * @returns {JSX} input search field
  */
@@ -33,7 +34,6 @@ const SearchInput = () => {
 		if (input.length > 0) {
 			history.push(`/search?queryValue=${input}`);
 		} 
-		console.log(input);
 	};
 
 		/**
@@ -59,7 +59,7 @@ const SearchInput = () => {
 				type="text"
 				id="search"
 				value={input}
-				placeholder="search ..."
+				placeholder="Search Tv & Movies ..."
 				required={true}
 				maxLength={30}
 				onChange={(e) => handleText(e)}
