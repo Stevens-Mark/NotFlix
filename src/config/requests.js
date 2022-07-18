@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const API_KEY = '3cfc9afc82df69e9aa9eab1c9fa4fae8';
+export const API_KEY = process.env.REACT_APP_API_KEY;
 export const BASE_URL = 'https://api.themoviedb.org/3';
 export const SEARCH_URL = `/search/multi?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=`;
 export const IMAGE_URL = 'https://image.tmdb.org/t/p/original/'; // for fetching real image data
@@ -15,7 +15,7 @@ const instance = axios.create({
 });
 export default instance;
 
-
+console.log(process.env.REACT_APP_API_KEY)
 export const requests = {
 	fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28&sort_by=popularity.desc`,
 	fetchAdventureMovies: `/discover/movie?api_key=${API_KEY}&with_genres=12&sort_by=popularity.desc`,
