@@ -57,6 +57,12 @@ The App runs on http://localhost:3000/
 - This is a project that I am still in the process of "completing" (saying that, I think one could do this project forever, adding new features all the time)...
 - More to be added......
 
+## Credits
+Credit for the original code for the "Notflix" intro go to - [Claudio Bonfait](https://codepen.io/claudio_bonfati/pen/mdryxPv)
+
+Credit for the "Notflix" intro sound goes to - [Davide Mandelli, Th3Wall](https://github.com/Th3Wall)
+
+
 
 <p align="center">
   <img src="/src/assets/images/notflixLogo.png" />
@@ -118,3 +124,8 @@ L'application fonctionne sur http://localhost:3000/
 ## Notes
 - C'est un projet que je suis toujours en train de "terminer" (en disant cela, je pense qu'on pourrait faire ce projet pour toujours, en ajoutant de nouvelles fonctionnalités tout le temps)...
 - Plus à ajouter......
+
+## Crédits
+Le crédit pour le code original de l'intro de "Notflix" revient à - [Claudio Bonfait](https://codepen.io/claudio_bonfati/pen/mdryxPv)
+
+Le crédit pour le son d'intro de "Notflix" revient à - [Davide Mandelli, Th3Wall](https://github.com/Th3Wall)

@@ -5,9 +5,6 @@ export const BASE_URL = 'https://api.themoviedb.org/3';
 export const SEARCH_URL = `/search/multi?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=`;
 export const IMAGE_URL = 'https://image.tmdb.org/t/p/original/'; // for fetching real image data
 
-// for fetching mocked image
-// export const IMAGE_URL = '../mockImages'; // used for mocking data
-
 // base URL to make requests (using axios) to the movie database (used for banner image fetch)
 const instance = axios.create({
 	baseURL: 'https://api.themoviedb.org/3',
@@ -15,7 +12,9 @@ const instance = axios.create({
 });
 export default instance;
 
-console.log(process.env.REACT_APP_API_KEY)
+// for fetching mocked image
+// export const IMAGE_URL = '../mockImages'; // used for mocking data
+
 export const requests = {
 	fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28&sort_by=popularity.desc`,
 	fetchAdventureMovies: `/discover/movie?api_key=${API_KEY}&with_genres=12&sort_by=popularity.desc`,

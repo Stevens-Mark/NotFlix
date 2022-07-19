@@ -15,7 +15,7 @@ const Footer = () => {
 					<span>Created by Mark Stevens</span>
 				</span>
 				<span className="footer__middle">
-					<NavLink exact to="/">
+					<NavLink exact to="/animation">
 						<img src={NotFlixLogo} alt="Click to home page" />
 					</NavLink>
 					<p>© Copyright {getYear()} NotFlix</p>

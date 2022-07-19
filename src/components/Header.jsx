@@ -27,7 +27,7 @@ const Header = () => {
 
 	return (
 		<header className={`top-nav ${navbar ? 'top-nav--active' : ''}`}>
-			<NavLink exact to="/">
+			<NavLink exact to="/animation">
 				<img className="top-nav__logo" src={NotFlixLogo} alt="Click to home page" />
 			</NavLink>
 
