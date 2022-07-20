@@ -33,6 +33,7 @@ const SearchInput = () => {
 		event.preventDefault();
 		if (input.length > 0) {
 			history.push(`/search?queryValue=${input}`);
+			// setInput('');
 		} 
 	};
 

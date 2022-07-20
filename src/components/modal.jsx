@@ -51,32 +51,38 @@ const Modal = () => {
 		console.log(media);
 	};
 
-
 	useEffect(() => {
+		// set accessibility for modal open/closed
+		const body = document.querySelector('body');
+		const modal = document.getElementById('modal');
+		body.setAttribute('aria-hidden', modalIsOpen ? 'true' : 'false');
+		modal.setAttribute('aria-hidden', modalIsOpen ? 'false' : 'true');
+		// initiate keyboard listener to focus trap modal
 		modalIsOpen && document.addEventListener('keydown', handleKeydown);
 		// modalIsOpen && document.querySelector('.modal__closeButton').focus();
+
 		return () => {
-			document.removeEventListener('keydown', handleKeydown); // Detach listener when component unmounts
+			// Detach listener when component unmounts
+			document.removeEventListener('keydown', handleKeydown);
 			// activeElement.focus(); // Return focus to the previously focused element
 		};
 	});
 
 	return createPortal(
 		<div
+			id="modal"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="modal__title"
+			className="modal"
 			style={{
 				animation: !modalIsOpen
 					? 'modalBgFadeOut 0.5s ease-in-out both 0.3s'
 					: 'modalBgFadeIn  ease-out both',
 			}}
-			className="modal"
 		>
 			<Animate show={modalIsOpen}>
-				<div
-					className="modal__body"
-					role="dialog"
-					aria-modal="true"
-					aria-labelledby="modal__title"
-				>
+				<div className="modal__body">
 					{media && (
 						<>
 							<header>
