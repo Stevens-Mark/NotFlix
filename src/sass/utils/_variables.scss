@@ -46,6 +46,6 @@ $burgerMenu: 880px;
 
 /*variables used for modal details animation*/
 $number-of-items: 5;
-$items-animation-time: 1s;
+$items-animation-time: 0.6s;
 $time-delay: calc($items-animation-time / $number-of-items);
 /*calculates the delay time between each item based on the number of items & the total time of animation*/

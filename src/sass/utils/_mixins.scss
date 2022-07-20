@@ -9,15 +9,15 @@
 }
 
 @mixin animateTitle {
-    animation: fadein 1.3s both ease-in-out 0.4s;
+    animation: fadein 1s both ease-in-out 0.2s;
 }
 
 @mixin animateButtons {
-    animation: fadein 1.3s both ease-in-out 0.7s;
+    animation: fadein 1s both ease-in-out 0.4s;
 }
 
 @mixin animateOverview {
-    animation: fadein 1.3s both ease-in-out 1s;
+    animation: fadein 1s both ease-in-out 0.7s;
 }
 
 // modal details animation mixin
