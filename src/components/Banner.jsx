@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { Context } from '../context/globalProvider';
 // import items needed for data fetch
 import axios from '../config/requests';
 import { IMAGE_URL } from '../config/requests';
@@ -7,8 +8,6 @@ import { randomSelect } from '../utils/functions';
 // import components
 import Loader from './Loader';
 import LoadError from './LoadError';
-import Modal from './Modal';
-import useModal from '../utils/useModal';
 // import images/icons
 import noImage from '../assets/images/NoImageAvailable.webp';
 import infoIcon from '../assets/icons/alert-circle-outline.svg';
@@ -22,7 +21,8 @@ import playIcon from '../assets/icons/play.svg';
  */
 const Banner = ({ fetchUrl }) => {
 
-	const { modalIsOpen, mediaDetails, closeModal, handleDetails } = useModal();
+	const { handleDetails } = useContext(Context);
+
 	const [media, setMedia] = useState([]);
 	const [isLoading, setLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
@@ -62,7 +62,6 @@ const Banner = ({ fetchUrl }) => {
 		);
 	} else {
 		return (
-			<>
 				<article className="hero">
 					<img
 						className="hero__image"
@@ -103,8 +102,6 @@ const Banner = ({ fetchUrl }) => {
 						</p>
 					</div>
 				</article>
-				{modalIsOpen && <Modal closeModal={closeModal} media={mediaDetails} />}
-			</>
 		);
 	}
 };

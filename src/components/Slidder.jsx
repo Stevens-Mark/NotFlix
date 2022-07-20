@@ -1,4 +1,6 @@
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { Context } from '../context/globalProvider';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -7,8 +9,6 @@ import { useFetch } from '../config/FetchData';
 // import components
 import Loader from './Loader';
 import LoadError from './LoadError';
-import Modal from './Modal';
-import useModal from '../utils/useModal';
 import MediaCard from './MediaCard';
 
 /**
@@ -19,7 +19,9 @@ import MediaCard from './MediaCard';
  * @returns {JSX}
  */
 const SimpleSlidder = ({ title, fetchUrl }) => {
-	const { modalIsOpen, mediaDetails, closeModal, handleDetails } = useModal();
+
+	const { handleDetails } = useContext(Context);
+
 	const { data, isLoading, isError } = useFetch(fetchUrl);
 	const medias = data;
 
@@ -73,7 +75,6 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 	};
 
 	return (
-		<>
 			<section className="row">
 				<h2 className="row__title">{title}</h2>
 				{isLoading ? (
@@ -98,8 +99,6 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 					</>
 				)}
 			</section>
-			{modalIsOpen && <Modal closeModal={closeModal} media={mediaDetails} />}
-		</>
 	);
 };
 

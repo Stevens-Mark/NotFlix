@@ -3,6 +3,7 @@ import { ContextProvider } from './context/globalProvider';
 import React, { lazy, Suspense } from 'react';
 import Header from './components/Header';
 import ScrollIndicator from './components/ScrollIndicator';
+import Modal from './components/Modal';
 // import components when needed using lazy loading
 const Home = lazy(() => import('./pages/Home'));
 const Movies = lazy(() => import('./pages/Movies'));
@@ -22,6 +23,7 @@ const App = () => {
 			<Router>
 				<ContextProvider>
 					<ScrollIndicator />
+					<Modal />
 					<Header />
 					<Switch>
 						<Route exact path="/" component={Home} />
