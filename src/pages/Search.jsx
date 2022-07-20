@@ -1,12 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import { Context } from '../context/globalProvider';
 import { useLocation } from 'react-router-dom';
 // import items needed for data fetch
 import { useFetch } from '../config/FetchData';
 import { SEARCH_URL } from '../config/requests';
 // import components
 import MediaCard from '../components/MediaCard';
-import useModal from '../utils/useModal';
-import Modal from '../components/Modal';
 import Loader from '../components/Loader';
 import LoadError from '../components/LoadError';
 
@@ -19,9 +18,9 @@ const Search = () => {
 	const search = useLocation().search;
 	const value = new URLSearchParams(search).get('queryValue');
 
-	const { modalIsOpen, mediaDetails, closeModal, handleDetails } = useModal();
 	const { data, isLoading, isError } = useFetch(`${SEARCH_URL}${value}`);
-
+	const { handleDetails } = useContext(Context);
+	
 	useEffect(() => {
 		document.title = 'NotFlix | Search';
 		window.scrollTo(0, 0);
@@ -61,10 +60,6 @@ const Search = () => {
 										))}
 									</div>
 								</section>
-							)}
-
-							{modalIsOpen && (
-								<Modal closeModal={closeModal} media={mediaDetails} />
 							)}
 						</>
 					)}
