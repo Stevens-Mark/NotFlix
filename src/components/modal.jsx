@@ -19,7 +19,7 @@ import playIcon from '../assets/icons/play.svg';
  */
 const Modal = () => {
 	const { modalIsOpen, mediaDetails, closeModal } = useContext(Context);
-	const portalContainer = document.getElementById('modal-portal');
+	// const portalContainer = document.getElementById('modal-portal');
 	// const activeElement = document.activeElement;
 	const media = mediaDetails;
 
@@ -50,6 +50,7 @@ const Modal = () => {
 	const handleClick = (media) => {
 		console.log(media);
 	};
+
 
 	useEffect(() => {
 		modalIsOpen && document.addEventListener('keydown', handleKeydown);
@@ -172,7 +173,7 @@ const Modal = () => {
 				</div>
 			</Animate>
 		</div>,
-		portalContainer
+		document.body
 	);
 };
 

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-const Fade = ({ show, children }) => {
+const AnimateComponent = ({ show, children }) => {
   const [render, setRender] = useState(show);
 
   useEffect(() => {
@@ -29,4 +29,4 @@ const Fade = ({ show, children }) => {
   );
 };
 
-export default Fade;
+export default AnimateComponent;
