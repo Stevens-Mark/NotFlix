@@ -10,10 +10,16 @@
 }
 
 @keyframes modalopen {
-  0%{ opacity: 0; transform: translateY(200px); }
-  30% { opacity: 0.8; }
+  0% { opacity: 0; transform: translateY(400px); }
+  80% { opacity: 0.8; }
   100% { opacity: 1; } 
-  }
+}
+
+  @keyframes modalclose {
+    0% { opacity: 1; }
+    80% { opacity: 0.8; }
+    100% { opacity: 0; transform: translateY(400px); }
+}
 
 @keyframes detailsFade {
     from { opacity: 0; transform: translateY(20px);}
@@ -21,6 +27,18 @@
 }
 
 @keyframes fadeout {
+    from { opacity: 1;}
+    to   { opacity: 0;}
+}
+
+
+@keyframes modalBgFadeIn {
     from { opacity: 0;}
-    to   { opacity: 1;}
+    to   { opacity: 1; z-index: 9999;}
+}
+
+@keyframes modalBgFadeOut {
+    0% { opacity: 1;}
+    98% { opacity: 0; }
+    100% { z-index: -1;}
 }

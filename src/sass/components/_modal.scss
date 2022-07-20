@@ -8,11 +8,11 @@
 	position: fixed;
 	right: 0;
 	top: 0;
-	z-index: 999999;
+	// z-index: 999999;
+		// z-index: -1;
 
 	&__body {
 		padding: 5px;
-		animation: modalopen 0.8s ease-out both;
 		background-color: $tertiary;
 		border-radius: 5px;
 		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

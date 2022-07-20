@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import { Context } from '../context/globalProvider';
 import { createPortal } from 'react-dom';
 // import components/functions...
+import Animate from '../utils/Animate';
 import AddRemoveButton from './buttons/AddRemoveButton';
 import { IMAGE_URL } from '../config/requests';
 import GenresList from './GenreList';
@@ -52,7 +53,7 @@ const Modal = () => {
 
 	useEffect(() => {
 		modalIsOpen && document.addEventListener('keydown', handleKeydown);
-		modalIsOpen && document.querySelector('.modal__closeButton').focus();
+		// modalIsOpen && document.querySelector('.modal__closeButton').focus();
 		return () => {
 			document.removeEventListener('keydown', handleKeydown); // Detach listener when component unmounts
 			// activeElement.focus(); // Return focus to the previously focused element
@@ -61,101 +62,115 @@ const Modal = () => {
 
 	return createPortal(
 		<div
-			style={{ zIndex: !modalIsOpen ? -1 : 99999 }}
+			style={{
+				animation: !modalIsOpen
+					? 'modalBgFadeOut 0.5s ease-in-out both 0.5'
+					: 'modalBgFadeIn 0.2s ease-in-out both',
+			}}
 			className="modal"
-			role="dialog"
-			aria-modal="true"
-			aria-labelledby="modal__title"
 		>
-			{modalIsOpen && (
-				<div className="modal__body">
-					<header>
-						<button
-							aria-label="Close"
-							className="modal__closeButton"
-							onClick={() => closeModal()}
-						>
-							<img src={closeButton} alt="close modal" />
-						</button>
+			<Animate show={modalIsOpen}>
+				<div
+					className="modal__body"
+					role="dialog"
+					aria-modal="true"
+					aria-labelledby="modal__title"
+				>
+					{media && (
+						<>
+							<header>
+								<button
+									aria-label="Close"
+									className="modal__closeButton"
+									onClick={() => closeModal()}
+								>
+									<img src={closeButton} alt="close modal" />
+								</button>
 
-						<img
-							className="modal__image"
-							src={
-								media.backdrop_path !== null
-									? `${IMAGE_URL}${media.backdrop_path}`
-									: media.poster_path !== null
-									? `${IMAGE_URL}${media.poster_path}`
-									: noImage
-							}
-							alt={media?.title || media?.name || media?.original_title}
-						/>
+								<img
+									className="modal__image"
+									src={
+										media.backdrop_path !== null
+											? `${IMAGE_URL}${media.backdrop_path}`
+											: media.poster_path !== null
+											? `${IMAGE_URL}${media.poster_path}`
+											: noImage
+									}
+									alt={media?.title || media?.name || media?.original_title}
+								/>
 
-						<span className="modal__buttons">
-							<button
-								className="button button--playModal"
-								onClick={() => handleClick(media)}
-							>
-								<img src={playIcon} alt="" />
-								Play
-							</button>
+								<span className="modal__buttons">
+									<button
+										className="button button--playModal"
+										onClick={() => handleClick(media)}
+									>
+										<img src={playIcon} alt="" />
+										Play
+									</button>
 
-							<AddRemoveButton media={media} classType={'modal__likeButton'} />
-						</span>
-					</header>
+									<AddRemoveButton
+										media={media}
+										classType={'modal__likeButton'}
+									/>
+								</span>
+							</header>
 
-					<section className="modal__content">
-						<h1 id="modal__title">
-							{media?.title || media?.name || media?.original_title}
-						</h1>
-						<p className="modal__details__overview modal__details__animate--1">
-							{media.overview ? media.overview : 'Not available'}
-						</p>
-						<article>
-							<h2>Details</h2>
-							<div className="modal__details">
-								<span className="modal__details__label modal__details__animate--2">
-									Genres :{' '}
-								</span>
-								<span className="modal__details__text modal__details__animate--2">
-									{media.genre_ids && (
-										<GenresList
-											genreIds={media.genre_ids}
-											classType={'modal'}
-										/>
-									)}
-								</span>
+							<section className="modal__content">
+								<h1 id="modal__title">
+									{media?.title || media?.name || media?.original_title}
+								</h1>
+								<p className="modal__details__overview modal__details__animate--1">
+									{media.overview ? media.overview : 'Not available'}
+								</p>
 
-								<span className="modal__details__label modal__details__animate--3">
-									Original Language :{' '}
-								</span>
-								<span className="modal__details__text modal__details__animate--3">
-									{capitalize(media?.original_language)}
-								</span>
+								<article>
+									<h2>Details</h2>
+									<div className="modal__details">
+										<span className="modal__details__label modal__details__animate--2">
+											Genres :{' '}
+										</span>
+										<span className="modal__details__text modal__details__animate--2">
+											{media.genre_ids && (
+												<GenresList
+													genreIds={media.genre_ids}
+													classType={'modal'}
+												/>
+											)}
+										</span>
 
-								<span className="modal__details__label modal__details__animate--4">
-									{media.release_date ? 'Release Date' : 'First Aired'}{' '}
-								</span>
-								<span className="modal__details__text modal__details__animate--4">
-									{media.release_date
-										? ConvertDate(media.release_date)
-										: media.first_air_date
-										? ConvertDate(media.first_air_date)
-										: 'Not Available'}
-								</span>
+										<span className="modal__details__label modal__details__animate--3">
+											Original Language :{' '}
+										</span>
+										<span className="modal__details__text modal__details__animate--3">
+											{capitalize(media?.original_language)}
+										</span>
 
-								<span className="modal__details__label modal__details__animate--5">
-									Average Vote :{' '}
-								</span>
-								<span className="modal__details__text modal__details__animate--5">
-									{media.vote_average || media.vote_average === 0
-										? Math.round(media.vote_average)
-										: 'Not Available'}
-								</span>
-							</div>
-						</article>
-					</section>
+										<span className="modal__details__label modal__details__animate--4">
+											{media.release_date ? 'Release Date' : 'First Aired'}{' '}
+										</span>
+										<span className="modal__details__text modal__details__animate--4">
+											{media.release_date
+												? ConvertDate(media.release_date)
+												: media.first_air_date
+												? ConvertDate(media.first_air_date)
+												: 'Not Available'}
+										</span>
+
+										<span className="modal__details__label modal__details__animate--5">
+											Average Vote :{' '}
+										</span>
+										<span className="modal__details__text modal__details__animate--5">
+											{media.vote_average || media.vote_average === 0
+												? Math.round(media.vote_average)
+												: 'Not Available'}
+										</span>
+									</div>
+								</article>
+							</section>
+						</>
+					)}
 				</div>
-			)}
+			</Animate>
 		</div>,
 		portalContainer
 	);

@@ -1,0 +1,12 @@
+.animate {
+            height: 100vh;
+            display: flex;
+            // animation: 2s ease 0s 1 normal both running fade;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+            overflow: hidden;
+}

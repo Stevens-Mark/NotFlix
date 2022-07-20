@@ -1,16 +1,14 @@
 import { useEffect, useContext } from 'react';
 import { Context } from '../context/globalProvider';
 import MediaCard from '../components/MediaCard';
-import useModal from '../utils/useModal';
-import Modal from '../components/Modal';
+
 /**
  * Renders WatchList page
  * @function WatchList
  * @returns {JSX}
  */
 const WatchList = () => {
-	const { modalIsOpen, mediaDetails, closeModal, handleDetails } = useModal();
-	const { watchListItems } = useContext(Context);
+	const { watchListItems, handleDetails, } = useContext(Context);
 
 	useEffect(() => {
 		document.title = 'NotFlix | Watch List';
@@ -38,8 +36,6 @@ const WatchList = () => {
 					</div>
 				</section>
 			)}
-
-			{modalIsOpen && <Modal closeModal={closeModal} media={mediaDetails} />}
 		</main>
 	);
 };

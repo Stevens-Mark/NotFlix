@@ -15,10 +15,11 @@ const Fade = ({ show, children }) => {
 
   return (
     render && (
-      <div
+      <div className="animate"
         style={{
-          animation: `${show ? "fadein" : "fadeout"} 1s`,
-          position: "relative"
+          animation: `${show ? "modalopen 0.5s ease-out both 0.3s" : "modalclose 0.5s ease-out both"} `,
+          // animation: `${show ? "fade" : "fadeout"} 0.6s ease-in-out both`,
+          // position: "relative"
         }}
         onAnimationEnd={onAnimationEnd}
       >

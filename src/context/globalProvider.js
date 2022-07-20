@@ -34,14 +34,14 @@ export const ContextProvider = ({ children }) => {
 	const [mediaDetails, setMediaDetails] = useState('');
 
 	// prevent background moving when modal open
-	// const body = document.querySelector('body');
-	// body.style.overflow = modalIsOpen ? 'hidden' : 'auto';
-	// const html = document.querySelector('html');
-	// html.style.overflow = modalIsOpen ? 'hidden' : 'auto';
+	const body = document.querySelector('body');
+	body.style.overflow = modalIsOpen ? 'hidden' : 'auto';
+	const html = document.querySelector('html');
+	html.style.overflow = modalIsOpen ? 'hidden' : 'auto';
 
 	const closeModal = () => {
 		setModalIsOpen(false);
-		setMediaDetails('');
+		// setMediaDetails('');
 	};
 
 	const handleDetails = (media) => {
