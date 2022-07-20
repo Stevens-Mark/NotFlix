@@ -17,7 +17,7 @@ const Fade = ({ show, children }) => {
     render && (
       <div className="animate"
         style={{
-          animation: `${show ? "modalopen 0.5s ease-out both 0.3s" : "modalclose 0.5s ease-out both"} `,
+          animation: `${show ? "modalopen 0.8s ease-out both" : "modalclose 0.3s ease-out both"} `,
           // animation: `${show ? "fade" : "fadeout"} 0.6s ease-in-out both`,
           // position: "relative"
         }}

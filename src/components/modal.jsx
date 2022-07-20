@@ -64,8 +64,8 @@ const Modal = () => {
 		<div
 			style={{
 				animation: !modalIsOpen
-					? 'modalBgFadeOut 0.5s ease-in-out both 0.5'
-					: 'modalBgFadeIn 0.2s ease-in-out both',
+					? 'modalBgFadeOut 0.5s ease-in-out both 0.3s'
+					: 'modalBgFadeIn  ease-out both',
 			}}
 			className="modal"
 		>
