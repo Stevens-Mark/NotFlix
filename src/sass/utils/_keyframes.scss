@@ -9,17 +9,6 @@
     to   { opacity: 1;  transform: translateY(0);}
 }
 
-@keyframes modalopen {
-  0% { opacity: 0; transform: translateY(200px); }
-  80% { opacity: 0.8; }
-  100% { opacity: 1; } 
-}
-
-  @keyframes modalclose {
-    0% { opacity: 1; }
-    70% { opacity: 0.8; }
-    100% { opacity: 0; transform: translateY(200px); }
-}
 
 @keyframes detailsFade {
     from { opacity: 0; transform: translateY(20px);}
@@ -38,7 +27,45 @@
 }
 
 @keyframes modalBgFadeOut {
-    0% { opacity: 1;}
+    0% { opacity: 1; z-index: 9999;}
     98% { opacity: 0; }
     100% { z-index: -1;}
 }
+
+
+@keyframes modalopen {
+  0% {
+    transform: translateY(1500px) scaleY(1.1);
+  }
+  80% {
+    transform: translateY(0px) scaleY(0.9);
+  }
+  100% {
+    transform: translateY(30px) scaleY(1);
+  }
+}
+
+@keyframes modalclose {
+  0% {
+    transform: translateY(30px) scaleY(1);
+  }
+  40% {
+    transform: translateY(0px) scaleY(0.9);
+  }
+
+  100% {
+    transform: translateY(1500px) scaleY(1.1);
+  }
+}
+
+// @keyframes modalopen {
+//   0% { opacity: 0; transform: translateY(200px); }
+//   80% { opacity: 0.8; }
+//   100% { opacity: 1; } 
+// }
+
+//   @keyframes modalclose {
+//     0% { opacity: 1; }
+//     70% { opacity: 0.8; }
+//     100% { opacity: 0; transform: translateY(200px); }
+// }
