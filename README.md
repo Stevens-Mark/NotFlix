@@ -9,12 +9,15 @@
 ## Objective
 
 After seeing numerous NetFlix clones on the internet I thought I would try to build my own version. I have to say I was inspired by the version done by Davide Mandelli, Th3Wall. Which is an amazing version !! Check it out
+I have tried to avoid using too many libraries, so opted to do the animations with Sass rather than motion, spring etc... 
+But, I did use react-slick for the slidder, but unfortunately there are a few accessibility issues. I don't think it was intended to have navigational buttons inside for example.. Also, when I checked with "AXE" it throws up some issues that are not totally correct... 
+And finally, although I could have used Redux for the state management, I also opted for useContext instead, simply because I haven't really used it much & thought there was no need to use Redux on this project...
 
 ## Features
 - [x] Display movies, tv shows, popular & watch list
 - [x] Search movies and tv shows
 - [x] Add/Remove to/from "My Wish List"
-- [x] A detail modal with moreinformation about the selected movie or TV show
+- [x] A detail modal with more information about the movie or TV show selected by the user
 - [x] Use of React hooks and custom hooks
 - [x] Favourites list persised in local storage for ease of demo
 - [x] Responsive layout
@@ -75,6 +78,9 @@ Credit for the "Notflix" intro sound goes to - [Davide Mandelli, Th3Wall](https:
 ## Objectif
 
 Après avoir vu de nombreux clones de NetFlix sur Internet, je me suis dit que j'allais essayer de construire ma propre version. Je dois dire que j'ai été inspiré par la version faite par Davide Mandelli, Th3Wall. C'est une version incroyable ! Regardez-la
+J'ai essayé d'éviter d'utiliser trop de bibliothèques, j'ai donc choisi de faire les animations avec Sass plutôt qu'avec motion, spring etc... 
+Mais, j'ai utilisé react-slick pour le slidder, mais malheureusement il y a quelques problèmes d'accessibilité. Je ne pense pas qu'il était prévu d'avoir des boutons de navigation à l'intérieur par exemple... De plus, lorsque j'ai vérifié avec "AXE", cela a donné lieu à des problèmes qui ne sont pas totalement corrects... 
+Et enfin, bien que j'aurais pu utiliser Redux pour la gestion de l'état, j'ai également opté pour useContext à la place, simplement parce que je ne l'ai pas vraiment utilisé et que je pensais qu'il n'y avait pas besoin d'utiliser Redux sur ce projet...
 
 ## Fonctionnalités
 

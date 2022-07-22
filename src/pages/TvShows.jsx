@@ -5,7 +5,7 @@ import { tvShowsList } from '../config/dataToLoad'; // import list of tv shows
 import { randomSelect } from '../utils/functions';
 
 /**
- * Renders Movies page with all carousels
+ * Renders TvShows page with all carousels
  * @function TvShows
  * @returns {JSX}
  */

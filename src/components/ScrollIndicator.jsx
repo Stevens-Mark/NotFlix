@@ -8,7 +8,8 @@ const ScrollIndicator = () => {
 	const [scrollTop, setScrollTop] = useState(0);
 
 	const onScroll = () => {
-		const winScroll = document.documentElement.scrollTop; // gets or sets the number of pixels that an element's content is scrolled vertically
+		// gets or sets the number of pixels that an element's content is scrolled vertically
+		const winScroll = document.documentElement.scrollTop; 
 		// scrollHeight: height of an element's content - clientHeight: inner height of an element in pixels
 		const height =
 			document.documentElement.scrollHeight -

@@ -10,7 +10,7 @@ import Loader from '../components/Loader';
 import LoadError from '../components/LoadError';
 
 /**
- * Renders Search page
+ * Renders Search page with search reults
  * @function Search
  * @returns {JSX}
  */

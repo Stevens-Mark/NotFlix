@@ -5,8 +5,8 @@ import { newAndPopularList } from '../config/dataToLoad'; // import list of popu
 import { randomSelect } from '../utils/functions';
 
 /**
- * Renders Movies page with all carousels
- * @function TvShows
+ * Renders Popular page with all carousels
+ * @function Popular
  * @returns {JSX}
  */
 const Popular = () => {
