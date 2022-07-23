@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+// import components
+import Animate from '../utils/Animate';
 // import icons
 import xMark from '../assets/icons/xmark.svg';
-// import magnify from '../assets/icons/magnify.svg';
+import magnify from '../assets/icons/magnify.svg';
 
 /**
  * Renders search input field
@@ -11,6 +13,7 @@ import xMark from '../assets/icons/xmark.svg';
  */
 const SearchInput = () => {
 	const [input, setInput] = useState('');
+	const [showInput, setShowInput] = useState(false);
 	let history = useHistory();
 
 	/**
@@ -34,10 +37,10 @@ const SearchInput = () => {
 		if (input.length > 0) {
 			history.push(`/search?queryValue=${input}`);
 			// setInput('');
-		} 
+		}
 	};
 
-		/**
+	/**
 	 * Change to home page / reset search query value
 	 * @function handleReset
 	 */
@@ -48,27 +51,39 @@ const SearchInput = () => {
 
 	return (
 		<div className="searchInput">
-				<button className="searchInput__clearBtn" aria-label="Reset search" onClick={() => handleReset()}>
-				<img className="searchInput__icon" src={xMark} alt="Reset search" />
+			<Animate
+				show={showInput}
+				animateIn={'fade'}
+				animateOut={'fadeout'}
+			>
+				<form className="searchInput__field" onSubmit={handleSubmit}>
+					<label className="sr-only" htmlFor="search">
+						Search
+					</label>
+					<input
+						type="text"
+						id="search"
+						value={input}
+						placeholder="Search Tv & Movies ..."
+						required={true}
+						maxLength={30}
+						onChange={(e) => handleText(e)}
+					/>
+					<button
+						className="searchInput__clearBtn"
+						aria-label="Reset search"
+						onClick={() => handleReset()}
+					>
+						<img className="searchInput__icon" src={xMark} alt="Reset search" />
+					</button>
+				</form>
+			</Animate>
+			<button
+				className="searchInput__magnify"
+				onClick={() => setShowInput(prevShowInput => !prevShowInput)}
+			>
+				<img src={magnify} alt="Search" />
 			</button>
-
-		<form onSubmit={handleSubmit}>
-			<label className="sr-only" htmlFor="search">
-				Search
-			</label>
-			<input
-				type="text"
-				id="search"
-				value={input}
-				placeholder="Search Tv & Movies ..."
-				required={true}
-				maxLength={30}
-				onChange={(e) => handleText(e)}
-			/>
-			</form>
-					{/* <button type="submit">
-				<img className="form__icons" src={magnify} alt="Search" />
-			</button> */}
 		</div>
 	);
 };

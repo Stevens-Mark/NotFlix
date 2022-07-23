@@ -18,9 +18,10 @@ import playIcon from '../assets/icons/play.svg';
  * @returns {JSX}
  */
 const Modal = () => {
-	const { modalIsOpen, mediaDetails, closeModal } = useContext(Context);
-	// const portalContainer = document.getElementById('modal-portal');
+
 	// const activeElement = document.activeElement;
+	
+	const { modalIsOpen, mediaDetails, closeModal } = useContext(Context);
 	const media = mediaDetails;
 
 	const handleEscape = () => {
@@ -81,7 +82,12 @@ const Modal = () => {
 					: 'modalBgFadeIn 0.1s ease-out both',
 			}}
 		>
-			<Animate show={modalIsOpen}>
+			<Animate
+				show={modalIsOpen}
+				classType={'animateModal'}
+				animateIn={'modalopen'}
+				animateOut={'modalclose'}
+			>
 				<div className="modal__body">
 					{media && (
 						<>

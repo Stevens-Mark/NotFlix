@@ -1,16 +1,17 @@
-// https://czaplinski.io/blog/super-easy-animation-with-react-hooks/
-
 import React, { useEffect, useState } from "react";
 import PropTypes from 'prop-types';
+// https://czaplinski.io/blog/super-easy-animation-with-react-hooks/
 
 /**
  * Allow animation to run before component is unmounted
  * @function AnimateComponent
  * @param {boolean} show: whether to show component or not
  * @param {object} children: component to be animated
- * @returns 
+ * @param {string} classType: adds a class, to change styling depending oon use case
+ * @param {string} animateIn: keyframe name to use to animate IN the component
+ * @param {string} animateOut: keyframe name to use to animate OUT the component
  */
-const AnimateComponent = ({ show, children }) => {
+const AnimateComponent = ({ show, children, classType, animateIn, animateOut }) => {
   const [render, setRender] = useState(show);
 
   useEffect(() => {
@@ -23,10 +24,9 @@ const AnimateComponent = ({ show, children }) => {
 
   return (
     render && (
-      <div className="animate"
+      <div className={`${classType}`}
         style={{
-          animation: `${show ? "modalopen 0.5s ease-out both" : "modalclose 0.5s ease-out both"} `,
-          // animation: `${show ? "fade" : "fadeout"} 0.5s ease-out both`,
+          animation: `${show ? `${animateIn}`: `${animateOut}`} 0.5s ease-out both`,
         }}
         onAnimationEnd={onAnimationEnd}
       >
@@ -42,4 +42,7 @@ export default AnimateComponent;
 AnimateComponent.propTypes = {
 	show: PropTypes.bool.isRequired,
   children: PropTypes.object.isRequired,
+  classType: PropTypes.string,
+  animateIn: PropTypes.string,
+  animateOut: PropTypes.string,
 };
