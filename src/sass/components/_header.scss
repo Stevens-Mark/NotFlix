@@ -1,4 +1,4 @@
-.top-nav {
+.menu-nav {
 	align-items: center;
 	animation: fade 1s both ease-in-out;
 	display: flex;
@@ -27,38 +27,48 @@
 		color: $primary-text;
 		margin: 0rem 0rem -0.625rem 0rem;
 		text-decoration: none;
+		transition: 0.3s;
 		&.active {
+			color: $active;
+		}
+		&:hover {
+		
 			color: $active;
 		}
 	}
 }
 
 .menu {
-	display: flex;
 	width: 100%;
-	align-items: center;
-	flex-direction: row;
-	list-style-type: none;
 	margin: 0;
 	padding: 0;
+
 	&__lastItem {
 		margin-left: auto;
 		overflow: hidden;
 	}
+
+	ul {
+		display: flex;
+		align-items: center;
+		margin: unset;
+		width: 100%;
+		padding: unset;
+	}
+
+	form {
+		align-items: center;
+		display: flex;
+		overflow: hidden;
+	}
 }
 
-.menu > li:nth-child(-n + 5) {
+.menu > ul > li:nth-child(-n + 5) {
 	overflow: hidden;
 	padding: 1rem;
 	&:focus {
 		border: 2px solid white;
 	}
-}
-
-.menu form {
-	align-items: center;
-	display: flex;
-	overflow: hidden;
 }
 
 .menu-button-container {
@@ -122,17 +132,17 @@
 	}
 
 	.menu {
-		align-items: center;
-		flex-direction: column;
-		justify-content: center;
 		left: 0;
 		margin-top: 4rem;
 		position: absolute;
 		top: -4rem;
 		width: 100%;
+		ul {
+			flex-direction: column;
+		}
 	}
 
-	#menu-toggle ~ .menu li {
+	#menu-toggle ~ .menu > ul > li {
 		border: 0;
 		height: 0;
 		margin: 0;
@@ -140,14 +150,14 @@
 		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
 	}
 
-	#menu-toggle:checked ~ .menu li {
+	#menu-toggle:checked ~ .menu > ul > li {
 		border: 1px solid #333;
 		height: 4em;
 		padding: 1.2rem;
 		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
 	}
 
-	.menu > li {
+	.menu > ul > li {
 		background-color: $tertiary;
 		color: $primary-text;
 		display: flex;
@@ -157,13 +167,13 @@
 		width: 100%;
 	}
 
-	.menu > a:not(:last-child) {
+	.menu > ul > a:not(:last-child) {
 		border-bottom: 1px solid #444;
 	}
 }
 
 @media (max-width: $burgerMenu) {
-	.top-nav {
+	.menu-nav {
 		justify-content: space-between;
 		padding: 1rem 2rem 2rem;
 	}
