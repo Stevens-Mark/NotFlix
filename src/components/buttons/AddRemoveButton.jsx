@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Context } from '../../context/globalProvider';
 // import images/icons
-import plusIcon from '../../assets/icons/plusSolid.svg';
-import tickIcon from '../../assets/icons/tickSolid.svg';
+import addIcon from '../../assets/icons/plusSolid.svg';
+// import removeIcon from '../../assets/icons/tickSolid.svg';
+import removeIcon from '../../assets/icons/minusSolid.svg';
 
 /**
  * Renders watchList add/remove button
@@ -28,14 +29,14 @@ const AddRemoveButton = ({ media, classType }) => {
 					className={`${classType} ${classType}--tick`}
 					onClick={() => removeFromWatchList(media.id)}
 				>
-					<img src={tickIcon} alt="Remove from watch list" />
+					<img src={removeIcon} alt="Remove from watch list" />
 				</button>
 			) : (
 				<button
 					className={`${classType} ${classType}--normal`}
 					onClick={() => addToWatchList(media)}
 				>
-					<img src={plusIcon} alt="Add to watch list" />
+					<img src={addIcon} alt="Add to watch list" />
 				</button>
 			)}
 		</>
