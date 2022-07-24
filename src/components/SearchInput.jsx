@@ -51,38 +51,41 @@ const SearchInput = () => {
 
 	return (
 		<div className="searchInput">
-			<Animate
-				show={showInput}
-				animateIn={'fade'}
-				animateOut={'fadeout'}
-			>
-				<form className="searchInput__field" onSubmit={handleSubmit}>
-					<label className="sr-only" htmlFor="search">
-						Search
-					</label>
-					<input
-						type="text"
-						id="search"
-						value={input}
-						placeholder="Search Tv & Movies ..."
-						required={true}
-						maxLength={30}
-						onChange={(e) => handleText(e)}
-					/>
-					<button
-						className="searchInput__clearBtn"
-						aria-label="Reset search"
-						onClick={() => handleReset()}
-					>
-						<img className="searchInput__icon" src={xMark} alt="Reset search" />
-					</button>
-				</form>
-			</Animate>
+			<div className="searchInput__container">
+				<Animate show={showInput} animateIn={'slideIn'} animateOut={'slideOut'}>
+					<form onSubmit={handleSubmit}>
+						<label className="sr-only" htmlFor="search">
+							Search
+						</label>
+						<input
+							type="text"
+							id="search"
+							value={input}
+							placeholder="Search Tv & Movies ..."
+							required={true}
+							maxLength={30}
+							onChange={(e) => handleText(e)}
+						/>
+						<button
+							className="searchInput__clearBtn"
+							aria-label="Reset search"
+							onClick={() => handleReset()}
+						>
+							<img
+								className="searchInput__icon"
+								src={xMark}
+								alt="Reset search"
+							/>
+						</button>
+					</form>
+				</Animate>
+			</div>
 			<button
 				className="searchInput__magnify"
-				onClick={() => setShowInput(prevShowInput => !prevShowInput)}
+				aria-label="Open or close search"
+				onClick={() => setShowInput((prevShowInput) => !prevShowInput)}
 			>
-				<img src={magnify} alt="Search" />
+				<img src={magnify} alt="Open or close search" />
 			</button>
 		</div>
 	);

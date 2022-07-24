@@ -1,12 +1,11 @@
 .searchInput {
-	position: relative;
-	align-items: center;
+	// position: relative;
+	// align-items: center;
 	display: flex;
-	// &:hover {
-	// 	.searchInput__clearBtn {
-	// 		opacity: 1;
-	// 	}
-	// }
+
+	&__container {
+			overflow: hidden;
+	}
 
 	&__clearBtn {
 		background: transparent;
@@ -14,13 +13,12 @@
 		cursor: pointer;
 		padding-top: 5px;
 		position: absolute;
-		right: 35px;
-		// opacity: 0;
+		right: 2px;
 	}
 
 	&__icon {
-		width: 15px;
 		aspect-ratio: 1;
+		width: 15px;
 	}
 
 	&__magnify {
@@ -30,21 +28,16 @@
 		filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
 			brightness(104%) contrast(104%);
 		img {
+			margin: unset;
 			padding-top: 5px;
 			width: 20px;
-			margin: unset;
-		}
-		&:hover {
-			.menu form {
-				opacity: 0;
-			}
 		}
 	}
 
 	input[type='text' i] {
-		padding: 3px 5px;
 		border-radius: 5px;
-		font-size: clamp(0.9rem, 1vw, 1.1rem);
 		font-family: 'Netflix';
+		font-size: clamp(0.9rem, 1vw, 1.1rem);
+		padding: 3px 5px;
 	}
 }

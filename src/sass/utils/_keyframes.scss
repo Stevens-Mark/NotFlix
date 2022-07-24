@@ -19,6 +19,17 @@
     to   { opacity: 0;}
 }
 
+// search Input animations
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(100px);}
+  to   { opacity: 1;  transform: translateX(0px);}
+}
+
+@keyframes slideOut {
+  from { opacity: 1; transform: translateX(0px);}
+  to   { opacity: 0;  transform: translateX(100px);}
+}
+
 // only for modal animations
 @keyframes modalBgFadeIn {
     from { opacity: 0;}

@@ -25,7 +25,7 @@
 
 	a {
 		color: $primary-text;
-		margin: 0rem 0rem -0.625rem 0rem;
+		// margin: 0rem 0rem -0.625rem 0rem;
 		text-decoration: none;
 		transition: 0.3s;
 		&.active {
@@ -152,7 +152,8 @@
 
 	#menu-toggle:checked ~ .menu > ul > li {
 		border: 1px solid #333;
-		height: 4em;
+		height: 4.2em; 
+		align-items: center;
 		padding: 1.2rem;
 		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
 	}
