@@ -95,7 +95,7 @@ Et enfin, bien que j'aurais pu utiliser Redux pour la gestion de l'état, j'ai �
 - [x] Base de données fournie par [TMDB API](https://www.themoviedb.org/)
 
 
-# Installation *(English)*
+# Installation *(français)*
 
 ## Prérequis
 - [NodeJS](https://nodejs.org/en/)  Version 16.13.0 
