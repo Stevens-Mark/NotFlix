@@ -3,6 +3,7 @@ import { ContextProvider } from './context/globalProvider';
 import React, { lazy, Suspense } from 'react';
 import Header from './components/Header';
 import ScrollIndicator from './components/ScrollIndicator';
+import MediaVideos from './components/MediaVideos';
 // import Modal from './components/modal';
 // import components when needed using lazy loading
 const Modal = lazy(() => import('./components/modal'));
@@ -24,6 +25,7 @@ const App = () => {
 			<Router>
 				<ContextProvider>
 					<ScrollIndicator />
+					<MediaVideos />
 					<Modal />
 					<Header />
 					<Switch>
