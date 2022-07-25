@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/src/assets/images/notflixLogo.png" />
+  <img src="/public/notflixScreenshot.png" />
 </p>
 
 # PROJECT PERSONAL *(English)*
