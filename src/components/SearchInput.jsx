@@ -28,11 +28,13 @@ const SearchInput = () => {
 		);
 	};
 
+	console.log(input);
 	/**
 	 * Change to search page (query in parameters)
 	 * @function handleSubmit
 	 */
 	const handleSubmit = (event) => {
+		console.log('called');
 		event.preventDefault();
 		if (input.length > 0) {
 			history.push(`/search?queryValue=${input}`);
@@ -66,18 +68,14 @@ const SearchInput = () => {
 							maxLength={30}
 							onChange={(e) => handleText(e)}
 						/>
-						<button
-							className="searchInput__clearBtn"
-							aria-label="Reset search"
-							onClick={() => handleReset()}
-						>
-							<img
-								className="searchInput__icon"
-								src={xMark}
-								alt="Reset search"
-							/>
-						</button>
 					</form>
+					<button
+						className="searchInput__clearBtn"
+						aria-label="Reset search"
+						onClick={() => handleReset()}
+					>
+						<img className="searchInput__icon" src={xMark} alt="Reset search" />
+					</button>
 				</Animate>
 			</div>
 			<button
