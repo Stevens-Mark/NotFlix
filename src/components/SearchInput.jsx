@@ -64,7 +64,7 @@ const SearchInput = () => {
 							id="search"
 							value={input}
 							placeholder="Search Tv & Movies ..."
-							required={true}
+							// required={true}
 							maxLength={30}
 							onChange={(e) => handleText(e)}
 						/>
