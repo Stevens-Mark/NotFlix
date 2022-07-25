@@ -1,5 +1,6 @@
 .searchInput {
 	display: flex;
+	position: relative;
 
 	&__container {
 			overflow: hidden;
@@ -9,9 +10,12 @@
 		background: transparent;
 		border: none;
 		cursor: pointer;
-		padding-top: 5px;
 		position: absolute;
 		right: 2px;
+		top: 6px;
+		@media (min-width: 1660px) {
+			top: 8px;
+		}
 	}
 
 	&__icon {
