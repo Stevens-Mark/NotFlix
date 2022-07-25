@@ -21,12 +21,12 @@ const GenresList = ({ genreIds, classType }) => {
 				<p className="listGroup">None</p>
 			) : (
 				<ul className="listGroup">
-					{cleanList.map((name) => (
+					{cleanList.map((name,idx) => (
 						<li
 							className={`listGroup__item listGroup__item--${classType}`}
 							key={name}
 						>
-							{name}.
+							{name}{idx !== cleanList.length-1? "," : ""}
 						</li>
 					))}
 				</ul>

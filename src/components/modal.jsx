@@ -115,6 +115,7 @@ const Modal = () => {
 								<span className="modal__buttons">
 									<button
 										className="button button--playModal"
+										aria-label="Play Video Trailer"
 										onClick={() => handleClick(media)}
 									>
 										<img src={playIcon} alt="" />

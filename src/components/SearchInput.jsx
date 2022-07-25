@@ -82,7 +82,7 @@ const SearchInput = () => {
 			</div>
 			<button
 				className="searchInput__magnify"
-				aria-label="Open or close search"
+				aria-label="Open or close search input"
 				onClick={() => setShowInput((prevShowInput) => !prevShowInput)}
 			>
 				<img src={magnify} alt="Open or close search" />

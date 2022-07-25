@@ -83,6 +83,7 @@ const Banner = ({ fetchUrl }) => {
 						<span className="buttons">
 							<button
 								className="button button--play"
+								aria-label="Play Video Trailer"
 								onClick={() => handlePlay(media)}
 							>
 								<img src={playIcon} alt="" />
@@ -90,6 +91,7 @@ const Banner = ({ fetchUrl }) => {
 							</button>
 							<button
 								className="button button--info"
+								aria-label="Show more nformation"
 								onClick={() => handleDetails(media)}
 							>
 								<img src={infoIcon} alt="" />

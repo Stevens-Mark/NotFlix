@@ -8,6 +8,11 @@ import introSound from '../assets/audio/introSound.mp3';
 // credit for sound to Davide Mandelli,Th3Wall
 // Github: https://github.com/Th3Wall
 
+
+/**
+ * Renders "N" animation when Notflix logo clicked
+ * @function AnimationIntro
+ */
 const AnimationIntro = () => {
 	const history = useHistory();
 

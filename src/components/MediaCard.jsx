@@ -38,18 +38,20 @@ const MediaCard = ({ media, handleDetails }) => {
 					<div className="media__movieButtonsRow ">
 						<button
 							className="media__movieButtons media__movieButtons--normal"
+							aria-label="Play Video Trailer"
 							onClick={() => handlePlay(media)}
 						>
-							<img src={playIcon} alt="Watch trailer" />
+							<img src={playIcon} alt="" />
 						</button>
 
 						<AddRemoveButton media={media} classType={'media__movieButtons'} />
 
 						<button
 							className="media__movieButtons media__movieButtons--normal"
+							aria-label="Show more information"
 							onClick={() => handleDetails(media)}
 						>
-							<img src={arrowDownIcon} alt="Get more information" />
+							<img src={arrowDownIcon} alt="" />
 						</button>
 					</div>
 					<h3>{media?.title || media?.name || media?.original_title}</h3>
