@@ -1,19 +1,19 @@
-// help provide by https://www.youtube.com/watch?v=XtMThy8QKqU&ab_channel=CleverProgrammer
 import React, { useEffect, useContext } from 'react';
-import { Context } from '../context/globalProvider';
+import { Context } from '../../context/globalProvider';
 import { createPortal } from 'react-dom';
 // import components/functions...
-import YouTube from 'react-youtube';
-import Animate from '../utils/Animate';
+import YoutubeEmbed from './YouTubeEmbed';
+import Animate from '../../utils/Animate';
 // import images/icons
-import closeButton from '../assets/icons/xmark.svg';
+import closeButton from '../../assets/icons/xmark.svg';
+import noImage from '../../assets/images/NoImageAvailable.webp';
 
 /**
  * Renders a video modal
- * @function MediaVideos
+ * @function YoutTubeModal
  * @returns {JSX}
  */
-const MediaVideos = () => {
+const YouTubeModal = () => {
 	const { trailerUrl, videoModalIsOpen, mediaVideoDetails, closeVideoModal } =
 		useContext(Context);
 	const media = mediaVideoDetails;
@@ -56,17 +56,6 @@ const MediaVideos = () => {
 		};
 	});
 
-	// youtube video player options
-	const opts = {
-		height: '540',
-		width: '100%',
-		playerVars: {
-			// https://developers.google.com/youtube/player_parameters/
-			autoplay: 1,
-			origin: window.location.origin,
-		},
-	};
-
 	return createPortal(
 		<div
 			id="videoModal"
@@ -90,7 +79,7 @@ const MediaVideos = () => {
 					{media && (
 						<>
 							<section className="videoModal__content">
-								<h1 className='sr-only' id="videoModal__title">
+								<h1 className="sr-only" id="videoModal__title">
 									{media?.title || media?.name || media?.original_title}
 								</h1>
 								<button
@@ -100,7 +89,14 @@ const MediaVideos = () => {
 								>
 									<img src={closeButton} alt="close modal" />
 								</button>
-								{trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+								{trailerUrl ? (
+									<YoutubeEmbed embedId={trailerUrl} />
+								) : (
+									<div className="videoModal__noImage">
+										<h2>Sorry, No video available...</h2>
+										<img src={noImage} alt="No video available" />
+									</div>
+								)}
 							</section>
 						</>
 					)}
@@ -111,5 +107,5 @@ const MediaVideos = () => {
 	);
 };
 
-export default MediaVideos;
+export default YouTubeModal;
 

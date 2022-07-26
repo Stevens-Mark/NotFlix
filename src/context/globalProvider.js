@@ -50,20 +50,18 @@ export const ContextProvider = ({ children }) => {
 		setMediaDetails(media);
 	};
 
-		// handle video modal
+		// handle video youtube modal
 		const [videoModalIsOpen, setVideoModalIsOpen] = useState(false);
 		const [mediaVideoDetails, setMediaVideoDetails] = useState('');
 		const [trailerUrl, setTrailerUrl] = useState('');
 
 		// prevent background moving when modal open
-		// const body = document.querySelector('body');
 		body.style.overflow = videoModalIsOpen ? 'hidden' : 'auto';
-		// const html = document.querySelector('html');
 		html.style.overflow = videoModalIsOpen ? 'hidden' : 'auto';
 	
 		const closeVideoModal = () => {
 			setVideoModalIsOpen(false);
-			// setTrailerUrl('');
+			setTrailerUrl('');
 		};
 	
 		const handleVideoDetails = (media) => {
