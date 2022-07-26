@@ -65,9 +65,6 @@ export const ContextProvider = ({ children }) => {
 	};
 
 	const handleVideoDetails = (media) => {
-		setModalIsOpen(false);
-		// setVideoModalIsOpen(true);
-		// setMediaVideoDetails(media);
 		if (trailerUrl) {
 			setTrailerUrl('');
 		}
@@ -78,8 +75,16 @@ export const ContextProvider = ({ children }) => {
 			})
 			.catch((error) => console.log('No Video Available'));
 
-		setVideoModalIsOpen(true);
-		setMediaVideoDetails(media);
+		if (modalIsOpen) {
+			setModalIsOpen(false);
+			setTimeout(() => {
+				setVideoModalIsOpen(true);
+				setMediaVideoDetails(media);
+			}, '600');
+		} else {
+			setVideoModalIsOpen(true);
+			setMediaVideoDetails(media);
+		}
 	};
 
 	return (
