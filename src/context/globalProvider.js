@@ -65,8 +65,9 @@ export const ContextProvider = ({ children }) => {
 	};
 
 	const handleVideoDetails = (media) => {
-		setVideoModalIsOpen(true);
-		setMediaVideoDetails(media);
+		setModalIsOpen(false);
+		// setVideoModalIsOpen(true);
+		// setMediaVideoDetails(media);
 		if (trailerUrl) {
 			setTrailerUrl('');
 		}
