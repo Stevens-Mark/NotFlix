@@ -6,7 +6,7 @@ import YoutubeEmbed from './YouTubeEmbed';
 import Animate from '../../utils/Animate';
 // import images/icons
 import closeButton from '../../assets/icons/xmark.svg';
-import noImage from '../../assets/images/NoImageAvailable.webp';
+import noVideoImage from '../../assets/images/NoVideoImageWhite.webp';
 
 /**
  * Renders a video modal
@@ -93,8 +93,8 @@ const YouTubeModal = () => {
 									<YoutubeEmbed embedId={trailerUrl} />
 								) : (
 									<div className="videoModal__noImage">
-										<h2>Sorry, No video available...</h2>
-										<img src={noImage} alt="No video available" />
+										<h2 className="sr-only">Sorry, No video available...</h2>
+										<img src={noVideoImage} alt="No video available" />
 									</div>
 								)}
 							</section>

@@ -1,4 +1,6 @@
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { Context } from '../context/globalProvider';
 import { IMAGE_URL } from '../config/requests';
 // import components
 import GenresList from './GenreList';
@@ -11,14 +13,11 @@ import arrowDownIcon from '../assets/icons/chevronDown.svg';
 /**
  * @function MediaCard
  * @param {object} media: movie or TV show data
- * @param {function} handleDetails: sets modal open & put media details in state
  * @returns {JSX} media card
  */
-const MediaCard = ({ media, handleDetails }) => {
+const MediaCard = ({ media }) => {
 	
-	const handlePlay = (media) => {
-		console.log(media);
-	};
+	const { handleDetails, handleVideoDetails } = useContext(Context);
 
 	return (
 		<>
@@ -39,7 +38,7 @@ const MediaCard = ({ media, handleDetails }) => {
 						<button
 							className="media__movieButtons media__movieButtons--normal"
 							aria-label="Play Video Trailer"
-							onClick={() => handlePlay(media)}
+							onClick={() => handleVideoDetails(media)}
 						>
 							<img src={playIcon} alt="" />
 						</button>
@@ -69,6 +68,5 @@ export default MediaCard;
 // Prototypes
 MediaCard.propTypes = {
 	media: PropTypes.object.isRequired,
-	handleDetails: PropTypes.func.isRequired,
 };
 

@@ -50,35 +50,36 @@ export const ContextProvider = ({ children }) => {
 		setMediaDetails(media);
 	};
 
-		// handle video youtube modal
-		const [videoModalIsOpen, setVideoModalIsOpen] = useState(false);
-		const [mediaVideoDetails, setMediaVideoDetails] = useState('');
-		const [trailerUrl, setTrailerUrl] = useState('');
+	// handle video youtube modal
+	const [videoModalIsOpen, setVideoModalIsOpen] = useState(false);
+	const [mediaVideoDetails, setMediaVideoDetails] = useState('');
+	const [trailerUrl, setTrailerUrl] = useState('');
 
-		// prevent background moving when modal open
-		body.style.overflow = videoModalIsOpen ? 'hidden' : 'auto';
-		html.style.overflow = videoModalIsOpen ? 'hidden' : 'auto';
-	
-		const closeVideoModal = () => {
-			setVideoModalIsOpen(false);
+	// prevent background moving when modal open
+	body.style.overflow = videoModalIsOpen ? 'hidden' : 'auto';
+	html.style.overflow = videoModalIsOpen ? 'hidden' : 'auto';
+
+	const closeVideoModal = () => {
+		setVideoModalIsOpen(false);
+		// setTrailerUrl('');
+	};
+
+	const handleVideoDetails = (media) => {
+		setVideoModalIsOpen(true);
+		setMediaVideoDetails(media);
+		if (trailerUrl) {
 			setTrailerUrl('');
-		};
-	
-		const handleVideoDetails = (media) => {
-			setVideoModalIsOpen(true);
-			setMediaVideoDetails(media);
-			// if (trailerUrl) {
-			// 	setTrailerUrl("");
-			// } else {
-				movieTrailer(media?.title || media?.name || media?.original_title || "")
-				.then(url => {
-					const urlParams = new URLSearchParams(new URL(url).search);
-					setTrailerUrl(urlParams.get('v'));
-				}).catch(error => console.log(error));
-			// }
-			setVideoModalIsOpen(true);
-			setMediaVideoDetails(media);
-		};
+		}
+		movieTrailer(media?.title || media?.name || media?.original_title || '')
+			.then((url) => {
+				const urlParams = new URLSearchParams(new URL(url).search);
+				setTrailerUrl(urlParams.get('v'));
+			})
+			.catch((error) => console.log('No Video Available'));
+
+		setVideoModalIsOpen(true);
+		setMediaVideoDetails(media);
+	};
 
 	return (
 		<Context.Provider
@@ -95,7 +96,7 @@ export const ContextProvider = ({ children }) => {
 				mediaVideoDetails,
 				trailerUrl,
 				closeVideoModal,
-				handleVideoDetails
+				handleVideoDetails,
 			}}
 		>
 			{children}
