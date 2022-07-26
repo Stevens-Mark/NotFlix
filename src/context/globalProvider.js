@@ -55,7 +55,7 @@ export const ContextProvider = ({ children }) => {
 	const [mediaVideoDetails, setMediaVideoDetails] = useState('');
 	const [trailerUrl, setTrailerUrl] = useState('');
 
-	// prevent background moving when modal open
+	// prevent background moving when video modal open
 	body.style.overflow = videoModalIsOpen ? 'hidden' : 'auto';
 	html.style.overflow = videoModalIsOpen ? 'hidden' : 'auto';
 

@@ -64,12 +64,8 @@
 	}
 
 	&__noImage {
-		// aspect-ratio: 16 / 9;
-		// border-radius: 5px 5px 0px 0px;
-		// max-width: 1070px;
 		object-fit: cover;
 		object-position: center top;
-		// width: 100%;
 		img {
 			margin-top: 10px;
 			width: 100%;
