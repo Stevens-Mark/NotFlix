@@ -1,3 +1,4 @@
+import movieTrailer from 'movie-trailer';
 import React, { useState, useEffect } from 'react';
 import { createContext } from 'react';
 
@@ -49,6 +50,43 @@ export const ContextProvider = ({ children }) => {
 		setMediaDetails(media);
 	};
 
+	// handle video youtube modal
+	const [videoModalIsOpen, setVideoModalIsOpen] = useState(false);
+	const [mediaVideoDetails, setMediaVideoDetails] = useState('');
+	const [trailerUrl, setTrailerUrl] = useState('');
+
+	// prevent background moving when video modal open
+	body.style.overflow = videoModalIsOpen ? 'hidden' : 'auto';
+	html.style.overflow = videoModalIsOpen ? 'hidden' : 'auto';
+
+	const closeVideoModal = () => {
+		setVideoModalIsOpen(false);
+		// setTrailerUrl('');
+	};
+
+	const handleVideoDetails = (media) => {
+		if (trailerUrl) {
+			setTrailerUrl('');
+		}
+		movieTrailer(media?.title || media?.name || media?.original_title || '')
+			.then((url) => {
+				const urlParams = new URLSearchParams(new URL(url).search);
+				setTrailerUrl(urlParams.get('v'));
+			})
+			.catch((error) => console.log('No Video Available'));
+
+		if (modalIsOpen) {
+			setModalIsOpen(false);
+			setTimeout(() => {
+				setVideoModalIsOpen(true);
+				setMediaVideoDetails(media);
+			}, '600');
+		} else {
+			setVideoModalIsOpen(true);
+			setMediaVideoDetails(media);
+		}
+	};
+
 	return (
 		<Context.Provider
 			value={{
@@ -59,6 +97,12 @@ export const ContextProvider = ({ children }) => {
 				mediaDetails,
 				closeModal,
 				handleDetails,
+
+				videoModalIsOpen,
+				mediaVideoDetails,
+				trailerUrl,
+				closeVideoModal,
+				handleVideoDetails,
 			}}
 		>
 			{children}

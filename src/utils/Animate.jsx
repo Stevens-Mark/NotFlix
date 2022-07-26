@@ -42,8 +42,7 @@ export default AnimateComponent;
 AnimateComponent.propTypes = {
 	show: PropTypes.bool.isRequired,
   children: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.array
+    PropTypes.object, PropTypes.array
   ]),
   classType: PropTypes.string,
   animateIn: PropTypes.string,

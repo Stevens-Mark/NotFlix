@@ -19,9 +19,7 @@ import playIcon from '../assets/icons/play.svg';
  */
 const Modal = () => {
 
-	// const activeElement = document.activeElement;
-	
-	const { modalIsOpen, mediaDetails, closeModal } = useContext(Context);
+	const { modalIsOpen, mediaDetails, handleVideoDetails, closeModal } = useContext(Context);
 	const media = mediaDetails;
 
 	const handleEscape = () => {
@@ -48,10 +46,6 @@ const Modal = () => {
 		return listener && listener(e); // call the listener if it exists
 	};
 
-	const handleClick = (media) => {
-		console.log(media);
-	};
-
 	useEffect(() => {
 		// set accessibility for modal open/closed
 		const body = document.querySelector('body');
@@ -60,12 +54,10 @@ const Modal = () => {
 		modal.setAttribute('aria-hidden', modalIsOpen ? 'false' : 'true');
 		// initiate keyboard listener to focus trap modal
 		modalIsOpen && document.addEventListener('keydown', handleKeydown);
-		// modalIsOpen && document.querySelector('.modal__closeButton').focus();
 
 		return () => {
 			// Detach listener when component unmounts
 			document.removeEventListener('keydown', handleKeydown);
-			// activeElement.focus(); // Return focus to the previously focused element
 		};
 	});
 
@@ -116,7 +108,7 @@ const Modal = () => {
 									<button
 										className="button button--playModal"
 										aria-label="Play Video Trailer"
-										onClick={() => handleClick(media)}
+										onClick={() => handleVideoDetails(media)}
 									>
 										<img src={playIcon} alt="" />
 										Play

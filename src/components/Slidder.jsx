@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Context } from '../context/globalProvider';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -19,8 +18,6 @@ import MediaCard from './MediaCard';
  * @returns {JSX}
  */
 const SimpleSlidder = ({ title, fetchUrl }) => {
-
-	const { handleDetails } = useContext(Context);
 
 	const { data, isLoading, isError } = useFetch(fetchUrl);
 	const medias = data;
@@ -91,7 +88,7 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 							<>
 								<Slider {...settings}>
 									{medias.map((media) => (
-										<MediaCard  key={media.id} media={media} handleDetails={handleDetails} />
+										<MediaCard  key={media.id} media={media} />
 									))}
 								</Slider>
 							</>

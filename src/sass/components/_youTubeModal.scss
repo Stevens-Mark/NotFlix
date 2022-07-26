@@ -1,0 +1,85 @@
+.videoModal {
+	background-color: rgba(0, 0, 0, 0.7);
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+
+	&__body {
+		background-color: $tertiary;
+		border-radius: 5px;
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+		padding: 5px;
+		position: fixed;
+		width: 95vw;
+		max-width: 1070px;
+		// Hide scroll bar, but while still being able to scroll using CSS
+		overflow-y: auto;
+		&::-webkit-scrollbar {
+			width: 0px !important;
+		}
+		overflow: -moz-scrollbars-none;
+	}
+
+	&__content {
+		color: $primary-text;
+		padding: 0px 10px 10px;
+		position: relative;
+		flex: 1;
+		h1, h2 {
+			font-size: clamp(0.6rem, 0.6rem + 1.6368vw, 1.2rem);
+			font-weight: 500;
+			margin: 0px;
+		}
+	}
+
+	&__closeButton {
+		aspect-ratio: 1;
+		background-color: rgba(34, 34, 34, 0.8);
+		border-radius: 1rem;
+		border: 1px solid white;
+		cursor: pointer;
+		margin: 0px 5px 0px 5px;
+		padding: 4px 2px 0px;
+		position: absolute;
+		right: 0.4rem;
+		top: 0.7rem;
+		width: clamp(1.3rem, 1.4rem + 1vw, 1.9rem);
+		z-index: 2;
+
+		&:hover {
+			background-color: $primary-text;
+			img {
+				filter: unset;
+				transition: filter 0.3s;
+			}
+		}
+		img {
+			filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
+				brightness(104%) contrast(104%);
+			transition: 0.3s;
+			width: clamp(0.3rem, 0.4rem + 1vw, 0.7rem);
+		}
+	}
+
+	&__noImage {
+		object-fit: cover;
+		object-position: center top;
+		img {
+			margin-top: 10px;
+			width: 100%;
+		}
+	}
+}
+
+// MEDIA QUERIES
+
+@media only screen and 
+(min-device-width: $mobileMedium) 
+and (max-device-width: $laptopLarge) 
+and (orientation: landscape) {
+	.videoModal__body {
+		width: 60vw;
+	}
+}

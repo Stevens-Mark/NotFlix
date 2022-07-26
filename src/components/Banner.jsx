@@ -21,7 +21,7 @@ import playIcon from '../assets/icons/play.svg';
  */
 const Banner = ({ fetchUrl }) => {
 
-	const { handleDetails } = useContext(Context);
+	const { handleDetails, handleVideoDetails } = useContext(Context);
 
 	const [media, setMedia] = useState([]);
 	const [isLoading, setLoading] = useState(true);
@@ -43,10 +43,6 @@ const Banner = ({ fetchUrl }) => {
 		}
 		fetchData();
 	}, [fetchUrl]); // ONLY replace banner image if url updated
-
-	const handlePlay = (media) => {
-		console.log(media)
-	};
 
 	if (isLoading) {
 		return (
@@ -84,7 +80,7 @@ const Banner = ({ fetchUrl }) => {
 							<button
 								className="button button--play"
 								aria-label="Play Video Trailer"
-								onClick={() => handlePlay(media)}
+								onClick={() => handleVideoDetails(media)}
 							>
 								<img src={playIcon} alt="" />
 								Play

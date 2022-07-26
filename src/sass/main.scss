@@ -3,7 +3,6 @@
  */
 
 @import './utils/variables';
-@import "./utils/functions";
 @import "utils/mixins";
 @import "utils/keyframes";
 
@@ -22,6 +21,8 @@
 @import "components/scrollIndicator";
 @import "components/searchInput";
 @import "components/slidder";
+@import "components/youTubeModal";
+@import "components/youTubeEmbed";
 
 @import "pages/watchNSearch";
 @import "pages/error";
