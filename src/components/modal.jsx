@@ -19,8 +19,7 @@ import playIcon from '../assets/icons/play.svg';
  * @returns {JSX}
  */
 const Modal = () => {
-	const { modalIsOpen, mediaDetails, handleVideoDetails, closeModal } =
-		useContext(Context);
+	const { modalIsOpen, mediaDetails, handleVideoDetails, closeModal } =	useContext(Context);
 	const media = mediaDetails;
 
 	const handleEscape = () => {
@@ -36,6 +35,7 @@ const Modal = () => {
 		const listener = keyListenersMap.get(e.keyCode); // get the listener corresponding to the pressed key
 		return listener && listener(e); // call the listener if it exists
 	};
+
 	useEffect(() => {
 		// set accessibility for modal open/closed
 		const body = document.querySelector('body');

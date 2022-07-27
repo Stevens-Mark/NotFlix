@@ -15,8 +15,7 @@ import noVideoImage from '../../assets/images/NoVideoImageWhite.webp';
  * @returns {JSX}
  */
 const YouTubeModal = () => {
-	const { trailerUrl, videoModalIsOpen, mediaVideoDetails, closeVideoModal } =
-		useContext(Context);
+	const { trailerUrl, videoModalIsOpen, mediaVideoDetails, closeVideoModal } = useContext(Context);
 	const media = mediaVideoDetails;
 
 	const handleEscape = () => {
