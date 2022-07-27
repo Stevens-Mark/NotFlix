@@ -18,29 +18,38 @@ const YouTubeModal = () => {
 		useContext(Context);
 	const media = mediaVideoDetails;
 
-	const handleEscape = () => {
-		closeVideoModal();
+	// Focus Trap
+	const modalVideoRef = React.createRef();
+
+	const handleTabKey = (e) => {
+		const focusableModalElements = modalVideoRef.current.querySelectorAll(
+			'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+		);
+
+		console.log(focusableModalElements)
+		const firstElement = focusableModalElements[0];
+		const lastElement =
+			focusableModalElements[focusableModalElements.length - 1];
+		if (!e.shiftKey && document.activeElement !== firstElement) {
+			firstElement.focus();
+			return e.preventDefault();
+		}
+
+		if (e.shiftKey && document.activeElement !== lastElement) {
+			lastElement.focus();
+			e.preventDefault();
+		}
 	};
-
-	const handlekeys = (e) => {
-		e.preventDefault();
-	}; // prevent keys: effectively traps focus in modal
-
-	const keyListenersMap = new Map([
-		// map of keyboard listeners
-		[27, handleEscape],
-		[9, handlekeys],
-		[18, handlekeys],
-		[37, handlekeys],
-		[38, handlekeys],
-		[39, handlekeys],
-		[40, handlekeys],
-	]);
 
 	const handleKeydown = (e) => {
 		const listener = keyListenersMap.get(e.keyCode); // get the listener corresponding to the pressed key
 		return listener && listener(e); // call the listener if it exists
 	};
+
+	const keyListenersMap = new Map([
+		[27, closeVideoModal],
+		[9, handleTabKey],
+	]);
 
 	useEffect(() => {
 		// set accessibility for modal open/closed
@@ -58,6 +67,7 @@ const YouTubeModal = () => {
 
 	return createPortal(
 		<div
+		ref={modalVideoRef}
 			id="videoModal"
 			role="dialog"
 			aria-modal="true"
