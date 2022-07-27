@@ -18,33 +18,9 @@ import playIcon from '../assets/icons/play.svg';
  * @returns {JSX}
  */
 const Modal = () => {
-
-	const { modalIsOpen, mediaDetails, handleVideoDetails, closeModal } = useContext(Context);
+	const { modalIsOpen, mediaDetails, handleVideoDetails, closeModal } =
+		useContext(Context);
 	const media = mediaDetails;
-
-	const handleEscape = () => {
-		closeModal();
-	};
-
-	const handlekeys = (e) => {
-		e.preventDefault();
-	}; // prevent keys: effectively traps focus in modal
-
-	const keyListenersMap = new Map([
-		// map of keyboard listeners
-		[27, handleEscape],
-		[9, handlekeys],
-		[18, handlekeys],
-		[37, handlekeys],
-		[38, handlekeys],
-		[39, handlekeys],
-		[40, handlekeys],
-	]);
-
-	const handleKeydown = (e) => {
-		const listener = keyListenersMap.get(e.keyCode); // get the listener corresponding to the pressed key
-		return listener && listener(e); // call the listener if it exists
-	};
 
 	useEffect(() => {
 		// set accessibility for modal open/closed
@@ -61,6 +37,38 @@ const Modal = () => {
 		};
 	});
 
+	// Focus Trap
+	const modalRef = React.createRef();
+
+	const handleTabKey = (e) => {
+		const focusableModalElements = modalRef.current.querySelectorAll(
+			'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+		);
+		const firstElement = focusableModalElements[0];
+		const lastElement =
+			focusableModalElements[focusableModalElements.length - 1];
+
+		if (!e.shiftKey && document.activeElement !== firstElement) {
+			firstElement.focus();
+			return e.preventDefault();
+		}
+
+		if (e.shiftKey && document.activeElement !== lastElement) {
+			lastElement.focus();
+			e.preventDefault();
+		}
+	};
+
+	const handleKeydown = (e) => {
+		const listener = keyListenersMap.get(e.keyCode); // get the listener corresponding to the pressed key
+		return listener && listener(e); // call the listener if it exists
+	};
+
+	const keyListenersMap = new Map([
+		[27, closeModal],
+		[9, handleTabKey],
+	]);
+
 	return createPortal(
 		<div
 			id="modal"
@@ -68,6 +76,7 @@ const Modal = () => {
 			aria-modal="true"
 			aria-labelledby="modal__title"
 			className="modal"
+			ref={modalRef}
 			style={{
 				animation: !modalIsOpen
 					? 'modalBgFadeOut 0.1s ease-in-out both 0.4s'
