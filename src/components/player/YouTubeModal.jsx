@@ -19,12 +19,32 @@ const YouTubeModal = () => {
 		useContext(Context);
 	const media = mediaVideoDetails;
 
+	const handleEscape = () => {
+		closeVideoModal();
+	};
+
+	const keyListenersMap = new Map([
+		// map of keyboard listeners
+		[27, handleEscape],
+	]);
+
+	const handleKeydown = (e) => {
+		const listener = keyListenersMap.get(e.keyCode); // get the listener corresponding to the pressed key
+		return listener && listener(e); // call the listener if it exists
+	};
+
 	useEffect(() => {
 		// set accessibility for modal open/closed
 		const body = document.querySelector('body');
 		const videoModal = document.getElementById('videoModal');
 		body.setAttribute('aria-hidden', videoModalIsOpen ? 'true' : 'false');
 		videoModal.setAttribute('aria-hidden', videoModalIsOpen ? 'false' : 'true');
+		// initiate keyboard listener to handle escape key event
+		videoModalIsOpen && document.addEventListener('keydown', handleKeydown);
+		return () => {
+			// Detach listener when component unmounts
+			document.removeEventListener('keydown', handleKeydown);
+		};
 	});
 
 	return createPortal(

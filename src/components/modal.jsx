@@ -23,12 +23,31 @@ const Modal = () => {
 		useContext(Context);
 	const media = mediaDetails;
 
+	const handleEscape = () => {
+		closeModal();
+	};
+
+	const keyListenersMap = new Map([
+		// map of keyboard listeners
+		[27, handleEscape],
+	]);
+
+	const handleKeydown = (e) => {
+		const listener = keyListenersMap.get(e.keyCode); // get the listener corresponding to the pressed key
+		return listener && listener(e); // call the listener if it exists
+	};
 	useEffect(() => {
 		// set accessibility for modal open/closed
 		const body = document.querySelector('body');
 		const modal = document.getElementById('modal');
 		body.setAttribute('aria-hidden', modalIsOpen ? 'true' : 'false');
 		modal.setAttribute('aria-hidden', modalIsOpen ? 'false' : 'true');
+		// initiate keyboard listener to handle escape key event
+		modalIsOpen && document.addEventListener('keydown', handleKeydown);
+		return () => {
+			// Detach listener when component unmounts
+			document.removeEventListener('keydown', handleKeydown);
+		};
 	});
 
 	return createPortal(
