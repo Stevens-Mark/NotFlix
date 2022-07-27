@@ -87,7 +87,7 @@ const Banner = ({ fetchUrl }) => {
 							</button>
 							<button
 								className="button button--info"
-								aria-label="Show more nformation"
+								aria-label="Show more information"
 								onClick={() => handleDetails(media)}
 							>
 								<img src={infoIcon} alt="" />

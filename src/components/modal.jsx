@@ -47,7 +47,6 @@ const Modal = () => {
 		const firstElement = focusableModalElements[0];
 		const lastElement =
 			focusableModalElements[focusableModalElements.length - 1];
-
 		if (!e.shiftKey && document.activeElement !== firstElement) {
 			firstElement.focus();
 			return e.preventDefault();
