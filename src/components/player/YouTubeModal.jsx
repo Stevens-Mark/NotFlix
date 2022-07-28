@@ -15,7 +15,14 @@ import noVideoImage from '../../assets/images/NoVideoImageWhite.webp';
  * @returns {JSX}
  */
 const YouTubeModal = () => {
-	const { trailerUrl, videoModalIsOpen, mediaVideoDetails, closeVideoModal } = useContext(Context);
+	const {
+		trailerUrl,
+		videoModalIsOpen,
+		mediaVideoDetails,
+		closeVideoModal,
+		openedFromModal,
+		returnToModal,
+	} = useContext(Context);
 	const media = mediaVideoDetails;
 
 	const handleEscape = () => {
@@ -65,7 +72,7 @@ const YouTubeModal = () => {
 				animateIn={'modalopen'}
 				animateOut={'modalclose'}
 			>
-				<FocusTrap active={videoModalIsOpen} >
+				<FocusTrap active={videoModalIsOpen}>
 					<div className="videoModal__body">
 						{media && (
 							<>
@@ -78,7 +85,7 @@ const YouTubeModal = () => {
 										className="videoModal__closeButton"
 										onClick={() => closeVideoModal()}
 									>
-										<img src={closeButton} alt="close modal" />
+										<img src={closeButton} alt="close video window" />
 									</button>
 									{trailerUrl ? (
 										<YoutubeEmbed embedId={trailerUrl} />
@@ -87,6 +94,25 @@ const YouTubeModal = () => {
 											<h2 className="sr-only">Sorry, No video available...</h2>
 											<img src={noVideoImage} alt="No video available" />
 										</div>
+									)}
+									{openedFromModal ? (
+										<button
+											aria-label="Back to the information"
+											className="button button--action"
+											onClick={() => returnToModal()}
+										>
+											Back
+											{/* <img src={closeButton} alt="Back to the information" /> */}
+										</button>
+									) : (
+										<button
+											aria-label="Close"
+											className="button button--action"
+											onClick={() => closeVideoModal()}
+										>
+											{/* <img src={closeButton} alt="close window" /> */}
+											Close
+										</button>
 									)}
 								</section>
 							</>

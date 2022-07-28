@@ -49,6 +49,12 @@
 			width: 1.5rem;
 		}
 	}
+	&--action {
+		background-color: $notflixRed;
+		font-size: 10px;
+		width: 3rem;
+		margin: 5px 0px 0px;
+	}
 }
 
 // MEDIA QUERIES
@@ -65,6 +71,11 @@
 		&--playModal {
 			width: 6rem;
 		}
+		&--action {
+			font-size: 14px;
+			padding: 4px;
+			width: 3rem;
+		}
 	}
 }
 
@@ -78,6 +89,11 @@
 		}
 		&--playModal {
 			width: 6rem;
+		}
+		&--action {
+			font-size: 1rem;
+			padding: 4px;
+			width: 3.5rem;
 		}
 	}
 }

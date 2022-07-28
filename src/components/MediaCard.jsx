@@ -17,7 +17,7 @@ import arrowDownIcon from '../assets/icons/chevronDown.svg';
  */
 const MediaCard = ({ media }) => {
 	
-	const { handleDetails, handleVideoDetails } = useContext(Context);
+	const { handleDetails, handleVideoDetails, setOpenedFromModal } = useContext(Context);
 
 	return (
 		<>
@@ -38,7 +38,7 @@ const MediaCard = ({ media }) => {
 						<button
 							className="media__movieButtons media__movieButtons--normal"
 							aria-label="Play Video Trailer"
-							onClick={() => handleVideoDetails(media)}
+							onClick={() => {handleVideoDetails(media); setOpenedFromModal(false);}}
 						>
 							<img src={playIcon} alt="" />
 						</button>

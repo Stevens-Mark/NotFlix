@@ -30,7 +30,7 @@ export const ContextProvider = ({ children }) => {
 		);
 	};
 
-	// handle modal
+	// handle modal section
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [mediaDetails, setMediaDetails] = useState('');
 
@@ -50,7 +50,17 @@ export const ContextProvider = ({ children }) => {
 		setMediaDetails(media);
 	};
 
-	// handle video youtube modal
+	// go back to modal from video modal if originally opened from modal
+	const [openedFromModal, setOpenedFromModal] = useState(false);
+
+	const returnToModal = () => {
+		setVideoModalIsOpen(false);
+		setTimeout(() => {
+			setModalIsOpen(true);
+		}, '600');
+	};
+
+	// handle video youtube modal section
 	const [videoModalIsOpen, setVideoModalIsOpen] = useState(false);
 	const [mediaVideoDetails, setMediaVideoDetails] = useState('');
 	const [trailerUrl, setTrailerUrl] = useState('');
@@ -93,10 +103,15 @@ export const ContextProvider = ({ children }) => {
 				watchListItems,
 				addToWatchList,
 				removeFromWatchList,
+
 				modalIsOpen,
 				mediaDetails,
 				closeModal,
 				handleDetails,
+
+				returnToModal,
+				openedFromModal,
+				setOpenedFromModal,
 
 				videoModalIsOpen,
 				mediaVideoDetails,

@@ -19,7 +19,7 @@ import playIcon from '../assets/icons/play.svg';
  * @returns {JSX}
  */
 const Modal = () => {
-	const { modalIsOpen, mediaDetails, handleVideoDetails, closeModal } =	useContext(Context);
+	const { modalIsOpen, mediaDetails, handleVideoDetails, closeModal, setOpenedFromModal } =	useContext(Context);
 	const media = mediaDetails;
 
 	const handleEscape = () => {
@@ -82,7 +82,7 @@ const Modal = () => {
 										className="modal__closeButton"
 										onClick={() => closeModal()}
 									>
-										<img src={closeButton} alt="close modal" />
+										<img src={closeButton} alt="close info window" />
 									</button>
 
 									<img
@@ -101,7 +101,7 @@ const Modal = () => {
 										<button
 											className="button button--playModal"
 											aria-label="Play Video Trailer"
-											onClick={() => handleVideoDetails(media)}
+											onClick={() => {handleVideoDetails(media); setOpenedFromModal(true);}}
 										>
 											<img src={playIcon} alt="" />
 											Play
