@@ -65,7 +65,7 @@ const YouTubeModal = () => {
 				animateIn={'modalopen'}
 				animateOut={'modalclose'}
 			>
-				<FocusTrap active={videoModalIsOpen}>
+				<FocusTrap active={videoModalIsOpen} >
 					<div className="videoModal__body">
 						{media && (
 							<>

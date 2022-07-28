@@ -69,7 +69,10 @@ const Modal = () => {
 				animateIn={'modalopen'}
 				animateOut={'modalclose'}
 			>
-				<FocusTrap active={modalIsOpen}>
+				<FocusTrap active={modalIsOpen}           
+				focusTrapOptions={{
+					returnFocusOnDeactivate: false
+          }}>
 					<div className="modal__body">
 						{media && (
 							<>
