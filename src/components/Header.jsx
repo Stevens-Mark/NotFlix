@@ -8,25 +8,26 @@ import SearchInput from './SearchInput';
  * @returns {JSX} Header Navigation Bar
  */
 const Header = () => {
-	const [navbar, setNavbar] = useState(false);
+	
+	const [changeColor, setChangeColor] = useState(false);
 
 	useEffect(() => {
-		//navbar scroll changeBackground function
 		const changeBackground = () => {
 			if (window.scrollY >= 66) {
-				setNavbar(true);
+				setChangeColor(true);
 			} else {
-				setNavbar(false);
+				setChangeColor(false);
 			}
 		};
 
-		// adding the event when scroll change background
+		// initiate listener for scroll to change background
 		window.addEventListener('scroll', changeBackground);
+		// detach on unmount
 		return () => window.removeEventListener('scroll', changeBackground);
 	});
 
 	return (
-		<header className={`menu-nav ${navbar ? 'menu-nav--active' : ''}`}>
+		<header className={`menu-nav ${changeColor ? 'menu-nav--active' : ''}`}>
 			<NavLink exact to="/animation">
 				<img
 					className="menu-nav__logo"

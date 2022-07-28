@@ -11,7 +11,7 @@ const Footer = () => {
 	return (
 		<footer className="footer">
 				<span className="footer__left">
-					<img src={myLogo} alt="logo" />
+					<img src={myLogo} alt="M logo for Mark Stevens" />
 					<span>Created by Mark Stevens</span>
 				</span>
 				<span className="footer__middle">

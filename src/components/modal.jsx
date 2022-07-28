@@ -19,16 +19,13 @@ import playIcon from '../assets/icons/play.svg';
  * @returns {JSX}
  */
 const Modal = () => {
+
 	const { modalIsOpen, mediaDetails, handleVideoDetails, closeModal, setOpenedFromModal } =	useContext(Context);
 	const media = mediaDetails;
 
-	const handleEscape = () => {
-		closeModal();
-	};
-
-	const keyListenersMap = new Map([
-		// map of keyboard listeners
-		[27, handleEscape],
+	// map of keyboard listeners
+	const keyListenersMap = new Map([ 
+		[27, closeModal],
 	]);
 
 	const handleKeydown = (e) => {

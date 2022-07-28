@@ -14,10 +14,10 @@ import infoIcon from '../assets/icons/alert-circle-outline.svg';
 import playIcon from '../assets/icons/play.svg';
 
 /**
- * Renders the Banner
+ * Renders the Hero Banner
  * @function Banner
  * @param {string} fetchUrl: path to data source
- * @returns {JSX} banner with image randomly selected
+ * @returns {JSX} Hero banner with image randomly selected
  */
 const Banner = ({ fetchUrl }) => {
 

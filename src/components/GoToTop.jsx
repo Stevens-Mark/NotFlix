@@ -8,7 +8,7 @@ import upArrow from '../assets/icons/goToTopArrow.svg';
  */
 const GoToTop = () => {
 
-  const [showButton, setShowButton] = useState(false);   // The back-to-top button is hidden at the beginning
+  const [showButton, setShowButton] = useState(false);   // button is hidden at the beginning
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -21,7 +21,7 @@ const GoToTop = () => {
     return () => setShowButton(false);
   }, [])
     
-  const scrollToTop = () => {   // This function will scroll the window to the top 
+  const scrollToTop = () => {   // scroll the window to the top 
     window.scrollTo({
       top: 0,
       behavior: 'smooth' // for smoothly scrolling

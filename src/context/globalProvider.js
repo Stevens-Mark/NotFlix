@@ -5,6 +5,9 @@ import { createContext } from 'react';
 export const Context = createContext();
 
 export const ContextProvider = ({ children }) => {
+
+	// HANDLE WATCH LIST
+	// *****************
 	const [watchListItems, setwatchListItems] = useState([]);
 
 	// Local Storage: setting & getting data
@@ -30,11 +33,12 @@ export const ContextProvider = ({ children }) => {
 		);
 	};
 
-	// handle modal section
+	// HANDLE MODAL SECTION
+	// ********************
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [mediaDetails, setMediaDetails] = useState('');
 
-	// prevent background moving when modal open
+	// prevent background scroll when modal open
 	const body = document.querySelector('body');
 	body.style.overflow = modalIsOpen ? 'hidden' : 'auto';
 	const html = document.querySelector('html');
@@ -50,7 +54,7 @@ export const ContextProvider = ({ children }) => {
 		setMediaDetails(media);
 	};
 
-	// go back to modal from video modal if originally opened from modal
+	// go back to modal from video modal (if originally opened from modal)
 	const [openedFromModal, setOpenedFromModal] = useState(false);
 
 	const returnToModal = () => {
@@ -60,12 +64,13 @@ export const ContextProvider = ({ children }) => {
 		}, '600');
 	};
 
-	// handle video youtube modal section
+	// HANDLE VIDEO (YOUTUBE) MODAL SECTION
+	// ************************************
 	const [videoModalIsOpen, setVideoModalIsOpen] = useState(false);
 	const [mediaVideoDetails, setMediaVideoDetails] = useState('');
 	const [trailerUrl, setTrailerUrl] = useState('');
 
-	// prevent background moving when video modal open
+	// prevent background scroll when video modal open
 	body.style.overflow = videoModalIsOpen ? 'hidden' : 'auto';
 	html.style.overflow = videoModalIsOpen ? 'hidden' : 'auto';
 

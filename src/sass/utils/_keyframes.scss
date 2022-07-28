@@ -19,6 +19,11 @@
     to   { opacity: 0;}
 }
 
+// loader
+@keyframes spin {
+  to {transform: rotate(360deg);}
+}
+
 // search Input animations
 @keyframes slideIn {
   from { opacity: 0; transform: translateX(100px);}

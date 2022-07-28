@@ -15,6 +15,7 @@ import noVideoImage from '../../assets/images/NoVideoImageWhite.webp';
  * @returns {JSX}
  */
 const YouTubeModal = () => {
+	
 	const {
 		trailerUrl,
 		videoModalIsOpen,
@@ -23,6 +24,7 @@ const YouTubeModal = () => {
 		openedFromModal,
 		returnToModal,
 	} = useContext(Context);
+
 	const media = mediaVideoDetails;
 
 	const handleEscape = () => {
@@ -102,7 +104,6 @@ const YouTubeModal = () => {
 											onClick={() => returnToModal()}
 										>
 											Back
-											{/* <img src={closeButton} alt="Back to the information" /> */}
 										</button>
 									) : (
 										<button
@@ -110,7 +111,6 @@ const YouTubeModal = () => {
 											className="button button--action"
 											onClick={() => closeVideoModal()}
 										>
-											{/* <img src={closeButton} alt="close window" /> */}
 											Close
 										</button>
 									)}
