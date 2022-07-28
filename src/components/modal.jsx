@@ -19,14 +19,19 @@ import playIcon from '../assets/icons/play.svg';
  * @returns {JSX}
  */
 const Modal = () => {
+	
+	const {
+		modalIsOpen,
+		mediaDetails,
+		handleVideoDetails,
+		closeModal,
+		setOpenedFromModal,
+	} = useContext(Context);
 
-	const { modalIsOpen, mediaDetails, handleVideoDetails, closeModal, setOpenedFromModal } =	useContext(Context);
 	const media = mediaDetails;
 
 	// map of keyboard listeners
-	const keyListenersMap = new Map([ 
-		[27, closeModal],
-	]);
+	const keyListenersMap = new Map([[27, closeModal]]);
 
 	const handleKeydown = (e) => {
 		const listener = keyListenersMap.get(e.keyCode); // get the listener corresponding to the pressed key
@@ -66,10 +71,12 @@ const Modal = () => {
 				animateIn={'modalopen'}
 				animateOut={'modalclose'}
 			>
-				<FocusTrap active={modalIsOpen}           
-				focusTrapOptions={{
-					returnFocusOnDeactivate: false
-          }}>
+				<FocusTrap
+					active={modalIsOpen}
+					focusTrapOptions={{
+						returnFocusOnDeactivate: false,
+					}}
+				>
 					<div className="modal__body">
 						{media && (
 							<>
@@ -98,7 +105,10 @@ const Modal = () => {
 										<button
 											className="button button--playModal"
 											aria-label="Play Video Trailer"
-											onClick={() => {handleVideoDetails(media); setOpenedFromModal(true);}}
+											onClick={() => {
+												handleVideoDetails(media);
+												setOpenedFromModal(true);
+											}}
 										>
 											<img src={playIcon} alt="" />
 											Play

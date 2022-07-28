@@ -1,65 +1,66 @@
-
 @mixin textShadow {
-    text-shadow: 1px 1px 2px $text-shadow;
+	text-shadow: 1px 1px 2px $text-shadow;
 }
 
 // banner animation mixins
 @mixin animateFadeIn {
-    animation: fade 1s both ease-in-out;
+	animation: fade 1s both ease-in-out;
 }
 
 @mixin animateTitle {
-    animation: fadein 1s both ease-in-out 0.2s;
+	animation: fadein 1s both ease-in-out 0.2s;
 }
 
 @mixin animateButtons {
-    animation: fadein 1s both ease-in-out 0.4s;
+	animation: fadein 1s both ease-in-out 0.4s;
 }
 
 @mixin animateOverview {
-    animation: fadein 1s both ease-in-out 0.7s;
+	animation: fadein 1s both ease-in-out 0.7s;
 }
 
 // modal details animation mixin
 @mixin animateDetails {
-    animation: detailsFade $items-animation-time both ease-in-out;
+	animation: detailsFade $items-animation-time both ease-in-out;
 }
-
 
 // hover style on media cards & modal buttons
 // plus, tick & media card play button
 @mixin buttonHover {
-    &--normal {
-        img {
-            filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
-                brightness(104%) contrast(104%);
-            transition: 0.3s;
-            width: 0.7rem;        }
+	&--normal {
+		img {
+			filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
+				brightness(104%) contrast(104%);
+			transition: 0.3s;
+			width: 0.7rem;
+		}
 
-        &:hover, &:focus  {
-            background-color: $primary-text;
-            img {
-                filter: unset;
-                transition: filter 0.3s;
-            }
-        }
-    }
+		&:hover,
+		&:focus {
+			background-color: $primary-text;
+			img {
+				filter: unset;
+				transition: filter 0.3s;
+			}
+		}
+	}
 
-    &--tick {
-        background-color: $primary-text;
-        img {
-            filter: unset;
-            transition: 0.3s;
-            width: 0.7rem;
-        }
+	&--tick {
+		background-color: $primary-text;
+		img {
+			filter: unset;
+			transition: 0.3s;
+			width: 0.7rem;
+		}
 
-        &:hover, &:focus  {
-            background-color: unset;
-            img {
-                filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
-                    brightness(104%) contrast(104%);
-                transition: filter 0.3s;
-            }
-        }
-    }
+		&:hover,
+		&:focus {
+			background-color: unset;
+			img {
+				filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg)
+					brightness(104%) contrast(104%);
+				transition: filter 0.3s;
+			}
+		}
+	}
 }

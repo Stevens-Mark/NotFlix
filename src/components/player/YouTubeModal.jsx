@@ -15,7 +15,6 @@ import noVideoImage from '../../assets/images/NoVideoImageWhite.webp';
  * @returns {JSX}
  */
 const YouTubeModal = () => {
-	
 	const {
 		trailerUrl,
 		videoModalIsOpen,
@@ -74,7 +73,12 @@ const YouTubeModal = () => {
 				animateIn={'modalopen'}
 				animateOut={'modalclose'}
 			>
-				<FocusTrap active={videoModalIsOpen}>
+				<FocusTrap
+					active={videoModalIsOpen}
+					focusTrapOptions={{
+						returnFocusOnDeactivate: false,
+					}}
+				>
 					<div className="videoModal__body">
 						{media && (
 							<>
