@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
  * Service to fetch data
  * @function useFetch (custom Hook)
  * @param {string} fetchUrl: URL to fetch data from...
- * @returns {object} data
- * @returns {boolean} isLoading
- * @returns {boolean} error
+ * @returns {object} data: movies /tv shows information
+ * @returns {boolean} isLoading:
+ * @returns {boolean} isError:
  */
 export function useFetch(fetchUrl) {
 	const [data, setData] = useState({});

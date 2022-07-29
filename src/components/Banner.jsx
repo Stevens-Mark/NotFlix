@@ -14,14 +14,14 @@ import infoIcon from '../assets/icons/alert-circle-outline.svg';
 import playIcon from '../assets/icons/play.svg';
 
 /**
- * Renders the Banner
+ * Renders the Hero Banner
  * @function Banner
  * @param {string} fetchUrl: path to data source
- * @returns {JSX} banner with image randomly selected
+ * @returns {JSX} Hero banner with image randomly selected
  */
 const Banner = ({ fetchUrl }) => {
 
-	const { handleDetails, handleVideoDetails } = useContext(Context);
+	const { handleDetails, handleVideoDetails, setOpenedFromModal } = useContext(Context);
 
 	const [media, setMedia] = useState([]);
 	const [isLoading, setLoading] = useState(true);
@@ -80,14 +80,14 @@ const Banner = ({ fetchUrl }) => {
 							<button
 								className="button button--play"
 								aria-label="Play Video Trailer"
-								onClick={() => handleVideoDetails(media)}
+								onClick={() => {handleVideoDetails(media); setOpenedFromModal(false);}}
 							>
 								<img src={playIcon} alt="" />
 								Play
 							</button>
 							<button
 								className="button button--info"
-								aria-label="Show more nformation"
+								aria-label="Show more information"
 								onClick={() => handleDetails(media)}
 							>
 								<img src={infoIcon} alt="" />

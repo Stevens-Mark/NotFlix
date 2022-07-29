@@ -29,7 +29,7 @@ const SearchInput = () => {
 	};
 
 	/**
-	 * Change to search page (query in parameters)
+	 * Change to search page (& put query in parameter "queryValue")
 	 * @function handleSubmit
 	 */
 	const handleSubmit = (event) => {
@@ -81,7 +81,7 @@ const SearchInput = () => {
 				aria-label="Open or close search input"
 				onClick={() => setShowInput((prevShowInput) => !prevShowInput)}
 			>
-				<img src={magnify} alt="Open or close search" />
+				<img src={magnify} alt="magnify glass" />
 			</button>
 		</div>
 	);

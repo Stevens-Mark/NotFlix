@@ -37,7 +37,7 @@
 		width: 1.9rem;
 		z-index: 2;
 
-		&:hover {
+		&:hover, &:focus  {
 			background-color: $primary-text;
 			img {
 				filter: unset;

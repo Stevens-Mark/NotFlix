@@ -15,6 +15,7 @@ import LoadError from '../components/LoadError';
  * @returns {JSX}
  */
 const Search = () => {
+	// get search "queryValue" string from Url
 	const search = useLocation().search;
 	const value = new URLSearchParams(search).get('queryValue');
 
@@ -24,7 +25,6 @@ const Search = () => {
 	useEffect(() => {
 		document.title = 'NotFlix | Search';
 		window.scrollTo(0, 0);
-
 	}, []);
 
 	return (

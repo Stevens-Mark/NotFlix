@@ -6,7 +6,7 @@
   aspect-ratio: 1;
   color: $notflixRed;
   display: grid;
-  width: 50px; /* control the size */
+  width: 3.125rem; /* 50px control the size */
   -webkit-mask: conic-gradient(from 15deg, #0003,#000);
           mask: conic-gradient(from 15deg, #0003,#000);
 }

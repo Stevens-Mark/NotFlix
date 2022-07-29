@@ -25,7 +25,7 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 	var settings = {
 		dots: false,
 		infinite: false,
-		lazyLoad: true,
+		// lazyLoad: true,
 		speed: 3000,
 		slidesToShow: 6,
 		slidesToScroll: 6,

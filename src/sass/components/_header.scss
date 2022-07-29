@@ -13,7 +13,7 @@
 	width: 100%;
 	z-index: 1;
 
-	&--active {
+	&--active { // sets nav bar black when user scrolled down
 		background-color: $secondary;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 		transition: background-color 0.5s ease-out;

@@ -19,15 +19,20 @@
     to   { opacity: 0;}
 }
 
+// loader
+@keyframes spin {
+  to {transform: rotate(360deg);}
+}
+
 // search Input animations
 @keyframes slideIn {
-  from { opacity: 0; transform: translateX(100px);}
+  from { opacity: 0; transform: translateX(150px);}
   to   { opacity: 1;  transform: translateX(0px);}
 }
 
 @keyframes slideOut {
   from { opacity: 1; transform: translateX(0px);}
-  to   { opacity: 0;  transform: translateX(100px);}
+  to   { opacity: 0;  transform: translateX(150px);}
 }
 
 // only for modal animations

@@ -1,7 +1,8 @@
 import React, { useEffect, useContext } from 'react';
 import { Context } from '../../context/globalProvider';
 import { createPortal } from 'react-dom';
-// import components/functions...
+// import components/functions/libraries...
+import FocusTrap from 'focus-trap-react';
 import YoutubeEmbed from './YouTubeEmbed';
 import Animate from '../../utils/Animate';
 // import images/icons
@@ -14,27 +15,24 @@ import noVideoImage from '../../assets/images/NoVideoImageWhite.webp';
  * @returns {JSX}
  */
 const YouTubeModal = () => {
-	const { trailerUrl, videoModalIsOpen, mediaVideoDetails, closeVideoModal } =
-		useContext(Context);
+	const {
+		trailerUrl,
+		videoModalIsOpen,
+		mediaVideoDetails,
+		closeVideoModal,
+		openedFromModal,
+		returnToModal,
+	} = useContext(Context);
+
 	const media = mediaVideoDetails;
 
 	const handleEscape = () => {
 		closeVideoModal();
 	};
 
-	const handlekeys = (e) => {
-		e.preventDefault();
-	}; // prevent keys: effectively traps focus in modal
-
 	const keyListenersMap = new Map([
 		// map of keyboard listeners
 		[27, handleEscape],
-		[9, handlekeys],
-		[18, handlekeys],
-		[37, handlekeys],
-		[38, handlekeys],
-		[39, handlekeys],
-		[40, handlekeys],
 	]);
 
 	const handleKeydown = (e) => {
@@ -48,10 +46,10 @@ const YouTubeModal = () => {
 		const videoModal = document.getElementById('videoModal');
 		body.setAttribute('aria-hidden', videoModalIsOpen ? 'true' : 'false');
 		videoModal.setAttribute('aria-hidden', videoModalIsOpen ? 'false' : 'true');
-		// initiate keyboard listener to focus trap modal
+		// initiate keyboard listener to handle escape key event
 		videoModalIsOpen && document.addEventListener('keydown', handleKeydown);
-
 		return () => {
+			// Detach listener when component unmounts
 			document.removeEventListener('keydown', handleKeydown);
 		};
 	});
@@ -75,32 +73,56 @@ const YouTubeModal = () => {
 				animateIn={'modalopen'}
 				animateOut={'modalclose'}
 			>
-				<div className="videoModal__body">
-					{media && (
-						<>
-							<section className="videoModal__content">
-								<h1 className="sr-only" id="videoModal__title">
-									{media?.title || media?.name || media?.original_title}
-								</h1>
-								<button
-									aria-label="Close"
-									className="videoModal__closeButton"
-									onClick={() => closeVideoModal()}
-								>
-									<img src={closeButton} alt="close modal" />
-								</button>
-								{trailerUrl ? (
-									<YoutubeEmbed embedId={trailerUrl} />
-								) : (
-									<div className="videoModal__noImage">
-										<h2 className="sr-only">Sorry, No video available...</h2>
-										<img src={noVideoImage} alt="No video available" />
-									</div>
-								)}
-							</section>
-						</>
-					)}
-				</div>
+				<FocusTrap
+					active={videoModalIsOpen}
+					// focusTrapOptions={{
+					// 	returnFocusOnDeactivate: false,
+					// }}
+				>
+					<div className="videoModal__body">
+						{media && (
+							<>
+								<section className="videoModal__content">
+									<h1 className="sr-only" id="videoModal__title">
+										{media?.title || media?.name || media?.original_title}
+									</h1>
+									<button
+										aria-label="Close"
+										className="videoModal__closeButton"
+										onClick={() => closeVideoModal()}
+									>
+										<img src={closeButton} alt="close video window" />
+									</button>
+									{trailerUrl ? (
+										<YoutubeEmbed embedId={trailerUrl} />
+									) : (
+										<div className="videoModal__noImage">
+											<h2 className="sr-only">Sorry, No video available...</h2>
+											<img src={noVideoImage} alt="No video available" />
+										</div>
+									)}
+									{openedFromModal ? (
+										<button
+											aria-label="Back to the information"
+											className="button button--action"
+											onClick={() => returnToModal()}
+										>
+											Back
+										</button>
+									) : (
+										<button
+											aria-label="Close"
+											className="button button--action"
+											onClick={() => closeVideoModal()}
+										>
+											Close
+										</button>
+									)}
+								</section>
+							</>
+						)}
+					</div>
+				</FocusTrap>
 			</Animate>
 		</div>,
 		document.body

@@ -10,7 +10,7 @@
 
 After seeing numerous NetFlix clones on the internet I thought I would try to build my own version. I have to say I was inspired by the version done by Davide Mandelli, Th3Wall. Which is an amazing version !! Check it out
 I have tried to avoid using too many libraries, so opted to do the animations with Sass rather than motion, spring etc... 
-But, I did use react-slick for the slidder, but unfortunately there are a few accessibility issues. I don't think it was intended to have navigational buttons inside for example.. Also, when I checked with "AXE" it throws up some issues that are not totally correct... 
+But, I did use react-slick for the slidder, but unfortunately there are a few accessibility issues. I don't think it was intended to have navigational buttons inside for example... Also, when I checked with "AXE" it throws up some issues that are not totally correct. Although my "modal focus trap" worked, I finally chose to use Focus-trap-react as I found mine had a few problems with the modal animation component that I used to allow animations when unmounting the modal.
 And finally, although I could have used Redux for the state management, I also opted for useContext instead, simply because I haven't really used it much & thought there was no need to use Redux on this project...
 
 ## Features
@@ -37,10 +37,12 @@ And finally, although I could have used Redux for the state management, I also o
 - [React-router-dom](https://www.npmjs.com/package/react-router-dom/v/5.2.0) Version 5.2.0
 - [React-scripts](https://www.npmjs.com/package/react-scripts) Version 5.0.0
 - [Prop-types](https://www.npmjs.com/package/prop-types) Version 15.8.1
+- [SaSS](https://sass-lang.com/) Version 1.46.0
 - [Axios](https://axios-http.com/) Version 0.27.2
 - [React-slick](https://react-slick.neostack.com/) Version 0.29.0
 - [Slick-carousel](https://www.npmjs.com/package/slick-carousel) Version 1.8.1
-- [SaSS](https://sass-lang.com/) Version 1.46.0
+- [Focus-trap-react](https://www.npmjs.com/package/focus-trap-react) Version 9.0.2
+
 
 ## Installing and running the project
 - Clone the repository onto your computer :
@@ -79,8 +81,10 @@ Credit for the "Notflix" intro sound goes to - [Davide Mandelli, Th3Wall](https:
 
 Après avoir vu de nombreux clones de NetFlix sur Internet, je me suis dit que j'allais essayer de construire ma propre version. Je dois dire que j'ai été inspiré par la version faite par Davide Mandelli, Th3Wall. C'est une version incroyable ! Regardez-la
 J'ai essayé d'éviter d'utiliser trop de bibliothèques, j'ai donc choisi de faire les animations avec Sass plutôt qu'avec motion, spring etc... 
-Mais, j'ai utilisé react-slick pour le slidder, mais malheureusement il y a quelques problèmes d'accessibilité. Je ne pense pas qu'il était prévu d'avoir des boutons de navigation à l'intérieur par exemple... De plus, lorsque j'ai vérifié avec "AXE", cela a donné lieu à des problèmes qui ne sont pas totalement corrects... 
+Mais, j'ai utilisé react-slick pour le slidder, mais malheureusement il y a quelques problèmes d'accessibilité. Je ne pense pas qu'il était prévu d'avoir des boutons de navigation à l'intérieur par exemple... De plus, lorsque j'ai vérifié avec "AXE", cela a donné lieu à des problèmes qui ne sont pas totalement corrects. Bien que mon "modal focus trap" ait fonctionné, j'ai finalement choisi d'utiliser Focus-trap-react car j'ai constaté que le mien avait quelques problèmes avec le composant d'animation de la modale que j'ai utilisé pour permettre les animations lors du démontage de la modale.
 Et enfin, bien que j'aurais pu utiliser Redux pour la gestion de l'état, j'ai également opté pour useContext à la place, simplement parce que je ne l'ai pas vraiment utilisé et que je pensais qu'il n'y avait pas besoin d'utiliser Redux sur ce projet...
+
+Traduit avec www.DeepL.com/Translator (version gratuite)
 
 ## Fonctionnalités
 
@@ -107,10 +111,11 @@ Et enfin, bien que j'aurais pu utiliser Redux pour la gestion de l'état, j'ai �
 - [React-router-dom](https://www.npmjs.com/package/react-router-dom/v/5.2.0) Version 5.2.0
 - [React-scripts](https://www.npmjs.com/package/react-scripts) Version 5.0.0
 - [Prop-types](https://www.npmjs.com/package/prop-types) Version 15.8.1
+- [SaSS](https://sass-lang.com/) Version 1.46.0
 - [Axios](https://axios-http.com/) Version 0.27.2
 - [React-slick](https://react-slick.neostack.com/) Version 0.29.0
 - [Slick-carousel](https://www.npmjs.com/package/slick-carousel) Version 1.8.1
-- [SaSS](https://sass-lang.com/) Version 1.46.0
+- [Focus-trap-react](https://www.npmjs.com/package/focus-trap-react) Version 9.0.2
 
 
 ## Installation et exécution du projet

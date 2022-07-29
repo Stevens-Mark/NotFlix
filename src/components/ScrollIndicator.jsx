@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 /**
+ * Renders a progress bar of how far down the page the user has navigated
  * @function ScrollIndicator
  * @returns {JSX} page scroll Indicator at top of screen
  */

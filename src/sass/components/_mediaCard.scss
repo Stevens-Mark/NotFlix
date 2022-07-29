@@ -9,10 +9,10 @@
 		&::after {
 			content: '';
 			position: absolute;
-			top: 10px;
-			left: 10px;
-			right: 12px;
-			bottom: 10px;
+			top: 0.625rem;
+			left: 0.625rem;
+			right: 0.75rem;
+			bottom: 0.625rem;
 			border-radius: 0.5rem;
 			opacity: 0;
 			transition: opacity 0.6s ease-out;
@@ -24,11 +24,11 @@
 			);
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
 			transform: scale(1.075);
-			z-index: 1;
 			.media__buttonsContainer {
-				transform: translateY(-10px);
+				transform: translateY(-0.625rem);
 			}
 			&::after {
 				opacity: 1;
@@ -42,7 +42,7 @@
 		object-fit: cover;
 		object-position: center top;
 		width: 100%;
-		padding: 8px;
+		padding: 0.5rem;
 	}
 
 	&__buttonsContainer {
@@ -85,8 +85,18 @@
 			aspect-ratio: 1;
 		}
 	}
-}
 
+	// classes used for media card buttons "focus" issue when user uses keyboard navigation
+	&__itemFocus {
+		transform: scale(1.075);
+		&::after {
+			opacity: 1;
+		}
+	}
+	&__btnContainerFocus {
+		animation: fadein ease-in-out both;
+	}
+}
 
 // MEDIA QUERIES
 
