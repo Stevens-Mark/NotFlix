@@ -73,9 +73,9 @@ const Modal = () => {
 			>
 				<FocusTrap
 					active={modalIsOpen}
-					focusTrapOptions={{
-						returnFocusOnDeactivate: false,
-					}}
+					// focusTrapOptions={{
+					// 	returnFocusOnDeactivate: false,
+					// }}
 				>
 					<div className="modal__body">
 						{media && (

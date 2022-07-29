@@ -24,9 +24,9 @@
 			);
 		}
 
-		&:hover, &:focus{
+		&:hover,
+		&:focus {
 			transform: scale(1.075);
-			z-index: 1;
 			.media__buttonsContainer {
 				transform: translateY(-0.625rem);
 			}
@@ -86,6 +86,7 @@
 		}
 	}
 
+	// classes used for media card buttons "focus" issue when user uses keyboard navigation
 	&__itemFocus {
 		transform: scale(1.075);
 		&::after {

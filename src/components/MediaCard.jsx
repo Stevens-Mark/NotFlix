@@ -21,38 +21,37 @@ const MediaCard = ({ media }) => {
 
 	const buttonsRef = React.createRef();
 
+	// code to deal with media card buttons "focus" issue when user uses keyboard navigation
 	useEffect(() => {
 		const buttons = buttonsRef.current.querySelectorAll('button');
 		buttons.forEach(button => {
-			button.addEventListener('focus', focusParent)
-			button.addEventListener('blur', blurParent)
+			button.addEventListener('focus', focusButtons)
+			button.addEventListener('blur', unFocusButtons)
 		});
 		
 		return () => {
 			buttons.forEach(button => {
-				button.removeEventListener('focus', focusParent)
-				button.removeEventListener('blur', blurParent)
+				button.removeEventListener('focus', focusButtons)
+				button.removeEventListener('blur', unFocusButtons)
 			});
 		}
 	}, [buttonsRef])
 
-
-	const focusParent =(event) => {
+	const focusButtons =(event) => {
 		const mediaItem = event.target.parentNode.parentNode.parentNode;
-		const btnContainer = event.target.parentNode.parentNode;;
+		const btnContainer = event.target.parentNode.parentNode;
 		mediaItem.classList.add('media__itemFocus');
 		btnContainer.classList.add('media__btnContainerFocus');
 	}
 	
-	const blurParent = (event) => {
+	const unFocusButtons = (event) => {
 		const mediaItem = event.target.parentNode.parentNode.parentNode;
 		const btnContainer = event.target.parentNode.parentNode;
 		mediaItem.classList.remove('media__itemFocus');
 		btnContainer.classList.remove('media__btnContainerFocus');
 	}
 
-	
-	return (
+		return (
 		<>
 			<div ref={buttonsRef} className="media__item">
 				<img

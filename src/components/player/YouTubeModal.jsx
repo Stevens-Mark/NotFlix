@@ -75,9 +75,9 @@ const YouTubeModal = () => {
 			>
 				<FocusTrap
 					active={videoModalIsOpen}
-					focusTrapOptions={{
-						returnFocusOnDeactivate: false,
-					}}
+					// focusTrapOptions={{
+					// 	returnFocusOnDeactivate: false,
+					// }}
 				>
 					<div className="videoModal__body">
 						{media && (
