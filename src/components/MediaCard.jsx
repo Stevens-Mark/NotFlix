@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Context } from '../context/globalProvider';
 import { IMAGE_URL } from '../config/requests';
@@ -19,9 +19,42 @@ const MediaCard = ({ media }) => {
 	
 	const { handleDetails, handleVideoDetails, setOpenedFromModal } = useContext(Context);
 
+	const buttonsRef = React.createRef();
+
+	useEffect(() => {
+		const buttons = buttonsRef.current.querySelectorAll('button');
+		buttons.forEach(button => {
+			button.addEventListener('focus', focusParent)
+			button.addEventListener('blur', blurParent)
+		});
+		
+		return () => {
+			buttons.forEach(button => {
+				button.removeEventListener('focus', focusParent)
+				button.removeEventListener('blur', blurParent)
+			});
+		}
+	}, [buttonsRef])
+
+
+	const focusParent =(event) => {
+		const mediaItem = event.target.parentNode.parentNode.parentNode;
+		const btnContainer = event.target.parentNode.parentNode;;
+		mediaItem.classList.add('media__itemFocus');
+		btnContainer.classList.add('media__btnContainerFocus');
+	}
+	
+	const blurParent = (event) => {
+		const mediaItem = event.target.parentNode.parentNode.parentNode;
+		const btnContainer = event.target.parentNode.parentNode;
+		mediaItem.classList.remove('media__itemFocus');
+		btnContainer.classList.remove('media__btnContainerFocus');
+	}
+
+	
 	return (
 		<>
-			<div className="media__item">
+			<div ref={buttonsRef} className="media__item">
 				<img
 					className="media__itemImage"
 					src={
@@ -34,7 +67,7 @@ const MediaCard = ({ media }) => {
 					alt={media?.title || media?.name || media?.original_title}
 				/>
 				<div className="media__buttonsContainer">
-					<div className="media__movieButtonsRow ">
+					<div  className="media__movieButtonsRow ">
 						<button
 							className="media__movieButtons media__movieButtons--normal"
 							aria-label="Play Video Trailer"

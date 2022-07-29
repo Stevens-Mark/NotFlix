@@ -24,7 +24,7 @@
 			);
 		}
 
-		&:hover {
+		&:hover, &:focus{
 			transform: scale(1.075);
 			z-index: 1;
 			.media__buttonsContainer {
@@ -85,8 +85,17 @@
 			aspect-ratio: 1;
 		}
 	}
-}
 
+	&__itemFocus {
+		transform: scale(1.075);
+		&::after {
+			opacity: 1;
+		}
+	}
+	&__btnContainerFocus {
+		animation: fadein ease-in-out both;
+	}
+}
 
 // MEDIA QUERIES
 
