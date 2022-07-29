@@ -14,6 +14,7 @@ body {
 		width: 0px !important; // Hide scroll bar, but while still being able to scroll using CSS
 	}
 	overflow: -moz-scrollbars-none;
+	scrollbar-width: none;
 	min-height: 100vh;
 	background: $secondary;
 	color: white;

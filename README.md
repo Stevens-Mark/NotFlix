@@ -74,8 +74,9 @@ Credit for the "Notflix" intro sound goes to - [Davide Mandelli, Th3Wall](https:
 
 
 <p align="center">
-  <img src="/src/assets/images/notflixLogo.png" />
+  <img src="/public/notflixScreenshot.png" />
 </p>
+
 
 # PROJET PERSONNEL *(Français)*
 
