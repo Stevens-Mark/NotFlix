@@ -2,7 +2,11 @@
   <img src="/public/notflixScreenshot.png" />
 </p>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7d5f62fc-c010-49cb-8c4f-ed1d3fd5bee4/deploy-status)](https://app.netlify.com/sites/notflixstevensmark/deploys)
+
 # PROJECT PERSONAL *(English)*
+
+Open website at [Notflix](https://notflixstevensmark.netlify.app/)
 
 # NOTFLIX - A NetFlix Clone
 
@@ -75,6 +79,8 @@ Credit for the "Notflix" intro sound goes to - [Davide Mandelli, Th3Wall](https:
 
 # PROJET PERSONNEL *(Français)*
 
+Ouvrir le site web à [Notflix](https://notflixstevensmark.netlify.app/)
+
 # NOTFLIX - Un clone de NetFlix
 
 ## Objectif
@@ -83,8 +89,6 @@ Après avoir vu de nombreux clones de NetFlix sur Internet, je me suis dit que j
 J'ai essayé d'éviter d'utiliser trop de bibliothèques, j'ai donc choisi de faire les animations avec Sass plutôt qu'avec motion, spring etc... 
 Mais, j'ai utilisé react-slick pour le slidder, mais malheureusement il y a quelques problèmes d'accessibilité. Je ne pense pas qu'il était prévu d'avoir des boutons de navigation à l'intérieur par exemple... De plus, lorsque j'ai vérifié avec "AXE", cela a donné lieu à des problèmes qui ne sont pas totalement corrects. Bien que mon "modal focus trap" ait fonctionné, j'ai finalement choisi d'utiliser Focus-trap-react car j'ai constaté que le mien avait quelques problèmes avec le composant d'animation de la modale que j'ai utilisé pour permettre les animations lors du démontage de la modale.
 Et enfin, bien que j'aurais pu utiliser Redux pour la gestion de l'état, j'ai également opté pour useContext à la place, simplement parce que je ne l'ai pas vraiment utilisé et que je pensais qu'il n'y avait pas besoin d'utiliser Redux sur ce projet...
-
-Traduit avec www.DeepL.com/Translator (version gratuite)
 
 ## Fonctionnalités
 
