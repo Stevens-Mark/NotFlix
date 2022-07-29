@@ -18,6 +18,7 @@ const YouTubeModal = () => {
 	const {
 		trailerUrl,
 		videoModalIsOpen,
+		modalIsOpen,
 		mediaVideoDetails,
 		closeVideoModal,
 		openedFromModal,
@@ -44,7 +45,7 @@ const YouTubeModal = () => {
 		// set accessibility for modal open/closed
 		const body = document.querySelector('body');
 		const videoModal = document.getElementById('videoModal');
-		body.setAttribute('aria-hidden', videoModalIsOpen ? 'true' : 'false');
+		body.setAttribute('aria-hidden', videoModalIsOpen || modalIsOpen? 'true' : 'false');
 		videoModal.setAttribute('aria-hidden', videoModalIsOpen ? 'false' : 'true');
 		// initiate keyboard listener to handle escape key event
 		videoModalIsOpen && document.addEventListener('keydown', handleKeydown);

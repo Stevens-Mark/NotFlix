@@ -22,6 +22,7 @@ const Modal = () => {
 	
 	const {
 		modalIsOpen,
+		videoModalIsOpen,
 		mediaDetails,
 		handleVideoDetails,
 		closeModal,
@@ -42,7 +43,7 @@ const Modal = () => {
 		// set accessibility for modal open/closed
 		const body = document.querySelector('body');
 		const modal = document.getElementById('modal');
-		body.setAttribute('aria-hidden', modalIsOpen ? 'true' : 'false');
+		body.setAttribute('aria-hidden', modalIsOpen || videoModalIsOpen ? 'true' : 'false');
 		modal.setAttribute('aria-hidden', modalIsOpen ? 'false' : 'true');
 		// initiate keyboard listener to handle escape key event
 		modalIsOpen && document.addEventListener('keydown', handleKeydown);
