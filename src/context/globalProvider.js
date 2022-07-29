@@ -5,7 +5,6 @@ import { createContext } from 'react';
 export const Context = createContext();
 
 export const ContextProvider = ({ children }) => {
-
 	// HANDLE WATCH LIST
 	// *****************
 	const [watchListItems, setwatchListItems] = useState([]);
@@ -38,12 +37,6 @@ export const ContextProvider = ({ children }) => {
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [mediaDetails, setMediaDetails] = useState('');
 
-	// prevent background scroll when modal open
-	const body = document.querySelector('body');
-	body.style.overflow = modalIsOpen ? 'hidden' : 'auto';
-	const html = document.querySelector('html');
-	html.style.overflow = modalIsOpen ? 'hidden' : 'auto';
-
 	const closeModal = () => {
 		setModalIsOpen(false);
 		// setMediaDetails('');
@@ -69,10 +62,6 @@ export const ContextProvider = ({ children }) => {
 	const [videoModalIsOpen, setVideoModalIsOpen] = useState(false);
 	const [mediaVideoDetails, setMediaVideoDetails] = useState('');
 	const [trailerUrl, setTrailerUrl] = useState('');
-
-	// prevent background scroll when video modal open
-	body.style.overflow = videoModalIsOpen ? 'hidden' : 'auto';
-	html.style.overflow = videoModalIsOpen ? 'hidden' : 'auto';
 
 	const closeVideoModal = () => {
 		setVideoModalIsOpen(false);
@@ -101,6 +90,12 @@ export const ContextProvider = ({ children }) => {
 			setMediaVideoDetails(media);
 		}
 	};
+
+	// prevent background scroll when modal or video modal open
+	const body = document.querySelector('body');
+	const html = document.querySelector('html');
+	body.style.overflow = videoModalIsOpen || modalIsOpen ? 'hidden' : 'auto';
+	html.style.overflow = videoModalIsOpen || modalIsOpen ? 'hidden' : 'auto';
 
 	return (
 		<Context.Provider
