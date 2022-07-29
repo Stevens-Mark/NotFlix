@@ -54,7 +54,7 @@ export const ContextProvider = ({ children }) => {
 		setVideoModalIsOpen(false);
 		setTimeout(() => {
 			setModalIsOpen(true);
-		}, '600');
+		}, '250');
 	};
 
 	// HANDLE VIDEO (YOUTUBE) MODAL SECTION
@@ -84,7 +84,7 @@ export const ContextProvider = ({ children }) => {
 			setTimeout(() => {
 				setVideoModalIsOpen(true);
 				setMediaVideoDetails(media);
-			}, '600');
+			}, '250');
 		} else {
 			setVideoModalIsOpen(true);
 			setMediaVideoDetails(media);
