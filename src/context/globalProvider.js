@@ -54,7 +54,7 @@ export const ContextProvider = ({ children }) => {
 		setVideoModalIsOpen(false);
 		setTimeout(() => {
 			setModalIsOpen(true);
-		}, '250');
+		}, '650'); // used for delay between video modal closing and modal opening
 	};
 
 	// HANDLE VIDEO (YOUTUBE) MODAL SECTION
@@ -84,7 +84,7 @@ export const ContextProvider = ({ children }) => {
 			setTimeout(() => {
 				setVideoModalIsOpen(true);
 				setMediaVideoDetails(media);
-			}, '250');
+			}, '650'); // used for delay between closing modal and opening video modal
 		} else {
 			setVideoModalIsOpen(true);
 			setMediaVideoDetails(media);
