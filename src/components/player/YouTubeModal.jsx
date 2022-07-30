@@ -64,8 +64,8 @@ const YouTubeModal = () => {
 			className="videoModal"
 			style={{
 				animation: !videoModalIsOpen
-					? 'modalBgFadeOut 0.1s ease-in-out both 0.4s'
-					: 'modalBgFadeIn 0.1s ease-out both',
+					? 'modalBgFadeOut 0.5s ease-in-out both'
+					: 'modalBgFadeIn 0.5s ease-out both',
 			}}
 		>
 			<Animate

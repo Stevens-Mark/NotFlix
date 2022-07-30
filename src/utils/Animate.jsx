@@ -26,7 +26,7 @@ const AnimateComponent = ({ show, children, classType, animateIn, animateOut }) 
     render && (
       <div className={`${classType}`}
         style={{
-          animation: `${show ? `${animateIn}`: `${animateOut}`} 0.5s ease-out both`,
+          animation: `${show ? `${animateIn}`: `${animateOut}`} 0.7s ease-out both`,
         }}
         onAnimationEnd={onAnimationEnd}
       >

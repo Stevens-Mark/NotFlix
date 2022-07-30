@@ -20,6 +20,7 @@
 			width: 0px !important;
 		}
 		overflow: -moz-scrollbars-none;
+		scrollbar-width: none;
 	}
 
 	&__content {
@@ -35,13 +36,15 @@
 	}
 
 	&__closeButton {
+		align-items: center;
 		aspect-ratio: 1;
 		background-color: rgba(34, 34, 34, 0.8);
 		border-radius: 1rem;
 		border: 1px solid white;
 		cursor: pointer;
+		display: flex;
+		justify-content: center;
 		margin: 0px 5px 0px 5px;
-		padding: 4px 2px 0px;
 		position: absolute;
 		right: 0.4rem;
 		top: 0.7rem;

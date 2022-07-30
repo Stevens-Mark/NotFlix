@@ -25,13 +25,15 @@
 	}
 
 	&__closeButton {
+		align-items: center;
 		aspect-ratio: 1;
 		background-color: rgba(34, 34, 34, 0.8);
 		border-radius: 1rem;
 		border: 1px solid white;
 		cursor: pointer;
+		display: flex;
+		justify-content: center;
 		margin: 0px 5px 0px 5px;
-		padding: 4px 2px 0px;
 		position: absolute;
 		right: 0.4rem;
 		top: 0.7rem;
@@ -72,24 +74,30 @@
 
 	&__likeButton {
 		@include buttonHover;
+		align-items: center;
 		aspect-ratio: 1;
 		background-color: rgba(34, 34, 34, 0.8);
 		border-radius: 1rem;
 		border: 1px solid white;
 		cursor: pointer;
+		display: flex;
+		justify-content: center;
 		margin: 0px 5px 0px 5px;
-		padding: 4px 2px 0px;
 		width: 1.9rem;
+		img {
+			aspect-ratio: 1;
+			width: 1rem;
+		}
 	}
 
 	&__content {
-		position: relative;
-		padding: 0px 10px 10px;
 		color: $primary-text;
+		padding: 0px 10px 10px;
+		position: relative;
 		h1 {
 			font-size: 1.6rem;
-			margin: 0px;
 			font-weight: 500;
+			margin: 0px;
 		}
 		h2 {
 			border-top: 2px solid $quaternary;
