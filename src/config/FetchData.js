@@ -15,10 +15,10 @@ export function useFetch(fetchUrl) {
 	const [isError, setIsError] = useState(false);
 
 	// real api url/endpoints
-	const url = `https://api.themoviedb.org/3${fetchUrl}`;
+	// const url = `https://api.themoviedb.org/3${fetchUrl}`;
 
 	// mocked data urls
-	// const url =  `../MockedDataCopy.json`	// used for mocking data
+	const url =  `../MockedDataCopy.json`	// used for mocking data
 
 	useEffect(() => {
 		if (!url) return;
