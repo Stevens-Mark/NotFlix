@@ -3,6 +3,7 @@ import { ContextProvider } from './context/globalProvider';
 import React, { lazy, Suspense } from 'react';
 import Header from './components/Header';
 import ScrollIndicator from './components/ScrollIndicator';
+// lazy load components
 const Modal = lazy(() => import('./components/modal'));
 const VideoPlayer = lazy(() => import('./components/player/YouTubeModal'));
 const Home = lazy(() => import('./pages/Home'));

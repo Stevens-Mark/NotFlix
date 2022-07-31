@@ -50,6 +50,8 @@
 		}
 	}
 	&--action {
+		position: relative;
+		bottom: 0;
 		background-color: $notflixRed;
 		font-size: 0.625rem;
 		width: 3rem;

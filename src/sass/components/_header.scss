@@ -4,14 +4,14 @@
 	display: flex;
 	flex-direction: row;
 	font-size: clamp(1rem, 1.7vw, 1.5rem);
-	height: 4rem; //5rem
+	height: 4rem;
 	max-width: $maxPageWidth;
-	padding: 2rem;
+	padding: 2.5rem 2rem 2rem;
 	position: fixed;
 	top: 0;
 	transition: background-color 0.5s ease-out;
 	width: 100%;
-	z-index: 99;
+	z-index: 3;
 
 	&--active { // sets nav bar black when user scrolled down
 		background-color: $secondary;
@@ -78,9 +78,9 @@
 	height: 100%;
 	// justify-content: center;
 	position: relative;
-	top: -10px;
+	top: -18px;
 	width: 1.875rem;
-	z-index:99;
+	z-index: 3;
 }
 
 #menu-toggle {
@@ -177,6 +177,10 @@
 	.menu-nav {
 		justify-content: space-between;
 		// padding: 1rem 2rem 2rem;
+		&__logo {
+			margin-top: -15px;
+		}
 	}
+
 }
 

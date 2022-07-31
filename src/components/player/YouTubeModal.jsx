@@ -45,7 +45,10 @@ const YouTubeModal = () => {
 		// set accessibility for modal open/closed
 		const body = document.querySelector('body');
 		const videoModal = document.getElementById('videoModal');
-		body.setAttribute('aria-hidden', videoModalIsOpen || modalIsOpen? 'true' : 'false');
+		body.setAttribute(
+			'aria-hidden',
+			videoModalIsOpen || modalIsOpen ? 'true' : 'false'
+		);
 		videoModal.setAttribute('aria-hidden', videoModalIsOpen ? 'false' : 'true');
 		// initiate keyboard listener to handle escape key event
 		videoModalIsOpen && document.addEventListener('keydown', handleKeydown);
@@ -83,17 +86,18 @@ const YouTubeModal = () => {
 					<div className="videoModal__body">
 						{media && (
 							<>
+								<button
+									aria-label="Close"
+									className="videoModal__closeButton"
+									onClick={() => closeVideoModal()}
+								>
+									<img src={closeButton} alt="close video window" />
+								</button>
 								<section className="videoModal__content">
 									<h1 className="sr-only" id="videoModal__title">
 										{media?.title || media?.name || media?.original_title}
 									</h1>
-									<button
-										aria-label="Close"
-										className="videoModal__closeButton"
-										onClick={() => closeVideoModal()}
-									>
-										<img src={closeButton} alt="close video window" />
-									</button>
+
 									{trailerUrl ? (
 										<YoutubeEmbed embedId={trailerUrl} />
 									) : (
