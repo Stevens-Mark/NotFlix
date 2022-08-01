@@ -7,6 +7,9 @@
 	top: 0;
 
 	&__body {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		background-color: $tertiary;
 		border-radius: 5px;
 		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -80,9 +83,10 @@
 
 @media only screen and 
 (min-device-width: $mobileMedium) 
-and (max-device-width: $laptopLarge) 
+and (max-device-width: 920px) 
 and (orientation: landscape) {
 	.videoModal__body {
 		width: 60vw;
+		// height: 90vh;
 	}
 }

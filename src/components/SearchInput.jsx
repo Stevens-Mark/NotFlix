@@ -46,7 +46,7 @@ const SearchInput = () => {
 	 */
 	const handleReset = () => {
 		setInput('');
-		history.push('/');
+		// history.push('/');
 	};
 
 	return (
