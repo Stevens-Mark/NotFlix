@@ -28,6 +28,11 @@ And finally, although I could have used Redux for the state management, I also o
 - [x] Swipeable movie and tv shows list
 - [x] Database courtesy of [TMDB API](https://www.themoviedb.org/)
 
+## Limitations / Areas for improvement
+- [x] I have not added all the genres to the site (for example: Romance, History, Mystery, Reality, Talk, Western...).
+- [x] Only the first page is shown for each genre (20 items) - need to add ability to load more pages.
+- [x] When navigating between the different pages the data is reload when a page is revisted (new API calls). Thus the same data is downloaded each time and not very efficient. 
+
 
 # Installation *(English)*
 
@@ -102,6 +107,11 @@ Et enfin, bien que j'aurais pu utiliser Redux pour la gestion de l'état, j'ai �
 - [x] Mise en page réactive
 - [x] Liste de films et d'émissions de télévision pouvant être glissée dans l'écran.
 - [x] Base de données fournie par [TMDB API](https://www.themoviedb.org/)
+
+## Limites / Points à améliorer
+- x] Je n'ai pas ajouté tous les genres au site (par exemple : Romance, Histoire, Mystère, Réalité, Discussion, Western...).
+- x] Seule la première page est affichée pour chaque genre (20 articles) - il faut ajouter la possibilité de charger plus de pages.
+- x] Lors de la navigation entre les différentes pages, les données sont rechargées lorsqu'une page est réactualisée (nouveaux appels API). Ainsi, les mêmes données sont téléchargées à chaque fois, ce qui n'est pas très efficace. 
 
 
 # Installation *(français)*
