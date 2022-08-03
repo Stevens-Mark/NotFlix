@@ -2,6 +2,7 @@
 // other card CSS from mediaCard.scss
 
 .media {
+	position: relative;
 	min-height: calc(90vh - 4rem);
 	h2 {
 		font-size: clamp(1.1rem, 0.6rem + 1.6368vw, 1.5rem);
@@ -17,12 +18,29 @@
 		justify-content: center;
 	}
 
+	// &__section {
+	// 	flex-direction: column;
+	// 	display: flex;
+
+	// }
+
 	&__grid {
 		display: grid;
 		grid-template-columns: repeat(1, 1fr);
 		max-width: $maxPageWidth;
 		padding: 0rem 1.25rem;
 		width: 100%;
+	}
+
+	&__button {
+		// align-self: end;
+		// padding: 0rem 1.25rem;
+		// top: -1.5rem;
+		// position: relative;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+
 	}
 }
 

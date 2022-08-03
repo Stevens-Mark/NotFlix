@@ -45,7 +45,7 @@ const SearchInput = () => {
 	};
 
 	/**
-	 * Change to home page / reset search query value
+	 * Reset search query value
 	 * @function handleReset
 	 */
 	const handleReset = () => {

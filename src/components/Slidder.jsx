@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 // import items needed for data fetch
-import { useFetch } from '../config/FetchData';
+import { useFetch } from '../config/useFetch';
 // import components
 import Loader from './Loader';
 import LoadError from './LoadError';

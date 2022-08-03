@@ -1,8 +1,6 @@
 import { useEffect, useContext, useState } from 'react';
 import { Context } from '../context/globalProvider';
 import { useLocation } from 'react-router-dom';
-// import items needed for data fetch
-// import { useFetch } from '../config/FetchData';
 import { SEARCH_URL } from '../config/requests';
 // import components
 import MediaCard from '../components/MediaCard';
@@ -20,7 +18,6 @@ const Search = () => {
 	const search = useLocation().search;
 	const value = new URLSearchParams(search).get('queryValue');
 
-	// const { data, isLoading, isError } = useFetch(`${SEARCH_URL}${value}&page=${page}`);
 	const { handleDetails, fetchData, isLoading, isError, data } =
 		useContext(Context);
 
@@ -50,9 +47,8 @@ const Search = () => {
 									<span>There are no media items ...</span>
 								</div>
 							) : (
-								<section>
+								<section className="media__section">
 									<h2>Search results for "{value}" are : </h2>
-									{/* <button onClick={() => {setPage(page === 1? 1 : page - 1 ); fetchData(`${SEARCH_URL}${value}&page=${page}`);} }>Previous</button> */}
 									<div className="media__grid">
 										{data.map((data, idx) => (
 											<MediaCard
@@ -62,14 +58,17 @@ const Search = () => {
 											/>
 										))}
 									</div>
-									<button className="button button--playModal"
-										onClick={() => {
-											setPage(page + 1);
-											fetchData(`${SEARCH_URL}${value}&page=${page}`);
-										}}
-									>
-										More ...
-									</button>
+									<span className="media__button">
+										<button
+											className="button button--playModal"
+											onClick={() => {
+												setPage(page + 1);
+												fetchData(`${SEARCH_URL}${value}&page=${page}`);
+											}}
+										>
+											More ...
+										</button>
+									</span>
 								</section>
 							)}
 						</>

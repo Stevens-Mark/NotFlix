@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
  * @returns {boolean} isLoading:
  * @returns {boolean} isError:
  */
-export function useFetch(type, title, category, fetchUrl) {
+export function useFetch(fetchUrl) {
 	const [data, setData] = useState({});
 	const [isLoading, setLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
@@ -28,11 +28,10 @@ export function useFetch(type, title, category, fetchUrl) {
 				const response = await fetch(url);
 				const data = await response.json();
 				const media_type = ['person']; // filter out people from results
-			
 				const filtered = data.results.filter(
 					(i) => !media_type.includes(i.media_type)
 				);
-				setData({ [type]: { title: title, category: category, data: filtered } });
+				setData(filtered);
 			} catch (err) {
 				console.log(err);
 				setIsError(true);
@@ -41,7 +40,7 @@ export function useFetch(type, title, category, fetchUrl) {
 			}
 		}
 		fetchData();
-	}, [type, category, title, url]);
+	}, [url]);
 	return { isLoading, data, isError };
 }
 

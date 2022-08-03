@@ -97,7 +97,9 @@ export const ContextProvider = ({ children }) => {
 	body.style.overflow = videoModalIsOpen || modalIsOpen ? 'hidden' : 'auto';
 	html.style.overflow = videoModalIsOpen || modalIsOpen ? 'hidden' : 'auto';
 
-	// to show additional results on page
+	// SEARCH PAGE SECTION
+	// *********************
+	// to show additional results on pagewhen user clicks more button
 	const [data, setData] = useState([]);
 	const [isLoading, setLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
@@ -114,7 +116,7 @@ export const ContextProvider = ({ children }) => {
 			const filtered = responseData.results.filter(
 				(i) => !media_type.includes(i.media_type)
 			);
-				if (query !== value) {
+			if (query !== value) {
 				setData(filtered);
 				setValue(query);
 			} else {
