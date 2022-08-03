@@ -101,9 +101,10 @@ export const ContextProvider = ({ children }) => {
 	const [data, setData] = useState([]);
 	const [isLoading, setLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
-	console.log(data);
+	const [value, setValue] = useState(undefined);
 
 	const fetchData = async (fetchUrl) => {
+		const query = new URLSearchParams(fetchUrl).get('query');
 		const url = `https://api.themoviedb.org/3${fetchUrl}`;
 		setLoading(true);
 		try {
@@ -113,14 +114,18 @@ export const ContextProvider = ({ children }) => {
 			const filtered = responseData.results.filter(
 				(i) => !media_type.includes(i.media_type)
 			);
-			console.log(filtered);
-			// stop duplicates
-			const key = 'id';
-			setData([
-				...new Map(
-					[...data, ...filtered].map((item) => [item[key], item])
-				).values(),
-			]);
+				if (query !== value) {
+				setData(filtered);
+				setValue(query);
+			} else {
+				// stop duplicates in case user enters same search word again
+				const key = 'id';
+				setData([
+					...new Map(
+						[...data, ...filtered].map((item) => [item[key], item])
+					).values(),
+				]);
+			}
 		} catch (err) {
 			console.log(err);
 			setIsError(true);

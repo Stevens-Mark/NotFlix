@@ -17,7 +17,7 @@ const SearchInput = () => {
 	const [input, setInput] = useState('');
 	const [showInput, setShowInput] = useState(false);
 	let history = useHistory();
-	const { fetchData, setData, data } = useContext(Context);
+	const { fetchData, setData} = useContext(Context);
 
 	/**
 	 * Restricts what the user can enter in the TEXT input fields & saves to state
@@ -40,8 +40,6 @@ const SearchInput = () => {
 		if (input.length > 0) {
 			history.push(`/search?queryValue=${input}`);
 			// setInput('');
-			setData([]);
-			console.log(data)
 			fetchData(`${SEARCH_URL}${input}&page=1`);
 		}
 	};
