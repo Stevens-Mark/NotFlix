@@ -97,6 +97,38 @@ export const ContextProvider = ({ children }) => {
 	body.style.overflow = videoModalIsOpen || modalIsOpen ? 'hidden' : 'auto';
 	html.style.overflow = videoModalIsOpen || modalIsOpen ? 'hidden' : 'auto';
 
+	// to show additional results on page
+	const [data, setData] = useState([]);
+	const [isLoading, setLoading] = useState(true);
+	const [isError, setIsError] = useState(false);
+	console.log(data);
+
+	const fetchData = async (fetchUrl) => {
+		const url = `https://api.themoviedb.org/3${fetchUrl}`;
+		setLoading(true);
+		try {
+			const response = await fetch(url);
+			const responseData = await response.json();
+			const media_type = ['person']; // filter out people from results
+			const filtered = responseData.results.filter(
+				(i) => !media_type.includes(i.media_type)
+			);
+			console.log(filtered);
+			// stop duplicates
+			const key = 'id';
+			setData([
+				...new Map(
+					[...data, ...filtered].map((item) => [item[key], item])
+				).values(),
+			]);
+		} catch (err) {
+			console.log(err);
+			setIsError(true);
+		} finally {
+			setLoading(false);
+		}
+	};
+
 	return (
 		<Context.Provider
 			value={{
@@ -118,6 +150,12 @@ export const ContextProvider = ({ children }) => {
 				trailerUrl,
 				closeVideoModal,
 				handleVideoDetails,
+
+				data,
+				setData,
+				isLoading,
+				isError,
+				fetchData,
 			}}
 		>
 			{children}
