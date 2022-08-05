@@ -20,7 +20,7 @@ const Genres = () => {
 	const media = useLocation().dataProps;
 
 	useEffect(() => {
-		document.title = 'NotFlix | Search';
+		document.title = 'NotFlix | More';
 		window.scrollTo(0, 0);
 	}, []);
 

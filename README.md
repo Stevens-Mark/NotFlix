@@ -20,9 +20,11 @@ But as the project has progressed & I have added more features I think the use o
 
 ## Features
 - [x] Display movies, tv shows, popular & watch list
+- [x] If user clicks on Genre heading a link appears to be able to view more movies ot tv shows for that genre
 - [x] Search movies and tv shows
 - [x] Add/Remove to/from "My Wish List"
 - [x] A detail modal with more information about the movie or TV show selected by the user
+- [x] A Video modal showing a "trailer" (if available) when selected by the user
 - [x] Use of React hooks and custom hooks
 - [x] Favourites list persised in local storage for ease of demo
 - [x] Responsive layout
@@ -99,13 +101,15 @@ Mais au fur et à mesure que le projet a progressé et que j'ai ajouté plus de 
 
 ## Fonctionnalités
 
-- [x] Afficher les films, les séries télévisées, les films populaires et les listes de visionnage
-- [x] Recherche de films et de séries TV
+- [x] Afficher les films, les séries télévisées, les films populaires et les listes de visionnage.
+- [x] Si l'utilisateur clique sur l'intitulé du genre, un lien apparaît pour lui permettre de voir d'autres films ou émissions de télévision de ce genre.
+- [x] Recherche de films et de séries TV.
 - [x] Ajouter/supprimer à/de "Ma liste de souhaits".
 - [x] Une modale de détail avec plus d'informations sur le film ou la série TV sélectionné(e).
-- [x] Utilisation de hooks React et de hooks personnalisés
+- [x] Une modale vidéo montrant une "bande-annonce" (si disponible) lorsqu'elle est sélectionnée par l'utilisateur.
+- [x] Utilisation de hooks React et de hooks personnalisés.
 - [x] La liste de favoris est conservée dans un stockage local pour faciliter la démo.
-- [x] Mise en page réactive
+- [x] Mise en page réactive.
 - [x] Liste de films et d'émissions de télévision pouvant être glissée dans l'écran.
 - [x] Base de données fournie par [TMDB API](https://www.themoviedb.org/)
 

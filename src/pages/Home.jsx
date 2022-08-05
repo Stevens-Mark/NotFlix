@@ -4,8 +4,6 @@ import Slider from '../components/Slidder';
 import { homeList } from '../config/dataToLoad'; // import home page list
 import { randomSelect } from '../utils/functions';
 
-// import { useFetch } from '../config/useFetch';
-
 /**
  * Renders Home page with all carousels
  * @function Home
@@ -17,8 +15,6 @@ const Home = () => {
 		window.scrollTo(0, 0);
 	}, []);
 
-// 	const info = useFetch('movies', homeList[0].category, homeList[0].category, homeList[0].url)
-// console.log(info)
 	return (
 		<main>
 			<h1 className="sr-only">Welcome to NotFlix - A NetFlix clone</h1>

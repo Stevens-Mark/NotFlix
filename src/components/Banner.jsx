@@ -28,6 +28,7 @@ const Banner = ({ fetchUrl }) => {
 	const [isError, setIsError] = useState(false);
 
 	useEffect(() => {
+		// cancel status used to control state update when componet unmounts
 		let cancel = false;
 
 		async function fetchData() {

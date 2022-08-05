@@ -33,6 +33,7 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 	const [showLink, setShowLink] = useState(false);
 
 	useEffect(() => {
+		// cancel status used to control state update when componet unmounts
 		let cancel = false;
 
 		async function fetchData() {
