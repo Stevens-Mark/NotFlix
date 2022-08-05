@@ -18,7 +18,6 @@ const Genres = () => {
 		useContext(Context);
 
 	const media = useLocation().dataProps;
-	console.log(media);
 
 	useEffect(() => {
 		document.title = 'NotFlix | Search';
