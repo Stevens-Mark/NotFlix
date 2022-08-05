@@ -18,7 +18,7 @@ const Search = () => {
 	const search = useLocation().search;
 	const value = new URLSearchParams(search).get('queryValue');
 
-	const { handleDetails, fetchData, isLoading, isError, data } =
+	const { handleDetails, fetchData, isLoading, isError, data, totalPages } =
 		useContext(Context);
 
 	useEffect(() => {
@@ -48,7 +48,9 @@ const Search = () => {
 								</div>
 							) : (
 								<section className="media__section">
-									<h2>Search results for "{value}" are : </h2>
+									<h2>
+										Search results for "{value}" are :{' '}
+									</h2>
 									<div className="media__grid">
 										{data.map((data, idx) => (
 											<MediaCard
@@ -58,17 +60,19 @@ const Search = () => {
 											/>
 										))}
 									</div>
-									<span className="media__button">
-										<button
-											className="button button--playModal"
-											onClick={() => {
-												setPage(page + 1);
-												fetchData(`${SEARCH_URL}${value}&page=${page}`);
-											}}
-										>
-											More ...
-										</button>
-									</span>
+									{page === totalPages && (
+										<span className="media__button">
+											<button
+												className="button button--playModal"
+												onClick={() => {
+													setPage(page + 1);
+													fetchData(`${SEARCH_URL}${value}&page=${page}`);
+												}}
+											>
+												More ...
+											</button>
+										</span>
+									)}
 								</section>
 							)}
 						</>

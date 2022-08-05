@@ -106,6 +106,7 @@ export const ContextProvider = ({ children }) => {
 	// to show additional SEARCH results on SEARCH page when user clicks more button
 	const [data, setData] = useState([]);
 	const [value, setValue] = useState(undefined);
+	const [totalPages, setTotalPages] = useState(0);
 
 	const fetchData = async (fetchUrl) => {
 		const query = new URLSearchParams(fetchUrl).get('query');
@@ -114,6 +115,7 @@ export const ContextProvider = ({ children }) => {
 		try {
 			const response = await fetch(url);
 			const responseData = await response.json();
+			setTotalPages(responseData.total_pages);
 			const media_type = ['person']; // filter out people from results
 			const filtered = responseData.results.filter(
 				(i) => !media_type.includes(i.media_type)
@@ -149,6 +151,7 @@ export const ContextProvider = ({ children }) => {
 		try {
 			const response = await fetch(url);
 			const responseData = await response.json();
+			setTotalPages(responseData.total_pages);
 			const additionalData = responseData.results;
 			setShowData([...showData, ...additionalData]);
 		} catch (err) {
@@ -191,6 +194,8 @@ export const ContextProvider = ({ children }) => {
 				showData,
 				setShowData,
 				showMore,
+
+				totalPages
 			}}
 		>
 			{children}

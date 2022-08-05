@@ -14,7 +14,7 @@ import LoadError from '../components/LoadError';
 const Genres = () => {
 	const [page, setPage] = useState(2);
 
-	const { handleDetails, showMore, isLoading, isError, showData } =
+	const { handleDetails, showMore, isLoading, isError, showData, totalPages } =
 		useContext(Context);
 
 	const media = useLocation().dataProps;
@@ -57,18 +57,22 @@ const Genres = () => {
 										/>
 									))}
 								</div>
-								{media?.url && (
-									<span className="media__button">
-										<button
-											className="button button--playModal"
-											onClick={() => {
-												setPage(page + 1);
-												showMore(`${media.url}&page=${page}`);
-											}}
-										>
-											More ...
-										</button>
-									</span>
+								{page === totalPages && (
+									<>
+										{media?.url && (
+											<span className="media__button">
+												<button
+													className="button button--playModal"
+													onClick={() => {
+														setPage(page + 1);
+														showMore(`${media.url}&page=${page}`);
+													}}
+												>
+													More ...
+												</button>
+											</span>
+										)}
+									</>
 								)}
 							</section>
 						</>
