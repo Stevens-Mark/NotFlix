@@ -27,7 +27,7 @@ const AnimationIntro = () => {
 		}, 100);
 
 		setTimeout(() => {
-			history.push('/');
+			history.push('/home');
 		}, 5500);
 	}, [history]);
 

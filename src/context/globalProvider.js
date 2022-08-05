@@ -163,6 +163,7 @@ export const ContextProvider = ({ children }) => {
 				isLoading,
 				isError,
 				fetchData,
+
 			}}
 		>
 			{children}

@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, useLocation } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 // import items needed for data fetch
-import axios from '../config/requests';
-// import items needed for data fetch
-// import { useFetch } from '../config/useFetch';
+import { useFetch } from '../config/useFetch';
 // import function
 import { cleanString } from '../utils/functions';
 // import components
@@ -24,35 +22,12 @@ import MediaCard from './MediaCard';
  */
 const SimpleSlidder = ({ title, fetchUrl }) => {
 	const { pathname } = useLocation();
-	// const { data, isLoading, isError } = useFetch(fetchUrl);
-
-	const [data, setData] = useState([]);
-	const [isLoading, setLoading] = useState(true);
-	const [isError, setIsError] = useState(false);
-
-	
-	useEffect(() => {
-		async function fetchData() {
-			setLoading(true);
-			try {
-				const request = await axios.get(fetchUrl);
-				// const request = await axios.get(''); // used for mocking data
-
-				setData(request.data.results);
-			} catch (err) {
-				console.log(err);
-				setIsError(true);
-			} finally {
-				setLoading(false);
-			}
-		}
-		fetchData();
-	}, [fetchUrl]);
+	const { data, isLoading, isError } = useFetch(fetchUrl);
 
 	var settings = {
 		dots: false,
 		infinite: false,
-		lazyLoad: true,
+		// lazyLoad: true,
 		speed: 3000,
 		slidesToShow: 6,
 		slidesToScroll: 6,
