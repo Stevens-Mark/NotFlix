@@ -97,16 +97,17 @@ export const ContextProvider = ({ children }) => {
 	body.style.overflow = videoModalIsOpen || modalIsOpen ? 'hidden' : 'auto';
 	html.style.overflow = videoModalIsOpen || modalIsOpen ? 'hidden' : 'auto';
 
-	// loading / error status
+	// loading / error / totalPages status
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
-
+	const [totalPages, setTotalPages] = useState(0);
+	
 	// SEARCH PAGE SECTION
 	// *********************
 	// to show additional SEARCH results on SEARCH page when user clicks more button
 	const [data, setData] = useState([]);
 	const [value, setValue] = useState(undefined);
-	const [totalPages, setTotalPages] = useState(0);
+	const [page, setPage] = useState(2);
 
 	const fetchData = async (fetchUrl) => {
 		const query = new URLSearchParams(fetchUrl).get('query');
@@ -195,7 +196,10 @@ export const ContextProvider = ({ children }) => {
 				setShowData,
 				showMore,
 
-				totalPages
+				page,
+				setPage,
+				totalPages,
+			
 			}}
 		>
 			{children}

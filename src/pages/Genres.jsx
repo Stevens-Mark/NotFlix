@@ -12,13 +12,11 @@ import LoadError from '../components/LoadError';
  * @returns {JSX}
  */
 const Genres = () => {
-	const [page, setPage] = useState(2);
+	const [page, setPage] = useState(1);
 
 	const { handleDetails, showMore, isLoading, isError, showData, totalPages } =
 		useContext(Context);
 
-		console.log(page)
-		console.log(totalPages)
 	const media = useLocation().dataProps;
 
 	useEffect(() => {

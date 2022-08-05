@@ -17,7 +17,7 @@ const SearchInput = () => {
 	const [input, setInput] = useState('');
 	const [showInput, setShowInput] = useState(false);
 	let history = useHistory();
-	const { fetchData, setData} = useContext(Context);
+	const { fetchData, setData, setPage} = useContext(Context);
 
 	/**
 	 * Restricts what the user can enter in the TEXT input fields & saves to state
@@ -51,6 +51,7 @@ const SearchInput = () => {
 	const handleReset = () => {
 		setInput('');
 		setData([]);
+		setPage(2);
 		// history.push('/');
 	};
 

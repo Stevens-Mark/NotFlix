@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from 'react';
+import { useEffect, useContext } from 'react';
 import { Context } from '../context/globalProvider';
 import { useLocation } from 'react-router-dom';
 import { SEARCH_URL } from '../config/requests';
@@ -13,12 +13,12 @@ import LoadError from '../components/LoadError';
  * @returns {JSX}
  */
 const Search = () => {
-	const [page, setPage] = useState(2);
+
 	// // get search "queryValue" string from Url
 	const search = useLocation().search;
 	const value = new URLSearchParams(search).get('queryValue');
 
-	const { handleDetails, fetchData, isLoading, isError, data, totalPages } =
+	const { handleDetails, fetchData, isLoading, isError, data, totalPages, page, setPage } =
 		useContext(Context);
 
 	useEffect(() => {
