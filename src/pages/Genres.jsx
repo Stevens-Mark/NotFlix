@@ -13,11 +13,12 @@ import LoadError from '../components/LoadError';
  */
 const Genres = () => {
 	const [page, setPage] = useState(2);
-	
+
 	const { handleDetails, showMore, isLoading, isError, showData } =
 		useContext(Context);
 
 	const media = useLocation().dataProps;
+	console.log(media);
 
 	useEffect(() => {
 		document.title = 'NotFlix | Search';
@@ -41,7 +42,13 @@ const Genres = () => {
 					) : (
 						<>
 							<section className="media__section">
-								<h2>More...</h2>
+								{media?.title ? (
+									<h2>{media.title}</h2>
+								) : (
+									<div className="media__status">
+										<LoadError />
+									</div>
+								)}
 								<div className="media__grid">
 									{showData.map((data, idx) => (
 										<MediaCard
@@ -51,17 +58,19 @@ const Genres = () => {
 										/>
 									))}
 								</div>
-								<span className="media__button">
-									<button
-										className="button button--playModal"
-										onClick={() => {
-											setPage(page + 1);
-											showMore(`${media.url}&page=${page}`);
-										}}
-									>
-										More ...
-									</button>
-								</span>
+								{media?.url && (
+									<span className="media__button">
+										<button
+											className="button button--playModal"
+											onClick={() => {
+												setPage(page + 1);
+												showMore(`${media.url}&page=${page}`);
+											}}
+										>
+											More ...
+										</button>
+									</span>
+								)}
 							</section>
 						</>
 					)}
@@ -72,3 +81,4 @@ const Genres = () => {
 };
 
 export default Genres;
+
