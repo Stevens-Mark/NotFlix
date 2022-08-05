@@ -1,6 +1,6 @@
 import { useEffect, useContext, useState } from 'react';
 import { Context } from '../context/globalProvider';
-// import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 // import { SEARCH_URL } from '../config/requests';
 // import components
 import MediaCard from '../components/MediaCard';
@@ -18,10 +18,11 @@ const Genres = () => {
 	// const search = useLocation().search;
 	// const value = new URLSearchParams(search).get('queryValue');
 
-	const { handleDetails, fetchData, isLoading, isError, data } =
+	const { handleDetails, showMore, loading, error, showData } =
 		useContext(Context);
 
-	// const media = useLocation().dataProps;
+		console.log(showData)
+	const media = useLocation().dataProps;
 
 	useEffect(() => {
 		document.title = 'NotFlix | Search';
@@ -32,13 +33,13 @@ const Genres = () => {
 		<main className="media">
 			<h1 className="sr-only">Welcome to NotFlix - </h1>
 
-			{!isLoading ? (
+			{loading ? (
 				<div className="media__status">
 					<Loader />
 				</div>
 			) : (
 				<>
-					{isError ? (
+					{error ? (
 						<div className="media__status">
 							<LoadError />
 						</div>
@@ -47,7 +48,7 @@ const Genres = () => {
 							<section className="media__section">
 								<h2>More...</h2>
 								<div className="media__grid">
-									{data.map((data, idx) => (
+									{showData.map((data, idx) => (
 										<MediaCard
 											key={`${data.id}--${idx}`}
 											media={data}
@@ -60,7 +61,7 @@ const Genres = () => {
 										className="button button--playModal"
 										onClick={() => {
 											setPage(page + 1);
-											// fetchData(`${media.url}&page=${page}`);
+											showMore(`${media.url}&page=${page}`);
 										}}
 									>
 										More ...

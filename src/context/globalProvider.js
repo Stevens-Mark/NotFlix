@@ -101,14 +101,14 @@ export const ContextProvider = ({ children }) => {
 	// *********************
 	// to show additional results on pagewhen user clicks more button
 	const [data, setData] = useState([]);
-	const [isLoading, setLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
 	const [value, setValue] = useState(undefined);
 
 	const fetchData = async (fetchUrl) => {
 		const query = new URLSearchParams(fetchUrl).get('query');
 		const url = `https://api.themoviedb.org/3${fetchUrl}`;
-		setLoading(true);
+		setIsLoading(true);
 		try {
 			const response = await fetch(url);
 			const responseData = await response.json();
@@ -131,6 +131,31 @@ export const ContextProvider = ({ children }) => {
 		} catch (err) {
 			console.log(err);
 			setIsError(true);
+		} finally {
+			setIsLoading(false);
+		}
+	};
+
+	const [showData, setShowData] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(false);
+
+	const showMore = async (fetchUrl) => {
+		const url = `https://api.themoviedb.org/3${fetchUrl}`;
+		setLoading(true);
+		console.log(url);
+		try {
+			const response = await fetch(url);
+			const responseData = await response.json();
+			const media_type = ['person']; // filter out people from results
+			const filtered = responseData.results.filter(
+				(i) => !media_type.includes(i.media_type)
+			);
+
+			setShowData([...showData, ...filtered]);
+		} catch (err) {
+			console.log(err);
+			setError(true);
 		} finally {
 			setLoading(false);
 		}
@@ -164,6 +189,11 @@ export const ContextProvider = ({ children }) => {
 				isError,
 				fetchData,
 
+				showData,
+				showMore,
+				setShowData,
+				loading,
+				error
 			}}
 		>
 			{children}

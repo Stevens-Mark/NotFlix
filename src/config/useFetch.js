@@ -16,7 +16,7 @@ export function useFetch(fetchUrl) {
 
 	// real api url/endpoints
 	const url = `https://api.themoviedb.org/3${fetchUrl}`;
-
+console.log(url)
 	// mocked data urls
 	// const url =  `../mockData/MockedDataCopy.json`	// used for mocking data
 

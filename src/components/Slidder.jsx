@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { Context } from '../context/globalProvider';
 import { NavLink, useLocation } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -25,15 +26,15 @@ import MediaCard from './MediaCard';
 const SimpleSlidder = ({ title, fetchUrl }) => {
 	const { pathname } = useLocation();
 	// const { data, isLoading, isError } = useFetch(fetchUrl);
-
+	const { setShowData } =	useContext(Context);
 	const [data, setData] = useState([]);
-	const [isLoading, setLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
 
 	
 	useEffect(() => {
 		async function fetchData() {
-			setLoading(true);
+			setIsLoading(true);
 			try {
 				const request = await axios.get(fetchUrl);
 				// const request = await axios.get(''); // used for mocking data
@@ -43,7 +44,7 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 				console.log(err);
 				setIsError(true);
 			} finally {
-				setLoading(false);
+				setIsLoading(false);
 			}
 		}
 		fetchData();
@@ -106,6 +107,7 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 					pathname: `${pathname}/${cleanString(title)}`,
 					dataProps: { data: data, title: title, url: fetchUrl },
 				}}
+				onClick={() => setShowData(data)}
 			>
 				See More..
 			</NavLink>
