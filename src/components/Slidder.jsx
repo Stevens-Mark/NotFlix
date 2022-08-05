@@ -2,13 +2,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Context } from '../context/globalProvider';
 import { NavLink, useLocation } from 'react-router-dom';
+// import slidder package
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 // import items needed for data fetch
 import axios from '../config/requests';
-// import items needed for data fetch
-// import { useFetch } from '../config/useFetch';
 // import function
 import { cleanString } from '../utils/functions';
 // import components
@@ -24,30 +23,37 @@ import MediaCard from './MediaCard';
  * @returns {JSX}
  */
 const SimpleSlidder = ({ title, fetchUrl }) => {
+
+	const { setShowData } = useContext(Context);
 	const { pathname } = useLocation();
-	// const { data, isLoading, isError } = useFetch(fetchUrl);
-	const { setShowData } =	useContext(Context);
+
 	const [data, setData] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
 
-	
 	useEffect(() => {
+		let cancel = false;
+
 		async function fetchData() {
 			setIsLoading(true);
 			try {
 				const request = await axios.get(fetchUrl);
 				// const request = await axios.get(''); // used for mocking data
-
+				if (cancel) return;
 				setData(request.data.results);
 			} catch (err) {
 				console.log(err);
+				if (cancel) return;
 				setIsError(true);
 			} finally {
+				if (cancel) return;
 				setIsLoading(false);
 			}
 		}
 		fetchData();
+		return () => {
+			cancel = true;
+		};
 	}, [fetchUrl]);
 
 	var settings = {
