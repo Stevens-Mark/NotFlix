@@ -13,7 +13,8 @@
 	width: 100%;
 	z-index: 3;
 
-	&--active { // sets nav bar black when user scrolled down
+	&--active {
+		// sets nav bar black when user scrolled down
 		background-color: $secondary;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 		transition: background-color 0.5s ease-out;
@@ -31,7 +32,6 @@
 			color: $active;
 		}
 		&:hover {
-		
 			color: $active;
 		}
 	}
@@ -149,7 +149,7 @@
 
 	#menu-toggle:checked ~ .menu > ul > li {
 		border: 1px solid #333;
-		height: 3em; 
+		height: 3em;
 		align-items: center;
 		padding: 1.2rem;
 		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
@@ -177,6 +177,5 @@
 			margin-top: -15px;
 		}
 	}
-
 }
 

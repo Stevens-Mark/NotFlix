@@ -14,6 +14,7 @@ import { cleanString } from '../utils/functions';
 import Loader from './Loader';
 import LoadError from './LoadError';
 import MediaCard from './MediaCard';
+import Animate from '../utils/Animate';
 
 /**
  * Renders each carousel slidder for each category
@@ -23,13 +24,13 @@ import MediaCard from './MediaCard';
  * @returns {JSX}
  */
 const SimpleSlidder = ({ title, fetchUrl }) => {
-
 	const { setShowData } = useContext(Context);
 	const { pathname } = useLocation();
 
 	const [data, setData] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
+	const [showLink, setShowLink] = useState(false);
 
 	useEffect(() => {
 		let cancel = false;
@@ -107,16 +108,33 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 
 	return (
 		<section className="row">
-			<h2 className="row__title">{title}</h2>
-			<NavLink
-				to={{
-					pathname: `${pathname}/${cleanString(title)}`,
-					dataProps: { data: data, title: title, url: fetchUrl },
-				}}
-				onClick={() => setShowData(data)}
-			>
-				See More..
-			</NavLink>
+			<span className="row__moreLink">
+				<button
+					className="row__button"
+					aria-label="Open or close show more media items link"
+					onClick={() => setShowLink((prevShowLink) => !prevShowLink)}
+				>
+					{title}
+				</button>
+				<div className="row__linkContainer">
+					<Animate
+						show={showLink}
+						animateIn={'linkSlideIn'}
+						animateOut={'linkSlideOut'}
+					>
+						<NavLink
+							className="row__link"
+							to={{
+								pathname: `${pathname}/${cleanString(title)}`,
+								dataProps: { title: title, url: fetchUrl },
+							}}
+							onClick={() => setShowData(data)}
+						>
+							See More ...
+						</NavLink>
+					</Animate>
+				</div>
+			</span>
 
 			{isLoading ? (
 				<div className="row__status">
