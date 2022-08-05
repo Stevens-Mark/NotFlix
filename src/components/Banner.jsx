@@ -28,21 +28,28 @@ const Banner = ({ fetchUrl }) => {
 	const [isError, setIsError] = useState(false);
 
 	useEffect(() => {
+		let cancel = false;
+
 		async function fetchData() {
 			setLoading(true);
 			try {
 				const request = await axios.get(fetchUrl);
 				// const request = await axios.get(''); // used for mocking data
-
+				if (cancel) return;
 				setMedia(randomSelect(request.data.results));
 			} catch (err) {
 				console.log(err);
+				if (cancel) return;
 				setIsError(true);
 			} finally {
+				if (cancel) return;
 				setLoading(false);
 			}
 		}
 		fetchData();
+		return () => {
+			cancel = true;
+		};
 	}, [fetchUrl]); // ONLY replace banner image if url updated
 
 	if (isLoading) {

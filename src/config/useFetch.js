@@ -22,8 +22,10 @@ export function useFetch(fetchUrl) {
 
 	useEffect(() => {
 		if (!url) return;
-		setLoading(true);
+		let cancel = false;
+
 		async function fetchData() {
+			setLoading(true);
 			try {
 				const response = await fetch(url);
 				const data = await response.json();
@@ -31,15 +33,21 @@ export function useFetch(fetchUrl) {
 				const filtered = data.results.filter(
 					(i) => !media_type.includes(i.media_type)
 				);
+				if (cancel) return;
 				setData(filtered);
 			} catch (err) {
 				console.log(err);
+				if (cancel) return;
 				setIsError(true);
 			} finally {
+				if (cancel) return;
 				setLoading(false);
 			}
 		}
 		fetchData();
+		return () => {
+			cancel = true;
+		};
 	}, [url]);
 	return { isLoading, data, isError };
 }
