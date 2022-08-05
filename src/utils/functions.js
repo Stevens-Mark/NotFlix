@@ -47,10 +47,21 @@ export const capitalize = (string) => {
 };
 
 /**
+ * Removes spaces & coverts to lowercase letters
+ * @function cleanString
+ * @param {string} unformatted string
+ * @returns {string} lowercase string / no spaces 
+ */
+ export const cleanString = (str) => {
+	return str.replace(/\s/g, '').toLowerCase();
+}
+
+/**
  * @function getYear
  * @returns {string} current year
  */
 export const getYear = () => {
 	return new Date().getFullYear();
 };
+
 

@@ -16,12 +16,15 @@ After seeing numerous NetFlix clones on the internet I thought I would try to bu
 I have tried to avoid using too many libraries, so opted to do the animations with Sass rather than motion, spring etc... 
 But, I did use react-slick for the slidder, but unfortunately there are a few accessibility issues. I don't think it was intended to have navigational buttons inside for example... Also, when I checked with "AXE" it throws up some issues that are not totally correct. Although my "modal focus trap" worked, I finally chose to use Focus-trap-react as I found mine had a few problems with the modal animation component that I used to allow animations when unmounting the modal.
 And finally, although I could have used Redux for the state management, I also opted for useContext instead, simply because I haven't really used it much & thought there was no need to use Redux on this project...
+But as the project has progressed & I have added more features I think the use of Redux would Have been better...
 
 ## Features
 - [x] Display movies, tv shows, popular & watch list
+- [x] If user clicks on Genre heading a link appears to be able to view more movies ot tv shows for that genre
 - [x] Search movies and tv shows
 - [x] Add/Remove to/from "My Wish List"
 - [x] A detail modal with more information about the movie or TV show selected by the user
+- [x] A Video modal showing a "trailer" (if available) when selected by the user
 - [x] Use of React hooks and custom hooks
 - [x] Favourites list persised in local storage for ease of demo
 - [x] Responsive layout
@@ -30,7 +33,6 @@ And finally, although I could have used Redux for the state management, I also o
 
 ## Limitations / Areas for improvement
 - [x] I have not added all the genres to the site (for example: Romance, History, Mystery, Reality, Talk, Western...).
-- [x] Only the first page is shown for each genre (20 items) - need to add ability to load more pages.
 - [x] When navigating between the different pages the data is reload when a page is revisted (new API calls). Thus the same data is downloaded each time and not very efficient. 
 
 
@@ -95,23 +97,25 @@ Après avoir vu de nombreux clones de NetFlix sur Internet, je me suis dit que j
 J'ai essayé d'éviter d'utiliser trop de bibliothèques, j'ai donc choisi de faire les animations avec Sass plutôt qu'avec motion, spring etc... 
 Mais, j'ai utilisé react-slick pour le slidder, mais malheureusement il y a quelques problèmes d'accessibilité. Je ne pense pas qu'il était prévu d'avoir des boutons de navigation à l'intérieur par exemple... De plus, lorsque j'ai vérifié avec "AXE", cela a donné lieu à des problèmes qui ne sont pas totalement corrects. Bien que mon "modal focus trap" ait fonctionné, j'ai finalement choisi d'utiliser Focus-trap-react car j'ai constaté que le mien avait quelques problèmes avec le composant d'animation de la modale que j'ai utilisé pour permettre les animations lors du démontage de la modale.
 Et enfin, bien que j'aurais pu utiliser Redux pour la gestion de l'état, j'ai également opté pour useContext à la place, simplement parce que je ne l'ai pas vraiment utilisé et que je pensais qu'il n'y avait pas besoin d'utiliser Redux sur ce projet...
+Mais au fur et à mesure que le projet a progressé et que j'ai ajouté plus de fonctionnalités, je pense que l'utilisation de Redux aurait été meilleure...
 
 ## Fonctionnalités
 
-- [x] Afficher les films, les séries télévisées, les films populaires et les listes de visionnage
-- [x] Recherche de films et de séries TV
+- [x] Afficher les films, les séries télévisées, les films populaires et les listes de visionnage.
+- [x] Si l'utilisateur clique sur l'intitulé du genre, un lien apparaît pour lui permettre de voir d'autres films ou émissions de télévision de ce genre.
+- [x] Recherche de films et de séries TV.
 - [x] Ajouter/supprimer à/de "Ma liste de souhaits".
 - [x] Une modale de détail avec plus d'informations sur le film ou la série TV sélectionné(e).
-- [x] Utilisation de hooks React et de hooks personnalisés
+- [x] Une modale vidéo montrant une "bande-annonce" (si disponible) lorsqu'elle est sélectionnée par l'utilisateur.
+- [x] Utilisation de hooks React et de hooks personnalisés.
 - [x] La liste de favoris est conservée dans un stockage local pour faciliter la démo.
-- [x] Mise en page réactive
+- [x] Mise en page réactive.
 - [x] Liste de films et d'émissions de télévision pouvant être glissée dans l'écran.
 - [x] Base de données fournie par [TMDB API](https://www.themoviedb.org/)
 
 ## Limites / Points à améliorer
-- x] Je n'ai pas ajouté tous les genres au site (par exemple : Romance, Histoire, Mystère, Réalité, Discussion, Western...).
-- x] Seule la première page est affichée pour chaque genre (20 articles) - il faut ajouter la possibilité de charger plus de pages.
-- x] Lors de la navigation entre les différentes pages, les données sont rechargées lorsqu'une page est réactualisée (nouveaux appels API). Ainsi, les mêmes données sont téléchargées à chaque fois, ce qui n'est pas très efficace. 
+-[x] Je n'ai pas ajouté tous les genres au site (par exemple : Romance, Histoire, Mystère, Réalité, Discussion, Western...).
+- [x] Lors de la navigation entre les différentes pages, les données sont rechargées lorsqu'une page est réactualisée (nouveaux appels API). Ainsi, les mêmes données sont téléchargées à chaque fois, ce qui n'est pas très efficace. 
 
 
 # Installation *(français)*

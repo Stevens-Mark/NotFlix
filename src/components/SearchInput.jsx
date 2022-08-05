@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext, } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Context } from '../context/globalProvider';
+import { SEARCH_URL } from '../config/requests';
 // import components
 import Animate from '../utils/Animate';
 // import icons
@@ -15,6 +17,7 @@ const SearchInput = () => {
 	const [input, setInput] = useState('');
 	const [showInput, setShowInput] = useState(false);
 	let history = useHistory();
+	const { fetchData, setData, setPage} = useContext(Context);
 
 	/**
 	 * Restricts what the user can enter in the TEXT input fields & saves to state
@@ -37,15 +40,18 @@ const SearchInput = () => {
 		if (input.length > 0) {
 			history.push(`/search?queryValue=${input}`);
 			// setInput('');
+			fetchData(`${SEARCH_URL}${input}&page=1`);
 		}
 	};
 
 	/**
-	 * Change to home page / reset search query value
+	 * Reset search query value
 	 * @function handleReset
 	 */
 	const handleReset = () => {
 		setInput('');
+		setData([]);
+		setPage(2);
 		// history.push('/');
 	};
 

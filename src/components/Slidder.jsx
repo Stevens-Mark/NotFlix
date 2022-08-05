@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { Context } from '../context/globalProvider';
+import { NavLink, useLocation } from 'react-router-dom';
+// import slidder package
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 // import items needed for data fetch
-import { useFetch } from '../config/FetchData';
+import axios from '../config/requests';
+// import function
+import { cleanString } from '../utils/functions';
 // import components
 import Loader from './Loader';
 import LoadError from './LoadError';
 import MediaCard from './MediaCard';
+import Animate from '../utils/Animate';
 
 /**
  * Renders each carousel slidder for each category
@@ -18,14 +24,44 @@ import MediaCard from './MediaCard';
  * @returns {JSX}
  */
 const SimpleSlidder = ({ title, fetchUrl }) => {
+	const { setShowData } = useContext(Context);
+	const { pathname } = useLocation();
 
-	const { data, isLoading, isError } = useFetch(fetchUrl);
-	const medias = data;
+	const [data, setData] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
+	const [isError, setIsError] = useState(false);
+	const [showLink, setShowLink] = useState(false);
+
+	useEffect(() => {
+		// cancel status used to control state update when componet unmounts
+		let cancel = false;
+
+		async function fetchData() {
+			setIsLoading(true);
+			try {
+				const request = await axios.get(fetchUrl);
+				// const request = await axios.get(''); // used for mocking data
+				if (cancel) return;
+				setData(request.data.results);
+			} catch (err) {
+				console.log(err);
+				if (cancel) return;
+				setIsError(true);
+			} finally {
+				if (cancel) return;
+				setIsLoading(false);
+			}
+		}
+		fetchData();
+		return () => {
+			cancel = true;
+		};
+	}, [fetchUrl]);
 
 	var settings = {
 		dots: false,
 		infinite: false,
-		// lazyLoad: true,
+		lazyLoad: true,
 		speed: 3000,
 		slidesToShow: 6,
 		slidesToScroll: 6,
@@ -72,30 +108,57 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 	};
 
 	return (
-			<section className="row">
-				<h2 className="row__title">{title}</h2>
-				{isLoading ? (
-					<div className="row__status">
-						<Loader />
-					</div>
-				) : (
-					<>
-						{isError ? (
-							<div className="row__status">
-								<LoadError />
-							</div>
-						) : (
-							<>
-								<Slider {...settings}>
-									{medias.map((media) => (
-										<MediaCard  key={media.id} media={media} />
-									))}
-								</Slider>
-							</>
-						)}
-					</>
-				)}
-			</section>
+		<section className="row">
+			<span className="row__moreLink">
+				<button
+					className="row__button"
+					aria-label="Open or close show more media items link"
+					onClick={() => setShowLink((prevShowLink) => !prevShowLink)}
+				>
+					{title}
+				</button>
+				<div className="row__linkContainer">
+					<Animate
+						show={showLink}
+						animateIn={'linkSlideIn'}
+						animateOut={'linkSlideOut'}
+					>
+						<NavLink
+							className="row__link"
+							to={{
+								pathname: `${pathname}/${cleanString(title)}`,
+								dataProps: { title: title, url: fetchUrl },
+							}}
+							onClick={() => setShowData(data)}
+						>
+							See More ...
+						</NavLink>
+					</Animate>
+				</div>
+			</span>
+
+			{isLoading ? (
+				<div className="row__status">
+					<Loader />
+				</div>
+			) : (
+				<>
+					{isError ? (
+						<div className="row__status">
+							<LoadError />
+						</div>
+					) : (
+						<>
+							<Slider {...settings}>
+								{data.map((media) => (
+									<MediaCard key={media.id} media={media} />
+								))}
+							</Slider>
+						</>
+					)}
+				</>
+			)}
+		</section>
 	);
 };
 
