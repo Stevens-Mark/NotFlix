@@ -60,7 +60,7 @@ const Search = () => {
 											/>
 										))}
 									</div>
-									{page === totalPages && (
+									{page !== totalPages && (
 										<span className="media__button">
 											<button
 												className="button button--playModal"

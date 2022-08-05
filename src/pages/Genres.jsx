@@ -17,6 +17,8 @@ const Genres = () => {
 	const { handleDetails, showMore, isLoading, isError, showData, totalPages } =
 		useContext(Context);
 
+		console.log(page)
+		console.log(totalPages)
 	const media = useLocation().dataProps;
 
 	useEffect(() => {
@@ -57,7 +59,7 @@ const Genres = () => {
 										/>
 									))}
 								</div>
-								{page === totalPages && (
+								{page !== totalPages && (
 									<>
 										{media?.url && (
 											<span className="media__button">
