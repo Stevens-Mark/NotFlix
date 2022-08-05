@@ -22,6 +22,7 @@ const Genres = () => {
 		useContext(Context);
 
 		console.log(showData)
+		console.log(loading)
 	const media = useLocation().dataProps;
 
 	useEffect(() => {

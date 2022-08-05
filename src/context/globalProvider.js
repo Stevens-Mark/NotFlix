@@ -101,7 +101,7 @@ export const ContextProvider = ({ children }) => {
 	// *********************
 	// to show additional results on pagewhen user clicks more button
 	const [data, setData] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
 	const [value, setValue] = useState(undefined);
 
@@ -137,7 +137,7 @@ export const ContextProvider = ({ children }) => {
 	};
 
 	const [showData, setShowData] = useState([]);
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);
 
 	const showMore = async (fetchUrl) => {
@@ -151,7 +151,6 @@ export const ContextProvider = ({ children }) => {
 			const filtered = responseData.results.filter(
 				(i) => !media_type.includes(i.media_type)
 			);
-
 			setShowData([...showData, ...filtered]);
 		} catch (err) {
 			console.log(err);
