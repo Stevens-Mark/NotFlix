@@ -97,14 +97,12 @@ export const ContextProvider = ({ children }) => {
 	body.style.overflow = videoModalIsOpen || modalIsOpen ? 'hidden' : 'auto';
 	html.style.overflow = videoModalIsOpen || modalIsOpen ? 'hidden' : 'auto';
 
-	// loading / error status
-	const [isLoading, setIsLoading] = useState(false);
-	const [isError, setIsError] = useState(false);
-
 	// SEARCH PAGE SECTION
 	// *********************
-	// to show additional SEARCH results on SEARCH page when user clicks more button
+	// to show additional results on pagewhen user clicks more button
 	const [data, setData] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
+	const [isError, setIsError] = useState(false);
 	const [value, setValue] = useState(undefined);
 
 	const fetchData = async (fetchUrl) => {
@@ -118,7 +116,10 @@ export const ContextProvider = ({ children }) => {
 			const filtered = responseData.results.filter(
 				(i) => !media_type.includes(i.media_type)
 			);
-			if (query === value) {
+			if (query !== value) {
+				setData(filtered);
+				setValue(query);
+			} else {
 				// stop duplicates in case user enters same search word again
 				const key = 'id';
 				setData([
@@ -126,9 +127,6 @@ export const ContextProvider = ({ children }) => {
 						[...data, ...filtered].map((item) => [item[key], item])
 					).values(),
 				]);
-			} else {
-				setData(filtered);
-				setValue(query);
 			}
 		} catch (err) {
 			console.log(err);
@@ -138,24 +136,27 @@ export const ContextProvider = ({ children }) => {
 		}
 	};
 
-	// MORE GENRE ITEMS PAGE SECTION
-	// *******************************
-	// to show additional media items on GENRE page when user clicks more button
 	const [showData, setShowData] = useState([]);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(false);
 
 	const showMore = async (fetchUrl) => {
 		const url = `https://api.themoviedb.org/3${fetchUrl}`;
-		setIsLoading(true);
+		setLoading(true);
+		console.log(url);
 		try {
 			const response = await fetch(url);
 			const responseData = await response.json();
-			const additionalData = responseData.results;
-			setShowData([...showData, ...additionalData]);
+			const media_type = ['person']; // filter out people from results
+			const filtered = responseData.results.filter(
+				(i) => !media_type.includes(i.media_type)
+			);
+			setShowData([...showData, ...filtered]);
 		} catch (err) {
 			console.log(err);
-			setIsError(true);
+			setError(true);
 		} finally {
-			setIsLoading(false);
+			setLoading(false);
 		}
 	};
 
@@ -181,16 +182,17 @@ export const ContextProvider = ({ children }) => {
 				closeVideoModal,
 				handleVideoDetails,
 
-				isLoading,
-				isError,
-
 				data,
 				setData,
+				isLoading,
+				isError,
 				fetchData,
 
 				showData,
-				setShowData,
 				showMore,
+				setShowData,
+				loading,
+				error
 			}}
 		>
 			{children}

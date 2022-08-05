@@ -1,7 +1,6 @@
 import { useEffect, useContext, useState } from 'react';
 import { Context } from '../context/globalProvider';
 import { useLocation } from 'react-router-dom';
-// import { SEARCH_URL } from '../config/requests';
 // import components
 import MediaCard from '../components/MediaCard';
 import Loader from '../components/Loader';
@@ -14,15 +13,10 @@ import LoadError from '../components/LoadError';
  */
 const Genres = () => {
 	const [page, setPage] = useState(2);
-	// // get search "queryValue" string from Url
-	// const search = useLocation().search;
-	// const value = new URLSearchParams(search).get('queryValue');
-
-	const { handleDetails, showMore, loading, error, showData } =
+	
+	const { handleDetails, showMore, isLoading, isError, showData } =
 		useContext(Context);
 
-		console.log(showData)
-		console.log(loading)
 	const media = useLocation().dataProps;
 
 	useEffect(() => {
@@ -34,13 +28,13 @@ const Genres = () => {
 		<main className="media">
 			<h1 className="sr-only">Welcome to NotFlix - </h1>
 
-			{loading ? (
+			{isLoading ? (
 				<div className="media__status">
 					<Loader />
 				</div>
 			) : (
 				<>
-					{error ? (
+					{isError ? (
 						<div className="media__status">
 							<LoadError />
 						</div>
