@@ -17,7 +17,7 @@ const Movies = () => {
 
 	return (
 		<main>
-			<h1 className="sr-only">Welcome to NotFlix - Movie Page</h1>
+			<h1 className="sr-only">Movies Page</h1>
 			<Banner fetchUrl={randomSelect(moviesList).url} />
 			{moviesList.map((data) => (
 				<Slider key={data.category} title={data.category} fetchUrl={data.url} />

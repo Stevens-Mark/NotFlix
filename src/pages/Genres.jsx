@@ -26,7 +26,11 @@ const Genres = () => {
 
 	return (
 		<main className="media">
-			<h1 className="sr-only">Welcome to NotFlix - </h1>
+			<h1 className="sr-only">
+				{media?.title
+					? `${media.title}: Additional Movies And/Or TV Shows`
+					: 'There was a problem retrieving the items'}
+			</h1>
 
 			{isLoading ? (
 				<div className="media__status">

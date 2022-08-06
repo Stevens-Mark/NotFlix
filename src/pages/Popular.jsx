@@ -17,7 +17,7 @@ const Popular = () => {
 
 	return (
 		<main>
-			<h1 className="sr-only">Welcome to NotFlix - Popular Page</h1>
+			<h1 className="sr-only">New & Popular Page</h1>
 			<Banner fetchUrl={randomSelect(newAndPopularList).url} />
 			{newAndPopularList.map((data) => (
 				<Slider key={data.category} title={data.category} fetchUrl={data.url} />

@@ -17,7 +17,7 @@ const WatchList = () => {
 
 	return (
 		<main className="media">
-			<h1 className="sr-only">Welcome to NotFlix - My Watch List</h1>
+			<h1 className="sr-only">My Watch List</h1>
 			{watchListItems.length < 1 ? (
 				<div className="media__status">
 					<span>Your Watch List is currently empty ...</span>

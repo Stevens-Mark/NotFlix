@@ -17,7 +17,7 @@ const TvShows = () => {
 
 	return (
 		<main>
-			<h1 className="sr-only">Welcome to NotFlix - Tv Shows Page</h1>
+			<h1 className="sr-only">Tv Shows Page</h1>
 			<Banner fetchUrl={randomSelect(tvShowsList).url} />
 			{tvShowsList.map((data) => (
 				<Slider key={data.category} title={data.category} fetchUrl={data.url} />
