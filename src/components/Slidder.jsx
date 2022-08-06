@@ -24,7 +24,7 @@ import Animate from '../utils/Animate';
  * @returns {JSX}
  */
 const SimpleSlidder = ({ title, fetchUrl }) => {
-	const { setShowData } = useContext(Context);
+	const { setShowData, setTotalPages } = useContext(Context);
 	const { pathname } = useLocation();
 
 	const [data, setData] = useState([]);
@@ -43,6 +43,7 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 				// const request = await axios.get(''); // used for mocking data
 				if (cancel) return;
 				setData(request.data.results);
+				setTotalPages(request.data.total_pages);
 			} catch (err) {
 				console.log(err);
 				if (cancel) return;
@@ -56,7 +57,7 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 		return () => {
 			cancel = true;
 		};
-	}, [fetchUrl]);
+	}, [fetchUrl, setTotalPages]);
 
 	var settings = {
 		dots: false,

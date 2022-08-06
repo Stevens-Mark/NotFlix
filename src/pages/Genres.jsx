@@ -14,8 +14,7 @@ import LoadError from '../components/LoadError';
 const Genres = () => {
 	const [page, setPage] = useState(1);
 
-	const { handleDetails, showMore, isLoading, isError, showData, totalPages } =
-		useContext(Context);
+	const { handleDetails, showMore, isLoading, isError, showData, totalPages } =	useContext(Context);
 
 	const media = useLocation().dataProps;
 
@@ -60,6 +59,10 @@ const Genres = () => {
 											handleDetails={handleDetails}
 										/>
 									))}
+								</div>
+								<div className="media__pageNumber">
+									{page === 1 ? '1' : `Pages 1-${page}`} of {totalPages}{' '}
+									{totalPages === 1 ? 'Page' : 'Pages'}
 								</div>
 								{page !== totalPages && (
 									<>
