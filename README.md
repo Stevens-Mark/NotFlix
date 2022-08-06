@@ -12,11 +12,11 @@ Open website at [Notflix](https://notflixstevensmark.netlify.app/)
 
 ## Objective
 
-After seeing numerous NetFlix clones on the internet I thought I would try to build my own version. I have to say I was inspired by the version done by Davide Mandelli, Th3Wall. Which is an amazing version !! Check it out
-I have tried to avoid using too many libraries, so opted to do the animations with Sass rather than motion, spring etc... 
-But, I did use react-slick for the slidder, but unfortunately there are a few accessibility issues. I don't think it was intended to have navigational buttons inside for example... Also, when I checked with "AXE" it throws up some issues that are not totally correct. Although my "modal focus trap" worked, I finally chose to use Focus-trap-react as I found mine had a few problems with the modal animation component that I used to allow animations when unmounting the modal.
-And finally, although I could have used Redux for the state management, I also opted for useContext instead, simply because I haven't really used it much & thought there was no need to use Redux on this project...
-But as the project has progressed & I have added more features I think the use of Redux would Have been better...
+After seeing numerous NetFlix clones on the internet I thought I would try to build my own version. I have to say I was inspired by the version done by Davide Mandelli, Th3Wall. Which is an amazing version !!
+I wanted to avoid using too many libraries, so opted to do the animations with Sass rather than motion, spring etc... 
+But, in the end, I did use react-slick for the slidder, but unfortunately there are a few accessibility issues which I have tried to minimise as much as possible. I don't think it was intended to have navigational buttons inside for example... Also, when I checked with "AXE" it throws up some issues that are not totally correct. Although my "modal focus trap" worked, I finally chose to use Focus-trap-react as I found mine had a few problems with the animation component that allows exit animations when unmounting a component). And finally, I used "movie-trailer" to get trailers from Youtube, instead of the videos held in the TMDB datbase, but maybe I will change this in the future, just to compare...
+Last point, although I could have used Redux for the state management, I chose to use useContext instead, simply because I haven't really used it much & thought there was no need to use Redux on this project...
+But as the project has progressed & I have added more features, I think the use of Redux would have been better. This project has highlighted the importance of spending some time thinking about potential future features, in order to try to mimise design/feature implementation problems later.
 
 ## Features
 - [x] Display movies, tv shows, popular & watch list
@@ -33,7 +33,7 @@ But as the project has progressed & I have added more features I think the use o
 
 ## Limitations / Areas for improvement
 - [x] I have not added all the genres to the site (for example: Romance, History, Mystery, Reality, Talk, Western...).
-- [x] When navigating between the different pages the data is reload when a page is revisted (new API calls). Thus the same data is downloaded each time and not very efficient. 
+- [x] When navigating between the different pages the data is reload when a page is revisited (new API calls). Thus the same data is downloaded each time and not very efficient. 
 
 
 # Installation *(English)*
@@ -53,7 +53,7 @@ But as the project has progressed & I have added more features I think the use o
 - [React-slick](https://react-slick.neostack.com/) Version 0.29.0
 - [Slick-carousel](https://www.npmjs.com/package/slick-carousel) Version 1.8.1
 - [Focus-trap-react](https://www.npmjs.com/package/focus-trap-react) Version 9.0.2
-
+- [Movie Trailer](https://www.npmjs.com/package/movie-trailer) Version 2.1.0
 
 ## Installing and running the project
 - Clone the repository onto your computer :
@@ -93,11 +93,11 @@ Ouvrir le site web à [Notflix](https://notflixstevensmark.netlify.app/)
 
 ## Objectif
 
-Après avoir vu de nombreux clones de NetFlix sur Internet, je me suis dit que j'allais essayer de construire ma propre version. Je dois dire que j'ai été inspiré par la version faite par Davide Mandelli, Th3Wall. C'est une version incroyable ! Regardez-la
-J'ai essayé d'éviter d'utiliser trop de bibliothèques, j'ai donc choisi de faire les animations avec Sass plutôt qu'avec motion, spring etc... 
-Mais, j'ai utilisé react-slick pour le slidder, mais malheureusement il y a quelques problèmes d'accessibilité. Je ne pense pas qu'il était prévu d'avoir des boutons de navigation à l'intérieur par exemple... De plus, lorsque j'ai vérifié avec "AXE", cela a donné lieu à des problèmes qui ne sont pas totalement corrects. Bien que mon "modal focus trap" ait fonctionné, j'ai finalement choisi d'utiliser Focus-trap-react car j'ai constaté que le mien avait quelques problèmes avec le composant d'animation de la modale que j'ai utilisé pour permettre les animations lors du démontage de la modale.
-Et enfin, bien que j'aurais pu utiliser Redux pour la gestion de l'état, j'ai également opté pour useContext à la place, simplement parce que je ne l'ai pas vraiment utilisé et que je pensais qu'il n'y avait pas besoin d'utiliser Redux sur ce projet...
-Mais au fur et à mesure que le projet a progressé et que j'ai ajouté plus de fonctionnalités, je pense que l'utilisation de Redux aurait été meilleure...
+Après avoir vu de nombreux clones de NetFlix sur Internet, je me suis dit que j'allais essayer de construire ma propre version. Je dois dire que j'ai été inspiré par la version faite par Davide Mandelli, Th3Wall. Qui est une version étonnante !
+Je voulais éviter d'utiliser trop de bibliothèques, j'ai donc choisi de faire les animations avec Sass plutôt qu'avec motion, spring etc... 
+Mais, au final, j'ai utilisé react-slick pour le slidder, mais malheureusement il y a quelques problèmes d'accessibilité que j'ai essayé de minimiser autant que possible. Je ne pense pas qu'il était prévu d'avoir des boutons de navigation à l'intérieur par exemple... De plus, lorsque j'ai vérifié avec "AXE", cela a donné lieu à des problèmes qui ne sont pas totalement corrects. Bien que mon "modal focus trap" ait fonctionné, j'ai finalement choisi d'utiliser Focus-trap-react car j'ai constaté que le mien avait quelques problèmes avec le composant d'animation qui permet des animations de sortie lors du démontage d'un composant). Et enfin, j'ai utilisé "movie-trailer" pour obtenir les bandes-annonces de Youtube, au lieu des vidéos contenues dans la base de données TMDB, mais je changerai peut-être cela à l'avenir, juste pour comparer...
+Dernier point, bien que j'aurais pu utiliser Redux pour la gestion des états, j'ai choisi d'utiliser useContext à la place, simplement parce que je ne l'ai pas beaucoup utilisé et que je pensais qu'il n'y avait pas besoin d'utiliser Redux sur ce projet...
+Mais comme le projet a progressé & j'ai ajouté plus de fonctionnalités, je pense que l'utilisation de Redux aurait été meilleure. Ce projet a mis en évidence l'importance de passer un peu de temps à penser aux futures fonctionnalités potentielles, afin d'essayer de minimiser les problèmes de conception et de mise en œuvre des fonctionnalités plus tard.
 
 ## Fonctionnalités
 
@@ -135,6 +135,7 @@ Mais au fur et à mesure que le projet a progressé et que j'ai ajouté plus de 
 - [React-slick](https://react-slick.neostack.com/) Version 0.29.0
 - [Slick-carousel](https://www.npmjs.com/package/slick-carousel) Version 1.8.1
 - [Focus-trap-react](https://www.npmjs.com/package/focus-trap-react) Version 9.0.2
+- [Movie Trailer](https://www.npmjs.com/package/movie-trailer) Version 2.1.0
 
 
 ## Installation et exécution du projet

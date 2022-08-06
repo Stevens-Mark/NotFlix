@@ -54,7 +54,7 @@ const Search = () => {
 									<span>There are no media items ...</span>
 								</div>
 							) : (
-								<section className="media__section">
+								<section>
 									<h2>Search results for "{value}" are : </h2>
 									<div className="media__grid">
 										{data.map((data, idx) => (
