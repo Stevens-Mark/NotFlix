@@ -1,13 +1,11 @@
 import axios from 'axios';
 
 export const API_KEY = process.env.REACT_APP_API_KEY; // please use your own api key from TMDB
-export const BASE_URL = 'https://api.themoviedb.org/3';
 export const SEARCH_URL = `/search/multi?api_key=${API_KEY}&language=en-US&include_adult=false&query=`;
-
 export const IMAGE_URL = 'https://image.tmdb.org/t/p/original/'; // for fetching real image data
-// export const IMAGE_URL = '../mockData/mockImages'; // for fetching mocked image
 
-// base URL to make requests (using axios) to the movie database 
+// export const IMAGE_URL = '../mockData/mockImages'; // for fetching mocked image
+// base URL to make requests (using axios) to the movie database
 const instance = axios.create({
 	baseURL: 'https://api.themoviedb.org/3',
 	// baseURL: '../mockData/MockedDataCopy.json',	// used for mocking data
@@ -49,8 +47,12 @@ export const requests = {
 	fetchTvTrending: `/trending/tv/day?api_key=${API_KEY}&sort_by=popularity.desc`,
 };
 
-export const requestsVideo = {
-	fetchMovieVideo: `/movie/{movie_id}/videos?api_key=${API_KEY}&language=en-US`,
-	fetchTvVideo: `/tv/{tv_id}/videos?api_key=${API_KEY}&language=en-US`,
-};
+// THESE WERE NOT USED? BUT I HAVE LEFT IN CASE OF FURTHER DEVELOPMENT
+
+// export const BASE_URL = 'https://api.themoviedb.org/3';
+
+// export const requestsVideo = {
+// 	fetchMovieVideo: `/movie/{movie_id}/videos?api_key=${API_KEY}&language=en-US`,
+// 	fetchTvVideo: `/tv/{tv_id}/videos?api_key=${API_KEY}&language=en-US`,
+// };
 

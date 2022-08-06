@@ -13,13 +13,20 @@ import LoadError from '../components/LoadError';
  * @returns {JSX}
  */
 const Search = () => {
-
 	// // get search "queryValue" string from Url
 	const search = useLocation().search;
 	const value = new URLSearchParams(search).get('queryValue');
 
-	const { handleDetails, fetchData, isLoading, isError, data, totalPages, page, setPage } =
-		useContext(Context);
+	const {
+		handleDetails,
+		fetchData,
+		isLoading,
+		isError,
+		data,
+		totalPages,
+		page,
+		setPage,
+	} = useContext(Context);
 
 	useEffect(() => {
 		document.title = 'NotFlix | Search';
@@ -28,7 +35,7 @@ const Search = () => {
 
 	return (
 		<main className="media">
-			<h1 className="sr-only">Welcome to NotFlix - Media Search</h1>
+			<h1 className="sr-only">Movie & TV Show Search Results</h1>
 
 			{isLoading ? (
 				<div className="media__status">
@@ -47,10 +54,8 @@ const Search = () => {
 									<span>There are no media items ...</span>
 								</div>
 							) : (
-								<section className="media__section">
-									<h2>
-										Search results for "{value}" are :{' '}
-									</h2>
+								<section>
+									<h2>Search results for "{value}" are : </h2>
 									<div className="media__grid">
 										{data.map((data, idx) => (
 											<MediaCard
@@ -60,7 +65,11 @@ const Search = () => {
 											/>
 										))}
 									</div>
-									{page !== totalPages && (
+									<div className="media__pageNumber">
+										{page - 1 === 1 ? '1' : `Pages 1-${page - 1}`} of{' '}
+										{totalPages} {totalPages === 1 ? 'Page' : 'Pages'}
+									</div>
+									{page !== totalPages + 1 && totalPages !== 1 && (
 										<span className="media__button">
 											<button
 												className="button button--playModal"

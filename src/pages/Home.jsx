@@ -17,7 +17,9 @@ const Home = () => {
 
 	return (
 		<main>
-			<h1 className="sr-only">Welcome to NotFlix - A NetFlix clone</h1>
+			<h1 className="sr-only">
+				Welcome to NotFlix - A NetFlix clone Home Page
+			</h1>
 			<Banner fetchUrl={randomSelect(homeList).url} />
 			{homeList.map((data) => (
 				<Slider key={data.category} title={data.category} fetchUrl={data.url} />

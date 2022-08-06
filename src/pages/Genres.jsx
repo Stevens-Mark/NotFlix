@@ -12,11 +12,9 @@ import LoadError from '../components/LoadError';
  * @returns {JSX}
  */
 const Genres = () => {
+
 	const [page, setPage] = useState(1);
-
-	const { handleDetails, showMore, isLoading, isError, showData, totalPages } =
-		useContext(Context);
-
+	const { handleDetails, showMore, isLoading, isError, showData, totalPages } =	useContext(Context);
 	const media = useLocation().dataProps;
 
 	useEffect(() => {
@@ -26,7 +24,11 @@ const Genres = () => {
 
 	return (
 		<main className="media">
-			<h1 className="sr-only">Welcome to NotFlix - </h1>
+			<h1 className="sr-only">
+				{media?.title
+					? `${media.title}: Additional Movies And/Or TV Shows`
+					: 'There was a problem retrieving the items'}
+			</h1>
 
 			{isLoading ? (
 				<div className="media__status">
@@ -56,6 +58,10 @@ const Genres = () => {
 											handleDetails={handleDetails}
 										/>
 									))}
+								</div>
+								<div className="media__pageNumber">
+									{page === 1 ? '1' : `Pages 1-${page}`} of {totalPages}{' '}
+									{totalPages === 1 ? 'Page' : 'Pages'}
 								</div>
 								{page !== totalPages && (
 									<>

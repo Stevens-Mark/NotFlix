@@ -152,7 +152,6 @@ export const ContextProvider = ({ children }) => {
 		try {
 			const response = await fetch(url);
 			const responseData = await response.json();
-			setTotalPages(responseData.total_pages);
 			const additionalData = responseData.results;
 			setShowData([...showData, ...additionalData]);
 		} catch (err) {
@@ -198,6 +197,7 @@ export const ContextProvider = ({ children }) => {
 
 				page,
 				setPage,
+				setTotalPages,
 				totalPages,
 			
 			}}

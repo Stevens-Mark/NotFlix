@@ -20,8 +20,7 @@ import playIcon from '../assets/icons/play.svg';
  * @returns {JSX} Hero banner with image randomly selected
  */
 const Banner = ({ fetchUrl }) => {
-	const { handleDetails, handleVideoDetails, setOpenedFromModal } =
-		useContext(Context);
+	const { handleDetails, handleVideoDetails, setOpenedFromModal } =	useContext(Context);
 
 	const [media, setMedia] = useState([]);
 	const [isLoading, setLoading] = useState(true);
