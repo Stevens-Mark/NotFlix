@@ -71,4 +71,3 @@ export const newAndPopularList = [
 	{ url: requests.fetchTvTopRated, category: 'Top Rated Tv' },
 	{ url: requests.fetchMoviesUpcoming, category: 'Upcoming' },
 ];
-

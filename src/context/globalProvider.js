@@ -1,6 +1,7 @@
 import movieTrailer from 'movie-trailer';
 import React, { useState, useEffect } from 'react';
 import { createContext } from 'react';
+import { API_KEY } from '../config/requests';
 
 export const Context = createContext();
 
@@ -62,22 +63,43 @@ export const ContextProvider = ({ children }) => {
 	const [videoModalIsOpen, setVideoModalIsOpen] = useState(false);
 	const [mediaVideoDetails, setMediaVideoDetails] = useState('');
 	const [trailerUrl, setTrailerUrl] = useState('');
-
+	console.log(trailerUrl);
 	const closeVideoModal = () => {
 		setVideoModalIsOpen(false);
 		// setTrailerUrl('');
 	};
 
-	const handleVideoDetails = (media) => {
+	const handleVideoDetails = async (media) => {
+		console.log(media);
 		if (trailerUrl) {
 			setTrailerUrl('');
 		}
-		movieTrailer(media?.title || media?.name || media?.original_title || '')
-			.then((url) => {
-				const urlParams = new URLSearchParams(new URL(url).search);
-				setTrailerUrl(urlParams.get('v'));
-			})
-			.catch((error) => console.log('No Video Available'));
+		
+		const url =
+			media?.first_air_date || media?.media_type === 'tv'
+				? `https://api.themoviedb.org/3/tv/${media.id}/videos?api_key=${API_KEY}&language=en-US`
+				: `https://api.themoviedb.org/3/movie/${media.id}/videos?api_key=${API_KEY}&language=en-US`;
+
+		try {
+			const response = await fetch(url);
+			const responseData = await response.json();
+			const videoData = responseData.results;
+			console.log(videoData);
+			const videoTrailer = videoData.find(
+				(item) => item.type === 'Clip' || item.type === 'Trailer'
+			);
+			console.log(videoTrailer);
+			setTrailerUrl(videoTrailer.key);
+		} catch (err) {
+			console.log(err);
+		}
+
+		// movieTrailer(media?.title || media?.name || media?.original_title || media?.original_name || '')
+		// 	.then((url) => {
+		// 		const urlParams = new URLSearchParams(new URL(url).search);
+		// 		setTrailerUrl(urlParams.get('v'));
+		// 	})
+		// 	.catch((error) => console.log('No Video Available'));
 
 		if (modalIsOpen) {
 			setModalIsOpen(false);
@@ -101,7 +123,7 @@ export const ContextProvider = ({ children }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
 	const [totalPages, setTotalPages] = useState(0);
-	
+
 	// SEARCH PAGE SECTION
 	// *********************
 	// to show additional SEARCH results on SEARCH page when user clicks more button
@@ -199,7 +221,6 @@ export const ContextProvider = ({ children }) => {
 				setPage,
 				setTotalPages,
 				totalPages,
-			
 			}}
 		>
 			{children}
