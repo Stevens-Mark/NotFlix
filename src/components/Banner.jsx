@@ -38,7 +38,6 @@ const Banner = ({ fetchUrl }) => {
 				if (cancel) return;
 				setMedia(randomSelect(request.data.results));
 			} catch (err) {
-				console.log(err);
 				if (cancel) return;
 				setIsError(true);
 			} finally {

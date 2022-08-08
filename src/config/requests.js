@@ -13,7 +13,7 @@ const instance = axios.create({
 export default instance;
 
 export const requests = {
-	fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28&sort_by=popularity.desc`,
+	fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28&sort_by=popularity.desc&append_to_response=videos`,
 	fetchAdventureMovies: `/discover/movie?api_key=${API_KEY}&with_genres=12&sort_by=popularity.desc`,
 	fetchAnimation: `/discover/movie?api_key=${API_KEY}&with_genres=16&sort_by=popularity.desc`,
 	fetchComedy: `/discover/movie?api_key=${API_KEY}&with_genres=35&sort_by=popularity.desc`,

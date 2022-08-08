@@ -1,6 +1,9 @@
-import movieTrailer from 'movie-trailer';
 import React, { useState, useEffect } from 'react';
 import { createContext } from 'react';
+// import items needed for data fetch
+// import movieTrailer from 'movie-trailer';
+import axios from '../config/requests';
+import { API_KEY } from '../config/requests';
 
 export const Context = createContext();
 
@@ -57,8 +60,8 @@ export const ContextProvider = ({ children }) => {
 		}, '650'); // used for delay between video modal closing and modal opening
 	};
 
-	// HANDLE VIDEO (YOUTUBE) MODAL SECTION
-	// ************************************
+	// HANDLE VIDEO MODAL SECTION
+	// **************************
 	const [videoModalIsOpen, setVideoModalIsOpen] = useState(false);
 	const [mediaVideoDetails, setMediaVideoDetails] = useState('');
 	const [trailerUrl, setTrailerUrl] = useState('');
@@ -68,16 +71,35 @@ export const ContextProvider = ({ children }) => {
 		// setTrailerUrl('');
 	};
 
-	const handleVideoDetails = (media) => {
+	const handleVideoDetails = async (media) => {
 		if (trailerUrl) {
 			setTrailerUrl('');
 		}
-		movieTrailer(media?.title || media?.name || media?.original_title || '')
-			.then((url) => {
-				const urlParams = new URLSearchParams(new URL(url).search);
-				setTrailerUrl(urlParams.get('v'));
-			})
-			.catch((error) => console.log('No Video Available'));
+		const url =
+			media?.first_air_date || media?.media_type === 'tv'
+				? `/tv/${media.id}/videos?api_key=${API_KEY}&language=en-US`
+				: `/movie/${media.id}/videos?api_key=${API_KEY}&language=en-US`;
+
+		try {
+			const request = await axios.get(url);
+			const videoTrailer = request.data.results.find(
+				(item) => item.type === 'Clip' || item.type === 'Trailer'
+			);
+			setTrailerUrl(videoTrailer?.key);
+		} catch (err) {
+			console.log(err);
+			console.log('No Video Available');
+		}
+
+		// VIDEO TRAILER SEARCH USING NPM PACKAGE: HAS PROBLEMS FINDING TV SHOWS SO I WROTE
+		// MY OWN SEARCH (SEE ABOVE): I have left this code for anyone interested in this approach.
+		// **************************************************************************************
+		// movieTrailer(media?.title || media?.name || media?.original_title || media?.original_name || '')
+		// 	.then((url) => {
+		// 		const urlParams = new URLSearchParams(new URL(url).search);
+		// 		setTrailerUrl(urlParams.get('v'));
+		// 	})
+		// 	.catch((error) => console.log('No Video Available'));
 
 		if (modalIsOpen) {
 			setModalIsOpen(false);
@@ -101,7 +123,7 @@ export const ContextProvider = ({ children }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
 	const [totalPages, setTotalPages] = useState(0);
-	
+
 	// SEARCH PAGE SECTION
 	// *********************
 	// to show additional SEARCH results on SEARCH page when user clicks more button
@@ -111,14 +133,12 @@ export const ContextProvider = ({ children }) => {
 
 	const fetchData = async (fetchUrl) => {
 		const query = new URLSearchParams(fetchUrl).get('query');
-		const url = `https://api.themoviedb.org/3${fetchUrl}`;
 		setIsLoading(true);
 		try {
-			const response = await fetch(url);
-			const responseData = await response.json();
-			setTotalPages(responseData.total_pages);
+			const request = await axios.get(fetchUrl);
+			setTotalPages(request.data.total_pages);
 			const media_type = ['person']; // filter out people from results
-			const filtered = responseData.results.filter(
+			const filtered = request.data.results.filter(
 				(i) => !media_type.includes(i.media_type)
 			);
 			if (query === value) {
@@ -134,7 +154,6 @@ export const ContextProvider = ({ children }) => {
 				setValue(query);
 			}
 		} catch (err) {
-			console.log(err);
 			setIsError(true);
 		} finally {
 			setIsLoading(false);
@@ -147,15 +166,12 @@ export const ContextProvider = ({ children }) => {
 	const [showData, setShowData] = useState([]);
 
 	const showMore = async (fetchUrl) => {
-		const url = `https://api.themoviedb.org/3${fetchUrl}`;
 		setIsLoading(true);
 		try {
-			const response = await fetch(url);
-			const responseData = await response.json();
-			const additionalData = responseData.results;
+			const request = await axios.get(fetchUrl);
+			const additionalData = request.data.results;
 			setShowData([...showData, ...additionalData]);
 		} catch (err) {
-			console.log(err);
 			setIsError(true);
 		} finally {
 			setIsLoading(false);
@@ -199,7 +215,6 @@ export const ContextProvider = ({ children }) => {
 				setPage,
 				setTotalPages,
 				totalPages,
-			
 			}}
 		>
 			{children}
