@@ -1,4 +1,4 @@
-import movieTrailer from 'movie-trailer';
+// import movieTrailer from 'movie-trailer';
 import React, { useState, useEffect } from 'react';
 import { createContext } from 'react';
 import { API_KEY } from '../config/requests';
@@ -63,18 +63,16 @@ export const ContextProvider = ({ children }) => {
 	const [videoModalIsOpen, setVideoModalIsOpen] = useState(false);
 	const [mediaVideoDetails, setMediaVideoDetails] = useState('');
 	const [trailerUrl, setTrailerUrl] = useState('');
-	console.log(trailerUrl);
+
 	const closeVideoModal = () => {
 		setVideoModalIsOpen(false);
 		// setTrailerUrl('');
 	};
 
 	const handleVideoDetails = async (media) => {
-		console.log(media);
 		if (trailerUrl) {
 			setTrailerUrl('');
 		}
-		
 		const url =
 			media?.first_air_date || media?.media_type === 'tv'
 				? `https://api.themoviedb.org/3/tv/${media.id}/videos?api_key=${API_KEY}&language=en-US`
@@ -84,16 +82,18 @@ export const ContextProvider = ({ children }) => {
 			const response = await fetch(url);
 			const responseData = await response.json();
 			const videoData = responseData.results;
-			console.log(videoData);
 			const videoTrailer = videoData.find(
 				(item) => item.type === 'Clip' || item.type === 'Trailer'
 			);
-			console.log(videoTrailer);
-			setTrailerUrl(videoTrailer.key);
+			setTrailerUrl(videoTrailer?.key);
 		} catch (err) {
 			console.log(err);
+			console.log('No Video Available');
 		}
 
+		// VIDEO TRAILER SEARCH USING NPM PACKAGE: HAS PROBLEMS FINDING TV SHOWS SO I WROTE
+		// MY OWN SEARCH (SEE ABOVE): I have left this code for anyone interested in this approach.
+		// **************************************************************************************
 		// movieTrailer(media?.title || media?.name || media?.original_title || media?.original_name || '')
 		// 	.then((url) => {
 		// 		const urlParams = new URLSearchParams(new URL(url).search);
