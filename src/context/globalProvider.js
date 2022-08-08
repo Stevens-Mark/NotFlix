@@ -1,6 +1,8 @@
-// import movieTrailer from 'movie-trailer';
 import React, { useState, useEffect } from 'react';
 import { createContext } from 'react';
+// import items needed for data fetch
+// import movieTrailer from 'movie-trailer';
+import axios from '../config/requests';
 import { API_KEY } from '../config/requests';
 
 export const Context = createContext();
@@ -58,8 +60,8 @@ export const ContextProvider = ({ children }) => {
 		}, '650'); // used for delay between video modal closing and modal opening
 	};
 
-	// HANDLE VIDEO (YOUTUBE) MODAL SECTION
-	// ************************************
+	// HANDLE VIDEO MODAL SECTION
+	// **************************
 	const [videoModalIsOpen, setVideoModalIsOpen] = useState(false);
 	const [mediaVideoDetails, setMediaVideoDetails] = useState('');
 	const [trailerUrl, setTrailerUrl] = useState('');
@@ -75,14 +77,12 @@ export const ContextProvider = ({ children }) => {
 		}
 		const url =
 			media?.first_air_date || media?.media_type === 'tv'
-				? `https://api.themoviedb.org/3/tv/${media.id}/videos?api_key=${API_KEY}&language=en-US`
-				: `https://api.themoviedb.org/3/movie/${media.id}/videos?api_key=${API_KEY}&language=en-US`;
+				? `/tv/${media.id}/videos?api_key=${API_KEY}&language=en-US`
+				: `/movie/${media.id}/videos?api_key=${API_KEY}&language=en-US`;
 
 		try {
-			const response = await fetch(url);
-			const responseData = await response.json();
-			const videoData = responseData.results;
-			const videoTrailer = videoData.find(
+			const request = await axios.get(url);
+			const videoTrailer = request.data.results.find(
 				(item) => item.type === 'Clip' || item.type === 'Trailer'
 			);
 			setTrailerUrl(videoTrailer?.key);
@@ -133,14 +133,12 @@ export const ContextProvider = ({ children }) => {
 
 	const fetchData = async (fetchUrl) => {
 		const query = new URLSearchParams(fetchUrl).get('query');
-		const url = `https://api.themoviedb.org/3${fetchUrl}`;
 		setIsLoading(true);
 		try {
-			const response = await fetch(url);
-			const responseData = await response.json();
-			setTotalPages(responseData.total_pages);
+			const request = await axios.get(fetchUrl);
+			setTotalPages(request.data.total_pages);
 			const media_type = ['person']; // filter out people from results
-			const filtered = responseData.results.filter(
+			const filtered = request.data.results.filter(
 				(i) => !media_type.includes(i.media_type)
 			);
 			if (query === value) {
@@ -156,7 +154,6 @@ export const ContextProvider = ({ children }) => {
 				setValue(query);
 			}
 		} catch (err) {
-			console.log(err);
 			setIsError(true);
 		} finally {
 			setIsLoading(false);
@@ -169,15 +166,12 @@ export const ContextProvider = ({ children }) => {
 	const [showData, setShowData] = useState([]);
 
 	const showMore = async (fetchUrl) => {
-		const url = `https://api.themoviedb.org/3${fetchUrl}`;
 		setIsLoading(true);
 		try {
-			const response = await fetch(url);
-			const responseData = await response.json();
-			const additionalData = responseData.results;
+			const request = await axios.get(fetchUrl);
+			const additionalData = request.data.results;
 			setShowData([...showData, ...additionalData]);
 		} catch (err) {
-			console.log(err);
 			setIsError(true);
 		} finally {
 			setIsLoading(false);

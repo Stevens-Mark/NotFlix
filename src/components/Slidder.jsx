@@ -45,7 +45,6 @@ const SimpleSlidder = ({ title, fetchUrl }) => {
 				setData(request.data.results);
 				setTotalPages(request.data.total_pages);
 			} catch (err) {
-				console.log(err);
 				if (cancel) return;
 				setIsError(true);
 			} finally {
