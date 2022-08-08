@@ -13,8 +13,9 @@ import LoadError from '../components/LoadError';
  */
 const Genres = () => {
 
-	const [page, setPage] = useState(1);
+	const [page, setPage] = useState(2);
 	const { handleDetails, showMore, isLoading, isError, showData, totalPages } =	useContext(Context);
+
 	const media = useLocation().dataProps;
 
 	useEffect(() => {
@@ -60,10 +61,10 @@ const Genres = () => {
 									))}
 								</div>
 								<div className="media__pageNumber">
-									{page === 1 ? '1' : `Pages 1-${page}`} of {totalPages}{' '}
-									{totalPages === 1 ? 'Page' : 'Pages'}
+								{page - 1 === 1 ? '1' : `Pages 1-${page - 1}`} of{' '}
+										{totalPages} {totalPages === 1 ? 'Page' : 'Pages'}
 								</div>
-								{page !== totalPages && (
+								{page !== totalPages + 1 && totalPages !== 1 && (
 									<>
 										{media?.url && (
 											<span className="media__button">
