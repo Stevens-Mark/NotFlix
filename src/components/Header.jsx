@@ -8,8 +8,8 @@ import SearchInput from './SearchInput';
  * @returns {JSX} Header Navigation Bar
  */
 const Header = () => {
-	
 	const [changeColor, setChangeColor] = useState(false);
+	const [isChecked, setIsChecked] = useState(false);
 
 	useEffect(() => {
 		const changeBackground = () => {
@@ -26,6 +26,16 @@ const Header = () => {
 		return () => window.removeEventListener('scroll', changeBackground);
 	});
 
+	/**
+	 * Delays closing of the burger menu to avoid animation "jank" when page loads
+	 * @function delayClose
+	 */
+	const delayClose = () => {
+		setTimeout(() => {
+			setIsChecked(false);
+		}, '300');
+	};
+
 	return (
 		<header className={`menu-nav ${changeColor ? 'menu-nav--active' : ''}`}>
 			<NavLink exact to="/animation">
@@ -36,7 +46,12 @@ const Header = () => {
 				/>
 			</NavLink>
 
-			<input id="menu-toggle" type="checkbox" />
+			<input
+				id="menu-toggle"
+				type="checkbox"
+				checked={isChecked}
+				onChange={() => setIsChecked((prevIsChecked) => !prevIsChecked)}
+			/>
 
 			<label className="menu-button-container" htmlFor="menu-toggle">
 				<div className="menu-button"></div>
@@ -45,37 +60,58 @@ const Header = () => {
 			<nav className="menu">
 				<ul>
 					<li>
-						<NavLink activeClassName="active" exact to="/home">
+						<NavLink
+							activeClassName="active"
+							exact
+							to="/home"
+							onClick={() => delayClose()}
+						>
 							Home
 						</NavLink>
 					</li>
 
 					<li>
-						<NavLink activeClassName="active" to="/tvshows">
+						<NavLink
+							activeClassName="active"
+							to="/tvshows"
+							onClick={() => delayClose()}
+						>
 							TV Shows
 						</NavLink>
 					</li>
 
 					<li>
-						<NavLink activeClassName="active" to="/movies">
+						<NavLink
+							activeClassName="active"
+							to="/movies"
+							onClick={() => delayClose()}
+						>
 							Movies
 						</NavLink>
 					</li>
 
 					<li>
-						<NavLink activeClassName="active" to="/popular">
+						<NavLink
+							activeClassName="active"
+							to="/popular"
+							onClick={() => delayClose()}
+						>
 							New & Popular
 						</NavLink>
 					</li>
 
 					<li>
-						<NavLink activeClassName="active" to="/mywatchlist">
+						<NavLink
+							activeClassName="active"
+							to="/mywatchlist"
+							onClick={() => delayClose()}
+						>
 							My List
 						</NavLink>
 					</li>
 
 					<li className="menu__lastItem">
-						<SearchInput />
+						<SearchInput setIsChecked={setIsChecked} />
 					</li>
 				</ul>
 			</nav>
