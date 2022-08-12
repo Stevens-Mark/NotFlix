@@ -1,4 +1,5 @@
-import { useState, useContext, } from 'react';
+import { useState, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { Context } from '../context/globalProvider';
 import { SEARCH_URL } from '../config/requests';
@@ -11,13 +12,14 @@ import magnify from '../assets/icons/magnify.svg';
 /**
  * Renders search input field
  * @function SearchInput
+ * @param {function} setIsChecked: set burger menu state 
  * @returns {JSX} input search field
  */
-const SearchInput = () => {
+const SearchInput = ({ setIsChecked }) => {
 	const [input, setInput] = useState('');
 	const [showInput, setShowInput] = useState(false);
 	let history = useHistory();
-	const { fetchData, setData, setPage} = useContext(Context);
+	const { fetchData, setData, setPage } = useContext(Context);
 
 	/**
 	 * Restricts what the user can enter in the TEXT input fields & saves to state
@@ -39,8 +41,10 @@ const SearchInput = () => {
 		event.preventDefault();
 		if (input.length > 0) {
 			history.push(`/search?queryValue=${input}`);
-			// setInput('');
 			fetchData(`${SEARCH_URL}${input}&page=1`);
+			setTimeout(() => { // Delays closing of the burger menu
+				setIsChecked(false);
+			}, '300');
 		}
 	};
 
@@ -52,7 +56,6 @@ const SearchInput = () => {
 		setInput('');
 		setData([]);
 		setPage(2);
-		// history.push('/');
 	};
 
 	return (
@@ -95,3 +98,7 @@ const SearchInput = () => {
 
 export default SearchInput;
 
+// Prototypes
+SearchInput.propTypes = {
+	setIsChecked: PropTypes.func.isRequired,
+};
