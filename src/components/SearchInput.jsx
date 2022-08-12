@@ -41,7 +41,6 @@ const SearchInput = ({ setIsChecked }) => {
 		event.preventDefault();
 		if (input.length > 0) {
 			history.push(`/search?queryValue=${input}`);
-			// setInput('');
 			fetchData(`${SEARCH_URL}${input}&page=1`);
 			setTimeout(() => { // Delays closing of the burger menu
 				setIsChecked(false);
@@ -57,7 +56,6 @@ const SearchInput = ({ setIsChecked }) => {
 		setInput('');
 		setData([]);
 		setPage(2);
-		// history.push('/');
 	};
 
 	return (

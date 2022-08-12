@@ -93,7 +93,7 @@
 	height: 4px;
 	position: absolute;
 	transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-	width: 1.875rem;
+	width: 1.6rem; //1.875rem;
 }
 
 .menu-button::before {
@@ -149,7 +149,7 @@
 
 	#menu-toggle:checked ~ .menu > ul > li {
 		border: 1px solid #333;
-		height: 3em;
+		height: calc(100vh/6); // 3em;
 		align-items: center;
 		padding: 1.2rem;
 		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
