@@ -6,7 +6,6 @@
 	right: 0;
 	top: 0;
 
-
 	&__body {
 		padding: 5px;
 		background-color: $tertiary;
@@ -40,7 +39,8 @@
 		width: 1.9rem;
 		z-index: 2;
 
-		&:hover, &:focus  {
+		&:hover,
+		&:focus {
 			background-color: $primary-text;
 			img {
 				filter: unset;
@@ -162,8 +162,10 @@
 			}
 		}
 		&__details {
-			&__overview,
 			span {
+				font-size: 1rem;
+			}
+			&__overview {
 				font-size: 1rem;
 			}
 		}
