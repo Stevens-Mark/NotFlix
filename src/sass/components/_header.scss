@@ -149,7 +149,7 @@
 
 	#menu-toggle:checked ~ .menu > ul > li {
 		border: 1px solid #333;
-		height: calc(100vh/6);  // 3em;
+		height: calc(100vh / 6); // 3em;
 		align-items: center;
 		padding: 1.2rem;
 		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
@@ -170,12 +170,17 @@
 	}
 }
 
+
 @media (max-width: $burgerMenu) {
 	.menu-nav {
 		justify-content: space-between;
 		&__logo {
 			margin-top: -15px;
 		}
+	}
+
+	.menu__lastItem {
+		order: -1;
 	}
 }
 
