@@ -71,7 +71,7 @@
 
 	&__movieButtons {
 		align-items: center;
-		aspect-ratio: 1;
+		aspect-ratio: 1/1;
 		background-color: rgba(255, 255, 255, 0.2);
 		border-radius: 1rem;
 		border: 1px solid white;
@@ -81,7 +81,7 @@
 		margin: 0px 5px 5px 0px;
 		@include buttonHover;
 		img {
-			aspect-ratio: 1;
+			aspect-ratio: 1/1;
 		}
 	}
 
