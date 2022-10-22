@@ -14,14 +14,13 @@ body {
 		width: 0px !important; // Hide scroll bar, but while still being able to scroll using CSS
 	}
 	overflow: -moz-scrollbars-none;
-	scrollbar-width: none;
+	// scrollbar-width: none;
 	min-height: 100vh;
 	background: $secondary;
 	color: white;
 	font-size: 1rem;
 	max-width: $maxPageWidth;
 	margin: auto;
-	// margin: 0;
 	font-family: 'Netflix', Arial, serif, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -47,9 +46,9 @@ main {
 
 .sr-only {
 	border: 0 !important;
-	clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-	-webkit-clip-path: inset(50%) !important;
-	clip-path: inset(50%) !important; /* 2 */
+	// clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+	// -webkit-clip-path: inset(50%) !important;
+	// clip-path: inset(50%) !important; /* 2 */
 	height: 1px !important;
 	margin: -1px !important;
 	overflow: hidden !important;

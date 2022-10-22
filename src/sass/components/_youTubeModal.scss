@@ -23,7 +23,7 @@
 			width: 0px !important;
 		}
 		overflow: -moz-scrollbars-none;
-		scrollbar-width: none;
+		// scrollbar-width: none;
 	}
 
 	&__content {
@@ -40,7 +40,6 @@
 
 	&__closeButton {
 		align-items: center;
-		aspect-ratio: 1;
 		background-color: rgba(34, 34, 34, 0.8);
 		border-radius: 1rem;
 		border: 1px solid white;
@@ -52,6 +51,8 @@
 		right: 0.4rem;
 		top: 0.7rem;
 		width: clamp(1.3rem, 1.4rem + 1vw, 1.9rem);
+    height: clamp(1.3rem, 1.4rem + 1vw, 1.9rem);
+    		// aspect-ratio: 1;
 		z-index: 2;
 
 		&:hover, &:focus  {
@@ -82,8 +83,8 @@
 // MEDIA QUERIES
 
 @media only screen and 
-(min-device-width: $mobileMedium) 
-and (max-device-width: 920px) 
+(min-width: $mobileMedium) 
+and (max-width: 920px) 
 and (orientation: landscape) {
 	.videoModal__body {
 		width: 60vw;
